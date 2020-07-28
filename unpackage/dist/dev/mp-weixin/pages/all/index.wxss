@@ -1,0 +1,37 @@
+
+.container.data-v-9c43a68a{
+	padding: 40rpx 30rpx 0 30rpx;
+}
+.scv.data-v-9c43a68a{
+	-webkit-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	white-space: nowrap;
+}
+.scv view.data-v-9c43a68a{
+	display: inline-block;
+	height: 50rpx;
+	line-height: 50rpx;
+	text-align: center;
+	color: #999;
+	font-size:28rpx;
+	margin-right: 71rpx;
+}
+.text-red.data-v-9c43a68a{
+  color:#DF2D23 !important;
+  font-weight:800;
+  font-family:PingFang SC;
+  color: #fff !important;
+  background:-webkit-linear-gradient(left,rgba(245,111,111,1),rgba(221,84,74,1));
+  background:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,84,74,1));
+  border-radius:25rpx;
+  padding: 0 10rpx;
+}
+.focusList_warp.data-v-9c43a68a{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 30rpx;
+}
+

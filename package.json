@@ -1,0 +1,19 @@
+{
+  "name": "fapai",
+  "version": "1.0.0",
+  "description": "房拍",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://baidu.com"
+  }
+}

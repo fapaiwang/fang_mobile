@@ -1,0 +1,125 @@
+
+.payment .taxes_con.data-v-cd17eb36{
+	border-bottom: none;
+	width:650rpx;
+	height:780rpx;
+	background:#FFF;
+	box-shadow:0rpx 0rpx 29rpx 3rpx rgba(224,46,36,0.04);
+	border-radius:20rpx;
+	margin: 72rpx auto 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: end;
+	-webkit-justify-content: end;
+	        justify-content: end;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: column;
+	        flex-flow: column;
+}
+.taxes_tit.data-v-cd17eb36{
+	width: 90%;
+	text-align: center;
+	border-bottom: 1rpx solid #EBEBEB;
+	margin: 0 auto;
+}
+.taxes_tit text.data-v-cd17eb36{
+	height:27rpx;
+	font-size:28rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.taxes_warp.data-v-cd17eb36{
+	padding: 0 30rpx;
+}
+.taxes_con.data-v-cd17eb36{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	line-height: 98rpx;
+	font-size:32rpx;
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:#333;
+	border-bottom: 1rpx solid #EBEBEB;
+}
+.payment_list.data-v-cd17eb36{
+	width: 100%;
+	text-align: center;
+}
+.paymentItem.data-v-cd17eb36{
+	height: 78rpx;
+	background: #FFFFFF;
+	border: 1rpx solid #EBEBEB;
+	line-height: 78rpx;
+	border-radius: 19rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	display: inline-block;
+	width: 80%;
+	margin-top: 50rpx;
+}
+.tips.data-v-cd17eb36{
+	padding: 0 40rpx;
+	font-size: 24rpx;
+	color: #b0b3b4;
+	line-height:52rpx;
+}
+.selectItem.data-v-cd17eb36{
+	height:23rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#333;
+	line-height: 23rpx;
+	text-align: left;
+	margin-bottom: 23rpx;
+	margin-left: 30rpx;
+}
+.fllowKey.data-v-cd17eb36{
+	color:#666;
+}
+.loc.data-v-cd17eb36{
+	width:100%;
+	height:31rpx;
+	font-size:32rpx;
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:#333;
+	line-height: 31rpx;
+	margin: 40rpx 0 45rpx 20rpx;
+}
+.loc text.data-v-cd17eb36{
+	font-weight:normal;
+}
+.res.data-v-cd17eb36{
+	margin-top: 86rpx;
+	margin-bottom: 99rpx;
+}
+.res view.data-v-cd17eb36{
+	height:31rpx;
+	font-size:32rpx;
+	font-family:PingFang SC;
+	font-weight:800;
+	color:#333;
+	width: 100%;
+	line-height: 31rpx;
+	text-align: center;
+}
+.res view.data-v-cd17eb36:first-child{
+	margin-bottom: 40rpx;
+}
+.res text.data-v-cd17eb36{
+	color: #E02E24 !important;
+}
+

@@ -1,0 +1,27 @@
+
+.recording.data-v-32f1d4ac{
+	padding: 0 30rpx;
+}
+.tit.data-v-32f1d4ac{
+	margin: 30rpx 0;
+}
+.recording_item.data-v-32f1d4ac{
+	width: 100%;
+	display: block;
+	font-size: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	margin-bottom: 20rpx;
+}
+.recording_item text.data-v-32f1d4ac{
+	width: 33%;
+}
+

@@ -1,0 +1,21 @@
+
+.login_txt.data-v-34846879{
+	width: 90%;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	margin: 0 auto;
+	color: #666;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.redF.data-v-34846879{
+	color: #E02E24 !important;
+}
+.agree_cc.data-v-34846879{
+	-webkit-transform:scale(0.5);
+	        transform:scale(0.5);
+	color:#E02E24;
+}
+

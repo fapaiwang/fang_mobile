@@ -1,0 +1,28 @@
+
+.login_txt.data-v-b237504c{
+	width: 90%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row;
+	        flex-flow: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	margin: 0 auto;
+	color: #666;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.login_btn.data-v-b237504c{
+	background:#CF2924;
+	border-radius:51rpx;
+	width: 90%;
+	font-size:32rpx;
+	color: #fff;
+	margin-top: 157rpx;
+}
+

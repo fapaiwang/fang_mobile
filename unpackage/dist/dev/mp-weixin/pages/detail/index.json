@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "房拍网",
+  "usingComponents": {
+    "banner": "/components/detail/banner",
+    "base-house": "/components/detail/base_house",
+    "housing-situation": "/components/detail/housingSituation",
+    "gray-box": "/components/detail/gray_box",
+    "recommend-persion": "/components/detail/recommend",
+    "community-desc": "/components/detail/community_desc",
+    "community-map": "/components/detail/community_map",
+    "recommend-hosue": "/components/detail/recommend_hosue",
+    "advisory": "/components/detail/advisory"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="data-v-0bc3bdaf"><view class="top_nav data-v-0bc3bdaf"><text data-event-opts="{{[['tap',[['close',['$event']]]]]}}" bindtap="__e" class="data-v-0bc3bdaf">X</text><text data-event-opts="{{[['tap',[['login',['$event']]]]]}}" bindtap="__e" class="data-v-0bc3bdaf">登录</text></view></view>

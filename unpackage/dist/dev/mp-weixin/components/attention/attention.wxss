@@ -1,0 +1,126 @@
+
+.xiaoquList.data-v-46a94ffc{
+	padding:30rpx;
+	background: #fff;
+}
+.total.data-v-46a94ffc{
+	background: #F3F0F1;
+	width: 100%;
+	height:31rpx;
+	line-height: 31rpx;
+	font-size:32rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#333;
+	padding: 35rpx 0 35rpx 30rpx;
+}
+.xiaoquList .item.data-v-46a94ffc:first-child{
+	margin-top: 30rpx;
+}
+.xiaoquList .item.data-v-46a94ffc:last-child{
+	margin-bottom: 30rpx;
+}
+.item.data-v-46a94ffc {
+	width: 100%;
+	display: block;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row;
+	        flex-flow: row;
+	height: 149rpx;
+	margin-bottom: 60rpx;
+}
+.img.data-v-46a94ffc {
+	display: inline-block;
+	width: 240rpx;
+	height: 149rpx;
+	background: #ccc;
+	float: left;
+	margin-right: 26rpx;
+}
+.img image.data-v-46a94ffc {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.titleView.data-v-46a94ffc {
+	width: 100%;
+	padding-top: 7rpx;
+	padding-bottom: 28rpx;
+	height:29rpx;
+	font-size:30rpx;
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:#333;
+}
+.titleView.data-v-46a94ffc{
+	height:24rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:400;
+	color:#333;
+}
+.titleinfoView.data-v-46a94ffc {
+	width: 100%;
+	padding-right: 20rpx;
+}
+.titleInfo.data-v-46a94ffc {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	font-size: 24rpx;
+	height:24rpx;
+	line-height:24rpx;
+}
+.price.data-v-46a94ffc{
+	height:60rpx;
+	font-size:26rpx;
+	font-family:Arial;
+	font-weight:bold;
+	color:#CC0000;
+	line-height:60rpx;
+}
+.featuredView.data-v-46a94ffc {
+	margin-top: 45rpx;
+	padding: 0 30rpx;
+}
+.featuredtTitleView.data-v-46a94ffc {
+	height: 38rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	margin-bottom: 30rpx;
+}
+.titleText.data-v-46a94ffc{
+	font-size: 40rpx;
+	color: #333333;
+}
+.tieleImgView.data-v-46a94ffc {
+	height: 38rpx;
+	width: 32rpx;
+}
+.tieleImg.data-v-46a94ffc{
+	height: 32rpx;
+	width: 32rpx;
+}
+.featuredtSwiper.data-v-46a94ffc {
+	height: 348rpx;
+}
+

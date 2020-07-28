@@ -1,0 +1,189 @@
+<template>
+	<view>
+		<view class="other_warp" v-if="showCon">
+			<view class="area_base_info">
+				<view class="other_tit">
+					<text>基本信息</text>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">小区名称：</text><text>{{getResult.estate_name}}</text></view>
+					<view class="sec"><text class="tit">单价：</text><text>{{getResult.junjia}}万</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">所在区域：</text><text>{{communityRes.area_name}}</text></view>
+					<view class="sec"><text class="tit">电梯情况：</text><text>{{getResult.floor}}层/共{{getResult.total_floor}}层</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">户型结构：</text><text>{{getResult.basic_info[2]}}</text></view>
+					<view class="sec"><text class="tit">供暖情况：</text><text>{{getResult.basic_info[4]}}</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">装修情况：</text><text>{{getResult.basic_info[3]}}</text></view>
+					<view class="sec"><text class="tit">车位情况：</text><text>{{getResult.basic_info[5]}}</text></view>
+				</view>
+				<view class="other_base_desc last_child">
+					<view><text class="tit">物业情况：</text><text>{{getResult.basic_info[6]}}</text></view>
+				</view>
+			</view>
+			<view class="area_base_line"></view>
+			<view class="paimai_base_info">
+				<view class="other_tit">
+					<text>拍卖信息</text>
+				</view>
+				<view class="other_base_desc">
+					<view>
+						<text class="tit">拍卖阶段：</text>
+						<text>{{getResult.jieduan_name}}</text>
+					</view>
+					<view class="sec">
+						<text class="tit">执行依据：</text>
+						<text>{{getResult.enforcement}}</text>
+					</view>
+				</view>
+				<view class="other_base_desc">
+					<view>拍卖属性：<text>{{getResult.xsname}}</text></view>
+					<!-- <view>土地证号：<text>土地证号</text></view> -->
+					<view class="sec"><text class="tit">查封情况：</text><text>{{getResult.sequestration}}</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">产权证号：</text><text>{{getResult.property_no}}</text></view>
+					<view class="sec"><text class="tit">土地用途：</text><text>{{getResult.house_purpse}}</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">房屋用途：</text><text>{{getResult.house_purpse}}</text></view>
+					<view class="sec">经营情况：</text><text>{{getResult.management}}</text></view>
+				</view>
+				<view class="other_base_desc">
+					<view><text class="tit">租赁情况：</text><text>{{getResult.lease}}</text></view>
+					<view class="sec">
+						<text class="tit">抵押情况：</text>
+						<text>{{getResult.mortgage}}</text>
+					</view>
+				</view>
+				<view class="other_base_desc last_child">
+					<view>腾退情况：<text>{{getResult.vacate}}</text></view>
+				</view>
+			</view>
+		</view>
+		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				showCon:false,
+				detialText: '',
+				getResult: [],
+				communityRes: [],
+			}
+		},
+		onLoad:function(options){
+			if (!options.id) {
+				this.getHome();
+			}
+			this.fun.getReq(this.baseUrl+'/api/second/second_detail_ohter',{"id":options.id})
+			.then((res)=>{
+				if (Number(res[1].data.code) == 20000) {
+					this.getHome();
+				} else {
+					this.showCon = true
+					this.getResult = res[1].data.data
+					this.fun.getReq(this.baseUrl+'/api/estate/estate_detail',
+					{"id":this.getResult.estate_id})
+					.then((res)=>{
+						this.communityRes = res[1].data.data
+					})
+				}
+			})
+		},
+		methods: {
+			// getHome() {
+			// 	this.detialText = '没有内容'
+			// 	this.showCon = false
+			// 	setTimeout(function(){
+			// 		uni.switchTab({
+			// 		    url: '/pages/index/index'
+			// 		});
+			// 	},500)
+			// },
+		},
+	}
+</script>
+
+<style scoped>
+.other_warp{
+	padding: 0 30upx;
+	padding-top: 40upx;
+},
+.other_tit{
+	width:100%;
+	font-size:32upx;
+	font-weight:bold;
+	color:#333;
+	line-height:31upx;
+	margin-bottom: 49upx;
+}
+.other_base_desc{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 33upx;
+}
+.other_base_desc view {
+	line-height:26upx;
+	font-size:28upx;
+	color:#999;
+	/* height: 26upx; */
+}
+.other_base_desc view:first-child {
+	width: 60%;
+}
+.other_base_desc view:last-child{
+	width: 40%;
+	text-align: left;
+}
+.last_child,.last_child view:last-child{
+	width: 100%;
+}
+.sec .tit{
+	width: 50%;
+}
+.sec text:last-child{
+	width: 50% !important;
+}
+.last_child .tit{
+	width: 20%;
+}
+.last_child text:last-child{
+	width: 80% !important;
+}
+
+.tit {
+	width: 33%;
+	display: inline-block;
+	float: left;
+}
+.other_base_desc view text:last-child {
+	color:#333;
+	width: 67%;
+	display: inline-block;
+	float: right;
+	text-align: left;
+}
+.area_base_line{
+	width:100%;
+	background:#F1F1F1;
+	border:1upx solid #F1F1F1;
+	margin: 17upx 0 47upx 0;
+}
+.detialTxt{
+	line-height: 2em;
+	text-align: center;
+	color: #888;
+	font-size: 20upx;
+	margin-top: 20upx;
+}
+</style>

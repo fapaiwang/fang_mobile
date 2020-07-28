@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "gray-box": "/components/detail/gray_box"
+  }
+}

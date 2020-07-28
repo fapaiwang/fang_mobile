@@ -1,0 +1,189 @@
+
+.base_house_con.data-v-3e8ddd05{
+	padding: 0 30rpx;
+	padding-top: 40rpx;
+}.house_tag.data-v-3e8ddd05{
+	height: 56rpx;
+}.house_tag text.data-v-3e8ddd05{
+	padding: 9rpx 17rpx 8rpx 16rpx;
+	background:#F7D6D6;
+	border-radius:5rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color: #CC0000;
+	margin-right: 12rpx;
+}.house_tag text.data-v-3e8ddd05:nth-child(2){
+	background:#E1EEFF;
+	color: #4297FF;
+}.house_tag text.data-v-3e8ddd05:nth-child(3){
+	background: #FFEBDC;
+	color: #FF8126;
+}.house_tit.data-v-3e8ddd05{
+	width:100%;
+	font-size:36rpx;
+	font-weight:800;
+	color:#333;
+	margin-top: 30rpx;
+}.price.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	margin:30rpx 0 29rpx 0;
+}.start.data-v-3e8ddd05,.market.data-v-3e8ddd05{
+	height:31rpx;
+	font-size:28rpx;
+	font-weight:500;
+	color:#33
+}.market.data-v-3e8ddd05{
+	margin-left: 49rpx;
+}.countdown.data-v-3e8ddd05{
+	width:100%;
+	height:80rpx;
+	background:#F5F5F5;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}.start_time.data-v-3e8ddd05{
+	font-size:28rpx;
+	font-weight:800;
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	display:box;
+	box-pack:center;
+	box-align:center;
+	padding-left: 30rpx;
+}.people.data-v-3e8ddd05{
+	height:23rpx;
+	font-size:24rpx;
+	font-weight:800;
+	color:#333;
+	padding-right: 30rpx;
+}.join.data-v-3e8ddd05{
+	margin-top: 9rpx;
+}.sTime.data-v-3e8ddd05{
+	color:#CC0000;
+}.house_base.data-v-3e8ddd05{
+	border-bottom: 1rpx solid #EBEBEB;
+	border-top: 1rpx solid #EBEBEB;
+	margin-top: 30rpx;
+}.house_base_top.data-v-3e8ddd05,.house_base_bottom.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-align:center;
+	-webkit-align-items:center;
+	        align-items:center;
+}.house_base_top view.data-v-3e8ddd05,.house_base_bottom view.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 33%;
+	text-align: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	font-family:PingFang SC;
+	line-height:60rpx;
+}.house_base_top view.data-v-3e8ddd05,{
+	color: #333;
+	font-weight:bold;
+	font-size:32rpx;
+}.house_base_bottom view.data-v-3e8ddd05{
+	color: #666;
+	font-size:28rpx;
+	font-weight:500;
+}.auction_info.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	margin-top: 49rpx;
+}.auction_info_l.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: column;
+	        flex-flow: column;
+	width: 50%;
+}.auction_info_l view.data-v-3e8ddd05,.auction_info_r view.data-v-3e8ddd05{
+	width: 100%;
+	font-size:28rpx;
+	font-family:PingFang SC;
+	/* font-weight:500; */
+	color:#333;
+	line-height:60rpx;
+}.auction_info_r view.data-v-3e8ddd05{
+	display: inline-block;
+	float: left;
+}.auction_info_r.data-v-3e8ddd05 {
+    width: 46%;
+}.featuredtTitleView.data-v-3e8ddd05 {
+	height: 60rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}.titleText.data-v-3e8ddd05{
+	font-size:28rpx;
+	color: #333333;
+}.tieleImgView.data-v-3e8ddd05 {
+	height: 60rpx;
+	width: 32rpx;
+}.tieleImg.data-v-3e8ddd05{
+	height: 60rpx;
+	width: 32rpx;
+	color: #999;
+}.desc.data-v-3e8ddd05{
+	color: #6C8BC7;
+}.bianhao.data-v-3e8ddd05{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}.bianhao text.data-v-3e8ddd05{
+	float: right;
+	text-align: left;
+	width: 59%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+

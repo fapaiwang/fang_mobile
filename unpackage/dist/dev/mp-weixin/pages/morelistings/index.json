@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "banner": "/components/base/banner",
+    "focus-list": "/components/delicacy/delicacy",
+    "takeout": "/components/delicacy/takeout"
+  }
+}

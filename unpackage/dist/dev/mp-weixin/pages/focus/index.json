@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "重点推荐",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "banner": "/components/base/banner",
+    "focus-list": "/components/delicacy/delicacy",
+    "takeout": "/components/delicacy/takeout"
+  }
+}

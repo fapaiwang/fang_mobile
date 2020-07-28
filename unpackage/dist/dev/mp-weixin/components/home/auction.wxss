@@ -1,0 +1,61 @@
+
+.auctionView.data-v-da2b2b64{
+	padding: 0 30rpx;
+	padding-top: 50rpx;
+}.auctionContent.data-v-da2b2b64 {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;		
+	-webkit-box-orient: horizontal;		
+	-webkit-box-direction: normal;		
+	-webkit-flex-direction: row;		
+	        flex-direction: row;
+	-webkit-box-align:center;
+	-webkit-align-items:center;
+	        align-items:center;
+}.auctionitem.data-v-da2b2b64 {
+	height: 260rpx;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}.leftItemContent.data-v-da2b2b64 {
+	height: 260rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	border-radius: 10rpx;
+	background-color: #4CD964;
+}.rightItemContent.data-v-da2b2b64 {
+	height: 260rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}.rightItemContentItem.data-v-da2b2b64 {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	border-radius: 10rpx;
+	background-color: #4CD964;
+}.textTitle.data-v-da2b2b64 {
+	display: block;
+	font-size: 26rpx;
+	color: #333333;
+	margin-top: 22rpx;
+	margin-left: 30rpx;
+}.textContentView.data-v-da2b2b64 {
+	display: block;
+	margin-top: 10rpx;
+	margin-left: 30rpx;
+	font-size: 20rpx;
+	color: #666666
+}
+

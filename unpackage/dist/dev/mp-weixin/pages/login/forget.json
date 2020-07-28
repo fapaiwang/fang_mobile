@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "密码重置",
+  "usingComponents": {
+    "top-nav": "/components/login/topNav",
+    "mobile": "/components/login/mobile",
+    "password": "/components/login/password",
+    "bottom": "/components/login/footer"
+  }
+}

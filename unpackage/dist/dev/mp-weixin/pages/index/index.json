@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "房拍网",
+  "usingComponents": {
+    "nav-search": "/components/base/navSearchHeader",
+    "home-menu": "/components/home/navSearchHeader",
+    "banner": "/components/base/banner",
+    "auction-menu": "/components/home/auction",
+    "info-scroll": "/components/home/infoScroll",
+    "center-banner": "/components/home/centerBanner",
+    "featured": "/components/home/featured",
+    "getrecommend-house": "/components/home/recommendHouse",
+    "wuc-tab": "/components/tab/wuc-tab",
+    "select-house": "/components/home/selectHouse"
+  }
+}

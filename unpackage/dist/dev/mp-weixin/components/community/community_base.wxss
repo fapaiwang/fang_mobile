@@ -1,0 +1,28 @@
+
+.community_base_info.data-v-e83a47f0{
+	padding: 0 30rpx;
+	padding-top: 40rpx;
+}.community_base_desc.data-v-e83a47f0{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	width: 100%;
+	margin-bottom: 33rpx;
+}.community_base_desc view.data-v-e83a47f0 {
+	line-height:26rpx;
+	font-size:28rpx;
+	color:#999;
+}.community_base_desc view text.data-v-e83a47f0 {
+	color:#333;
+	/* font-weight:500; */
+}.rCon.data-v-e83a47f0{
+	width: 240rpx;
+}
+

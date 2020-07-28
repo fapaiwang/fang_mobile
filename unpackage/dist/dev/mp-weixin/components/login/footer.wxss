@@ -1,0 +1,14 @@
+
+.bg-set.data-v-28a6313c{
+	position: fixed;
+	width: 100%;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	z-index: -1;
+}
+.bg-set image.data-v-28a6313c{
+	min-width: 751rpx;
+	min-height: 352rpx;
+}
+

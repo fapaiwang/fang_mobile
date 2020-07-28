@@ -1,0 +1,1 @@
+<view><view class="mine_head"><view class="mine_banner"><mine-banner vue-id="bae1c640-1" bannerdata="{{bannerdata}}" bind:__l="__l"></mine-banner></view><nav vue-id="bae1c640-2" bind:__l="__l"></nav></view><header vue-id="bae1c640-3" bind:__l="__l"></header><history vue-id="bae1c640-4" bind:__l="__l"></history></view>

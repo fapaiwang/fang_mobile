@@ -1,0 +1,14 @@
+
+.uni-padding-wrap.data-v-7208eae6{
+	margin-top: 45rpx;
+	padding: 0 30rpx;
+}
+.swiper-item.data-v-7208eae6 {
+	border-radius: 10rpx;
+	height: 100%;
+	width: 100%;
+}
+.swiper.data-v-7208eae6 {
+	height: 172rpx;
+}
+

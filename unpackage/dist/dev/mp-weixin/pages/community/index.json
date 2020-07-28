@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "精选小区",
+  "usingComponents": {
+    "banner": "/components/base/banner",
+    "focus-list": "/components/community/delicacy",
+    "takeout": "/components/community/takeout"
+  }
+}
