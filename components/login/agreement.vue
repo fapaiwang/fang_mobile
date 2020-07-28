@@ -3,7 +3,7 @@
 		<view class="login_txt">
 			<checkbox class="agree_cc" @click="agreeAgee"></checkbox>
 			<text>我已阅读并同意</text>
-			<text class="redF">《房拍网用户协议》</text>
+			<text class="redF" @click="pact">《房拍网用户协议》</text>
 		</view>
 	</view>
 </template>
@@ -24,6 +24,9 @@
 					this.isShow = true;
 				}
 				this.$emit("update:agree",this.isShow)
+			},
+			pact(){
+				this.fun.navTo("/pages/login/pact");
 			}
 		}
 	}
