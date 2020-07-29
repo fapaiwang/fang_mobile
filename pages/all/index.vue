@@ -1,24 +1,24 @@
 <template>
 	<view>
-		<banner :bannerdata="bannerdata"></banner>
+		<Banner :bannerdata="bannerdata"></Banner>
 		<view class="container">
 		<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
-			<view :class="index === TabCur ? selectClass + ' cur':''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
+			<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
 				{{item.name}}
 			</view>
 		</scroll-view>
-		<view :class="isShow? focus:''">
+		<view>
 			<view @click="poll()">
-				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe"></FocusList>
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" :isShow.sync="isShow"></FocusList>
 			</view>
-			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
+			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>
 		</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import banner from '@/components/base/banner.vue'; //
+	import Banner from '@/components/base/banner.vue'; //
 	import FocusList from '@/components/delicacy/delicacy.vue';
 	import Takeout from '@/components/delicacy/list.vue';
 	
@@ -26,23 +26,9 @@
 	
 	export default {
 		components:{
-			banner,
+			Banner,
 			FocusList,
 			Takeout
-		},
-		props: {
-			selectClass: {
-			    type: String,
-			    default() {
-			        return 'text-red';
-			    }
-			},
-			focus:{
-				type: String,
-				default() {
-				    return 'focusList_warp';
-				}
-			},
 		},
 		computed: {
 		    scrollLeft() {
@@ -177,34 +163,89 @@
 			},
 			getLoad(){
 				this.isShow = false;
-				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt,this.isShow)
+				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
 			},
 			getSortlist(){//获取区域
-				this.fun.getReq(this.baseUrl+'/api/second/getAreaByCityId',{"city_id":39}).then((res)=>{
-					this.arealist = res[1].data.data;
-				});
+				uni.getStorage({
+					key:"area",
+					success:function(res){
+						_self.arealist = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/getAreaByCityId',{"city_id":39}).then((res)=>{
+							_self.arealist = res[1].data.data;
+							_self.setStore("area",res[1].data.data);
+						});
+					}
+				})
 			},
-			getPricelist(){
-				this.fun.getReq(this.baseUrl+'/api/second/getSecondPrice').then((res)=>{
-					this.pricelist = res[1].data.data;
-				});
+			getPricelist(){//获取价格
+				uni.getStorage({
+					key:"price",
+					success:function(res){
+						_self.pricelist = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/getSecondPrice').then((res)=>{
+							_self.pricelist = res[1].data.data;
+							_self.setStore("price",res[1].data.data);
+						});
+					}
+				})
 			},
 			getHouseType(){//户型
-				this.fun.getReq(this.baseUrl+'/api/second/getRoom').then((res)=>{
-					this.familyData = res[1].data.data;
-				});
+				uni.getStorage({
+					key:"room",
+					success:function(res){
+						_self.familyData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/getRoom').then((res)=>{
+							_self.familyData = res[1].data.data;
+							_self.setStore("room",res[1].data.data)
+						});
+					}
+				})
 			},
 			getMoreData(){
-				var _res = []
-				this.fun.getReq(this.baseUrl+'/api/second/houseType',{"id":26}).then((res)=>{
-					this.houseProperty = res[1].data.data;
-				});
-				this.fun.getReq(this.baseUrl+'/api/second/getAcreage').then((res)=>{
-					this.areaData = res[1].data.data;
-				});
-				this.fun.getReq(this.baseUrl+'/api/second/houseType',{"id":25}).then((res)=>{
-					this.levelData = res[1].data.data;
-				});
+				uni.getStorage({
+					key:"houseProperty",
+					success:function(res){
+						_self.houseProperty = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":26}).then((res)=>{
+							_self.houseProperty = res[1].data.data;
+							_self.setStore("houseProperty",res[1].data.data);
+						});
+					}
+				})
+				
+				uni.getStorage({
+					key:"areaData",
+					success:function(res){
+						_self.areaData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/getAcreage').then((res)=>{
+							_self.areaData = res[1].data.data;
+							_self.setStore("areaData",res[1].data.data);
+						});
+					}
+				})
+				
+				uni.getStorage({
+					key:"levelData",
+					success:function(res){
+						_self.levelData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":25}).then((res)=>{
+							_self.levelData = res[1].data.data;
+							_self.setStore("levelData",res[1].data.data);
+						});
+					}
+				})
 			},
 			getBannerData() {
 				this.fun.getReq(this.baseUrl+'/api/banner/index',{"space_id":22}).then((res)=>{
@@ -217,12 +258,19 @@
 					duration:100
 				})
 				this.isShow = true;
-				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt,this.isShow)
+				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
 			}
 		},
 		// 监听页面滚动距离
 		onPageScroll(e) {
 			this.rect = e.scrollTop
+		},
+		//存缓存
+		setStore(key,val){
+			uni.setStorage({
+				key:key,
+				data:val
+			})
 		}
 	}
 
@@ -253,15 +301,5 @@
 	  background:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,84,74,1));
 	  border-radius:25upx;
 	  padding: 0 10px;
-	}
-	
-	
-	.focusList_warp{
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		padding: 0 30upx;
 	}
 </style>

@@ -105,7 +105,7 @@
 </template>
 <!-- 税费计算 -->
 <script>
-	import secondhandtax from "../../common/js/secondhandtax_info.js";
+	import secondhandtax from "@/components/common/js/secondhandtax_info.js";
 	
 	export default {
 		props:["tax"],

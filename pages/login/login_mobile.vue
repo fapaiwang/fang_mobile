@@ -75,15 +75,23 @@
 				.then((res)=>{
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
+							key:"userInfo",
+							data:res[1].data.data
+						})
+						uni.setStorage({
 							key:"user",
 							data:this.phone
 						})
 						uni.navigateBack({
-							delta:1
+							delta:2
 						})
+					} else {
+						this.fun.showMsg(res[1].data.msg);
+						return fasle;
 					}
 				}).catch((err)=>{
-					this.fun.showMsg(err)
+					// this.fun.showMsg(err)
+					// return fasle;
 				})
 			}
 			
@@ -105,7 +113,8 @@
 	.login_inp{
 		width: 100%;
 		height: 100%;
-		line-height: 102upx;
+		line-height: 90upx;
+		height: 90upx;
 	}
 	.login_img{
 		width: 48upx;

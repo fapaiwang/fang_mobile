@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<navSearch @goPickCityClick="onPickCityClick"  @goUserClick="onUserClick"></navSearch>
+		<navSearch></navSearch>
 		<banner :bannerdata="bannerdata"></banner>
 		<HomeMenu :homeMenuData="homeMenuData"></HomeMenu>
 		<auctionMenu :auctionData="auctionData"></auctionMenu>
@@ -30,7 +30,7 @@
 	import getrecommendHouse from '@/components/home/recommendHouse.vue' // 推荐房源
 	import WucTab from '@/components/tab/wuc-tab.vue';
 	import SelectHouse from '@/components/home/selectHouse.vue';
-	import RequestUrl from '@/common/js/requests.js'
+	import RequestUrl from '@/components/common/js/requests.js'
 	
 	export default {
 		components:{
@@ -139,15 +139,14 @@
 					this.getLoad()
 				})
 			},
-			goMore() {
+			goMore() {//加载更多
 				if (this.tabIndex == 0 ){
 					this.getMorequalityEstateData();
 				} else {
 					this.getMoreRecommendHouseData()
 				}
-				
 			},
-			getLoad(){
+			getLoad() {//更新子组件
 				var appendH = 0;
 				if (_self.recommendHouseData.length > _self.restrictHouseData.length) {
 					appendH = 115*_self.recommendHouseData.length;
@@ -159,25 +158,9 @@
 				}
 				this.$refs.recommend.childMethod(this.recommendHouseData,this.restrictHouseData,appendH)
 			},
-			imgUrl(ImgSrc){
-				if (ImgSrc == null || ImgSrc == "" ) {
-					return "../../static/img/base/default.png";
-				}
-				if (ImgSrc.substr(0,4) == "http") {
-					return ImgSrc;
-				} else if (ImgSrc.substr(0,1) == "/") {
-					return this.baseUrl+`${ImgSrc}`;
-				} else {
-					return this.baseUrl+`/${ImgSrc}`;
-				}
+			imgUrl(ImgSrc) {
+				return this.fun.getImgSrc(ImgSrc);
 			},
-			onUserClick() {
-				console.log("接收到的值==>> 去用户页面")
-			},
-			onPickCityClick() {
-				console.log("接收到的值==>>选择城市")
-			},
-			
 		}
 	}
 </script>

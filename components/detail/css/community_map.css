@@ -1,0 +1,89 @@
+.community{
+		padding: 40upx 30upx 0 30upx;
+	}
+	.featuredtTitleView {
+		height: 60upx;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.titleText{
+		color: #333333;	
+		height:39upx;
+		font-size:40upx;
+		font-family:PingFang SC;
+		font-weight:800;
+		line-height:60upx;
+		display: flex;
+		flex-flow: row;
+	},
+	.moreData {
+		height:39upx;
+		font-size:28upx;
+		font-family:PingFang SC;
+		font-weight:500;
+		color:#999;
+		line-height:60upx;
+	}
+	.more{
+		color: #999;
+		margin-left: 16upx;
+	}
+	.community_name{
+		margin-top: 49upx;
+		width:100%;
+		font-size:32upx;
+		font-weight:bold;
+		color:#CF2924;
+		line-height:60upx;
+		display: flex;
+	}
+	.taotalHouse{
+		font-size:32upx;
+		font-weight:bold;
+		color:#333;
+	}
+	.community_about{
+		margin-top: 30upx;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		margin-bottom: 60upx;
+	}
+	.community_info{
+		font-size:28upx;
+		font-weight:500;
+		color:#666;
+		line-height:50upx;
+	}
+	.community_img{
+		width:240upx;
+		height:148upx;
+		border-radius:10upx;
+		background: #ccc;
+	}
+	.tabList{
+		width:90%;
+		height:60upx;
+		background:#FFF;
+		box-shadow:0px 0upx 8upx 0px #231815;
+		border-radius:10upx;
+		margin: 0 auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		position: absolute;
+		bottom: 30upx;
+		left: 5%;
+	}
+	.tabItem{
+		font-size:28upx;
+		font-weight:bold;
+		color:#333;
+		line-height:60upx;
+	}
+	.item_line{
+		border-left: 1px solid #EBEBEB;
+		margin-left: 25upx;
+	}

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="recommendHouseView" :class="isShow ? focuscur : ''">
+		<view class="recommendHouseView" :class="isShow ? 'posi' : ''">
 			<block v-for="(housItem, indexs) in recommendHouseData" :key="indexs">
 				<navigator :url="detail(housItem.id)" class="quickTabSwiperItem">
 					<view class="houseItemView">
@@ -47,21 +47,12 @@
 	</view>
 </template>
 <script>
-	
 	export default {
-		props:{
-			focuscur:{
-				type: String,
-				default() {
-				    return 'focusBan';
-				}
-			}
-		},
+		props:["isShow"],
 		data() {
 			return {
 				recommendHouseData:[],
 				loadingTxt:"",
-				isShow:false,
 			}
 		},
 		mounted:function(){
@@ -69,12 +60,10 @@
 			})
 		},
 		methods: {
-			moveHandle(){
-				return false;
-			},
-			childMethod(val,tit,show){
-				this.isShow = show;
-				console.log(111,show);
+			// moveHandle(){
+			// 	return false;
+			// },
+			childMethod(val,tit){
 				this.recommendHouseData = val;
 				this.loadingTxt = tit;
 			},
@@ -216,5 +205,10 @@
 	.tag text:last-child{
 		background:#E4EFFD !important;
 		color: #4297FF !important;
+	}
+	.posi{
+		position: fixed;
+		overflow: hidden;
+		height: 100%;
 	}
 </style>

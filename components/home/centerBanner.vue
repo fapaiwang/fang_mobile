@@ -26,7 +26,7 @@
 		},
 		methods: {
 			getImgUrl(icon){
-			   return `https://www.fangpaiwang.com/${icon}`;
+				return this.fun.getImgSrc(icon);
 			},
 		}
 	}

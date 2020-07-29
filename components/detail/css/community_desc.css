@@ -1,0 +1,68 @@
+.community{
+	padding: 40upx 30upx 0 30upx;
+}
+.featuredtTitleView {
+	height: 60upx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.titleText{
+	color: #333333;	
+	height:39upx;
+	font-size:40upx;
+	font-family:PingFang SC;
+	font-weight:800;
+	line-height:60upx;
+	display: flex;
+	flex-flow: row;
+},
+.moreData {
+	height:39upx;
+	font-size:28upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#999;
+	line-height:60upx;
+}
+.moreData:hover{
+	cursor: pointer;
+}
+.more{
+	color: #999;
+	margin-left: 16upx;
+}
+.community_name{
+	margin-top: 49upx;
+	width:100%;
+	font-size:32upx;
+	font-weight:bold;
+	color:#CF2924;
+	line-height:60upx;
+	display: flex;
+}
+.taotalHouse{
+	font-size:32upx;
+	font-weight:bold;
+	color:#333;
+}
+.community_about{
+	margin-top: 30upx;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-bottom: 60upx;
+}
+.community_info{
+	font-size:28upx;
+	font-weight:500;
+	color:#666;
+	line-height:50upx;
+}
+.community_img{
+	width:240upx;
+	height:148upx;
+	border-radius:10upx;
+	background: #ccc;
+}

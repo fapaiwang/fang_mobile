@@ -1721,22 +1721,41 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 11:
-/*!****************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/function.js ***!
-  \****************************************************************************/
+/*!***************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/function.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _requests = __webpack_require__(/*! ./requests.js */ 12);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
-
-Fun = /*#__PURE__*/function () {function Fun() {_classCallCheck(this, Fun);_defineProperty(this, "successData",
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Fun = /*#__PURE__*/function () {function Fun() {_classCallCheck(this, Fun);_defineProperty(this, "webSite",
+    "https://www.fangpaiwang.com");_defineProperty(this, "successData",
     new Array());_defineProperty(this, "errData",
     new Array());}_createClass(Fun, [{ key: "navTo", value: function navTo(
-    url) {//url跳转
+    url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({
         url: url });
 
+    } }, { key: "redTo", value: function redTo(
+    url) {// 关闭当前页面，跳转到应用内的某个页面。
+      uni.redirectTo({
+        url: url });
+
+    } }, { key: "getDate", value: function getDate(
+
+    dates) {//将时间戳转换为具体时间
+      if (dates) {
+        var date = new Date(dates * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var D = date.getDate() + ' ';
+        var h = date.getHours() + ':';
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+        return Y + M + D + h + m + s;
+      } else {
+        return "";
+      }
     } }, { key: "getReq", value: function getReq(
 
     _url) {var _data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";var _method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET'; //get请求
@@ -1784,6 +1803,7 @@ Fun = /*#__PURE__*/function () {function Fun() {_classCallCheck(this, Fun);_defi
         } });
 
     } }, { key: "getImgSrc", value: function getImgSrc(
+
     ImgSrc) {
       if (ImgSrc == null || ImgSrc == "") {
         return "../../static/img/base/default.png";
@@ -1791,9 +1811,9 @@ Fun = /*#__PURE__*/function () {function Fun() {_classCallCheck(this, Fun);_defi
       if (ImgSrc.substr(0, 4) == "http") {
         return ImgSrc;
       } else if (ImgSrc.substr(0, 1) == "/") {
-        return this.baseUrl + "".concat(ImgSrc);
+        return this.webSite + "".concat(ImgSrc);
       } else {
-        return this.baseUrl + "/".concat(ImgSrc);
+        return this.webSite + "/".concat(ImgSrc);
       }
     } }]);return Fun;}();
 
@@ -1804,10 +1824,10 @@ fun;exports.default = _default;
 
 /***/ }),
 
-/***/ 12:
-/*!****************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/requests.js ***!
-  \****************************************************************************/
+/***/ 18:
+/*!***************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/requests.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1836,24 +1856,6 @@ RequestUrl = function RequestUrl() {_classCallCheck(this, RequestUrl);_definePro
 
 RequestUrl = new RequestUrl();var _default =
 RequestUrl;exports.default = _default;
-
-/***/ }),
-
-/***/ 13:
-/*!***************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/userKey.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  memberObj: {
-    name: '' },
-
-  setMemberObj: function setMemberObj(data) {
-    this.memberObj = Object.assign({}, this.memberObj, data);
-  } };exports.default = _default;
 
 /***/ }),
 
@@ -7925,10 +7927,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 354:
-/*!**************************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/secondhandtax_info.js ***!
-  \**************************************************************************************/
+/***/ 357:
+/*!*************************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7938,10 +7940,10 @@ conditions;exports.default = _default;
 
 /***/ }),
 
-/***/ 362:
-/*!************************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/downpayment_info.js ***!
-  \************************************************************************************/
+/***/ 365:
+/*!***********************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8999,10 +9001,10 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 370:
-/*!**************************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/common/js/qualification_info.js ***!
-  \**************************************************************************************/
+/***/ 373:
+/*!*************************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9345,7 +9347,7 @@ qualification;exports.default = _default;
 
 /***/ }),
 
-/***/ 78:
+/***/ 79:
 /*!**************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/u-charts/u-charts.js ***!
   \**************************************************************************************/

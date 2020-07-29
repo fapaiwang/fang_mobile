@@ -36,12 +36,12 @@
 		},
 		methods: {
 			getTargetUrl(param){//跳转地址
-				this.fun.navTo(`../../pages/all/index?a=${param}`)
+				this.fun.navTo(`/pages/all/index?a=${param}`)
 			},
 			getImgUrl(num){
 				if (this.auctionData.length > 0) {
 					let _img = this.auctionData[num].img.fileurl
-					return `https://www.fangpaiwang.com/${_img}`;
+					return this.fun.getImgSrc(_img);
 				}
 			},
 			getName(num) {
@@ -59,49 +59,5 @@
 </script>
 
 <style scoped>
-	.auctionView{
-		padding: 0 30upx;
-		padding-top: 50upx;
-	},
-	.auctionContent {
-		width: 100%;
-		display: flex;		
-		flex-direction: row;
-		align-items:center;
-	},
-	.auctionitem {
-		height: 260upx;
-		flex: 1;
-	},
-	.leftItemContent {
-		height: 260upx;
-		display: flex;
-		flex-direction: column;
-		border-radius: 10upx;
-		background-color: #4CD964;
-	},
-	.rightItemContent {
-		height: 260upx;
-		display: flex;
-		flex-direction: column;
-	},
-	.rightItemContentItem {
-		flex: 1;
-		border-radius: 10upx;
-		background-color: #4CD964;
-	},
-	.textTitle {
-		display: block;
-		font-size: 26upx;
-		color: #333333;
-		margin-top: 22upx;
-		margin-left: 30upx;
-	},
-	.textContentView {
-		display: block;
-		margin-top: 10upx;
-		margin-left: 30upx;
-		font-size: 20upx;
-		color: #666666
-	}
+@import url("./css/auction.css");	
 </style>

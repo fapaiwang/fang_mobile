@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="prefer-posi">
+		<view class="prefer-posi" :style="isShow ? 'position: fixed;top:0' :'position: absolute;'">
 			<!-- 刷选区 -->
 			<view class="delica-view">
 				<view class="delica-list" @click="multiple()">
@@ -145,7 +145,7 @@
 
 <script>
 	export default {
-		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor"],
+		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor","isShow"],
 		data() {
 			return {
 				drop: false,
@@ -159,7 +159,6 @@
 				house: false,
 				more: false,
 				defaultMore:false,
-				isShow:false,
 				defaultData:[{name: "默认排序",value:""}, {name: "最新发布", value : "m7"}, {name: "房屋总价",value:"m1" }, {name: "房屋面积",value:"m5"}],
 				defaultVal:"",
 				sortNum:0,
@@ -178,6 +177,7 @@
 				param:"",
 				cust_begin:"",//自定义平米
 				cust_end:"",
+				isHide:false,
 			}
 		},
 		mounted:function(){
@@ -351,6 +351,7 @@
 				this.house = false;
 				this.more =false;
 				this.defaultMore = false;
+				this.isShow = false;
 				this.backClick();
 			},
 			getImg(index,val){

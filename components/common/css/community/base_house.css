@@ -1,0 +1,238 @@
+.base_house_con{
+	padding: 0 30upx;
+	padding-top: 20upx;
+},
+.house_tit{
+	width:100%;
+	font-size:36upx;
+	font-weight:800;
+	color:#333;
+	margin-top: 30upx;
+}
+.price{
+	display: flex;
+	flex-flow: row wrap;
+	margin:30upx 0;
+}
+.start,.market{
+	height:31upx;
+	font-size:28upx;
+	font-weight:500;
+	color:#33
+}
+.market{
+	margin-left: 49upx;
+}
+.countdown{
+	width:100%;
+	height:80upx;
+	background:#F5F5F5;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.start_time{
+	font-size:28upx;
+	font-weight:800;
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	display:box;
+	box-pack:center;
+	box-align:center;
+	padding-left: 30upx;
+}
+.start_time .sTime{
+	font-size: 28upx !important;
+}
+.look{
+	font-size:24upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(66,151,255,1);
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	display:box;
+	box-pack:center;
+	box-align:center;
+	padding-right: 32upx;
+}
+.look .look_img{
+	width: 32upx;
+	height: 32upx;
+	display: inherit;
+	margin-top: 2upx;
+}
+.people{
+	font-size:24upx;
+	font-weight:800;
+	color:#333;
+	display: inherit;
+}
+.join{
+	margin-right: 50upx;
+}
+.Violation .sTime{
+	font-size: 24upx !important;
+}
+.sTime{
+	color:#CC0000;
+	font-size: 38upx;
+}
+.house_base{
+	border-bottom: 1px solid #EBEBEB;
+	border-top: 1px solid #EBEBEB;
+	margin-top: 30upx;
+}
+.house_base_top,.house_base_bottom{
+	display: flex;
+	flex-flow: row wrap;
+	align-items:center;
+}
+.house_base_top view,.house_base_bottom view{
+	display: flex;
+	width: 33%;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	font-family:PingFang SC;
+	line-height:60upx;
+}
+.house_base_top view,{
+	color: #333;
+	font-weight:bold;
+	font-size:32upx;
+}
+.house_base_bottom view{
+	color: #666;
+	font-size:28upx;
+	font-weight:500;
+}
+.auction_info{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-top: 49upx;
+}
+.auction_info_l{
+	display: flex;
+	flex-flow: column;
+	width: 50%;
+}
+.auction_info_l view,.auction_info_r view{
+	width: 100%;
+	font-size:28upx;
+	font-family:PingFang SC;
+	/* font-weight:500; */
+	color:#333;
+	line-height:60upx;
+}
+.auction_info_r view{
+	display: inline-block;
+	float: left;
+}
+.auction_info_r {
+	width: 46%;
+}
+.featuredtTitleView {
+	height: 60upx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.titleText{
+	font-size:28upx;
+	color: #333333;
+},
+.tieleImgView {
+	height: 60upx;
+	width: 32upx;
+}
+.tieleImg{
+	height: 60upx;
+	width: 32upx;
+	color: #999;
+}
+.desc{
+	color: #6C8BC7;
+}
+.bianhao{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.bianhao text{
+	float: right;
+	text-align: left;
+	width: 59%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.share_tag{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.house_tag{
+	height: 56upx;
+}
+.house_tag text{
+	padding: 9upx 17upx 8upx 16upx;
+	background:#F7D6D6;
+	border-radius:5px;
+	font-size:24upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color: #CC0000;
+	margin-right: 12upx;
+}
+.house_tag text:nth-child(2){
+	background:#E1EEFF;
+	color: #4297FF;
+}
+.house_tag text:nth-child(3){
+	background: #FFEBDC;
+	color: #FF8126;
+}
+.shareJoin{
+	width: 48upx;
+	height: 48upx;
+	display: inline-block;
+}
+.share view:first-child{
+	margin-right: 20upx;
+}
+.joinImg{
+	width: 48upx;
+	height: 48upx;
+	float: left;
+	display: inline-block;
+}
+.joinText{
+	height:23upx;
+	font-size:24upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#666;
+	width: 100%;
+	float: left;
+}
+.share{
+	display: flex;
+}
+.tagList{
+	margin-top:8upx;
+}
+.Violation{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content:space-between;
+	margin-bottom: 29upx;
+}

@@ -20,10 +20,10 @@
 								</view>
 								<view class="titleInfo">
 									<view class="second_total">
-										<text>房源<text style="color: #DF2D23">{{item.second_total}}</text>套</text>
+										<text>房源<text class="fColor">{{item.second_total}}</text>套</text>
 									</view>
 									<view class="price">
-										<text style="color: #DF2D23">{{item.second_total}}元/㎡</text>
+										<text class="fColor">{{item.second_total}}元/㎡</text>
 									</view>
 								</view>
 							</view>
@@ -59,95 +59,15 @@ export default {
 			return this.fun.getImgSrc(url);
 		},
 		moreCommunity(index) {//跳转页面
-			uni.navigateTo({
-				url:`../../pages/community/community?id=${index}`
-			})
+			this.fun.navTo(`/pages/community/community?id=${index}`);
 		},
 		community(){
-			uni.navigateTo({
-				url:'../../pages/community/index'
-			})
+			this.fun.navTo('/pages/community/index');
 		}
 	}
 }
 </script>
 
 <style>
-	scroll-view {
-	  width: 100%;
-	  white-space: nowrap;  // 不让它换行
-	}
-	
-	.item {
-	  width: 49%;
-	  padding-right: 20upx;
-	  display: inline-block;
-	  vertical-align: top;
-	 }
-	 .img {
-		display: inline-block;
-		width: 100%;
-		height: 208upx;
-	}
-	.img image {
-	  width: 100%;
-	  height: 100%;
-	  border-radius: 10upx;
-	}
-	.titleView {
-		padding-top: 19upx;
-		padding-bottom: 14upx;
-		font-size: 28upx;
-	}
-	.titleView text {
-		font-size: 28upx;
-		color: #333333;
-	}
-	.titleinfoView {
-		width: 100%;
-		padding-right: 20upx;
-	}
-	.titleInfo {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding-right: 20upx;
-		font-size: 24upx;
-	}
-	.second_total text{
-		color: #333333;
-	}
-	
-	.price text{
-		color: #333333;
-		font-size: 28upx;
-	}
-	
-	.featuredView {
-		margin-top: 45upx;
-		padding: 0 30upx;
-	}
-	.featuredtTitleView {
-		height: 38upx;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 30upx;
-	}
-	.titleText{
-		font-size: 40upx;
-		color: #333333;
-	},
-	.tieleImgView {
-		height: 38upx;
-		width: 32upx;
-	}
-	.tieleImg{
-		height: 32upx;
-		width: 32upx;
-	},
-	.featuredtSwiper {
-		height: 348upx;
-	}
+@import url("./css/featured.css");	
 </style>

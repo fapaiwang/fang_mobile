@@ -34,5 +34,5 @@
 </script>
 
 <style scoped>
- @import url("../../common/css/login/login.css");
+ @import url("@/components/common/css/login/login.css");
 </style>

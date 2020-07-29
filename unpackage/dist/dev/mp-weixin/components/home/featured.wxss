@@ -1,7 +1,9 @@
-
 scroll-view {
   width: 100%;
   white-space: nowrap;  /* 不让它换行 */
+}
+.fontColor{
+	color: #DF2D23;
 }
 .item {
   width: 49%;
@@ -76,7 +78,7 @@ scroll-view {
 }
 .titleText{
 	font-size: 40rpx;
-	color: #333333;
+	color: #333;
 }
 .tieleImgView {
 	height: 38rpx;
@@ -88,5 +90,5 @@ scroll-view {
 }
 .featuredtSwiper {
 	height: 348rpx;
-}
+}	
 

@@ -26,12 +26,4 @@
   border-radius:25rpx;
   padding: 0 10rpx;
 }
-.focusList_warp.data-v-9c43a68a{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 0 30rpx;
-}
 

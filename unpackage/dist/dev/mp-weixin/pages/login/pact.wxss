@@ -1,0 +1,35 @@
+
+.tit.data-v-5a7d1b7e{
+	width: 100%;
+	display: block;
+	font-size: 40rpx;
+	text-align: center;
+	padding: 0 30rpx;
+	font-size: 50rpx;
+	line-height: 100rpx;
+}
+.con view.data-v-5a7d1b7e{
+	line-height: 60rpx;
+	text-align: left;
+	margin-bottom: 40rpx;
+	padding: 0 30rpx;
+	font-size: 30rpx;
+}
+.con view text.data-v-5a7d1b7e{
+	width: 100%;
+	font-size: 40rpx;
+	display: inline-block;
+}
+.ulist.data-v-5a7d1b7e,.small_tit.data-v-5a7d1b7e{
+	width: 100%;
+	display: inline-block;
+}
+.small_tit.data-v-5a7d1b7e{
+	padding: 0 !important;
+	margin-bottom: 0 !important;
+}
+.ulist .item.data-v-5a7d1b7e{
+	width: 100%;
+	display: inline-block;
+}
+

@@ -48,18 +48,27 @@
 				if (this.captcha =="") {
 					this.fun.showMsg("验证码不能为空");
 				}
-				// if (this.captcha != this.cap) {
-				// 	this.fun.showMsg("验证码不正确");
-				// 	return false;
-				// }
-				this.fun.getReq(this.baseUrl+'/api/login',{user_name:this.phone,code:this.captcha})
+				if (this.captcha != this.cap) {
+					this.fun.showMsg("验证码不正确");
+					return false;
+				}
+				this.fun.getReq(this.baseUrl+'/api/loginDo',{mobile:this.phone,sms_code:this.captcha})
 				.then((res)=>{
-					console.log(res[1])
-					// if (res[1].code ==200) {
-					// 	this.fun.navTo("../../pages/mine/mine");
-					// }
+					if (Number(res[1].data.code) ==10000) {
+						uni.setStorage({
+							key:"user",
+							data:this.phone
+						})
+						uni.navigateBack({
+							delta:3
+						})
+					} else {
+						this.fun.showMsg(res[1].data.msg);
+						return false;
+					}
 				}).catch((err)=>{
-					this.fun.showMsg(err)
+					this.fun.showMsg(err);
+					return false;
 				})
 			},
 			register(){//注册

@@ -151,7 +151,9 @@
         }
         ,{
             "path" : "pages/login/pact",
-            "style" : {}
+            "style" : {
+            	"navigationBarTitleText": "房拍网用户协议"
+            }
         }
         ,{
             "path" : "pages/detail/recording",
@@ -163,9 +165,9 @@
 		}
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#007AFF",
+		"navigationBarBackgroundColor": "#fff",//007AFF
 		"backgroundColor": "#FFFFFF"
 	},
 	"tabBar": {

@@ -1,4 +1,3 @@
-
 .infoScrollView.data-v-7fedae60{
 	padding: 0 30rpx;
 	padding-top: 40rpx;
@@ -40,7 +39,7 @@
 	display: -webkit-flex;
 	display: flex;
 	font-size: 28rpx;
-	color: #000000;
+	color: #000;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
@@ -52,5 +51,4 @@
 .infoItemTitle.data-v-7fedae60 {
 	margin-right: 10rpx;
 }
-
 

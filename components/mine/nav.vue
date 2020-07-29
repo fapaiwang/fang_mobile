@@ -27,9 +27,6 @@
 		created() {
 			this.getStore()
 		},
-		onShow:function(){
-			this.getStore()
-		},
 		onLoad:function(){
 			uni.$on("login",(val)=>{
 				console.log(333,val);

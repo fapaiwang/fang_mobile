@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view v-if="showCon">
-			<banner :info="info"></banner>
+			<banner :info="info" :bannerTit="bannerTit" :bannerCol="bannerCol"></banner>
 			<baseHouse :communityName="communityName" :detial="detial" :houseType="houseType" :buildYear="buildYear" :houseTit="houseTit" :countDownList="countDownList"></baseHouse>
 			<grayBox></grayBox>
 			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData"></housingSituation>
@@ -12,7 +12,7 @@
 			<grayBox></grayBox>
 			<communityMap :marker="marker"  :latitude="latitude" :longitude="longitude"></communityMap>
 			<grayBox></grayBox>
-			<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
+			<recommendHosue :qualityEstateData="qualityEstateData" :userRule="userRule"></recommendHosue>
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-	import banner from "@/components/detail/banner.vue" //房源基础信息
+	import banner from "@/components/detail/banner.vue" //banner
 	import baseHouse from "@/components/detail/base_house.vue" //房源基础信息
 	import housingSituation from "@/components/detail/housingSituation.vue" //房源情况
 	import grayBox from "@/components/detail/gray_box.vue" //灰色边框
@@ -70,23 +70,35 @@
 				longitude: '',
 				recommendData:[],
 				estateId:0,
+				bannerTit:'',
+				bannerCol:'',
+				userRule:-1,
 			}
+		},
+		created() {
+			var _self = this;
+			uni.getStorage({
+				key:"userInfo",
+				success:function(res){
+					_self.userRule = res.data.model;
+				},
+				fail:function(){
+					_self.userRule = -1;
+				}
+			})
 		},
 		onLoad:function(options){
 			if (!options.id) {
 				this.getHome();
 			}
 			this.getRecommendPersion(options.id)
-			uni.request({
-				url: 'https://www.fangpaiwang.com/api/second/houseDetail', 
-				data:{"id":options.id},
-				success: (res) => {
-					if (Number(res.data.code) == 20000) {
-						this.getHome();
-					} else {
-						this.showCon = true
-						this.getResult(res.data.data);
-					}
+			this.fun.getReq(this.baseUrl+"/api/second/houseDetail",{"id":options.id})
+			.then((res)=>{
+				if (Number(res[1].data.code) == 20000) {
+					this.getHome();
+				} else {
+					this.showCon = true
+					this.getResult(res[1].data.data);
 				}
 			})
 		},
@@ -105,8 +117,15 @@
 				this.advisoryName = this.detial.pinglun.user_name
 				this.surroundingData = this.detial.rim;
 				this.trafficData = this.detial.traffic;
-				this.announcementData = '北京市海淀区人民法院将于2020年8月25日12时至2020年8月26日12时止（延时的除外）';
-		
+				this.announcementData = this.detial.info;
+				if (_res.is_free ==1) {
+					this.bannerTit = "自由购";
+					this.bannerCol= '#CEA85F';
+				}
+				if (_res.house_type ==48) {
+					this.bannerTit = "社会委托";
+					this.bannerCol= '#4cc7a4';
+				}
 				var qianfeiInfo = [];
 				if (this.detial.qianfei_status==1) {
 					qianfeiInfo.push('欠费:有')
@@ -124,7 +143,7 @@
 						price:`流拍价格：${this.detial.twoprice}万`
 					})
 					this.recordingLogData = recordingLog;
-					// 判断是否是业务   所有业务都是4    拍卖成交记录
+					//业务为4展示拍卖成交记录
 				}
 				if (this.detial.jieduan ==163) {
 					//this.recordingData = '成交记录';
@@ -162,6 +181,22 @@
 					},
 				}];
 				
+				uni.getStorage({
+					key:"joinDetail",
+					success:function(res){
+						// res.data.indexOf(index)!=-1
+						console.log(222,res[1].data.data);
+						res.data.append([{name:options.id,val:res[1].data.data}]);
+					},
+					fails:function(){
+						var joinDetail = [];
+						console.log(333,res[1].data.data);
+						joinDetail.append([{name:options.id,val:res[1].data.data}]);
+						uni.setStorage({
+							key:joinDetail
+						})
+					}
+				})
 			},
 			getHome() {
 				this.detialText = '没有内容'
@@ -183,6 +218,27 @@
 				var TimeStr= kptime;
 				var Deadline;
 				var Deadlineb;
+				if (TimeStrs==175) {
+					this.countDownList = "成交";
+					return false;
+				}
+				if (TimeStrs==175) {
+					this.countDownList = "暂缓";
+					return false;
+				}
+				if (TimeStrs==173) {
+					this.countDownList = "撤回";
+					return false;
+				}
+				if (TimeStrs==172) {
+					this.countDownList = "终止";
+					return false;
+				}
+				if (TimeStrs==171) {
+					this.countDownList = "已结束";
+					return false;
+				}
+				//即将拍卖/进行中  169 170
 				if (TimeStrs==163) {
 					var TimeStrb = bianetime
 					var fullDateb = TimeStrb.split(" ")[0].split("-");
@@ -228,11 +284,11 @@
 									this.countDownList = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
 								} else{
 									clearInterval(interval);
-									this.countDownList = "已结束，流拍";
+									this.countDownList = "结束";
 								}
 						} else {
 				            clearInterval(interval);
-				            this.countDownList = "已结束，流拍";
+				            this.countDownList = "结束";
 				        }
 					} else {
 				        if (date > 0) {
@@ -264,7 +320,7 @@
 				            this.countDownList = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
 				        } else {
 				            clearInterval(interval);
-				            this.countDownList = "已结束，流拍";
+				            this.countDownList = "结束";
 				        }
 				    }
 				},100)

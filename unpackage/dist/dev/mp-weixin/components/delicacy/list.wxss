@@ -118,5 +118,9 @@
 }.tag text:last-child{
 	background:#E4EFFD !important;
 	color: #4297FF !important;
+}.posi{
+	position: fixed;
+	overflow: hidden;
+	height: 100%;
 }
 

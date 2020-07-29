@@ -34,23 +34,23 @@
 				this.updateVal()
 			},
 			getCode() {
-				if (this.phone.length=="") {
-					this.fun.showMsg("手机号不能为空")
+				var _self = this;
+				if (_self.phone.length=="") {
+					_self.fun.showMsg("手机号不能为空")
 					return false;
 				}
-				if (this.phone.length < 11 && !RegExp(/^1[\d]{10}$/).test(this.phone)) {
-					this.fun.showMsg("手机号码不正确")
+				if (_self.phone.length < 11 && !RegExp(/^1[\d]{10}$/).test(_self.phone)) {
+					_self.fun.showMsg("手机号码不正确")
 					return false;
 				}
-				this.fun.getReq(this.baseUrl+'/api/send_sms',{"mobile":this.phone}).then((res)=>{
-					console.log("lalal",res[1].data);
-					this.$emit("update:cap",res[1].data.msg)
+				_self.fun.getReq(_self.baseUrl+'/api/send_sms',{"mobile":_self.phone}).then((res)=>{
+					this.capVal = res[1].data.data.code;
 				})
 				
 				if (time ==60){
-					this.daojs();
+					_self.daojs();
 				}
-				this.updateVal()
+				_self.updateVal()
 			},
 			daojs(){
 				interval = setInterval(()=>{
@@ -67,13 +67,13 @@
 			},
 			updateVal(){
 				this.$emit("update:mobile",this.phone)
-				console.log(this.captcha);
 				this.$emit("update:code",this.captcha)
+				this.$emit("update:cap",this.capVal)
 			}
 		}
 	}
 </script>
 
 <style scoped>
-@import url("../../common/css/login/login.css");
+@import url("@/components/common/css/login/login.css");
 </style>

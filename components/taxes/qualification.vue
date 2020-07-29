@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import qualification from "../../common/js/qualification_info.js";
+	import qualification from "@/components/common/js/qualification_info.js";
 	export default {
 		props:["Search"],
 		data() {

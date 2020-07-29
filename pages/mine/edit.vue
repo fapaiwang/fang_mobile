@@ -1,10 +1,10 @@
 <template>
 	<view>
 		<view class="avatar">
-			<image class="avatar_img"></image>
+			<image class="avatar_img" :src="getImg()"></image>
 		</view>
 		<view class="editCon">
-			<text class="alias">和太阳肩并肩～
+			<text class="alias">{{nickName}}
 				<image src="../../static/img/mine/edit.png" class="editImg"></image>
 			</text>
 		</view>
@@ -35,71 +35,46 @@
 	export default {
 		data() {
 			return {
-				
+				userInfo:[],
+				nickName:"",
 			}
 		},
+		onLoad:function(){
+			var _self = this;
+			uni.getStorage({
+				key:"userInfo",
+				success:function(res){
+					this.userInfo = res.data;
+					console.log(this.userInfo);
+					this.nickName = res.data.nick_name
+				},
+			})
+			this.getUserInfo();
+		},
 		methods: {
-			
+			getUserInfo(){
+				this.nickName = this.userInfo.nick_name ? this.userInfo.nick_name : '';
+			},
+			getImg(){
+				var ImgSrc = "";
+				if (this.userInfo.length >=1) {
+					ImgSrc = userInfo.img
+				}
+				if (ImgSrc == null || ImgSrc == "" ) {
+					return "../../static/img/base/default.png";
+				}
+				if (ImgSrc.substr(0,4) == "http") {
+					return ImgSrc;
+				} else if (ImgSrc.substr(0,1) == "/") {
+					return this.baseUrl+`${ImgSrc}`;
+				} else {
+					return this.baseUrl+`/${ImgSrc}`;
+				}
+			},
 		}
 	}
 </script>
 
 <style>
-	.avatar{
-		margin-top: 42upx;
-		text-align: center;
-		margin-bottom: 35upx;
-	}
-	.avatar_img{
-		width:120upx;
-		height:120upx;
-		border-radius:50%;
-		background: #ccc;
-	}
-	.editCon{
-		text-align: center;
-	}
-	.alias{
-		height:34upx;
-		font-size:36upx;
-		line-height: 34upx;
-		font-family:PingFang SC;
-		font-weight:800;
-		color:#333;
-	}
-	.editImg{
-		width: 36upx;
-		height: 36upx;
-	}
-	.taxes_warp{
-		padding: 0 30upx;
-	}
-	.taxes_con{
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-between;
-		line-height: 98upx;
-		font-size:32upx;
-		font-family:PingFang SC;
-		font-weight:bold;
-		color:#333;
-		border-bottom: 1px solid #EBEBEB;
-	}
-/* .taxes_tit {
-    width: 61%;
-} */
-
-.taxes_tit text{
-	height:27upx;
-	font-size:28upx;
-	font-family:PingFang SC;
-	font-weight:500;
-}
-.taxes_symbol{
-	font-size:28upx;
-	font-family:PingFang SC;
-	color:#999;
-	width: 20%;
-	text-align: right;
-}
+	@import url("./css/edit.css");
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<banner :bannerdata="bannerdata"></banner>
-		<view class="conainier" :class="isShow? focus:''">
+		<view class="conainier">
 			<view @click="poll()">
 				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" @myEvent="touchMe"></FocusList>
 			</view>
@@ -225,6 +225,5 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		padding: 0 30upx;
 	}
 </style>

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import downpayment from "../../common/js/downpayment_info.js";
+	import downpayment from "@/components/common/js/downpayment_info.js";
 	export default {
 		props:["isPay"],
 		data() {
@@ -84,115 +84,5 @@
 </script>
 
 <style scoped>
-.payment .taxes_con{
-	border-bottom: none;
-	width:650upx;
-	height:780upx;
-	background:#FFF;
-	box-shadow:0upx 0px 29upx 3upx rgba(224,46,36,0.04);
-	border-radius:20upx;
-	margin: 72upx auto 0;
-	display: flex;
-	justify-content: end;
-	flex-flow: column;
-}
-.taxes_tit{
-	width: 90%;
-	text-align: center;
-	border-bottom: 1px solid #EBEBEB;
-	margin: 0 auto;
-}
-.taxes_tit text{
-	height:27upx;
-	font-size:28upx;
-	font-family:PingFang SC;
-	font-weight:500;
-}
-.taxes_warp{
-	padding: 0 30upx;
-}
-.taxes_con{
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	line-height: 98upx;
-	font-size:32upx;
-	font-family:PingFang SC;
-	font-weight:bold;
-	color:#333;
-	border-bottom: 1px solid #EBEBEB;
-}
-
-.payment_list{
-	width: 100%;
-	text-align: center;
-}
-.paymentItem{
-	height: 78upx;
-	background: #FFFFFF;
-	border: 1px solid #EBEBEB;
-	line-height: 78upx;
-	border-radius: 19px;
-	font-size: 32upx;
-	font-family: PingFang SC;
-	font-weight: 500;
-	color: #333333;
-	display: inline-block;
-	width: 80%;
-	margin-top: 50upx;
-}
-.tips{
-	padding: 0 40upx;
-	font-size: 24upx;
-	color: #b0b3b4;
-	line-height:52upx;
-}
-.selectItem{
-	height:23upx;
-	font-size:24upx;
-	font-family:PingFang SC;
-	font-weight:500;
-	color:#333;
-	line-height: 23upx;
-	text-align: left;
-	margin-bottom: 23upx;
-	margin-left: 30upx;
-}
-.fllowKey{
-	color:#666;
-}
-.loc{
-	width:100%;
-	height:31upx;
-	font-size:32upx;
-	font-family:PingFang SC;
-	font-weight:bold;
-	color:#333;
-	line-height: 31upx;
-	margin: 40upx 0 45upx 20upx;
-}
-.loc text{
-	font-weight:normal;
-}
-.res{
-	margin-top: 86upx;
-	margin-bottom: 99upx;
-	
-}
-.res view{
-	height:31upx;
-	font-size:32upx;
-	font-family:PingFang SC;
-	font-weight:800;
-	color:#333;
-	width: 100%;
-	line-height: 31upx;
-	text-align: center;
-}
-.res view:first-child{
-	margin-bottom: 40px;
-}
-.res text{
-	color: #E02E24 !important;
-}
+@import url("./css/payment.css");
 </style>

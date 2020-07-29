@@ -32,52 +32,12 @@
 		},
 		methods: {
 			getTargetUrl(index){ //跳转页面
-				uni.navigateTo({
-					url:`../../pages/news/detail?id=${index}`
-				})
+				this.fun.navTo(`/pages/news/detail?id=${index}`);
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	.infoScrollView{
-		padding: 0 30upx;
-		padding-top: 40upx;
-	}
-	.infoScrolContent {
-		width: 100%;
-		display: flex;		
-		flex-direction: row;
-		align-items:center;
-		height: 44upx;
-	},
-	.infoIcon {
-		width: 44upx;
-		height: 44upx;
-		margin-right: 10upx;
-	},
-	.infoIconimg {
-		width: 100%;
-		height: 100%;
-	},
-	.infoContent {
-		flex: 1;
-		height: 44upx;
-	}
-	.swiper {
-		height: 44upx;
-	},
-	.infoItemView {
-		display: flex;
-		font-size: 28upx;
-		color: #000000;
-		align-items: center;
-		justify-content: flex-start;
-		white-space: nowrap; 
-	},
-	.infoItemTitle {
-		margin-right: 10upx;
-	}
-
+	@import url("./css/infoScroll.css");
 </style>

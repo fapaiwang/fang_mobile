@@ -8,7 +8,7 @@
 				</view>
 			</view>
 			<view class="join" @click="join">
-				<image src="../../static/img/community/join.png" class="joinImg"></image>
+				<image :src="isShow ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
 				<text class="joinText">关注</text>
 			</view>
 			<view class="houseLine"></view>
@@ -21,11 +21,16 @@
 		props:["cData"],
 		data() {
 			return {
-				
+				isShow:true,
 			}
 		},
 		methods: {
 			join(){
+				if (this.isShow) {
+					this.isShow = false;
+				} else {
+					this.isShow = true;
+				}
 				this.isLogin("../../pages/mine/mine");
 			},
 			isLogin(){
