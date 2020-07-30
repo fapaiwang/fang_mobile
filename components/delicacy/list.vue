@@ -16,7 +16,7 @@
 							<text>{{housItem.title}}</text>
 						</view>
 						<view class="itemInfo">
-							<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations} | ${housItem.toilet}`}}</text>
+							<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations_name} | ${housItem.types_name}`}}</text>
 						</view>
 						<view class="itemPrice">
 							<view>
