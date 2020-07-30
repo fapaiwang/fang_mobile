@@ -2,13 +2,13 @@
 	<view>
 		<view class="houseInfo">
 			<view class="houseInfoL">
-				<text class="houseName">{{cData.title}}</text>
+				<text class="houseName">{{detail.title}}</text>
 				<view class="averagePrice">
-					均价：<text class="price">{{cData.price}}/㎡</text>
+					均价：<text class="price">{{detail.price}}/㎡</text>
 				</view>
 			</view>
 			<view class="join" @click="join">
-				<image :src="isShow ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
+				<image :src="isShow==1 ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
 				<text class="joinText">关注</text>
 			</view>
 			<view class="houseLine"></view>
@@ -17,60 +17,47 @@
 </template>
 
 <script>
+	var _self;
 	export default {
-		props:["cData"],
+		props:["detail","communityId"],
 		data() {
 			return {
-				isShow:true,
+				isShow:0,
 				uuid:-1,
 			}
 		},
-	created:function(){
-		_self = this;
-		uni.getStorage({
-			key:"userInfo",
-			success:function(res){
-				_self.uuid = res.data.id;
-				_self.bmrs = true;
-			},
-			fail:function(){
-				_self.bmrs = true;
-			}
-		})
-	},
+		created:function(){
+			_self = this;
+			_self.id = _self.detail.id;
+			uni.getStorage({
+				key:"userInfo",
+				success:function(res){
+					_self.uuid = res.data.id;
+					_self.bmrs = true;
+				},
+				fail:function(){
+					_self.bmrs = true;
+				}
+			})
+		},
 		methods: {
-			join(){
+			join(){//关注
 				if (this.uuid != -1) {
 					let _param = {
-						"house_id":this.detial.id,
+						"house_id":this.communityId,
 						"model":"estate",
 						"user_id":this.uuid,
 					}
+					console.log(_param)
 					this.fun.getReq(this.baseUrl+'/api/follow',_param)
 					.then((res)=>{
-						console.log(res[1].data)
+						this.isShow = res[1].data.status;
 						this.fun.showMsg(res[1].data.msg);
 					})
 				} else {
 					this.fun.navTo('/pages/login/login');
 				}
-				// this.isLogin("/pages/mine/mine");
 			},
-			isLogin(){
-				uni.getStorage({
-					key:"user",
-					success:function(res){
-						// uni.navigateTo({
-						// 	url:url
-						// })
-					},
-					fail:function(){
-						uni.switchTab({
-							url:"/pages/mine/mine"
-						})
-					}
-				})
-			}
 		}
 	}
 </script>
