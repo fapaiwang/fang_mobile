@@ -1,0 +1,18 @@
+.recording{
+	padding: 0 30upx;
+}
+.tit{
+	margin: 30upx 0;
+}
+.recording_item{
+	width: 100%;
+	display: block;
+	font-size: 30upx;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	margin-bottom: 20upx;
+}
+.recording_item text{
+	width: 33%;
+}

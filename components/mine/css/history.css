@@ -1,0 +1,47 @@
+.taxes_warp{
+		padding: 0 30upx;
+	}
+	.taxes_con{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		line-height: 98upx;
+		font-size:32upx;
+		font-family:PingFang SC;
+		font-weight:bold;
+		color:#333;
+		border-bottom: 1px solid #EBEBEB;
+	}
+.taxes_tit {
+    width: 61%;
+}
+.taxes_small_tit,.taxes_small_tit image {
+	width: 40upx;
+	height: 40upx;
+	float: left;
+	margin-top: 14upx;
+	margin-right: 15upx;
+}
+.taxes_tit text{
+	height:27upx;
+	font-size:28upx;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.taxes_symbol{
+	font-size:28upx;
+	font-family:PingFang SC;
+	color:#999;
+	width: 20%;
+	text-align: right;
+}
+.logout{
+	text-align: center;
+	font-size:32upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#999;
+	line-height:80upx;
+	background: #FFF;
+	height: 80upx;
+}

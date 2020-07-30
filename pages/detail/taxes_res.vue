@@ -63,48 +63,5 @@
 </script>
 
 <style>
-.circle_warp{
-		width: 100%;
-		text-align: center;
-		padding-top: 63upx;
-		margin: 0 auto;
-		height:480upx;
-	}
-	.circle{
-		width:360upx;
-		height:360upx;
-		border:60upx solid rgba(77,166,255,1);
-		border-radius:50%;
-		margin: 0 auto;
-	}
-	.circle view:first-child{
-		margin-top: 149upx;
-		font-size:32upx;
-		font-family:Arial;
-		font-weight:bold;
-	}
-	.circle view:last-child{
-		margin-top: 31upx;
-		color: #999;
-		font-size:24upx;
-		font-family:PingFang SC;
-		font-weight:500;
-	}
-.desc_warp{
-	margin-top: 77upx;
-}
-.desc{
-	width:100%;
-	height:27upx;
-	font-size:28upx;
-	font-family:PingFang SC;
-	font-weight:500;
-	color:#333333;
-	line-height:27upx;
-	margin-bottom: 30upx;
-	text-align: center;
-}
-.desc text{
-	color: #999;
-}
+	@import url("./css/taxes_res.css");
 </style>

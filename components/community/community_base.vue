@@ -50,27 +50,5 @@
 </script>
 
 <style scoped>
-.community_base_info{
-	padding: 0 30upx;
-	padding-top: 40upx;
-},
-.community_base_desc{
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	width: 100%;
-	margin-bottom: 33upx;
-}
-.community_base_desc view {
-	line-height:26upx;
-	font-size:28upx;
-	color:#999;
-}
-.community_base_desc view text {
-	color:#333;
-	/* font-weight:500; */
-}
-.rCon{
-	width: 240upx;
-}
+@import url("./css/community_base.css");
 </style>

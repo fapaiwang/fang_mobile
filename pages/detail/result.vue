@@ -104,32 +104,5 @@
 </script>
 
 <style scoped>
-page{width: 750upx;overflow-x: hidden;}
-.qiun-padding{padding:2%; width:96%;}
-.qiun-wrap{display:flex; flex-wrap:wrap;}
-.qiun-rows{display:flex; flex-direction:row !important;}
-.qiun-columns{display:flex; flex-direction:column !important;}
-.qiun-common-mt{margin-top:10upx;}
-.qiun-bg-white{background:#FFFFFF;}
-.qiun-title-bar{width:96%; padding:10upx 2%; flex-wrap:nowrap;}
-.qiun-title-dot-light{border-left: 10upx solid #0ea391; padding-left: 10upx; font-size: 32upx;color: #000000}
-.qiun-charts{width: 750upx; height:500upx;background-color: #FFFFFF;}
-.charts{width: 750upx; height:500upx;background-color: #FFFFFF;}
-.list{
-	padding: 0 30upx;
-	margin-top: 84upx;
-}
-.list view{
-	width:100%;
-	height:26upx;
-	font-size:28upx;
-	font-family:PingFang SC;
-	font-weight:500;
-	color:rgba(153,153,153,1);
-	line-height:26upx;
-	margin-bottom: 29upx;
-}
-.list view text{
-	color: #333333 !important;
-}
+@import url("./css/result.css");
 </style>
