@@ -127,7 +127,7 @@
 					_self.bmrs = true;
 				},
 				fail:function(){
-					_self.bmrs = true;
+					_self.bmrs = false;
 				}
 			})
 		},
