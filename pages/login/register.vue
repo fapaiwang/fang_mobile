@@ -146,48 +146,6 @@
 	}
 </script>
 
-<style>
-	
-	.quickTabSwiper{
-		height: 800upx;
-	}
-	.scv{
-		flex-wrap: nowrap;
-		white-space: nowrap;
-		margin: 0 auto;
-		width: 50%;
-		margin-bottom: 40upx;
-	}
-	.scv view{
-		display: inline-block;
-		height: 50upx;
-		line-height: 50upx;
-		text-align: center;
-		color: #999;
-		font-size:28upx;
-		width: 50%;
-		text-align: center;
-	}
-	.scv_line{
-		border:4upx solid #fff;
-		display: flex;
-		margin: 0 auto;
-		width:47upx;
-	}
-	.text-red{
-		color: #000 !important;
-	}
-	.text-red text{
-		background:rgba(224,46,36,1);
-		border:4upx solid rgba(224,46,36,1);
-	}
-	
-	.login_btn{
-		background:#CF2924;
-		border-radius:51upx;
-		width: 90%;
-		font-size:32upx;
-		color: #fff;
-		margin-top: 50upx;
-	}
+<style scoped>
+	@import url("./css/register.css");
 </style>

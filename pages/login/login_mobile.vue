@@ -100,48 +100,5 @@
 </script>
 
 <style scoped>
-	.login_input{
-		display: flex;
-		flex-flow: row;
-		width:90%;
-		height:102upx;
-		border:2upx solid #EFEFF4;
-		border-radius:51upx;
-		margin:0 auto 30upx auto;
-		box-sizing: border-box;
-	}
-	.login_inp{
-		width: 100%;
-		height: 100%;
-		line-height: 90upx;
-		height: 90upx;
-	}
-	.login_img{
-		width: 48upx;
-		height: 48upx;
-		margin: 30upx;
-	}
-	.login_img image{
-		width: 48upx;
-		height: 48upx;
-	}
-	.login_txt{
-		width: 90%;
-		display: flex;
-		flex-flow: row;
-		justify-content: space-between;
-		margin: 0 auto;
-		color: #666;
-		font-size:24upx;
-		font-family:PingFang SC;
-		font-weight:500;
-	}
-	.login_btn{
-		background:#CF2924;
-		border-radius:51upx;
-		width: 90%;
-		font-size:32upx;
-		color: #fff;
-		margin-top: 157upx;
-	}
+	@import url("./css/login_mobile.css");
 </style>

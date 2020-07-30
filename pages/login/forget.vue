@@ -66,15 +66,5 @@
 </script>
 
 <style scoped>
-	.top{
-		margin-top: 48upx !important;
-	}
-	.login_btn{
-		background:#CF2924;
-		border-radius:51upx;
-		width: 90%;
-		font-size:32upx;
-		color: #fff;
-		margin-top: 157upx;
-	}
+	@import url("./css/forget.css");
 </style>

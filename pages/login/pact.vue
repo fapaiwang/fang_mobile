@@ -276,37 +276,5 @@
 </script>
 
 <style scoped>
-.tit{
-	width: 100%;
-	display: block;
-	font-size: 40upx;
-	text-align: center;
-	padding: 0 30upx;
-	font-size: 50upx;
-	line-height: 100upx;
-}
-.con view{
-	line-height: 60upx;
-	text-align: left;
-	margin-bottom: 40upx;
-	padding: 0 30upx;
-	font-size: 30upx;
-}
-.con view text{
-	width: 100%;
-	font-size: 40upx;
-	display: inline-block;
-}
-.ulist,.small_tit{
-	width: 100%;
-	display: inline-block;
-}
-.small_tit{
-	padding: 0 !important;
-	margin-bottom: 0 !important;
-}
-.ulist .item{
-	width: 100%;
-	display: inline-block;
-}
+@import url("./css/pact.css");
 </style>

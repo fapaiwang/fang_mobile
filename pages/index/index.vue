@@ -166,19 +166,5 @@
 </script>
 
 <style scoped>
-.moreView {
-	padding: 40upx 0 30upx;
-	margin-bottom: 0upx;
-},
-.moreViewBtn {
-	width: 100%;
-	height: 88upx;
-	background:rgba(241,241,241,1);
-	border-radius:10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color:rgba(102,102,102,1);
-	font-size: 28upx;
-}
+@import url("./css/index.css");
 </style>

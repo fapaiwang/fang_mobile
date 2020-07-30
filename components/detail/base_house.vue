@@ -14,7 +14,7 @@
 						<image src="../../static/img/community/join.png" class="joinImg"></image>
 						<text class="joinText">关注</text>
 					</view>
-					<view class="shareJoin" @click="join">
+					<view class="shareJoin" @click="share">
 						<image src="../../static/img/community/join.png" class="joinImg"></image>
 						<text class="joinText">分享</text>
 					</view>
@@ -107,27 +107,26 @@
 </template>
 
 <script>
-	var int;
-	var TimeStrs;
-	var TimeStr;
-	var Deadline;
-	var Deadlineb;
+	var _self;
 	export default {
 		name: "baseHouse",
 		props: ["detial","houseType","buildYear","houseTit","communityName","countDownList"],
 		data() {
 			return {
-				bmrs:false
+				bmrs:false,
+				uuid:-1,
 			};
 		},
 		created:function(){
+			_self = this;
 			uni.getStorage({
-				key:"user",
+				key:"userInfo",
 				success:function(res){
-					this.bmrs = true;
+					_self.uuid = res.data.id;
+					_self.bmrs = true;
 				},
 				fail:function(){
-					this.bmrs = true;
+					_self.bmrs = true;
 				}
 			})
 		},
@@ -138,8 +137,35 @@
 			taxes(id,price) {
 				this.fun.navTo(`/pages/detail/taxes?id=${id}&qp=${price}`);
 			},
-			join(){
-				
+			join(){//关注
+				if (this.uuid != -1) {
+					let _param = {
+						"house_id":this.detial.id,
+						"model":"second_house",
+						"user_id":this.uuid,
+					}
+					this.fun.getReq(this.baseUrl+'/api/follow',_param)
+					.then((res)=>{
+						console.log(res[1].data)
+						this.fun.showMsg(res[1].data.msg);
+					})
+				} else {
+					this.fun.navTo('/pages/login/login');
+				}
+			},
+			share(){
+				uni.share({
+					provider:uni.getProvider({
+						service:'oauth',
+						success:function(res){
+							console.log(res.provider)
+						}
+					}),
+					type:0,
+					title:houseTit,
+					summary:houseTit,
+					href:this.baseUrl+"/",
+				})
 			}
 		}
 	}

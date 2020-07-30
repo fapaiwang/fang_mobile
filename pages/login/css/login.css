@@ -1,0 +1,19 @@
+.login_txt{
+	width: 90%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	margin: 0 auto;
+	color: #666;
+	font-size:24upx;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.login_btn{
+	background:#CF2924;
+	border-radius:51upx;
+	width: 90%;
+	font-size:32upx;
+	color: #fff;
+	margin-top: 157upx;
+}

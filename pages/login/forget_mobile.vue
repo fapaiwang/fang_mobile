@@ -66,46 +66,5 @@
 </script>
 
 <style scoped>
-	.login_m{
-		margin-top: 48upx !important;
-	}
-	.login_btn{
-		background:#CF2924;
-		border-radius:51upx;
-		width: 90%;
-		font-size:32upx;
-		color: #fff;
-		margin-top: 157upx;
-	}
-	.login_input{
-		display: flex;
-		flex-flow: row;
-		width:90%;
-		height:102upx;
-		border:2upx solid #EFEFF4;
-		border-radius:51upx;
-		margin:0 auto 30upx auto;
-		box-sizing: border-box;
-	}
-	.code{
-		color: #E02E24;
-		font-size:29upx;
-		font-family:PingFang SC;
-		font-weight:bold;
-		white-space: nowrap;
-		line-height:102upx;
-		padding-right: 40upx;
-		display: inline-block;
-		cursor: pointer;
-	}
-	.login_inp{
-		width: 100%;
-		height: 100%;
-		line-height: 102upx;
-	}
-	.login_img{
-		width: 48upx;
-		height: 48upx;
-		margin: 30upx;
-	}
+	@import url("./css/foget_mobile.css");
 </style>
