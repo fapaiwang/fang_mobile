@@ -22,16 +22,39 @@
 		data() {
 			return {
 				isShow:true,
+				uuid:-1,
 			}
 		},
+	created:function(){
+		_self = this;
+		uni.getStorage({
+			key:"userInfo",
+			success:function(res){
+				_self.uuid = res.data.id;
+				_self.bmrs = true;
+			},
+			fail:function(){
+				_self.bmrs = true;
+			}
+		})
+	},
 		methods: {
 			join(){
-				if (this.isShow) {
-					this.isShow = false;
+				if (this.uuid != -1) {
+					let _param = {
+						"house_id":this.detial.id,
+						"model":"estate",
+						"user_id":this.uuid,
+					}
+					this.fun.getReq(this.baseUrl+'/api/follow',_param)
+					.then((res)=>{
+						console.log(res[1].data)
+						this.fun.showMsg(res[1].data.msg);
+					})
 				} else {
-					this.isShow = true;
+					this.fun.navTo('/pages/login/login');
 				}
-				this.isLogin("/pages/mine/mine");
+				// this.isLogin("/pages/mine/mine");
 			},
 			isLogin(){
 				uni.getStorage({
