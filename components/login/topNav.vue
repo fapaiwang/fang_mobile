@@ -18,11 +18,11 @@
 		},
 		methods: {
 			login(){
-				this.fun.navTo("../../pages/login/login");
+				this.fun.navTo("/pages/login/login");
 			},
 			close(){
 				uni.switchTab({
-					url:"../../pages/mine/mine"
+					url:"/pages/mine/mine"
 				})
 			},
 		}

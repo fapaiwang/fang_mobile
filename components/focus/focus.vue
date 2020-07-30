@@ -44,9 +44,7 @@
 				return this.baseUrl;
 			},
 			getTargetUrl(){
-				uni.navigateTo({
-					url:'../../pages/news/detail'
-				})
+				this.fun.navTo("/pages/news/detail");
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<Attention></Attention>
+		<Attention :communityData="communityData"></Attention>
 		<House :houseData="houseData"></House>
 	</view>
 </template>
@@ -18,32 +18,41 @@
 		data() {
 			return {
 				houseData:[],
+				communityData:[],
 				userId:-1
 			}
 		},
 		onLoad:function(){
 			_self = this;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
-					console.log(res.data,111)
 					if (res.data.code==20000){
-						
-						uni.clearStorage("userInfo");
+						uni.clearStorage(_self.fun.userInfo);
 						this.fun.navTo("/pages/login/login")
 					}
-					console.log(res.data)
 					_self.userId = res.data.id;
 				},
 			})
-			this.getHouse();
+			this.getRes();
 		},
 		methods: {
+			getRes(){
+				this.getHouse();
+				this.getCommunity();
+			},
 			getHouse(){
 				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"second_house","user_id":this.userId})
 				.then((res)=>{
 					console.log(res[1].data)
-					this.houseData = res[1].data;
+					this.houseData = res[1].data.data.data;
+				})
+			},
+			getCommunity(){
+				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"estate","user_id":this.userId})
+				.then((res)=>{
+					console.log(res[1].data)
+					this.communityData = res[1].data.data.data;
 				})
 			}
 		}

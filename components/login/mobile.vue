@@ -44,13 +44,13 @@
 					return false;
 				}
 				_self.fun.getReq(_self.baseUrl+'/api/send_sms',{"mobile":_self.phone}).then((res)=>{
-					this.capVal = res[1].data.data.code;
+					
+						this.capVal = res[1].data.data.code;
+						if (time ==60){
+							_self.daojs();
+						}
+						_self.updateVal()
 				})
-				
-				if (time ==60){
-					_self.daojs();
-				}
-				_self.updateVal()
 			},
 			daojs(){
 				interval = setInterval(()=>{

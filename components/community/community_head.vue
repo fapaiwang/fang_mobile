@@ -30,7 +30,7 @@
 			_self = this;
 			_self.id = _self.detail.id;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
 					_self.uuid = res.data.id;
 					_self.bmrs = true;

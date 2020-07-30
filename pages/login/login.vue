@@ -31,7 +31,7 @@
 		created() {
 			var _self = this;
 			uni.getStorage({
-				key:"user",
+				key:_self.fun.userInfo,
 				success:function(res){
 					uni.navigateBack({
 						delta:1
@@ -56,8 +56,8 @@
 				.then((res)=>{
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
-							key:"userInfo",
-							data:res[1].data
+							key:_self.fun.userInfo,
+							data:res[1].data.data
 						})
 						uni.navigateBack({
 							delta:3
@@ -72,10 +72,10 @@
 				})
 			},
 			register(){//注册
-				this.fun.navTo("../../pages/login/register")
+				this.fun.navTo("/pages/login/register")
 			},
 			login_mobile(){
-				this.fun.navTo("../../pages/login/login_mobile")
+				this.fun.navTo("/pages/login/login_mobile")
 			}
 		}
 	}

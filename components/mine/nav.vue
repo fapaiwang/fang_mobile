@@ -37,19 +37,15 @@
 				this.isShow = val;
 			},
 			login(){
-				uni.navigateTo({
-					url:"../../pages/login/login"
-				})
+				this.fun.navTo("/pages/login/login");
 			},
 			register(){
-				uni.navigateTo({
-					url:"../../pages/login/register"
-				})
+				this.fun.navTo("/pages/login/register");
 			},
 			getStore(){
 				var _self = this;
 				uni.getStorage({
-					key:"user",
+					key:_self.fun.userInfo,
 					success:function(res){
 						_self.isShow = false;
 					},

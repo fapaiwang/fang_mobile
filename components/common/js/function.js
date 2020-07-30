@@ -2,6 +2,8 @@ class Fun{
 	webSite = "https://www.fangpaiwang.com";
 	successData = new Array();
 	errData = new Array();
+	userInfo = "userInfo";//
+	
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({
 			url:url

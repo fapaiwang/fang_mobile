@@ -78,7 +78,7 @@
 		created() {
 			var _self = this;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
 					_self.userRule = res.data.model;
 				},
@@ -184,8 +184,6 @@
 				uni.getStorage({
 					key:"joinDetail",
 					success:function(res){
-						// res.data.indexOf(index)!=-1
-						console.log(222,res[1].data.data);
 						res.data.append([{name:options.id,val:res[1].data.data}]);
 					},
 					fails:function(){

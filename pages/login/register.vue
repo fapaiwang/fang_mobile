@@ -85,10 +85,10 @@
 					this.fun.showMsg("验证码不能为空");
 					return false
 				}
-				// if (this.captcha != this.cap) {
-				// 	this.fun.showMsg("验证码不正确");
-				// 	return false
-				// }
+				if (this.captcha != this.cap) {
+					this.fun.showMsg("验证码不正确");
+					return false
+				}
 				if (this.isShow !=true) {
 					this.fun.showMsg("请阅读并勾选协议");
 					return false
@@ -97,7 +97,7 @@
 				.then((res)=>{
 					console.log(res[1].data)
 					if (res[1].data.code ==10000) {
-						this.fun.navTo("../../pages/mine/mine");
+						this.fun.navTo("/pages/mine/mine");
 					}
 				}).catch((err)=>{
 					this.fun.showMsg(err)

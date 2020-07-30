@@ -40,7 +40,7 @@
 		created() {
 			var _self = this;
 			uni.getStorage({
-				key:"user",
+				key:_self.fun.userInfo,
 				success:function(res){
 					uni.navigateBack({
 					    delta: 2
@@ -71,16 +71,13 @@
 					this.fun.showMsg("密码小于6位");
 					return false;
 				}
+				var _self = this;
 				this.fun.getReq(this.baseUrl+'/api/login_pwd',{mobile:this.phone,password:this.pwd})
 				.then((res)=>{
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
-							key:"userInfo",
+							key:_self.fun.userInfo,
 							data:res[1].data.data
-						})
-						uni.setStorage({
-							key:"user",
-							data:this.phone
 						})
 						uni.navigateBack({
 							delta:2

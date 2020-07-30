@@ -52,6 +52,7 @@
 </template>
 
 <script>
+	var _self = this;
 	import grayBox from "@/components/detail/gray_box.vue" //灰色边框
 	export default {
 		data() {
@@ -64,18 +65,23 @@
 		},
 		methods: {
 			list(){
-				this.isLogin("../../pages/mine/list")
+				this.isLogin("/pages/mine/list")
 			},
 			logout(){
-				uni.clearStorage("userInfo");
-				uni.switchTab({
-					url:"/pages/index/index"
-				})
-				//17316082501
+				_self = this;
+				uni.getStorage({
+					key:_self.fun.userInfo,
+					success:function(res){
+						uni.clearStorage(_self.fun.userInfo);
+						uni.switchTab({
+							url:"/pages/index/index"
+						})
+					},
+				})//17316082501
 			},
 			isLogin(url){
 				uni.getStorage({
-					key:"userInfo",
+					key:_self.fun.userInfo,
 					success:function(res){
 						uni.navigateTo({
 							url:url

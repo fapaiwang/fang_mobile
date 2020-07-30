@@ -51,19 +51,14 @@
 			getStore(){
 				var _self = this;
 				uni.getStorage({
-					key:"user",
+					key:_self.fun.userInfo,
 					success:function(res){
+						_self.userInfo = res.data;
 						_self.isShow = false;
 					},
 					fail:function(){
 						_self.isShow = true;
 					}
-				})
-				uni.getStorage({
-					key:"userInfo",
-					success:function(res){
-						_self.userInfo = res.data;
-					},
 				})
 			},
 			getBannerData() {

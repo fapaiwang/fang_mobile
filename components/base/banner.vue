@@ -26,16 +26,7 @@
 		},
 		methods: {
 			getImgUrl(ImgSrc){
-				if (ImgSrc == null || ImgSrc == "" ) {
-					return "../../static/img/base/default.png";
-				}
-				if (ImgSrc.substr(0,4) == "http") {
-					return ImgSrc;
-				} else if (ImgSrc.substr(0,1) == "/") {
-					return this.baseUrl+`${ImgSrc}`;
-				} else {
-					return this.baseUrl+`/${ImgSrc}`;
-				}
+				return this.fun.getImgSrc(ImgSrc);
 			}
 		}
 	}

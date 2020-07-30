@@ -2,9 +2,6 @@
 	<view>
 		<view class="header-wrap">
 				 <view class="index-header">
-					<view  @click="onPickCityClick" class="addressView">
-						<image class="arrowIcon" src='../../static/img/base/left.png'></image>
-					</view>
 					<view class="input-wrap">
 						<image class="iconfangdajing" src='../../static/img/base/searchIcon@2x.png'></image>
 						<input maxlength="140"
@@ -13,9 +10,8 @@
 							autocomplete="off" 
 							type="search"
 							v-model="keyword"
-							@click="inputChange"
 							placeholder-class="uni-inputPlaceholder"
-							class="uni-input">
+							class="uni-input" @confirm="inputChange">
 					</view>
 					<view class="user-wrap"
 						  @click="goUserClick">
@@ -54,7 +50,7 @@
 				})
 			},
 			inputChange:function(){
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?keyword'+this.keyword);
+				this.fun.navTo('/pages/all/index?keyword='+this.keyword)
 			},
 			goUserClick:function(){
 				uni.switchTab({

@@ -14,13 +14,8 @@
 </template>
 
 <script>
-	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
-	
 	export default {
 		props: ["info","bannerTit","bannerCol"],
-		components:{
-			uniSwiperDot
-		},
 		name: "homeBanner",
 		data() {
 			return {

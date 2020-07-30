@@ -38,7 +38,7 @@
 				console.log(this.value)
 			},
 			inputChange:function(){
-				this.fun.navTo("../../pages/search/search")
+				this.fun.navTo("/pages/search/search")
 			},
 			goUserClick:function(){
 				uni.switchTab({

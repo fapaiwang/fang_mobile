@@ -121,7 +121,7 @@
 		created:function(){
 			_self = this;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
 					_self.uuid = res.data.id;
 					_self.bmrs = true;
@@ -139,6 +139,7 @@
 				this.fun.navTo(`/pages/detail/taxes?id=${id}&qp=${price}`);
 			},
 			join(){//关注
+				console.log(this.uuid,11)
 				if (this.uuid != -1) {
 					let _param = {
 						"house_id":this.detial.id,

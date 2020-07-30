@@ -23,6 +23,7 @@
 </template>
 
 <script>
+	var _self;
 	export default {
 		data() {
 			return {
@@ -31,17 +32,18 @@
 		},
 		methods: {
 			trust(){
-				this.isLogin("../../pages/mine/attention")
+				this.isLogin("/pages/mine/attention")
 			},
 			reserve(){
-				this.isLogin("../../pages/mine/attention")
+				this.isLogin("/pages/mine/attention")
 			},
 			attention(){
-				this.isLogin("../../pages/mine/attention")
+				this.isLogin("/pages/mine/attention")
 			},
 			isLogin(url){
+				_self = this;
 				uni.getStorage({
-					key:"user",
+					key:_self.fun.userInfo,
 					success:function(res){
 						uni.navigateTo({
 							url:url

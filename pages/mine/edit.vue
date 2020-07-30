@@ -49,7 +49,7 @@
 		onLoad:function(){
 			_self = this;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
 					_self.userInfo = res.data;
 					_self.phone = res.data.mobile;
@@ -79,7 +79,7 @@
 				this.fun.getReq(this.baseUrl+'/api/save_user_info',_param).then((res)=>{
 					if (res[1].data.code==10000) {
 						uni.setStorage({
-							key:"userInfo",
+							key:_self.fun.userInfo,
 							data:res[1].data.data
 						})
 						uni.navigateBack({

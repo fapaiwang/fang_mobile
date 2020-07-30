@@ -63,12 +63,10 @@
 				this.TabCur = index;
 			},
 			getImgSrc(imgSrc){
-				return this.baseUrl+imgSrc;
+				return this.fun.getImgSrc(imgSrc);
 			},
 			getTargetUrl(){
-				uni.navigateTo({
-					url:'../../pages/news/detail'
-				})
+				this.fun.navTo("pages/news/detail");
 			}
 		}
 	}
