@@ -91,7 +91,7 @@
 			</view>
 			<view class="featuredtTitleView" @click="taxes(detial.id,detial.qipai)">
 				<view class="titleText">
-					<view>税费：<text class="desc">产权号、土地证、欠费......</text></view>
+					<view>税费：<text class="desc">税费计算、房贷计算、首付成数...</text></view>
 				</view>
 				<view class="tieleImg">
 					>

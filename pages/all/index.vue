@@ -259,19 +259,19 @@
 				})
 				this.isShow = true;
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
+			},
+			//存缓存
+			setStore(key,val){
+				uni.setStorage({
+					key:key,
+					data:val
+				})
 			}
 		},
 		// 监听页面滚动距离
 		onPageScroll(e) {
 			this.rect = e.scrollTop
 		},
-		//存缓存
-		setStore(key,val){
-			uni.setStorage({
-				key:key,
-				data:val
-			})
-		}
 	}
 
 </script>
