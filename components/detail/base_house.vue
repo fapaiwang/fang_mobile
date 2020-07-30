@@ -11,11 +11,11 @@
 				</view>
 				<view class="share">
 					<view class="shareJoin" @click="join">
-						<image src="../../static/img/community/join.png" class="joinImg"></image>
+						<image :src="isJoin ==1 ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
 						<text class="joinText">关注</text>
 					</view>
 					<view class="shareJoin" @click="share">
-						<image src="../../static/img/community/join.png" class="joinImg"></image>
+						<image src="../../static/img/community/share.png" class="joinImg"></image>
 						<text class="joinText">分享</text>
 					</view>
 				</view>
@@ -115,6 +115,7 @@
 			return {
 				bmrs:false,
 				uuid:-1,
+				isJoin:0,
 			};
 		},
 		created:function(){
@@ -146,7 +147,7 @@
 					}
 					this.fun.getReq(this.baseUrl+'/api/follow',_param)
 					.then((res)=>{
-						console.log(res[1].data)
+						this.isJoin = res[1].data.status;
 						this.fun.showMsg(res[1].data.msg);
 					})
 				} else {
@@ -172,5 +173,5 @@
 </script>
 
 <style scoped>
-@import url("@/components/common/css/community/base_house.css");
+@import url("./css/base_house.css");
 </style>
