@@ -7,7 +7,7 @@
 					<view class="houseItemImg">
 						<image :src="getImgUrl(housItem.img)" mode=""></image>
 						<view class="tag">
-							<text v-if="housItem.characteristic_name!='' || housItem.characteristic_name!=null ">{{housItem.characteristic_name}}</text>
+							<text v-if="housItem.characteristic_name!=''">{{housItem.characteristic_name}}</text>
 							<text>{{housItem.jieduan_name}}</text>
 						</view>
 					</view>
