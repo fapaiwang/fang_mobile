@@ -163,6 +163,12 @@
 		    "path" : "pages/detail/house",
 		    "style" : {}
 		}
+        ,{
+            "path" : "pages/mine/password",
+            "style" : {
+            	"navigationBarTitleText": "修改密码"
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

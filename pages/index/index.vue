@@ -78,13 +78,13 @@
 			},
 			getHomeMenuData() {
 				this.fun.getReq(RequestUrl.homeMenu).then((res)=>{
-					this.homeMenuData = res[1].data.data
+					this.homeMenuData = res[1].data.data;
 				})
 			},
 			getBannerData() {
 				this.fun.getReq(RequestUrl.indexBanner,{"space_id":4})
 				.then((res)=>{
-					this.bannerdata = res[1].data.data
+					this.bannerdata = res[1].data.data;
 				})
 				this.fun.getReq(RequestUrl.indexBanner,{"space_id":14})
 				.then((res)=>{

@@ -67,7 +67,7 @@
 				this.isLogin("../../pages/mine/list")
 			},
 			logout(){
-				uni.clearStorage("user");
+				uni.clearStorage("userInfo");
 				uni.switchTab({
 					url:"/pages/index/index"
 				})
@@ -75,7 +75,7 @@
 			},
 			isLogin(url){
 				uni.getStorage({
-					key:"user",
+					key:"userInfo",
 					success:function(res){
 						uni.navigateTo({
 							url:url

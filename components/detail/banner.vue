@@ -41,14 +41,18 @@
 
 <style>
 	.free{
-		padding: 21upx 23upx;
 		border-radius:5px;
 		position: absolute;
 		left: 0;
 		top: 0;
-		color:#FFFEFA;
 		z-index: 1;
 		text-align: center;
-		font-size: 30upx;
+		font-size:28px;
+		font-family:PingFang SC;
+		font-weight:bold;
+		width:140upx;
+		height:70upx;
+		line-height: 70upx;
+		color: #fff;
 	}
 </style>

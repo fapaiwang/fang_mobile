@@ -56,8 +56,8 @@
 				.then((res)=>{
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
-							key:"user",
-							data:this.phone
+							key:"userInfo",
+							data:res[1].data
 						})
 						uni.navigateBack({
 							delta:3

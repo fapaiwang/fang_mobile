@@ -48,7 +48,6 @@
 						"model":"estate",
 						"user_id":this.uuid,
 					}
-					console.log(_param)
 					this.fun.getReq(this.baseUrl+'/api/follow',_param)
 					.then((res)=>{
 						this.isShow = res[1].data.status;

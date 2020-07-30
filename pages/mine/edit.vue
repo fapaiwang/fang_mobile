@@ -9,44 +9,52 @@
 			</text>
 		</view>
 		<view class="taxes_warp">
-			<view class="taxes_con">
+			<view class="taxes_con  taxes_input">
 				<view class="taxes_tit">
 					<text>邮箱</text>
 				</view>
-				<view class="taxes_symbol">></view>
+				<input type="text" class="input" v-model="email"/>
 			</view>
-			<view class="taxes_con">
+			<view class="taxes_con taxes_input">
 				<view class="taxes_tit">
 					<text>手机号</text>
 				</view>
-				<view class="taxes_symbol">></view>
+				<input type="text" class="input" v-model="phone"/>
 			</view>
-			<view class="taxes_con">
+			<view class="taxes_con" @click="changePwd">
 				<view class="taxes_tit">
 					<text>修改密码</text>
 				</view>
 				<view class="taxes_symbol">></view>
+			</view>
+			<view class="logout" @click="edit">
+				确定修改
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	var _self;
 	export default {
 		data() {
 			return {
 				userInfo:[],
 				nickName:"",
+				phone:"",
+				email:"没填写",
+				userId:-1
 			}
 		},
 		onLoad:function(){
-			var _self = this;
+			_self = this;
 			uni.getStorage({
 				key:"userInfo",
 				success:function(res){
-					this.userInfo = res.data;
-					console.log(this.userInfo);
-					this.nickName = res.data.nick_name
+					_self.userInfo = res.data;
+					_self.phone = res.data.mobile;
+					_self.nickName = res.data.nick_name;
+					_self.userId = res.data.id;
 				},
 			})
 			this.getUserInfo();
@@ -60,17 +68,32 @@
 				if (this.userInfo.length >=1) {
 					ImgSrc = userInfo.img
 				}
-				if (ImgSrc == null || ImgSrc == "" ) {
-					return "../../static/img/base/default.png";
-				}
-				if (ImgSrc.substr(0,4) == "http") {
-					return ImgSrc;
-				} else if (ImgSrc.substr(0,1) == "/") {
-					return this.baseUrl+`${ImgSrc}`;
-				} else {
-					return this.baseUrl+`/${ImgSrc}`;
-				}
+				return this.fun.getImgSrc(ImgSrc);
 			},
+			edit(){
+				let _param = {
+					"nick_name":this.nickName,
+					"email" : this.email,
+					"id" : this.userId
+				}
+				this.fun.getReq(this.baseUrl+'/api/save_user_info',_param).then((res)=>{
+					if (res[1].data.code==10000) {
+						uni.setStorage({
+							key:"userInfo",
+							data:res[1].data.data
+						})
+						uni.navigateBack({
+							delta:1
+						})
+					} else {
+						this.fun.showMsg(res[1].data.msg);
+						return false;
+					}
+				})
+			},
+			changePwd(){
+				this.fun.navTo("/pages/mine/password")
+			}
 		}
 	}
 </script>

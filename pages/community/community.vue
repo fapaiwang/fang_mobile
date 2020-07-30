@@ -1,7 +1,7 @@
 <template>
 	<view class="community_warp">
 		<banner :info="info"></banner>
-		<communityHead :cData="cData"></communityHead>
+		<communityHead :detail="detail" :communityId="communityId"></communityHead>
 		<communityBase :cBase="cBase" :buildYears="buildYears" :address="address"></communityBase>
 		<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 		<grayBox></grayBox>
@@ -40,10 +40,11 @@
 				marker: [],
 				latitude: '',
 				longitude: '',
-				cData: [],
+				detail: [],
 				cBase: [],
 				buildYears: '',
-				address: ''
+				address: '',
+				communityId:0,
 			}
 		},
 		onLoad:function(options) {
@@ -59,19 +60,20 @@
 				uni.request({
 					url:this.baseUrl+"/api/estate/estate_detail?id="+id,
 					success:(res) => {
-						this.cData = res.data.data;
-						this.cBase = this.cData.data;
-						this.buildYears = this.cData.years;
-						this.address = this.cData.address;
-						this.info = this.cData.file == null ? this.info : this.cData.file;
-						this.latitude = this.cData.lat
-						this.longitude = this.cData.lng
+						this.detail = res.data.data;
+						this.communityId = id;
+						this.cBase = this.detail.data;
+						this.buildYears = this.detail.years;
+						this.address = this.detail.address;
+						this.info = this.detail.file == null ? this.info : this.detail.file;
+						this.latitude = this.detail.lat
+						this.longitude = this.detail.lng
 						this.marker = [{
-							longitude:this.cData.lng,
-							latitude:this.cData.lat,
+							longitude:this.detail.lng,
+							latitude:this.detail.lat,
 							iconPath: '',
 							callout:{//自定义标记点上方的气泡窗口 点击有效
-								content:this.cData.title,//文本
+								content:this.detail.title,//文本
 								color:'#3A6385',//文字颜色
 								fontSize:14,//文本大小
 								borderRadius:2,//边框圆角

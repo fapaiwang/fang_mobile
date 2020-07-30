@@ -38,6 +38,10 @@
 		color:#333;
 		border-bottom: 1px solid #EBEBEB;
 	}
+	.taxes_con .input{
+		line-height: 98upx;
+		height: 98upx;
+	}
 /* .taxes_tit {
     width: 61%;
 } */
@@ -54,4 +58,21 @@
 	color:#999;
 	width: 20%;
 	text-align: right;
+}
+.taxes_input{
+	justify-content: space-between;
+}
+
+.input{
+	text-align: right;
+}
+.logout{
+	text-align: center;
+	font-size:32upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#999;
+	line-height:80upx;
+	background:rgba(241,241,241,1);
+	height: 80upx;
 }
