@@ -1,0 +1,11 @@
+.uni-padding-wrap{
+	padding: 0 30upx;
+}
+.page-section-spacing,.swiper{
+	height: 237upx;
+}
+.swiper-item {
+	border-radius: 10upx;
+	height: 237upx;
+}
+image{will-change: transform}

@@ -2,7 +2,7 @@
 	<view class="container">
 		<view v-if="showCon">
 			<banner :info="info" :bannerTit="bannerTit" :bannerCol="bannerCol"></banner>
-			<baseHouse :communityName="communityName" :detial="detial" :houseType="houseType" :buildYear="buildYear" :houseTit="houseTit" :countDownList="countDownList"></baseHouse>
+			<baseHouse :communityName="communityName" :detial="detial" :houseType="houseType" :buildYear="buildYear" :houseTit="houseTit" :countDownList="countDownList" :like="like"></baseHouse>
 			<grayBox></grayBox>
 			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData"></housingSituation>
 			<grayBox></grayBox>
@@ -73,6 +73,8 @@
 				bannerTit:'',
 				bannerCol:'',
 				userRule:-1,
+				like:-1,
+				HouseKey:'',
 			}
 		},
 		created() {
@@ -91,7 +93,12 @@
 			if (!options.id) {
 				this.getHome();
 			}
+			if (options.like !=undefined) {
+				this.like = options.like;
+			}
+			
 			this.getRecommendPersion(options.id)
+			this.getHouseKey();
 			this.fun.getReq(this.baseUrl+"/api/second/houseDetail",{"id":options.id})
 			.then((res)=>{
 				if (Number(res[1].data.code) == 20000) {
@@ -99,10 +106,58 @@
 				} else {
 					this.showCon = true
 					this.getResult(res[1].data.data);
+					this.getStoreHouse(res[1].data.data);
 				}
 			})
+			// uni.clearStorage(this.fun.historyHouse)
+			// uni.clearStorage(this.fun.houseKeys)
 		},
 		methods: {
+			getStoreHouse(detailData) {//浏览房源
+				var _self = this;
+				var houseList = new Array();
+				uni.getStorage({
+					key:_self.fun.historyHouse,
+					success:function(res) {
+						houseList = res.data;
+						if (_self.HouseKey.indexOf(detailData.id) == -1) {
+							houseList.push(detailData)
+							_self.setHouseStore(houseList);
+							_self.setHouseKey(detailData.id);
+						}
+					},
+					fail:function(){
+						var house = [];
+						house.push(detailData)
+						_self.setHouseStore(house);
+						_self.setHouseKey(detailData.id);
+					}
+				})
+			},
+			setHouseStore(houseList){
+				var _self = this;
+				uni.setStorage({
+					key:_self.fun.historyHouse,
+					data:houseList
+				})
+			},
+			getHouseKey() {
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.houseKeys,
+					success:function(ops){
+						_self.HouseKey = ops.data;
+					},
+				})
+			},
+			setHouseKey(id){
+				var _self = this;
+				_self.HouseKey = _self.HouseKey+" "+id;
+				uni.setStorage({
+					key:_self.fun.houseKeys,
+					data:_self.HouseKey
+				})
+			},
 			getResult(_res){
 				this.detial = _res;
 				this.info = this.detial.file;
@@ -180,21 +235,6 @@
 						iconPath: '',
 					},
 				}];
-				
-				uni.getStorage({
-					key:"joinDetail",
-					success:function(res){
-						res.data.append([{name:options.id,val:res[1].data.data}]);
-					},
-					fails:function(){
-						var joinDetail = [];
-						console.log(333,res[1].data.data);
-						joinDetail.append([{name:options.id,val:res[1].data.data}]);
-						uni.setStorage({
-							key:joinDetail
-						})
-					}
-				})
 			},
 			getHome() {
 				this.detialText = '没有内容'

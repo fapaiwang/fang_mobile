@@ -1,7 +1,7 @@
 <template>
 	<view class="community_warp">
 		<banner :info="info"></banner>
-		<communityHead :detail="detail" :communityId="communityId"></communityHead>
+		<communityHead :detail="detail" :communityId="communityId" :like="like"></communityHead>
 		<communityBase :cBase="cBase" :buildYears="buildYears" :address="address"></communityBase>
 		<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 		<grayBox></grayBox>
@@ -45,12 +45,68 @@
 				buildYears: '',
 				address: '',
 				communityId:0,
+				like:-1,
+				estateKey:'',
 			}
 		},
 		onLoad:function(options) {
+			if (options.like != undefined) {
+				this.like = options.like;
+			}
 			this.getHomeData(options.id);
+			// uni.clearStorage(this.fun.historyEstate)
+			// uni.clearStorage(this.fun.estateKeys)
+			this.getEstateKey();
 		},
 		methods: {
+			getStoreHouse(id,detailData) {//浏览小区
+				var _self = this;
+				var storeList = new Array();
+				uni.getStorage({
+					key:_self.fun.historyEstate,
+					success:function(res){
+						storeList = res.data;
+						if (_self.estateKey.indexOf(id) ==-1) {
+								detailData["id"] = id
+								storeList.push(detailData)
+								_self.setEstateStore(storeList);
+								_self.estateKey = _self.estateKey+" "+id;
+								_self.setKey(_self.estateKey);
+						} 
+					},
+					fail:function(){
+						var estateList = [];
+						detailData["id"] = id
+						estateList.push(detailData)
+						_self.setEstateStore(estateList);
+						var estateKey = id;
+						_self.setKey(estateKey)
+					}
+				})
+			},
+			setEstateStore(houseList) {
+				var _self = this;
+				uni.setStorage({
+					key:_self.fun.historyEstate,
+					data:houseList,
+				})
+			},
+			getEstateKey() {
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.estateKeys,
+					success:function(ops){
+						_self.estateKey = ops.data;
+					},
+				})
+			},
+			setKey(estateKey){
+				var _self = this;
+				uni.setStorage({
+					key:_self.fun.estateKeys,
+					data:estateKey
+				})
+			},
 			getHomeData(id){
 				this.getBaseInfo(id);
 				this.getRecommendHouseData(id);
@@ -62,6 +118,7 @@
 					success:(res) => {
 						this.detail = res.data.data;
 						this.communityId = id;
+						this.getStoreHouse(id,res.data.data);
 						this.cBase = this.detail.data;
 						this.buildYears = this.detail.years;
 						this.address = this.detail.address;

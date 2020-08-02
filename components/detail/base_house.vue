@@ -11,7 +11,7 @@
 				</view>
 				<view class="share">
 					<view class="shareJoin" @click="join">
-						<image :src="isJoin ==1 ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
+						<image :src="isLike(detial.id)" class="joinImg"></image>
 						<text class="joinText">关注</text>
 					</view>
 					<view class="shareJoin" @click="share">
@@ -110,12 +110,13 @@
 	var _self;
 	export default {
 		name: "baseHouse",
-		props: ["detial","houseType","buildYear","houseTit","communityName","countDownList"],
+		props: ["detial","houseType","buildYear","houseTit","communityName","countDownList","like"],
 		data() {
 			return {
 				bmrs:false,
 				uuid:-1,
-				isJoin:0,
+				isJoin:-1,
+				likeHouse:[]
 			};
 		},
 		created:function(){
@@ -124,32 +125,51 @@
 				key:_self.fun.userInfo,
 				success:function(res){
 					_self.uuid = res.data.id;
-					_self.bmrs = true;
 				},
 				fail:function(){
 					_self.bmrs = false;
 				}
 			})
+			
+			uni.getStorage({
+				key:_self.fun.likeHouse,
+				success:function(ops){
+					_self.likeHouse = ops.data;
+				},
+			})
 		},
 		methods:{
+			isLike(id) {
+				return this.likeHouse.indexOf(id) != -1 ? '../../static/img/community/xin.png' :  '../../static/img/community/join.png';
+			},
 			getOther(id) {
 				this.fun.navTo(`/pages/detail/other?id=${id}`);
 			},
 			taxes(id,price) {
 				this.fun.navTo(`/pages/detail/taxes?id=${id}&qp=${price}`);
 			},
-			join(){//关注
-				console.log(this.uuid,11)
+			join(){
+				var _self = this;
 				if (this.uuid != -1) {
+					var _houseId = this.detial.id;
 					let _param = {
-						"house_id":this.detial.id,
+						"house_id":_houseId,
 						"model":"second_house",
 						"user_id":this.uuid,
 					}
 					this.fun.getReq(this.baseUrl+'/api/follow',_param)
 					.then((res)=>{
-						this.isJoin = res[1].data.status;
 						this.fun.showMsg(res[1].data.msg);
+						if (res[1].data.status==1) {
+							_self.likeHouse.push(_houseId)
+						} else {
+							_self.likeHouse.splice(_self.likeHouse.indexOf(_houseId), 1);
+						}
+						uni.setStorage({
+							key:_self.fun.likeHouse,
+							data:_self.likeHouse
+						})
+						_self.isJoin = res[1].data.status;
 					})
 				} else {
 					this.fun.navTo('/pages/login/login');

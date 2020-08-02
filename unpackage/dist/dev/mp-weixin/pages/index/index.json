@@ -3,7 +3,7 @@
   "usingComponents": {
     "nav-search": "/components/base/navSearchHeader",
     "home-menu": "/components/home/navSearchHeader",
-    "banner": "/components/base/banner",
+    "banner": "/components/home/banner",
     "auction-menu": "/components/home/auction",
     "info-scroll": "/components/home/infoScroll",
     "center-banner": "/components/home/centerBanner",

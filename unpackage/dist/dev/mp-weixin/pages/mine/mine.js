@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 221));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 397));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 414));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -192,18 +192,13 @@ __webpack_require__.r(__webpack_exports__);
     getStore: function getStore() {
       var _self = this;
       uni.getStorage({
-        key: "user",
+        key: _self.fun.userInfo,
         success: function success(res) {
+          _self.userInfo = res.data;
           _self.isShow = false;
         },
         fail: function fail() {
           _self.isShow = true;
-        } });
-
-      uni.getStorage({
-        key: "userInfo",
-        success: function success(res) {
-          _self.userInfo = res.data;
         } });
 
     },
@@ -224,16 +219,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.userInfo.length >= 1) {
         ImgSrc = userInfo.img;
       }
-      if (ImgSrc == null || ImgSrc == "") {
-        return "../../static/img/base/default.png";
-      }
-      if (ImgSrc.substr(0, 4) == "http") {
-        return ImgSrc;
-      } else if (ImgSrc.substr(0, 1) == "/") {
-        return this.baseUrl + "".concat(ImgSrc);
-      } else {
-        return this.baseUrl + "/".concat(ImgSrc);
-      }
+      return this.fun.getImgSrc(ImgSrc);
     },
     changeInfo: function changeInfo() {
       if (this.isShow) {

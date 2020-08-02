@@ -20,10 +20,10 @@
 								</view>
 								<view class="titleInfo">
 									<view class="second_total">
-										<text>房源<text style="color: #DF2D23">{{item.second_total}}</text>套</text>
+										<text>房源<text style="color: #DF2D23">{{item.num}}</text>套</text>
 									</view>
 									<view class="price">
-										<text style="color: #DF2D23">{{item.second_total}}元/㎡</text>
+										<text style="color: #DF2D23">{{item.price}}元/㎡</text>
 									</view>
 								</view>
 							</view>

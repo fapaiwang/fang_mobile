@@ -1,4 +1,3 @@
-
 .prefer-posi.data-v-776cc378{
 	position: absolute;
 	left: 0;
@@ -8,10 +7,9 @@
 	background: #fff;
 }
 .delica-view.data-v-776cc378{
-	padding: 28rpx 0;
 	border-bottom: 1rpx solid #EBEBEB;
 	width: 92%;
-	margin: 0 auto;
+	margin: 28rpx auto 0;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;

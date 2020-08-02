@@ -28,7 +28,30 @@
 				newPasswd:'',
 			}
 		},
+		onLoad:function(){
+			this.getUserInfo();
+		},
+		onShow:function(){
+			this.phone = "";
+			this.captcha = "";
+			this.cap = "";
+			this.password = "";
+			this.newPasswd = "";
+			this.getUserInfo();
+		},
 		methods: {
+			getUserInfo(){
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.userInfo,
+					success:function(res){
+						console.log(111)
+						uni.redirectTo({
+							url:"/pages/mine/mine"
+						});
+					},
+				})
+			},
 			edit(){
 				var _self = this;
 				if (this.phone =="") {
@@ -61,11 +84,15 @@
 					password:this.password,
 					password2:this.newPasswd,
 				}
-				this.fun.getReq(this.baseUrl+'/api/registerDo',_param)
+				this.fun.getReq(this.baseUrl+'/api/reset_password',_param)
 				.then((res)=>{
+					console.log(res[1],111)
 					if (res[1].data.code ==10000) {
+						this.fun.showMsg(res[1].data.data);
 						uni.clearStorage(_self.fun.userInfo)
-						this.fun.navTo("/pages/login/login");
+						timer = setTimeout(function(){
+							_self.fun.navTo("/pages/login/login");
+						},500);
 					}
 				}).catch((err)=>{
 					this.fun.showMsg(err)

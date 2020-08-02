@@ -21,7 +21,7 @@
 	var _self, page,freePage = 1;//timer延迟期
 	
 	import navSearch from '@/components/base/navSearchHeader.vue'; // 搜索框
-	import banner from '@/components/base/banner.vue'; // banner
+	import banner from '@/components/home/banner.vue'; // banner
 	import HomeMenu from '@/components/home/navSearchHeader.vue'; //快速导航
 	import auctionMenu from '@/components/home/auction.vue' // 拍卖
 	import infoScroll from '@/components/home/infoScroll.vue' // 今日新增推荐
@@ -29,7 +29,7 @@
 	import featured from '@/components/home/featured.vue' // 精选小区
 	import getrecommendHouse from '@/components/home/recommendHouse.vue' // 推荐房源
 	import WucTab from '@/components/tab/wuc-tab.vue';
-	import SelectHouse from '@/components/home/selectHouse.vue';
+	import SelectHouse from '@/components/home/selectHouse.vue';//为您选房
 	import RequestUrl from '@/components/common/js/requests.js'
 	
 	export default {

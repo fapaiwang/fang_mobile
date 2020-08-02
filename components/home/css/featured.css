@@ -13,11 +13,11 @@ scroll-view {
  }
  .img {
 	display: inline-block;
-	width: 100%;
-	height: 208upx;
+	width:335upx;
+	height:208upx;
 }
 .img image {
-  width: 100%;
+  width:100%;
   height: 100%;
   border-radius: 10upx;
 }

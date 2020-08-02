@@ -2,7 +2,7 @@
 	<view class="quickConView">
 		<view class="quickConContent">
 			<view v-for="(item,index) in homeMenuData" :key="index" class="quickConItem" @click="getTargetUrl(index)">
-				<image class="quickConItemIcon" :src="getImgSrc(item.icon)"></image>
+				<image class="quickConItemIcon" :src="getImgSrc(item.icon)" mode="heightFix"></image>
 				<text class="quickConItemText">{{item.name}}</text>
 			</view>
 		</view>

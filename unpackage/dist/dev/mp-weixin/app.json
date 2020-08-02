@@ -25,13 +25,15 @@
     "pages/search/search",
     "pages/login/pact",
     "pages/detail/recording",
-    "pages/detail/house"
+    "pages/detail/house",
+    "pages/mine/password",
+    "pages/mine/history"
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#007AFF",
+    "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
@@ -66,6 +68,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap43.json"
+  "usingComponents": {}
 }

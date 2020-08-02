@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 221));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 376));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 509));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 393));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 526));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -154,27 +154,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _self,page = 1,timer = null; //timer延迟期
-var _default2 =
+var _self,page = 1,timer = null,query; //timer延迟期
+var _default =
 {
   components: {
-    banner: banner,
+    Banner: Banner,
     FocusList: FocusList,
     Takeout: Takeout },
-
-  props: {
-    selectClass: {
-      type: String,
-      default: function _default() {
-        return 'text-red';
-      } },
-
-    focus: {
-      type: String,
-      default: function _default() {
-        return 'focusList_warp';
-      } } },
-
 
   computed: {
     scrollLeft: function scrollLeft() {
@@ -231,13 +217,14 @@ var _default2 =
     }, 500);
   },
   mounted: function mounted() {var _this = this;
-    var query = uni.createSelectorQuery().in(this);
+    query = uni.createSelectorQuery().in(this);
     query.select('#boxFixed').boundingClientRect(function (data) {
       _this.topdata = data.top;
       _this.menuData = data.top;
     }).exec();
   },
   methods: {
+
     tabChange: function tabChange(index) {
       this.TabCur = index;
       this.getRes();
@@ -395,29 +382,34 @@ var _default2 =
     },
     getBannerData: function getBannerData() {var _this2 = this;
       this.fun.getReq(this.baseUrl + '/api/banner/index', { "space_id": 22 }).then(function (res) {
+        console.log(res[1].data);
         _this2.bannerdata = res[1].data.data;
       });
     },
     poll: function poll() {//回到顶部
+
       uni.pageScrollTo({
         scrollTop: this.topdata,
         duration: 100 });
-
+      //onReachBottom
+      // uni.stopPullDownRefresh()
+      // console.log(this.topdata,222)
       this.isShow = true;
       this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
+    },
+    //存缓存
+    setStore: function setStore(key, val) {
+      uni.setStorage({
+        key: key,
+        data: val });
+
     } },
 
   // 监听页面滚动距离
   onPageScroll: function onPageScroll(e) {
+    // console.log(e.scrollTop);
     this.rect = e.scrollTop;
-  },
-  //存缓存
-  setStore: function setStore(key, val) {
-    uni.setStorage({
-      key: key,
-      data: val });
-
-  } };exports.default = _default2;
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

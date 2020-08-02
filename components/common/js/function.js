@@ -2,8 +2,14 @@ class Fun{
 	webSite = "https://www.fangpaiwang.com";
 	successData = new Array();
 	errData = new Array();
-	userInfo = "userInfo";//
-	
+	userInfo = "userInfo";//用户信息key
+	likeHouse = "likeHouse";//关注的房屋
+	likeEstate = "likeEstate";//关注的小区
+	historyHouse = "historyHouse";//浏览的房源
+	houseKeys = "houseKeys";//浏览的房源的ID
+	historyEstate = "historyEstate";//浏览的小区
+	estateKeys = "estateKeys";//浏览的小区的ID
+
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({
 			url:url

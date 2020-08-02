@@ -12,7 +12,7 @@
 					<block v-for="(item, index) in qualityEstateData" :key="index">
 						<view class="item" @click="moreCommunity(item.id)">
 							<view class="img">
-							  <image :src="imgUrl(item.img)" mode=""></image>
+							  <image :src="imgUrl(item.img)" mode="scaleToFill"></image>
 							</view>
 							<view class="titleinfoView">
 								<view class="titleView">

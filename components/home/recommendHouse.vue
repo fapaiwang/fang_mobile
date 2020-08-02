@@ -40,7 +40,7 @@
 									</view>
 									<view class="createIime">
 										<view class="createIimeIcon">
-											<image src="../../static/img/home/item@2x.png" mode=""></image>
+											<image src="../../static/img/home/item@2x.png" mode="heightFix"></image>
 										</view>
 										<view class="createIimeIconinfo">
 											<text>

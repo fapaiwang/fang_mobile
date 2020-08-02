@@ -130,14 +130,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 502));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
 
-
-
-
-
-
-
+var _self;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 512));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 519));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -148,19 +149,74 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
-      houseData: [] };
+      houseData: [],
+      communityData: [],
+      userId: -1 };
 
   },
   onLoad: function onLoad() {
-    this.getHouse();
+    _self = this;
+    uni.getStorage({
+      key: _self.fun.userInfo,
+      success: function success(res) {
+        if (res.data.code == 20000) {
+          uni.clearStorage(_self.fun.userInfo);
+          this.fun.navTo("/pages/login/login");
+        }
+        _self.userId = res.data.id;
+      } });
+
+    this.getRes();
   },
   methods: {
+    getRes: function getRes() {
+      this.getHouse();
+      this.getCommunity();
+    },
     getHouse: function getHouse() {var _this = this;
-      this.fun.getReq(this.baseUrl + '/api/user/followHouse').
+      _self = this;
+      var houseData = new Array();
+      this.fun.getReq(this.baseUrl + '/api/user/followHouse', { "model": "second_house", "user_id": this.userId }).
       then(function (res) {
-        _this.houseData = res[1].data;
+        _this.houseData = res[1].data.data.lists.data;
+        res[1].data.data.lists.data.forEach(function (item, key) {
+          houseData.push(item.id);
+        });
+        if (houseData.length >= 1) {
+          uni.getStorage({
+            key: _self.fun.likeHouse,
+            fail: function fail() {
+              uni.setStorage({
+                key: _self.fun.likeHouse,
+                data: houseData });
+
+            } });
+
+        }
+      });
+    },
+    getCommunity: function getCommunity() {var _this2 = this;
+      var estateData = new Array();
+      this.fun.getReq(this.baseUrl + '/api/user/followEstate', { "user_id": this.userId }).
+      then(function (res) {
+        _this2.communityData = res[1].data.data.data;
+        res[1].data.data.data.forEach(function (item, key) {
+          estateData.push(item.id);
+        });
+        if (estateData.length >= 1) {
+          uni.getStorage({
+            key: _self.fun.likeEstate,
+            fail: function fail() {
+              uni.setStorage({
+                key: _self.fun.likeEstate,
+                data: estateData });
+
+            } });
+
+        }
       });
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

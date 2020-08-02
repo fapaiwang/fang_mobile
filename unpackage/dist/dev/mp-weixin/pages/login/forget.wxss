@@ -1,13 +1,12 @@
-
 .top.data-v-7d2c8ecc{
-	margin-top: 48rpx !important;
+		margin-top: 48rpx !important;
 }
 .login_btn.data-v-7d2c8ecc{
-	background:#CF2924;
-	border-radius:51rpx;
-	width: 90%;
-	font-size:32rpx;
-	color: #fff;
-	margin-top: 157rpx;
+		background:#CF2924;
+		border-radius:51rpx;
+		width: 90%;
+		font-size:32rpx;
+		color: #fff;
+		margin-top: 157rpx;
 }
 

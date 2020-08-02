@@ -8,7 +8,7 @@
 			</view>
 		</scroll-view>
 		<view>
-			<view @click="poll()">
+			<view @tap="poll()">
 				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" :isShow.sync="isShow"></FocusList>
 			</view>
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>
@@ -22,7 +22,7 @@
 	import FocusList from '@/components/delicacy/delicacy.vue';
 	import Takeout from '@/components/delicacy/list.vue';
 	
-	var _self, page = 1, timer = null;//timer延迟期
+	var _self, page = 1, timer = null,query;//timer延迟期
 	
 	export default {
 		components:{
@@ -85,13 +85,14 @@
 			},500);
 		},
 		mounted:function() {
-			const query = uni.createSelectorQuery().in(this);
+			query = uni.createSelectorQuery().in(this);
 			query.select('#boxFixed').boundingClientRect(data => {
 				this.topdata = data.top;
 				this.menuData = data.top;
 			}).exec();
 		},
 		methods: {
+			
 			tabChange(index) {
 				this.TabCur = index;
 				this.getRes();
@@ -249,14 +250,18 @@
 			},
 			getBannerData() {
 				this.fun.getReq(this.baseUrl+'/api/banner/index',{"space_id":22}).then((res)=>{
+					console.log(res[1].data)
 					this.bannerdata = res[1].data.data;
 				});
 			},
 			poll(){//回到顶部
+				
 				uni.pageScrollTo({
 					scrollTop:this.topdata,
-					duration:100
-				})
+					duration:100,
+				})//onReachBottom
+				// uni.stopPullDownRefresh()
+				// console.log(this.topdata,222)
 				this.isShow = true;
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
 			},
@@ -266,10 +271,11 @@
 					key:key,
 					data:val
 				})
-			}
+			},
 		},
 		// 监听页面滚动距离
 		onPageScroll(e) {
+			// console.log(e.scrollTop);
 			this.rect = e.scrollTop
 		},
 	}

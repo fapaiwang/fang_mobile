@@ -2,7 +2,7 @@
 	<view>
 		<grayBox></grayBox>
 		<view class="taxes_warp">
-			<view class="taxes_con">
+			<view class="taxes_con" @click="history">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
 						<image src="../../static/img/mine/foot.png"></image>
@@ -67,17 +67,27 @@
 			list(){
 				this.isLogin("/pages/mine/list")
 			},
+			history(){
+				this.fun.navTo("/pages/mine/history")
+			},
 			logout(){
 				_self = this;
 				uni.getStorage({
 					key:_self.fun.userInfo,
 					success:function(res){
 						uni.clearStorage(_self.fun.userInfo);
+						uni.clearStorage(_self.fun.likeHouse);
+						uni.clearStorage(_self.fun.likeEstate);
+						uni.clearStorage(_self.fun.historyHouse);
+						uni.clearStorage(_self.fun.houseKeys);
+						uni.clearStorage(_self.fun.historyEstate);
+						uni.clearStorage(_self.fun.estateKeys);
+						
 						uni.switchTab({
 							url:"/pages/index/index"
 						})
 					},
-				})//17316082501
+				})
 			},
 			isLogin(url){
 				uni.getStorage({

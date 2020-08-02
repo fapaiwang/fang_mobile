@@ -217,33 +217,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var _self,page = 1,timer = null; //timer延迟期
-var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 221));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var navMenu = function navMenu() {__webpack_require__.e(/*! require.ensure | components/news/navMenu */ "components/news/navMenu").then((function () {return resolve(__webpack_require__(/*! @/components/news/navMenu.vue */ 432));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
+var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var navMenu = function navMenu() {__webpack_require__.e(/*! require.ensure | components/news/navMenu */ "components/news/navMenu").then((function () {return resolve(__webpack_require__(/*! @/components/news/navMenu.vue */ 449));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 {
   components: {
     navMenu: navMenu,
     banner: banner },
-
-  props: {
-    selectClass: {
-      type: String,
-      default: function _default() {
-        return 'text-red';
-      } },
-
-    selectBar: {
-      type: String,
-      default: function _default() {
-        return 'hot-red';
-      } },
-
-    textFlex: {
-      type: Boolean,
-      default: function _default() {
-        return false;
-      } } },
-
 
   data: function data() {
     return {
@@ -260,8 +240,11 @@ var banner = function banner() {__webpack_require__.e(/*! require.ensure | compo
       isShow: false };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(option) {
     _self = this;
+    if (option.id != null || option.id != undefined) {
+      _self.TabCur = option.id;
+    }
     this.getHomeData();
   },
   onPullDownRefresh: function onPullDownRefresh() {//上滑获取数据
@@ -306,23 +289,16 @@ var banner = function banner() {__webpack_require__.e(/*! require.ensure | compo
       this.getBannerData();
     },
     getBannerData: function getBannerData() {var _this = this;
-      uni.request({
-        url: this.baseUrl + '/api/banner/index',
-        data: { "space_id": 24 },
-        success: function success(res) {
-          _this.bannerdata = res.data.data;
-        } });
-
+      this.fun.getReq(this.baseUrl + '/api/banner/index?space_id=24').then(function (res) {
+        _this.bannerdata = res[1].data.data;
+      });
     },
     getMenu: function getMenu() {var _this2 = this; //法拍导航栏
-      uni.request({
-        url: this.baseUrl + '/api/article/cate',
-        success: function success(res) {
-          if (Number(res.code) != 0) {
-            _this2.tabList = res.data.data;
-          }
-        } });
-
+      this.fun.getReq(this.baseUrl + '/api/article/cate').then(function (res) {
+        if (Number(res[1].code) != 0) {
+          _this2.tabList = res[1].data.data;
+        }
+      });
     },
     getNews: function getNews() {//初始化数据
       page = 1;
@@ -334,22 +310,19 @@ var banner = function banner() {__webpack_require__.e(/*! require.ensure | compo
       if (this.TabCur == 2 && this.keyword != "") {
         url = url + "&keyword=" + this.keyword;
       }
-      uni.request({
-        url: url,
-        success: function success(res) {
-          uni.hideNavigationBarLoading();
-          uni.stopPullDownRefresh();
-          if (res.data.data.data.length == 0 && page == 1) {
-            _self.frontList = [];
-            _self.loadingTxt = '已经加载全部';
-            return false;
-          }
-          _self.loadingTxt = '加载更多';
-          var newsList = res.data.data.data;
-          _self.frontList = newsList;
-          page++;
-        } });
-
+      this.fun.getReq(url).then(function (res) {
+        uni.hideNavigationBarLoading();
+        uni.stopPullDownRefresh();
+        if (res[1].data.data.data.length == 0 && page == 1) {
+          _self.frontList = [];
+          _self.loadingTxt = '已经加载全部';
+          return false;
+        }
+        _self.loadingTxt = '加载更多';
+        var newsList = res[1].data.data.data;
+        _self.frontList = newsList;
+        page++;
+      });
     },
     getMoreNews: function getMoreNews() {//加载更多
       if (_self.loadingTxt == '已经加载全部') {
@@ -364,30 +337,25 @@ var banner = function banner() {__webpack_require__.e(/*! require.ensure | compo
       if (this.TabCur == 2 && this.keyword != "") {
         url = url + "&keyword=" + this.keyword;
       }
-      uni.request({
-        url: url,
-        success: function success(res) {
-          uni.hideNavigationBarLoading();
-          if (res.data.data.data.length == 0 || res.data == null) {
-            _self.loadingTxt = '已经加载全部';
-            return false;
-          }
-          var newsList = res.data.data.data;
-          _self.frontList = _self.frontList.concat(newsList);
-          uni.stopPullDownRefresh();
-          _self.loadingTxt = '加载更多';
-          page++;
-        } });
-
+      this.fun.getReq(url).then(function (res) {
+        uni.hideNavigationBarLoading();
+        if (res[1].data.data.data.length == 0 || res[1].data == null) {
+          _self.loadingTxt = '已经加载全部';
+          return false;
+        }
+        var newsList = res[1].data.data.data;
+        _self.frontList = _self.frontList.concat(newsList);
+        uni.stopPullDownRefresh();
+        _self.loadingTxt = '加载更多';
+        page++;
+      });
     },
     getImgSrc: function getImgSrc(imgSrc) {//获取图片路径
-      return this.baseUrl + imgSrc;
+      return this.fun.getImgSrc(imgSrc);
     },
     getTargetUrl: function getTargetUrl(index) {//跳转页面
-      uni.navigateTo({
-        url: "../../pages/news/detail?id=".concat(index) });
-
-    } } };exports.default = _default2;
+      this.fun.navTo("/pages/news/detail?id=".concat(index));
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

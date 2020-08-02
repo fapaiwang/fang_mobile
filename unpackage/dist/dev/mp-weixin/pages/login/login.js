@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 453));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Mobile = function Mobile() {__webpack_require__.e(/*! require.ensure | components/login/mobile */ "components/login/mobile").then((function () {return resolve(__webpack_require__(/*! @/components/login/mobile.vue */ 460));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 467));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 470));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Mobile = function Mobile() {__webpack_require__.e(/*! require.ensure | components/login/mobile */ "components/login/mobile").then((function () {return resolve(__webpack_require__(/*! @/components/login/mobile.vue */ 477));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 484));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -163,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _self = this;
     uni.getStorage({
-      key: "user",
+      key: _self.fun.userInfo,
       success: function success(res) {
         uni.navigateBack({
           delta: 1 });
@@ -173,6 +173,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getLogin: function getLogin() {var _this = this;
+      var _self = this;
       if (this.phone == "") {
         this.fun.showMsg("手机号码不正确");
         return false;
@@ -186,10 +187,11 @@ __webpack_require__.r(__webpack_exports__);
       }
       this.fun.getReq(this.baseUrl + '/api/loginDo', { mobile: this.phone, sms_code: this.captcha }).
       then(function (res) {
+        console.log(111, res[1].data, _self.fun.userInfo);
         if (Number(res[1].data.code) == 10000) {
           uni.setStorage({
-            key: "user",
-            data: _this.phone });
+            key: _self.fun.userInfo,
+            data: res[1].data.data });
 
           uni.navigateBack({
             delta: 3 });
@@ -198,16 +200,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.fun.showMsg(res[1].data.msg);
           return false;
         }
-      }).catch(function (err) {
-        _this.fun.showMsg(err);
-        return false;
       });
     },
     register: function register() {//注册
-      this.fun.navTo("../../pages/login/register");
+      this.fun.navTo("/pages/login/register");
     },
     login_mobile: function login_mobile() {
-      this.fun.navTo("../../pages/login/login_mobile");
+      this.fun.navTo("/pages/login/login_mobile");
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

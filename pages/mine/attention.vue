@@ -41,18 +41,47 @@
 				this.getHouse();
 				this.getCommunity();
 			},
-			getHouse(){
+			getHouse() {
+				_self = this;
+				var houseData = new Array();
 				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"second_house","user_id":this.userId})
 				.then((res)=>{
-					console.log(res[1].data)
-					this.houseData = res[1].data.data.data;
+					this.houseData = res[1].data.data.lists.data;
+					res[1].data.data.lists.data.forEach(function(item,key){
+						houseData.push(item.id)
+					})
+					if (houseData.length >= 1) {
+						uni.getStorage({
+							key:_self.fun.likeHouse,
+							fail:function(){
+								uni.setStorage({
+									key:_self.fun.likeHouse,
+									data:houseData
+								})
+							}
+						})
+					}
 				})
 			},
 			getCommunity(){
-				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"estate","user_id":this.userId})
+				var estateData = new Array();
+				this.fun.getReq(this.baseUrl+'/api/user/followEstate',{"user_id":this.userId})
 				.then((res)=>{
-					console.log(res[1].data)
 					this.communityData = res[1].data.data.data;
+					res[1].data.data.data.forEach(function(item,key){
+						estateData.push(item.id)
+					})
+					if (estateData.length >= 1) {
+						uni.getStorage({
+							key:_self.fun.likeEstate,
+							fail:function(){
+								uni.setStorage({
+									key:_self.fun.likeEstate,
+									data:estateData
+								})
+							}
+						})
+					}
 				})
 			}
 		}

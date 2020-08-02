@@ -172,21 +172,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      keyword: '' };
+      keyword: '',
+      keyList: [] };
 
   },
+  onShow: function onShow() {
+    this.keyList = [];
+    this.keyword = "";
+  },
   methods: {
-    onPickCityClick: function onPickCityClick() {
-      uni.navigateBack({
-        delta: 1 });
-
+    inputChange: function inputChange() {var _this = this;
+      this.fun.getReq(this.baseUrl + '/api/second/houseList', { keyword: this.keyword }).
+      then(function (res) {
+        _this.keyList = res[1].data.data.lists.data;
+      });
     },
-    inputChange: function inputChange() {
-      this.fun.getReq(this.baseUrl + '/api/second/houseList?keyword' + this.keyword);
+    detail: function detail(index) {
+      return this.fun.navTo("/pages/detail/index?id=" + index);
     },
     goUserClick: function goUserClick() {
       uni.switchTab({

@@ -41,6 +41,7 @@
 		},
 		methods: {
 			getLogin(){
+				var _self = this;
 				if (this.phone =="") {
 					this.fun.showMsg("手机号码不正确");
 					return false;
@@ -54,6 +55,7 @@
 				}
 				this.fun.getReq(this.baseUrl+'/api/loginDo',{mobile:this.phone,sms_code:this.captcha})
 				.then((res)=>{
+					console.log(111,res[1].data,_self.fun.userInfo);
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
 							key:_self.fun.userInfo,
@@ -66,9 +68,6 @@
 						this.fun.showMsg(res[1].data.msg);
 						return false;
 					}
-				}).catch((err)=>{
-					this.fun.showMsg(err);
-					return false;
 				})
 			},
 			register(){//注册

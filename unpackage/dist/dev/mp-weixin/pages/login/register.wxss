@@ -1,8 +1,7 @@
-
-.quickTabSwiper{
+.quickTabSwiper.data-v-24dc7ac2{
 	height: 800rpx;
 }
-.scv{
+.scv.data-v-24dc7ac2{
 	-webkit-flex-wrap: nowrap;
 	        flex-wrap: nowrap;
 	white-space: nowrap;
@@ -10,7 +9,7 @@
 	width: 50%;
 	margin-bottom: 40rpx;
 }
-.scv view{
+.scv view.data-v-24dc7ac2{
 	display: inline-block;
 	height: 50rpx;
 	line-height: 50rpx;
@@ -20,7 +19,7 @@
 	width: 50%;
 	text-align: center;
 }
-.scv_line{
+.scv_line.data-v-24dc7ac2{
 	border:4rpx solid #fff;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -28,14 +27,14 @@
 	margin: 0 auto;
 	width:47rpx;
 }
-.text-red{
+.text-red.data-v-24dc7ac2{
 	color: #000 !important;
 }
-.text-red text{
+.text-red text.data-v-24dc7ac2{
 	background:rgba(224,46,36,1);
 	border:4rpx solid rgba(224,46,36,1);
 }
-.login_btn{
+.login_btn.data-v-24dc7ac2{
 	background:#CF2924;
 	border-radius:51rpx;
 	width: 90%;

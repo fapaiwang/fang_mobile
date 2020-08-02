@@ -18,6 +18,12 @@
 						  <image class="userIconfont" src='../../static/img/base/userIcon@2x.png'></image>
 					</view>
 				 </view>
+				 <view class="search_list">
+					 <view v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem.id)">
+						 <text>{{houseItem.title}}</text>
+						 <text>{{houseItem.address}}</text>
+					 </view>
+				 </view>
 			 </view>
 			 <view class="container">
 			 	<view class="history">
@@ -40,17 +46,23 @@
 	export default {
 		data() {
 			return {
-				keyword: ''
+				keyword: '',
+				keyList:[],
 			}
 		},
+		onShow:function(){
+			this.keyList = [];
+			this.keyword = "";
+		},
 		methods: {
-			onPickCityClick:function(){
-				uni.navigateBack({
-					delta:1
-				})
-			},
 			inputChange:function(){
-				this.fun.navTo('/pages/all/index?keyword='+this.keyword)
+				this.fun.getReq(this.baseUrl+'/api/second/houseList',{keyword:this.keyword})
+				.then((res)=>{
+					this.keyList = res[1].data.data.lists.data
+				});
+			},
+			detail(index){
+				return this.fun.navTo("/pages/detail/index?id="+index);
 			},
 			goUserClick:function(){
 				uni.switchTab({
@@ -63,4 +75,27 @@
 
 <style scoped>
 	@import url("./css/search.css");
+	.search_list{
+		position: absolute;
+		z-index: 1111;
+		background: #fff;
+		left: 0;
+	}
+	.search_list view{
+		margin-bottom: 20upx;
+	}
+	.search_list view text{
+		font-size: 28upx;
+		width: 100%;
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display:-webkit-box; //作为弹性伸缩盒子模型显示。
+		-webkit-box-orient:vertical;
+		-webkit-line-clamp:1;
+	}
+	.search_list view text:last-child{
+		font-size: 24upx;
+		color: #999999;
+	}
 </style>

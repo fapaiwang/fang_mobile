@@ -1,25 +1,25 @@
 <template>
 	<view>
-		<view class="prefer-posi" :style="isShow ? 'position: fixed;top:0' :'position: absolute;'">
+		<view class="prefer-posi">
 			<!-- 刷选区 -->
 			<view class="delica-view">
-				<view class="delica-list" @click="multiple()">
+				<view class="delica-list" @tap="multiple()">
 					区域
 					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
 				</view>
-				<view class="delica-list" @click="getMoney()">
+				<view class="delica-list" @tap="getMoney()">
 					价格
 					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
 				</view>
-				<view class="delica-list" @click="getHouse()">
+				<view class="delica-list" @tap="getHouse()">
 					户型
 					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
 				</view>
-				<view class="delica-list" @click="getMore()">
+				<view class="delica-list" @tap="getMore()">
 					更多
 					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
 				</view>
-				<view class="delica-list" @click="getSortItem()">
+				<view class="delica-list" @tap="getSortItem()">
 					<image src="../../static/img/delicacy/sort.png" class="withFix sort"></image>
 				</view>
 			</view>
@@ -31,16 +31,16 @@
 					</view>
 					<view class="checkMoreRes area_list">
 						<block v-for="(item,index) in arealist" :key="index">
-							<text :class="{activeb:index == num}" @click="sortClick(index,item.id,1)">{{item.name}}</text>
+							<text :class="{activeb:index == num}" @tap="sortClick(index,item.id,1)">{{item.name}}</text>
 						</block>
 					</view>
 				</view>
 				<view class="sortlist-bottom">
 					<view class="area_list_clear">
-						<text @click="clearSearch(0)">清除条件</text>
+						<text @tap="clearSearch(0)">清除条件</text>
 					</view>
 					<view class="area_list_btn">
-						<text @click="soureSort()">确定</text>
+						<text @tap="soureSort()">确定</text>
 					</view>
 				</view>
 			</view>
@@ -63,7 +63,7 @@
 						</view>
 					</view>
 					<view class="sure">
-						<text @click="soureSort()">确定</text>
+						<text @tap="soureSort()">确定</text>
 					</view>
 				</view>
 			</view>
@@ -76,10 +76,10 @@
 				</view>
 				<view class="sortlist-bottom">
 					<view class="area_list_clear">
-						<text @click="clearSearch(2)">清除条件</text>
+						<text @tap="clearSearch(2)">清除条件</text>
 					</view>
 					<view class="area_list_btn">
-						<text @click="soureSort()">确定</text>
+						<text @tap="soureSort()">确定</text>
 					</view>
 				</view>
 			</view>
@@ -123,10 +123,10 @@
 				</view>
 				<view class="sortlist-bottom last">
 					<view class="area_list_clear">
-						<text @click="clearSearch(3)">清除条件</text>
+						<text @tap="clearSearch(3)">清除条件</text>
 					</view>
 					<view class="area_list_btn">
-						<text @click="soureSort()">确定</text>
+						<text @tap="soureSort()">确定</text>
 					</view>
 				</view>
 			</view>
@@ -139,12 +139,17 @@
 			</view>
 		</view>
 		<!-- 透明背景 -->
-		<view class="mark" v-if="mark"></view>
+		<view class="mark" v-if="mark" @touchmove.stop.prevent></view>
 	</view>
 </template>
 
 <script>
+	import showList from '@/components/delicacy/showList.vue';
+	
 	export default {
+		components:{
+			showList
+		},
 		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor","isShow"],
 		data() {
 			return {
@@ -180,15 +185,19 @@
 				isHide:false,
 			}
 		},
-		mounted:function(){
-			// this.bus.$on("click",function(e){
-			// 	console.log(1111);
-			// });
+		mounted:function() {
+			const query = uni.createSelectorQuery().in(this);
+			query.select('.prefer-posi').boundingClientRect(data => {
+				this.topdata = data.top;
+			}).exec();
 		},
 		onNavigationBarButtonTap(e) {
 			this.hiddenAll();
 		},
 		methods: {
+			touchmove(){
+				console.log(11111);
+			},
 			multiple(){
 				this.drop = true;
 				this.avgPrice = false;
@@ -279,11 +288,16 @@
 				this.backOne();
 			},
 			backOne(){//透明背景
+		
 				setTimeout(()=>{
 					this.mark = true;
 				},310);
 			},
 			backClick(){//隐藏透明背景
+				// setTimeout(()=>{
+				// 	this.mark = false;
+				// },100);
+
 				this.mark= false;
 			},
 			clearSearch(index){//清除

@@ -1731,7 +1731,15 @@ function normalizeComponent (
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Fun = /*#__PURE__*/function () {function Fun() {_classCallCheck(this, Fun);_defineProperty(this, "webSite",
     "https://www.fangpaiwang.com");_defineProperty(this, "successData",
     new Array());_defineProperty(this, "errData",
-    new Array());}_createClass(Fun, [{ key: "navTo", value: function navTo(
+    new Array());_defineProperty(this, "userInfo",
+    "userInfo");_defineProperty(this, "likeHouse",
+    "likeHouse");_defineProperty(this, "likeEstate",
+    "likeEstate");_defineProperty(this, "historyHouse",
+    "historyHouse");_defineProperty(this, "houseKeys",
+    "houseKeys");_defineProperty(this, "historyEstate",
+    "historyEstate");_defineProperty(this, "estateKeys",
+    "estateKeys");}_createClass(Fun, [{ key: "navTo", //浏览的小区的ID
+    value: function navTo(
     url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({
         url: url });
@@ -7927,7 +7935,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 357:
+/***/ 367:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
   \*************************************************************************************************/
@@ -7940,7 +7948,7 @@ conditions;exports.default = _default;
 
 /***/ }),
 
-/***/ 365:
+/***/ 375:
 /*!***********************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
   \***********************************************************************************************/
@@ -9001,7 +9009,7 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 373:
+/***/ 383:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
   \*************************************************************************************************/

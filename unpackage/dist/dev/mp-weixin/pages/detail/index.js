@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/detail/banner */ "components/detail/banner").then((function () {return resolve(__webpack_require__(/*! @/components/detail/banner.vue */ 284));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var baseHouse = function baseHouse() {__webpack_require__.e(/*! require.ensure | components/detail/base_house */ "components/detail/base_house").then((function () {return resolve(__webpack_require__(/*! @/components/detail/base_house.vue */ 289));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var housingSituation = function housingSituation() {__webpack_require__.e(/*! require.ensure | components/detail/housingSituation */ "components/detail/housingSituation").then((function () {return resolve(__webpack_require__(/*! @/components/detail/housingSituation.vue */ 296));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 303));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendPersion = function recommendPersion() {__webpack_require__.e(/*! require.ensure | components/detail/recommend */ "components/detail/recommend").then((function () {return resolve(__webpack_require__(/*! @/components/detail/recommend.vue */ 310));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityDesc = function communityDesc() {__webpack_require__.e(/*! require.ensure | components/detail/community_desc */ "components/detail/community_desc").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_desc.vue */ 317));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 324));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/detail/recommend_hosue */ "components/detail/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/detail/recommend_hosue.vue */ 331));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var advisory = function advisory() {__webpack_require__.e(/*! require.ensure | components/detail/advisory */ "components/detail/advisory").then((function () {return resolve(__webpack_require__(/*! @/components/detail/advisory.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/detail/banner */ "components/detail/banner").then((function () {return resolve(__webpack_require__(/*! @/components/detail/banner.vue */ 292));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var baseHouse = function baseHouse() {__webpack_require__.e(/*! require.ensure | components/detail/base_house */ "components/detail/base_house").then((function () {return resolve(__webpack_require__(/*! @/components/detail/base_house.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var housingSituation = function housingSituation() {__webpack_require__.e(/*! require.ensure | components/detail/housingSituation */ "components/detail/housingSituation").then((function () {return resolve(__webpack_require__(/*! @/components/detail/housingSituation.vue */ 306));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 313));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendPersion = function recommendPersion() {__webpack_require__.e(/*! require.ensure | components/detail/recommend */ "components/detail/recommend").then((function () {return resolve(__webpack_require__(/*! @/components/detail/recommend.vue */ 320));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityDesc = function communityDesc() {__webpack_require__.e(/*! require.ensure | components/detail/community_desc */ "components/detail/community_desc").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_desc.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 334));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/detail/recommend_hosue */ "components/detail/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/detail/recommend_hosue.vue */ 341));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var advisory = function advisory() {__webpack_require__.e(/*! require.ensure | components/detail/advisory */ "components/detail/advisory").then((function () {return resolve(__webpack_require__(/*! @/components/detail/advisory.vue */ 348));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -201,14 +201,36 @@ var _default =
       latitude: '',
       longitude: '',
       recommendData: [],
-      estateId: 0 };
+      estateId: 0,
+      bannerTit: '',
+      bannerCol: '',
+      userRule: -1,
+      like: -1,
+      HouseKey: '' };
+
+  },
+  created: function created() {
+    var _self = this;
+    uni.getStorage({
+      key: _self.fun.userInfo,
+      success: function success(res) {
+        _self.userRule = res.data.model;
+      },
+      fail: function fail() {
+        _self.userRule = -1;
+      } });
 
   },
   onLoad: function onLoad(options) {var _this = this;
     if (!options.id) {
       this.getHome();
     }
+    if (options.like != undefined) {
+      this.like = options.like;
+    }
+
     this.getRecommendPersion(options.id);
+    this.getHouseKey();
     this.fun.getReq(this.baseUrl + "/api/second/houseDetail", { "id": options.id }).
     then(function (res) {
       if (Number(res[1].data.code) == 20000) {
@@ -216,10 +238,58 @@ var _default =
       } else {
         _this.showCon = true;
         _this.getResult(res[1].data.data);
+        _this.getStoreHouse(res[1].data.data);
       }
     });
+    // uni.clearStorage(this.fun.historyHouse)
+    // uni.clearStorage(this.fun.houseKeys)
   },
   methods: {
+    getStoreHouse: function getStoreHouse(detailData) {//浏览房源
+      var _self = this;
+      var houseList = new Array();
+      uni.getStorage({
+        key: _self.fun.historyHouse,
+        success: function success(res) {
+          houseList = res.data;
+          if (_self.HouseKey.indexOf(detailData.id) == -1) {
+            houseList.push(detailData);
+            _self.setHouseStore(houseList);
+            _self.setHouseKey(detailData.id);
+          }
+        },
+        fail: function fail() {
+          var house = [];
+          house.push(detailData);
+          _self.setHouseStore(house);
+          _self.setHouseKey(detailData.id);
+        } });
+
+    },
+    setHouseStore: function setHouseStore(houseList) {
+      var _self = this;
+      uni.setStorage({
+        key: _self.fun.historyHouse,
+        data: houseList });
+
+    },
+    getHouseKey: function getHouseKey() {
+      var _self = this;
+      uni.getStorage({
+        key: _self.fun.houseKeys,
+        success: function success(ops) {
+          _self.HouseKey = ops.data;
+        } });
+
+    },
+    setHouseKey: function setHouseKey(id) {
+      var _self = this;
+      _self.HouseKey = _self.HouseKey + " " + id;
+      uni.setStorage({
+        key: _self.fun.houseKeys,
+        data: _self.HouseKey });
+
+    },
     getResult: function getResult(_res) {
       this.detial = _res;
       this.info = this.detial.file;
@@ -234,8 +304,15 @@ var _default =
       this.advisoryName = this.detial.pinglun.user_name;
       this.surroundingData = this.detial.rim;
       this.trafficData = this.detial.traffic;
-      this.announcementData = '北京市海淀区人民法院将于2020年8月25日12时至2020年8月26日12时止（延时的除外）';
-
+      this.announcementData = this.detial.info;
+      if (_res.is_free == 1) {
+        this.bannerTit = "自由购";
+        this.bannerCol = '#CEA85F';
+      }
+      if (_res.house_type == 48) {
+        this.bannerTit = "社会委托";
+        this.bannerCol = '#4cc7a4';
+      }
       var qianfeiInfo = [];
       if (this.detial.qianfei_status == 1) {
         qianfeiInfo.push('欠费:有');
@@ -253,7 +330,7 @@ var _default =
           price: "\u6D41\u62CD\u4EF7\u683C\uFF1A".concat(this.detial.twoprice, "\u4E07") });
 
         this.recordingLogData = recordingLog;
-        // 判断是否是业务   所有业务都是4    拍卖成交记录
+        //业务为4展示拍卖成交记录
       }
       if (this.detial.jieduan == 163) {
         //this.recordingData = '成交记录';
@@ -290,23 +367,6 @@ var _default =
           iconPath: '' } }];
 
 
-
-      uni.getStorage({
-        key: "joinDetail",
-        success: function success(res) {
-          // res.data.indexOf(index)!=-1
-          console.log(222, res[1].data.data);
-          res.data.append([{ name: options.id, val: res[1].data.data }]);
-        },
-        fails: function fails() {
-          var joinDetail = [];
-          console.log(333, res[1].data.data);
-          joinDetail.append([{ name: options.id, val: res[1].data.data }]);
-          uni.setStorage({
-            key: joinDetail });
-
-        } });
-
     },
     getHome: function getHome() {
       this.detialText = '没有内容';
@@ -328,6 +388,27 @@ var _default =
       var TimeStr = kptime;
       var Deadline;
       var Deadlineb;
+      if (TimeStrs == 175) {
+        this.countDownList = "成交";
+        return false;
+      }
+      if (TimeStrs == 175) {
+        this.countDownList = "暂缓";
+        return false;
+      }
+      if (TimeStrs == 173) {
+        this.countDownList = "撤回";
+        return false;
+      }
+      if (TimeStrs == 172) {
+        this.countDownList = "终止";
+        return false;
+      }
+      if (TimeStrs == 171) {
+        this.countDownList = "已结束";
+        return false;
+      }
+      //即将拍卖/进行中  169 170
       if (TimeStrs == 163) {
         var TimeStrb = bianetime;
         var fullDateb = TimeStrb.split(" ")[0].split("-");
@@ -373,11 +454,11 @@ var _default =
               _this3.countDownList = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
             } else {
               clearInterval(interval);
-              _this3.countDownList = "已结束，流拍";
+              _this3.countDownList = "结束";
             }
           } else {
             clearInterval(interval);
-            _this3.countDownList = "已结束，流拍";
+            _this3.countDownList = "结束";
           }
         } else {
           if (date > 0) {
@@ -409,7 +490,7 @@ var _default =
             _this3.countDownList = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
           } else {
             clearInterval(interval);
-            _this3.countDownList = "已结束，流拍";
+            _this3.countDownList = "结束";
           }
         }
       }, 100);

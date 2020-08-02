@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 453));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 467));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 470));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 484));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -172,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _self = this;
     uni.getStorage({
-      key: "user",
+      key: _self.fun.userInfo,
       success: function success(res) {
         uni.navigateBack({
           delta: 2 });
@@ -203,16 +203,13 @@ __webpack_require__.r(__webpack_exports__);
         this.fun.showMsg("密码小于6位");
         return false;
       }
+      var _self = this;
       this.fun.getReq(this.baseUrl + '/api/login_pwd', { mobile: this.phone, password: this.pwd }).
       then(function (res) {
         if (Number(res[1].data.code) == 10000) {
           uni.setStorage({
-            key: "userInfo",
+            key: _self.fun.userInfo,
             data: res[1].data.data });
-
-          uni.setStorage({
-            key: "user",
-            data: _this.phone });
 
           uni.navigateBack({
             delta: 2 });

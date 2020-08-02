@@ -1,24 +1,6 @@
-
 .base_house_con.data-v-3e8ddd05{
 	padding: 0 30rpx;
-	padding-top: 40rpx;
-}.house_tag.data-v-3e8ddd05{
-	height: 56rpx;
-}.house_tag text.data-v-3e8ddd05{
-	padding: 9rpx 17rpx 8rpx 16rpx;
-	background:#F7D6D6;
-	border-radius:5rpx;
-	font-size:24rpx;
-	font-family:PingFang SC;
-	font-weight:500;
-	color: #CC0000;
-	margin-right: 12rpx;
-}.house_tag text.data-v-3e8ddd05:nth-child(2){
-	background:#E1EEFF;
-	color: #4297FF;
-}.house_tag text.data-v-3e8ddd05:nth-child(3){
-	background: #FFEBDC;
-	color: #FF8126;
+	padding-top: 20rpx;
 }.house_tit.data-v-3e8ddd05{
 	width:100%;
 	font-size:36rpx;
@@ -33,7 +15,7 @@
 	-webkit-box-direction: normal;
 	-webkit-flex-flow: row wrap;
 	        flex-flow: row wrap;
-	margin:30rpx 0 29rpx 0;
+	margin:30rpx 0;
 }.start.data-v-3e8ddd05,.market.data-v-3e8ddd05{
 	height:31rpx;
 	font-size:28rpx;
@@ -68,16 +50,40 @@
 	box-pack:center;
 	box-align:center;
 	padding-left: 30rpx;
+}.start_time .sTime.data-v-3e8ddd05{
+	font-size: 28rpx !important;
+}.look.data-v-3e8ddd05{
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(66,151,255,1);
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	display:box;
+	box-pack:center;
+	box-align:center;
+	padding-right: 32rpx;
+}.look .look_img.data-v-3e8ddd05{
+	width: 32rpx;
+	height: 32rpx;
+	display: inherit;
+	margin-top: 2rpx;
 }.people.data-v-3e8ddd05{
-	height:23rpx;
 	font-size:24rpx;
 	font-weight:800;
 	color:#333;
-	padding-right: 30rpx;
+	display: inherit;
 }.join.data-v-3e8ddd05{
-	margin-top: 9rpx;
+	margin-right: 50rpx;
+}.Violation .sTime.data-v-3e8ddd05{
+	font-size: 24rpx !important;
 }.sTime.data-v-3e8ddd05{
 	color:#CC0000;
+	font-size: 38rpx;
 }.house_base.data-v-3e8ddd05{
 	border-bottom: 1rpx solid #EBEBEB;
 	border-top: 1rpx solid #EBEBEB;
@@ -148,7 +154,7 @@
 	display: inline-block;
 	float: left;
 }.auction_info_r.data-v-3e8ddd05 {
-    width: 46%;
+	width: 46%;
 }.featuredtTitleView.data-v-3e8ddd05 {
 	height: 60rpx;
 	display: -webkit-box;
@@ -185,5 +191,70 @@
 	width: 59%;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}.share_tag.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}.house_tag.data-v-3e8ddd05{
+	height: 56rpx;
+}.house_tag text.data-v-3e8ddd05{
+	padding: 9rpx 17rpx 8rpx 16rpx;
+	background:#F7D6D6;
+	border-radius:5rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color: #CC0000;
+	margin-right: 12rpx;
+}.house_tag text.data-v-3e8ddd05:nth-child(2){
+	background:#E1EEFF;
+	color: #4297FF;
+}.house_tag text.data-v-3e8ddd05:nth-child(3){
+	background: #FFEBDC;
+	color: #FF8126;
+}.shareJoin.data-v-3e8ddd05{
+	width: 48rpx;
+	height: 48rpx;
+	display: inline-block;
+}.share view.data-v-3e8ddd05:first-child{
+	margin-right: 20rpx;
+}.joinImg.data-v-3e8ddd05{
+	width: 48rpx;
+	height: 48rpx;
+	float: left;
+	display: inline-block;
+}.joinText.data-v-3e8ddd05{
+	height:23rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:#666;
+	width: 100%;
+	float: left;
+}.share.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}.tagList.data-v-3e8ddd05{
+	margin-top:8rpx;
+}.Violation.data-v-3e8ddd05{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	        justify-content:space-between;
+	margin-bottom: 29rpx;
 }
 

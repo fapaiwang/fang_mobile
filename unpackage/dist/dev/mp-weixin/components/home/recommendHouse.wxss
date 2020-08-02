@@ -32,12 +32,13 @@
 	-webkit-flex-direction: row;
 	        flex-direction: row;
 }.houseItemImg.data-v-84369bee {
-	width: 240rpx;
-	height: 149rpx;
-	border-radius:10rpx;
+	width:240rpx;
+	height:149rpx;
+	display: inline-block;
 }.houseItemImg image.data-v-84369bee {
-	width: 100%;
-	height: 100%;
+	width:240rpx;
+	height:149rpx;
+	border-radius:10rpx;
 }.houseItem.data-v-84369bee {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;

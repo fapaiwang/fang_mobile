@@ -13,7 +13,7 @@
 							  <block v-for="(housItem, indexs) in item.img" :key="indexs">
 								   <navigator :url="getDetail(housItem.setting.linkurl,housItem.name)" class="quickTabItemView">
 									  <div class="quickTabItem">
-											<image class="quickTabImg" :src="getImg(housItem.setting.fileurl)" mode=""></image>
+										  <image class="quickTabImg" :src="getImg(housItem.setting.fileurl)" mode="heightFix"></image>
 									  </div>
 								  </navigator>
 							  </block>

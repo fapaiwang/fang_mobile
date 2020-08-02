@@ -146,32 +146,7 @@
         ,{
             "path" : "pages/search/search",
             "style" : {
-            	"navigationBarTitleText": "搜索",
-				"app-plus": {
-					"bounce": "none",
-					"titleNView": {
-						"buttons": [ 
-							{
-								"text": "地图", 
-								"fontSize":"16",
-								"float": "right",
-								"color":"#fff"
-							},
-							{
-								"text": "唐山", 
-								"fontSize":"16",
-								"float": "left",
-								"color":"#fff"
-							}
-						],
-						"searchInput":{
-							"align": "center",
-							"placeholder": "输入小区名称",
-							"borderRadius":"50upx",
-							"backgroundColor": "#fff"
-						}
-					}
-				}
+            	"navigationBarTitleText": "搜索"
             }
         }
         ,{
@@ -192,6 +167,12 @@
             "path" : "pages/mine/password",
             "style" : {
             	"navigationBarTitleText": "修改密码"
+            }
+        }
+        ,{
+            "path" : "pages/mine/history",
+            "style" : {
+            	"navigationBarTitleText": "浏览历史"
             }
         }
     ],

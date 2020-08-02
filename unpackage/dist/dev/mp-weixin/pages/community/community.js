@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/detail/banner */ "components/detail/banner").then((function () {return resolve(__webpack_require__(/*! @/components/detail/banner.vue */ 284));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityHead = function communityHead() {__webpack_require__.e(/*! require.ensure | components/community/community_head */ "components/community/community_head").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_head.vue */ 404));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityBase = function communityBase() {__webpack_require__.e(/*! require.ensure | components/community/community_base */ "components/community/community_base").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_base.vue */ 411));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/community/recommend_hosue */ "components/community/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/community/recommend_hosue.vue */ 418));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 324));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 303));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/community/community_featured */ "components/community/community_featured").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_featured.vue */ 425));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/detail/banner */ "components/detail/banner").then((function () {return resolve(__webpack_require__(/*! @/components/detail/banner.vue */ 292));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityHead = function communityHead() {__webpack_require__.e(/*! require.ensure | components/community/community_head */ "components/community/community_head").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_head.vue */ 421));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityBase = function communityBase() {__webpack_require__.e(/*! require.ensure | components/community/community_base */ "components/community/community_base").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_base.vue */ 428));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/community/recommend_hosue */ "components/community/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/community/recommend_hosue.vue */ 435));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 334));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 313));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/community/community_featured */ "components/community/community_featured").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_featured.vue */ 442));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -170,16 +170,73 @@ var _default =
       marker: [],
       latitude: '',
       longitude: '',
-      cData: [],
+      detail: [],
       cBase: [],
       buildYears: '',
-      address: '' };
+      address: '',
+      communityId: 0,
+      like: -1,
+      estateKey: '' };
 
   },
   onLoad: function onLoad(options) {
+    if (options.like != undefined) {
+      this.like = options.like;
+    }
     this.getHomeData(options.id);
+    // uni.clearStorage(this.fun.historyEstate)
+    // uni.clearStorage(this.fun.estateKeys)
+    this.getEstateKey();
   },
   methods: {
+    getStoreHouse: function getStoreHouse(id, detailData) {//浏览小区
+      var _self = this;
+      var storeList = new Array();
+      uni.getStorage({
+        key: _self.fun.historyEstate,
+        success: function success(res) {
+          storeList = res.data;
+          if (_self.estateKey.indexOf(id) == -1) {
+            detailData["id"] = id;
+            storeList.push(detailData);
+            _self.setEstateStore(storeList);
+            _self.estateKey = _self.estateKey + " " + id;
+            _self.setKey(_self.estateKey);
+          }
+        },
+        fail: function fail() {
+          var estateList = [];
+          detailData["id"] = id;
+          estateList.push(detailData);
+          _self.setEstateStore(estateList);
+          var estateKey = id;
+          _self.setKey(estateKey);
+        } });
+
+    },
+    setEstateStore: function setEstateStore(houseList) {
+      var _self = this;
+      uni.setStorage({
+        key: _self.fun.historyEstate,
+        data: houseList });
+
+    },
+    getEstateKey: function getEstateKey() {
+      var _self = this;
+      uni.getStorage({
+        key: _self.fun.estateKeys,
+        success: function success(ops) {
+          _self.estateKey = ops.data;
+        } });
+
+    },
+    setKey: function setKey(estateKey) {
+      var _self = this;
+      uni.setStorage({
+        key: _self.fun.estateKeys,
+        data: estateKey });
+
+    },
     getHomeData: function getHomeData(id) {
       this.getBaseInfo(id);
       this.getRecommendHouseData(id);
@@ -189,19 +246,21 @@ var _default =
       uni.request({
         url: this.baseUrl + "/api/estate/estate_detail?id=" + id,
         success: function success(res) {
-          _this.cData = res.data.data;
-          _this.cBase = _this.cData.data;
-          _this.buildYears = _this.cData.years;
-          _this.address = _this.cData.address;
-          _this.info = _this.cData.file == null ? _this.info : _this.cData.file;
-          _this.latitude = _this.cData.lat;
-          _this.longitude = _this.cData.lng;
+          _this.detail = res.data.data;
+          _this.communityId = id;
+          _this.getStoreHouse(id, res.data.data);
+          _this.cBase = _this.detail.data;
+          _this.buildYears = _this.detail.years;
+          _this.address = _this.detail.address;
+          _this.info = _this.detail.file == null ? _this.info : _this.detail.file;
+          _this.latitude = _this.detail.lat;
+          _this.longitude = _this.detail.lng;
           _this.marker = [{
-            longitude: _this.cData.lng,
-            latitude: _this.cData.lat,
+            longitude: _this.detail.lng,
+            latitude: _this.detail.lat,
             iconPath: '',
             callout: { //自定义标记点上方的气泡窗口 点击有效
-              content: _this.cData.title, //文本
+              content: _this.detail.title, //文本
               color: '#3A6385', //文字颜色
               fontSize: 14, //文本大小
               borderRadius: 2, //边框圆角

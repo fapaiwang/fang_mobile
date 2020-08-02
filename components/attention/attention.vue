@@ -3,7 +3,7 @@
 		<view class="total">
 			<text>我关注的小区</text>
 		</view>
-		<view class="xiaoquList">
+		<view class="xiaoquList" v-if="communityData.length > 0">
 			<block v-for="(houseItem,key) in communityData" :key="key">
 				<navigator :url="getDetail(houseItem.id)" class="quickTabSwiperItem">
 					<view class="item">
@@ -15,10 +15,10 @@
 							<text>{{houseItem.title}}</text>
 						</view>
 						<view class="titleInfo">
-							<text>周边房源<text style="color: #DF2D23">20</text>套</text>
+							<text>周边房源<text style="color: #DF2D23">{{houseItem.second_total}}</text>套</text>
 						</view>
 						<view class="price">
-							<text style="color: #DF2D23">{{houseItem.average_price}}元/㎡</text>
+							<text style="color: #DF2D23">{{houseItem.price}}元/㎡</text>
 						</view>
 					</view>
 				</view>
@@ -44,7 +44,7 @@
 				return this.fun.getDate(time);
 			},
 			getDetail(index){
-				return '/pages/community/community?id='+index;
+				return `/pages/community/community?id=${index}&like=1`;
 			}
 		}
 	}

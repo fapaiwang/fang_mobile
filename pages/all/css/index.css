@@ -1,25 +1,30 @@
 .container{
-		padding: 40upx 30upx 0 30upx;
-	}
-	.scv{
-		flex-wrap: nowrap;
-		white-space: nowrap;
-	}
-	.scv view{
-		display: inline-block;
-		height: 50upx;
-		line-height: 50upx;
-		text-align: center;
-		color: #999;
-		font-size:28upx;
-		margin-right: 71upx;
-	}
-	.text-red{
-	  color:#DF2D23 !important;
-	  font-weight:800;
-	  font-family:PingFang SC;
-	  color: #fff !important;
-	  background:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,84,74,1));
-	  border-radius:25upx;
-	  padding: 0 10px;
-	}
+	padding: 40upx 30upx 0 30upx;
+}
+.scv{
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	height: 62upx;
+}
+.scv view{
+	display: inline-block;
+	height: 50upx;
+	line-height: 50upx;
+	text-align: center;
+	color: #999;
+	font-size:28upx;
+	margin-right: 71upx;
+}
+.text-red{
+  color:#DF2D23 !important;
+  font-weight:800;
+  font-family:PingFang SC;
+  color: #fff !important;
+  background:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,84,74,1));
+  border-radius:25upx;
+  padding: 0 10px;
+}
+#boxFixed{
+	height: 138upx;
+	box-sizing: border-box;
+}

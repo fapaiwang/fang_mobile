@@ -8,7 +8,7 @@
 				</view>
 			</view>
 			<view class="join" @click="join">
-				<image :src="isShow==1 ? '../../static/img/community/xin.png' : '../../static/img/community/join.png'" class="joinImg"></image>
+				<image :src="isLike(communityId)" class="joinImg"></image>
 				<text class="joinText">关注</text>
 			</view>
 			<view class="houseLine"></view>
@@ -19,11 +19,12 @@
 <script>
 	var _self;
 	export default {
-		props:["detail","communityId"],
+		props:["detail","communityId","like"],
 		data() {
 			return {
-				isShow:0,
+				isShow:1,
 				uuid:-1,
+				EstateData:[],
 			}
 		},
 		created:function(){
@@ -39,8 +40,17 @@
 					_self.bmrs = true;
 				}
 			})
+			uni.getStorage({ //获取关注小区
+				key:_self.fun.likeEstate,
+				success:function(ops){
+					_self.EstateData = ops.data;
+				},
+			})
 		},
 		methods: {
+			isLike(id) {
+				return this.EstateData.indexOf(Number(id)) != -1 ? '../../static/img/community/xin.png' :  '../../static/img/community/join.png';
+			},
 			join(){//关注
 				if (this.uuid != -1) {
 					let _param = {
@@ -50,6 +60,15 @@
 					}
 					this.fun.getReq(this.baseUrl+'/api/follow',_param)
 					.then((res)=>{
+						if (res[1].data.status==1) {
+							_self.EstateData.push(Number(_self.communityId))
+						} else {
+							_self.EstateData.splice(_self.EstateData.indexOf(Number(_self.communityId)), 1);
+						}
+						uni.setStorage({
+							key:_self.fun.likeEstate,
+							data:_self.EstateData
+						})
 						this.isShow = res[1].data.status;
 						this.fun.showMsg(res[1].data.msg);
 					})

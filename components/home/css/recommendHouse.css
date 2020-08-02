@@ -22,13 +22,14 @@
 	flex-direction: row;
 }
 .houseItemImg {
-	width: 240upx;
-	height: 149upx;
-	border-radius:10upx;
+	width:240upx;
+	height:149upx;
+	display: inline-block;
 }
 .houseItemImg image {
-	width: 100%;
-	height: 100%;
+	width:240upx;
+	height:149upx;
+	border-radius:10upx;
 }
 .houseItem {
 	flex: 1;

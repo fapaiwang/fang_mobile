@@ -3,7 +3,7 @@
 		<view class="total">
 			<text>我关注的房源</text>
 		</view>
-		<view class="house_list">
+		<view class="house_list" v-if="houseData.length > 0">
 			<block v-for="(houseItem,key) in houseData" :key="key">
 				<navigator :url="getDetail(houseItem.id)" class="quickTabSwiperItem">
 					<view class="houseItemView" >
@@ -15,16 +15,16 @@
 							<text>{{houseItem.title}}</text>
 						</view>
 						<view class="itemInfo">
-							<text>2室1厅 | 86.16㎡ | 南北 | 住宅</text>
+							<text>{{`${houseItem.room}室${houseItem.living_room}厅 | ${houseItem.acreage}㎡ | ${houseItem.orientations_name} | ${houseItem.types_name}`}}</text>
 						</view>
 						<view class="itemPrice">
 							<view>
 								<text>起拍价</text>
-								<text class="redPrice">6100万</text>
+								<text class="redPrice">{{houseItem.qipai}}万</text>
 							</view>
 							<view>
 								<text>市场价</text>
-								<text class="grayPrice">200万</text>
+								<text class="grayPrice">{{houseItem.price}}万</text>
 							</view>
 						</view>
 						<view class="createIime">
@@ -33,7 +33,7 @@
 							</view>
 							<view class="createIimeIconinfo">
 								<text>
-									开拍时间：{{getDatime(houseItem.create_time)}}
+									开拍时间：{{houseItem.kptime}}
 								</text>
 							</view>
 						</view>
@@ -57,11 +57,8 @@
 			getImg(imgSrc){
 				return this.fun.getImgSrc(imgSrc);
 			},
-			getDatime(time){
-				return this.fun.getDate(time);
-			},
 			getDetail(index){
-				return '/pages/detail/index?id='+index;
+				return `/pages/detail/index?id=${index}&like=1`;
 			}
 		}
 	}

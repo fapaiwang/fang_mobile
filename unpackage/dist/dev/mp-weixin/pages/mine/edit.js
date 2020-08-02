@@ -172,22 +172,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+//
+//
+//
+
+var _self;var _default =
 {
   data: function data() {
     return {
       userInfo: [],
-      nickName: "" };
+      nickName: "",
+      phone: "",
+      email: "没填写",
+      userId: -1 };
 
   },
   onLoad: function onLoad() {
-    var _self = this;
+    _self = this;
     uni.getStorage({
-      key: "userInfo",
+      key: _self.fun.userInfo,
       success: function success(res) {
-        this.userInfo = res.data;
-        console.log(this.userInfo);
-        this.nickName = res.data.nick_name;
+        _self.userInfo = res.data;
+        _self.phone = res.data.mobile;
+        _self.nickName = res.data.nick_name;
+        _self.userId = res.data.id;
       } });
 
     this.getUserInfo();
@@ -201,16 +209,31 @@ var _default =
       if (this.userInfo.length >= 1) {
         ImgSrc = userInfo.img;
       }
-      if (ImgSrc == null || ImgSrc == "") {
-        return "../../static/img/base/default.png";
-      }
-      if (ImgSrc.substr(0, 4) == "http") {
-        return ImgSrc;
-      } else if (ImgSrc.substr(0, 1) == "/") {
-        return this.baseUrl + "".concat(ImgSrc);
-      } else {
-        return this.baseUrl + "/".concat(ImgSrc);
-      }
+      return this.fun.getImgSrc(ImgSrc);
+    },
+    edit: function edit() {var _this = this;
+      var _param = {
+        "nick_name": this.nickName,
+        "email": this.email,
+        "id": this.userId };
+
+      this.fun.getReq(this.baseUrl + '/api/save_user_info', _param).then(function (res) {
+        if (res[1].data.code == 10000) {
+          uni.setStorage({
+            key: _self.fun.userInfo,
+            data: res[1].data.data });
+
+          uni.navigateBack({
+            delta: 1 });
+
+        } else {
+          _this.fun.showMsg(res[1].data.msg);
+          return false;
+        }
+      });
+    },
+    changePwd: function changePwd() {
+      this.fun.navTo("/pages/mine/password");
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

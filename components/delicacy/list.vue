@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="recommendHouseView" :class="isShow ? 'posi' : ''">
+		<view class="recommendHouseView">
 			<block v-for="(housItem, indexs) in recommendHouseData" :key="indexs">
 				<navigator :url="detail(housItem.id)" class="quickTabSwiperItem">
 					<view class="houseItemView">
