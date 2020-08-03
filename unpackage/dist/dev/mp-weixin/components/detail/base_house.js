@@ -231,6 +231,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var _self;var _default =
 {
@@ -241,7 +253,9 @@ var _self;var _default =
       bmrs: false,
       uuid: -1,
       isJoin: -1,
-      likeHouse: [] };
+      likeHouse: [],
+      con: "",
+      mark: false };
 
   },
   created: function created() {
@@ -264,6 +278,39 @@ var _self;var _default =
 
   },
   methods: {
+    common: function common() {var _this = this;
+      setTimeout(function () {
+        _this.mark = true;
+      }, 310);
+    },
+    subCon: function subCon() {var _this2 = this;
+      if (this.con == "") {
+        this.fun.showMsg("点评内容不能为空");
+        return false;
+      }
+      var _param = {
+        "house_id": this.detial.id,
+        "model": "second_house",
+        "house_name": this.con,
+        "broker_id": this.detial.broker_id,
+        "user_id": this.uuid };
+
+      this.fun.getReq(this.baseUrl + "/api/second/house_comment_add", _param).
+      then(function (res) {
+        setTimeout(function () {
+          _this2.con == "";
+          _this2.mark = false;
+        }, 310);
+        _this2.fun.showMsg(res[1].data.msg);
+      });
+    },
+    look: function look() {
+
+    },
+    close: function close() {
+      this.con == "";
+      this.mark = false;
+    },
     isLike: function isLike(id) {
       return this.likeHouse.indexOf(id) != -1 ? '../../static/img/community/xin.png' : '../../static/img/community/join.png';
     },
@@ -273,7 +320,7 @@ var _self;var _default =
     taxes: function taxes(id, price) {
       this.fun.navTo("/pages/detail/taxes?id=".concat(id, "&qp=").concat(price));
     },
-    join: function join() {var _this = this;
+    join: function join() {var _this3 = this;
       var _self = this;
       if (this.uuid != -1) {
         var _houseId = this.detial.id;
@@ -284,7 +331,7 @@ var _self;var _default =
 
         this.fun.getReq(this.baseUrl + '/api/follow', _param).
         then(function (res) {
-          _this.fun.showMsg(res[1].data.msg);
+          _this3.fun.showMsg(res[1].data.msg);
           if (res[1].data.status == 1) {
             _self.likeHouse.push(_houseId);
           } else {
@@ -309,9 +356,9 @@ var _self;var _default =
           } }),
 
         type: 0,
-        title: houseTit,
-        summary: houseTit,
-        href: this.baseUrl + "/" });
+        title: this.houseTit,
+        summary: this.houseTit,
+        href: "/pages/detail/index?id=" + this.detial.id });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

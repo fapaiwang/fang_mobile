@@ -44,7 +44,7 @@
 										</view>
 										<view class="createIimeIconinfo">
 											<text>
-												开拍时间：{{getDate(housItem.create_time)}}
+												开拍时间：{{housItem.kptime}}
 											</text>
 										</view>
 									</view>

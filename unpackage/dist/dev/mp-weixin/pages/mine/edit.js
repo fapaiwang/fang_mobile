@@ -97,7 +97,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var m0 = _vm.getImg()
+  var m0 = _vm.getImg("")
   _vm.$mp.data = Object.assign(
     {},
     {
@@ -201,15 +201,36 @@ var _self;var _default =
     this.getUserInfo();
   },
   methods: {
+    avatar: function avatar() {
+      var _self = this;
+      uni.chooseImage({
+        count: 6, //默认9
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album'], //从相册选择
+        success: function success(res) {
+          // _self.fun.getReq(_self.baseUrl+"/api/upload_avatar").then((res)=>{
+          // 	console.log(res[1],22)
+          // })
+          //
+          _self.getImg("blob:https://localhost:8081/e5432fcf-8d5b-4c55-beb1-439ec89f52b9");
+          console.log(res.tempFiles[0]);
+        } });
+
+    },
     getUserInfo: function getUserInfo() {
       this.nickName = this.userInfo.nick_name ? this.userInfo.nick_name : '';
     },
-    getImg: function getImg() {
-      var ImgSrc = "";
-      if (this.userInfo.length >= 1) {
-        ImgSrc = userInfo.img;
+    getImg: function getImg(imgSrc) {
+      if (imgSrc == "") {
+        var ImgSrc = "";
+        if (this.userInfo.length >= 1) {
+          ImgSrc = userInfo.img;
+        }
+        return this.fun.getImgSrc(ImgSrc);
+      } else {
+        console.log(111);
+        return this.fun.getImgSrc(imgSrc);
       }
-      return this.fun.getImgSrc(ImgSrc);
     },
     edit: function edit() {var _this = this;
       var _param = {

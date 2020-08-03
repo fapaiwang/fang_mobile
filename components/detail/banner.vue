@@ -3,9 +3,8 @@
 		<uni-swiper-dot :info="info" :current="current" field="title" :mode="mode">
 		    <swiper class="swiper-box" @change="change">
 		        <swiper-item v-for="(item ,index) in info" :key="index">
-		            <view class="swiper-item">
+		            <view class="swiper-item" @click="bannerList">
 						<image class="swiper-item" :src="getImgUrl(item.url)"></image>
-						<text class="free" :style="{background:bannerCol}">{{bannerTit}}</text>
 		            </view>
 		        </swiper-item>
 		    </swiper>
@@ -15,7 +14,7 @@
 
 <script>
 	export default {
-		props: ["info","bannerTit","bannerCol"],
+		props: ["info","bannerTit","bannerCol","detailId"],
 		name: "homeBanner",
 		data() {
 			return {
@@ -29,6 +28,9 @@
 			},
 			change(e) {
 				this.current = e.detail.current;
+			},
+			bannerList(){
+				this.fun.navTo("/pages/detail/banner?id="+this.detailId)
 			}
 		}
 	}

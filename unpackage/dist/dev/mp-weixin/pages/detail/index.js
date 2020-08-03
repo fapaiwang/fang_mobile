@@ -176,8 +176,7 @@ var _default =
 
   data: function data() {
     return {
-      info: [{
-        title: "" }],
+      info: [{}],
 
       detialText: '',
       showCon: false,
@@ -204,21 +203,9 @@ var _default =
       estateId: 0,
       bannerTit: '',
       bannerCol: '',
-      userRule: -1,
       like: -1,
-      HouseKey: '' };
-
-  },
-  created: function created() {
-    var _self = this;
-    uni.getStorage({
-      key: _self.fun.userInfo,
-      success: function success(res) {
-        _self.userRule = res.data.model;
-      },
-      fail: function fail() {
-        _self.userRule = -1;
-      } });
+      HouseKey: '',
+      detailId: 0 };
 
   },
   onLoad: function onLoad(options) {var _this = this;
@@ -228,7 +215,7 @@ var _default =
     if (options.like != undefined) {
       this.like = options.like;
     }
-
+    this.detailId = options.id;
     this.getRecommendPersion(options.id);
     this.getHouseKey();
     this.fun.getReq(this.baseUrl + "/api/second/houseDetail", { "id": options.id }).

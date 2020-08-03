@@ -32,12 +32,15 @@
 
 <script>
 	export default{
-		props:["recommendData","userRule"],
+		props:["recommendData"],
 		name: "recommend",
 		data(){
 			return {
-				
+				userRule:-1,
 			}
+		},
+		created:function(){
+			this.getRule();
 		},
 		methods:{
 			getImg(_rul){
@@ -52,7 +55,16 @@
 				uni.switchTab({
 					url:"/pages/community/community"
 				})
-			}
+			},
+			getRule(){
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.userInfo,
+					success:function(res){
+						_self.userRule = res.data.model;
+					},
+				})
+			},
 		}
 	}
 </script>

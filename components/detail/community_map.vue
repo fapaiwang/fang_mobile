@@ -6,7 +6,7 @@
 			</view>
 		</view>
 		<view class="community_name">
-			<map style="width:100%;height:35vh;" :latitude="latitude" :longitude="longitude" :markers="marker" scale="15">
+			<map style="width:100%;height:35vh;" :latitude="latitude" :longitude="longitude" :markers="marker" scale="15" @click="onMap">
 				<cover-view>
 					<view class="tabList">
 						<view v-for="(item,index) in tabList" :key="index" class="tabItem" @click="tabClick(index)">
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-	props: ["latitude","longitude","marker"],
+	props: ["latitude","longitude","marker","detailId"],
 	data() {
 		return {
 			scale:15,
@@ -36,8 +36,9 @@ export default {
 	},
 	methods: {
 		tabClick(index){
-			
-			console.log(index)
+		},
+		onMap(){
+			this.fun.navTo("/pages/detail/map?id="+this.detailId);
 		}
 	}
 }

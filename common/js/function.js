@@ -1,12 +1,39 @@
-import {requestUrl} from './requests.js'
-
 class Fun{
+	webSite = "https://www.fangpaiwang.com";
 	successData = new Array();
 	errData = new Array();
-	navTo(url){//url跳转
+	userInfo = "userInfo";//用户信息key
+	likeHouse = "likeHouse";//关注的房屋
+	likeEstate = "likeEstate";//关注的小区
+	historyHouse = "historyHouse";//浏览的房源
+	houseKeys = "houseKeys";//浏览的房源的ID
+	historyEstate = "historyEstate";//浏览的小区
+	estateKeys = "estateKeys";//浏览的小区的ID
+
+	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({
 			url:url
 		})
+	}
+	redTo(url){// 关闭当前页面，跳转到应用内的某个页面。
+		uni.redirectTo({
+			url:url
+		})
+	}
+	
+	getDate(dates) { //将时间戳转换为具体时间
+		if (dates) {
+			var date = new Date(dates * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+			var Y = date.getFullYear() + '-';
+			var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+			var D = date.getDate() + ' ';
+			var h = date.getHours() + ':';
+			var m = (date.getMinutes() < 10 ? '0'+(date.getMinutes()) : date.getMinutes()) + ':';
+			var s = (date.getSeconds() < 10 ? '0'+(date.getSeconds()) : date.getSeconds());
+			return Y+M+D+h+m+s;
+		} else {
+			return "";
+		}
 	}
 	
 	getReq(_url,_data="",_method='GET'){//get请求
@@ -54,6 +81,7 @@ class Fun{
 			}
 		})
 	}
+	
 	getImgSrc(ImgSrc){
 		if (ImgSrc == null || ImgSrc == "" ) {
 			return "../../static/img/base/default.png";
@@ -61,9 +89,9 @@ class Fun{
 		if (ImgSrc.substr(0,4) == "http") {
 			return ImgSrc;
 		} else if (ImgSrc.substr(0,1) == "/") {
-			return this.baseUrl+`${ImgSrc}`;
+			return this.webSite+`${ImgSrc}`;
 		} else {
-			return this.baseUrl+`/${ImgSrc}`;
+			return this.webSite+`/${ImgSrc}`;
 		}
 	}
 }

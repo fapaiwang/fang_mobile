@@ -43,7 +43,7 @@
 						<text class="sTime">{{detial.weiguan}}</text>人围观
 					</view>
 				</view>
-				<view class="people">
+				<view class="people" @click="common()">
 					<text class="sTime">房源点评</text>
 				</view>
 			</view>
@@ -52,7 +52,7 @@
 			<view class="start_time">
 				开拍截止倒计时：<text class="sTime">{{countDownList}}</text>
 			</view>
-			<view class="look">
+			<view class="look" @click="look">
 				<image src="../../static/img/community/ling.png" class="look_img"></image>预约查看
 			</view>
 		</view>
@@ -103,6 +103,18 @@
 				</view>
 			</view>
 		</view>
+		<view class="mark" v-if="mark">
+			<view class="viewTxt">
+				<view class="viewNavBar">
+					<text class="dianpin">房源点评</text>
+					<text @tap="close()">x</text>
+				</view>
+				<view class="viewArea">
+					<textarea v-model="con"></textarea>
+				</view>
+				<button class="btn" @click="subCon">提交</button>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -116,7 +128,9 @@
 				bmrs:false,
 				uuid:-1,
 				isJoin:-1,
-				likeHouse:[]
+				likeHouse:[],
+				con:"",
+				mark:false,
 			};
 		},
 		created:function(){
@@ -139,6 +153,39 @@
 			})
 		},
 		methods:{
+			common(){
+				setTimeout(()=>{
+					this.mark = true;
+				},310);
+			},
+			subCon(){
+				if (this.con == "") {
+					this.fun.showMsg("点评内容不能为空");
+					return false;
+				}
+				let _param = {
+					"house_id":this.detial.id,
+					"model":"second_house",
+					"house_name":this.con,
+					"broker_id":this.detial.broker_id,
+					"user_id":this.uuid,
+				}
+				this.fun.getReq(this.baseUrl+"/api/second/house_comment_add",_param)
+				.then((res)=>{
+					setTimeout(()=>{
+						this.con == "";
+						this.mark = false;
+					},310);
+					this.fun.showMsg(res[1].data.msg);
+				});
+			},
+			look(){
+				
+			},
+			close(){
+				this.con == "";
+				this.mark = false;
+			},
 			isLike(id) {
 				return this.likeHouse.indexOf(id) != -1 ? '../../static/img/community/xin.png' :  '../../static/img/community/join.png';
 			},
@@ -184,9 +231,9 @@
 						}
 					}),
 					type:0,
-					title:houseTit,
-					summary:houseTit,
-					href:this.baseUrl+"/",
+					title:this.houseTit,
+					summary:this.houseTit,
+					href:"/pages/detail/index?id="+this.detial.id,
 				})
 			}
 		}
@@ -195,4 +242,53 @@
 
 <style scoped>
 @import url("./css/base_house.css");
+.viewTxt{
+	width: 90%;
+	margin: 0 30upx;
+	background: #fff;
+	position: absolute;
+	top: 40%;
+}
+.viewArea{
+	border: 1upx solid #dcdcdc;
+	height: 300upx;
+	border-radius: 10upx;
+	margin: 0 30upx 30upx 30upx;
+}
+.viewArea textarea{
+	width: 95%;
+	padding: 20upx 0 20upx;
+	font-size: 30upx;
+	line-height: 40upx;
+}
+.viewNavBar{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.viewNavBar{
+	margin: 30upx auto;
+}
+.viewNavBar text{
+	font-size: 30upx;
+	padding: 0 30upx;
+}
+.mark{
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	height: 100%;
+	overflow: hidden;
+}
+.btn{
+	background: #CD3624;
+	font-size: 24upx;
+	color: #fff;
+	width: 90%;
+	margin-bottom: 30upx;
+}
 </style>

@@ -148,10 +148,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 var _default =
 {
-  props: ["info", "bannerTit", "bannerCol"],
+  props: ["info", "bannerTit", "bannerCol", "detailId"],
   name: "homeBanner",
   data: function data() {
     return {
@@ -165,6 +164,9 @@ var _default =
     },
     change: function change(e) {
       this.current = e.detail.current;
+    },
+    bannerList: function bannerList() {
+      this.fun.navTo("/pages/detail/banner?id=" + this.detailId);
     } } };exports.default = _default;
 
 /***/ }),

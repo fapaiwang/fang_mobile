@@ -164,12 +164,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  props: ["recommendData", "userRule"],
+  props: ["recommendData"],
   name: "recommend",
   data: function data() {
-    return {};
+    return {
+      userRule: -1 };
 
-
+  },
+  created: function created() {
+    this.getRule();
   },
   methods: {
     getImg: function getImg(_rul) {
@@ -183,6 +186,15 @@ var _default =
     online: function online(_url) {
       uni.switchTab({
         url: "/pages/community/community" });
+
+    },
+    getRule: function getRule() {
+      var _self = this;
+      uni.getStorage({
+        key: _self.fun.userInfo,
+        success: function success(res) {
+          _self.userRule = res.data.model;
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

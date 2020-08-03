@@ -27,7 +27,9 @@
     "pages/detail/recording",
     "pages/detail/house",
     "pages/mine/password",
-    "pages/mine/history"
+    "pages/mine/history",
+    "pages/detail/banner",
+    "pages/detail/map"
   ],
   "subPackages": [],
   "window": {

@@ -175,6 +175,14 @@
             	"navigationBarTitleText": "浏览历史"
             }
         }
+        ,{
+            "path" : "pages/detail/banner",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/detail/map",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

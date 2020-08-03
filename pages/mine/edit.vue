@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<view class="avatar">
-			<image class="avatar_img" :src="getImg()"></image>
+		<view class="avatar" @click="avatar">
+			<image class="avatar_img" :src="getImg('')"></image>
 		</view>
 		<view class="editCon">
 			<text class="alias">{{nickName}}
@@ -60,15 +60,36 @@
 			this.getUserInfo();
 		},
 		methods: {
+			avatar(){
+				var _self = this;
+				uni.chooseImage({
+					count: 6, //默认9
+					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+					sourceType: ['album'], //从相册选择
+					success: function (res) {
+						// _self.fun.getReq(_self.baseUrl+"/api/upload_avatar").then((res)=>{
+						// 	console.log(res[1],22)
+						// })
+						//
+						_self.getImg("blob:https://localhost:8081/e5432fcf-8d5b-4c55-beb1-439ec89f52b9")
+						console.log(res.tempFiles[0]);
+					}
+				})
+			},
 			getUserInfo(){
 				this.nickName = this.userInfo.nick_name ? this.userInfo.nick_name : '';
 			},
-			getImg(){
-				var ImgSrc = "";
-				if (this.userInfo.length >=1) {
-					ImgSrc = userInfo.img
+			getImg(imgSrc){
+				if (imgSrc=="") {
+					var ImgSrc = "";
+					if (this.userInfo.length >=1) {
+						ImgSrc = userInfo.img
+					}
+					return this.fun.getImgSrc(ImgSrc);
+				} else {
+					console.log(111);
+					return this.fun.getImgSrc(imgSrc);
 				}
-				return this.fun.getImgSrc(ImgSrc);
 			},
 			edit(){
 				let _param = {

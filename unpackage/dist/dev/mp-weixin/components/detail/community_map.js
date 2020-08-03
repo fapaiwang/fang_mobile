@@ -140,7 +140,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  props: ["latitude", "longitude", "marker"],
+  props: ["latitude", "longitude", "marker", "detailId"],
   data: function data() {
     return {
       scale: 15,
@@ -152,8 +152,9 @@ var _default =
   },
   methods: {
     tabClick: function tabClick(index) {
-
-      console.log(index);
+    },
+    onMap: function onMap() {
+      this.fun.navTo("/pages/detail/map?id=" + this.detailId);
     } } };exports.default = _default;
 
 /***/ }),

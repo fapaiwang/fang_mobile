@@ -1738,7 +1738,8 @@ function normalizeComponent (
     "historyHouse");_defineProperty(this, "houseKeys",
     "houseKeys");_defineProperty(this, "historyEstate",
     "historyEstate");_defineProperty(this, "estateKeys",
-    "estateKeys");}_createClass(Fun, [{ key: "navTo", //浏览的小区的ID
+    "estateKeys");_defineProperty(this, "searchList",
+    "searchList");}_createClass(Fun, [{ key: "navTo", //搜索key
     value: function navTo(
     url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({

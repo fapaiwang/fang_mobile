@@ -85,12 +85,10 @@ var render = function() {
     var l0 = _vm.__map(_vm.houseData(_vm.TabCur), function(housItem, indexs) {
       var m0 = _vm.getDetail(housItem.id)
       var m1 = _vm.getImgUrl(housItem.img)
-      var m2 = _vm.getDate(housItem.create_time)
       return {
         $orig: _vm.__get_orig(housItem),
         m0: m0,
-        m1: m1,
-        m2: m2
+        m1: m1
       }
     })
 

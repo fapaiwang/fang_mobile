@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="community_name">
-			{{detial.estate_name}}<text class="taotalHouse">(本小区共有拍卖房2套)</text>
+			{{detial.estate_name}}<text class="taotalHouse">(本小区共有拍卖房{{detial.estate_num}}套)</text>
 		</view>
 		<view class="community_about">
 			<view class="community_info">

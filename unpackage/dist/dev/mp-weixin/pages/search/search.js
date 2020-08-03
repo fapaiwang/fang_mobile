@@ -165,33 +165,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
     return {
       keyword: '',
-      keyList: [] };
+      keyList: [],
+      historyData: '',
+      historyList: [] };
 
   },
   onShow: function onShow() {
     this.keyList = [];
     this.keyword = "";
+    this.getStore();
+  },
+  onLoad: function onLoad() {
+    this.keyList = [];
+    this.keyword = "";
+    this.getStore();
   },
   methods: {
     inputChange: function inputChange() {var _this = this;
+      var _self = this;
       this.fun.getReq(this.baseUrl + '/api/second/houseList', { keyword: this.keyword }).
       then(function (res) {
+        if (_self.historyData.indexOf(_self.keyword) == -1) {
+          _self.historyData = _self.historyData + " " + _self.keyword;
+          _self.setStore(_self.historyData);
+          _self.historyList = _self.historyData.split(" ");
+        }
         _this.keyList = res[1].data.data.lists.data;
       });
+    },
+    setStore: function setStore(strRes) {
+      var _self = this;
+      uni.setStorage({
+        key: _self.fun.searchList,
+        data: strRes });
+
+    },
+    getStore: function getStore() {
+      var _self = this;
+      uni.getStorage({
+        key: _self.fun.searchList,
+        success: function success(ops) {
+          _self.historyData = ops.data;
+        },
+        fail: function fail() {
+        } });
+
     },
     detail: function detail(index) {
       return this.fun.navTo("/pages/detail/index?id=" + index);

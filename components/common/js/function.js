@@ -9,6 +9,7 @@ class Fun{
 	houseKeys = "houseKeys";//浏览的房源的ID
 	historyEstate = "historyEstate";//浏览的小区
 	estateKeys = "estateKeys";//浏览的小区的ID
+	searchList = "searchList";//搜索key
 
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({

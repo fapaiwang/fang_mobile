@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view v-if="showCon">
-			<banner :info="info" :bannerTit="bannerTit" :bannerCol="bannerCol"></banner>
+			<banner :info="info" :bannerTit="bannerTit" :bannerCol="bannerCol" :detailId="detailId"></banner>
 			<baseHouse :communityName="communityName" :detial="detial" :houseType="houseType" :buildYear="buildYear" :houseTit="houseTit" :countDownList="countDownList" :like="like"></baseHouse>
 			<grayBox></grayBox>
 			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData"></housingSituation>
@@ -10,9 +10,9 @@
 			<grayBox></grayBox>
 			<communityDesc :detial="detial" :communityThumb="communityThumb" :estateData="estateData" :buildYear="buildYear"></communityDesc>
 			<grayBox></grayBox>
-			<communityMap :marker="marker"  :latitude="latitude" :longitude="longitude"></communityMap>
+			<communityMap :marker="marker"  :latitude="latitude" :longitude="longitude" :detailId="detailId"></communityMap>
 			<grayBox></grayBox>
-			<recommendHosue :qualityEstateData="qualityEstateData" :userRule="userRule"></recommendHosue>
+			<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
@@ -45,7 +45,6 @@
 		data() {
 			return {
 				info: [{
-					title: ""
 				}],
 				detialText: '',
 				showCon:false,
@@ -72,22 +71,10 @@
 				estateId:0,
 				bannerTit:'',
 				bannerCol:'',
-				userRule:-1,
 				like:-1,
 				HouseKey:'',
+				detailId:0,
 			}
-		},
-		created() {
-			var _self = this;
-			uni.getStorage({
-				key:_self.fun.userInfo,
-				success:function(res){
-					_self.userRule = res.data.model;
-				},
-				fail:function(){
-					_self.userRule = -1;
-				}
-			})
 		},
 		onLoad:function(options){
 			if (!options.id) {
@@ -96,7 +83,7 @@
 			if (options.like !=undefined) {
 				this.like = options.like;
 			}
-			
+			this.detailId = options.id;
 			this.getRecommendPersion(options.id)
 			this.getHouseKey();
 			this.fun.getReq(this.baseUrl+"/api/second/houseDetail",{"id":options.id})
