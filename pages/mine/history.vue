@@ -90,7 +90,6 @@
 				uni.getStorage({
 					key:_self.fun.historyHouse,
 					success:function(res){
-						console.log(res,22222)
 						_self.houseData = res.data;
 					},
 				})
@@ -100,7 +99,6 @@
 				uni.getStorage({
 					key:_self.fun.historyEstate,
 					success:function(res){
-						console.log(res,3333)
 						_self.estateData = res.data;
 					},
 				})

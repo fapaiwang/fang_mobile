@@ -1,5 +1,5 @@
 <template>
-	<view class="advisory_warp">
+	<view class="advisory_warp" v-if="detial">
 		<view class="consultant">
 			<view class="consultant_l">
 				<view class="avatar">

@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view v-if="detial">
 		<view class="base_house_con">
 			<view class="share_tag">
 				<view class="tagList">

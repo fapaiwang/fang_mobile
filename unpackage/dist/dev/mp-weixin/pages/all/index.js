@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 393));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 526));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 550));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -186,7 +186,9 @@ var _default =
       tabList: [{ name: "重点推荐", val: "y1" }, { name: "自由购", val: "m10" }, { name: "6折房源", val: "y2" }, { name: "一口价", val: "g163" }],
       TabCur: 0,
       keyword: "",
-      isShow: true };
+      isShow: true,
+      mark: false,
+      addNum: 1 };
 
   },
   onLoad: function onLoad(e) {
@@ -224,14 +226,15 @@ var _default =
     }).exec();
   },
   methods: {
-
     tabChange: function tabChange(index) {
       this.TabCur = index;
       this.getRes();
     },
     touchMe: function touchMe(val) {//子组件向父组件传值，接收值
       _self.cate = val;
-      this.isShow = false;
+      _self.$refs.deli.childMethod(false);
+      _self.addNum = 2;
+      this.mark = false;
       _self.getRecommendHouseData();
     },
     getRes: function getRes() {
@@ -239,8 +242,8 @@ var _default =
       this.getPricelist();
       this.getHouseType();
       this.getMoreData();
-      this.getBannerData();
       this.getRecommendHouseData();
+      this.getBannerData();
     },
     getRecommendHouseData: function getRecommendHouseData() {
       page = 1;
@@ -382,20 +385,23 @@ var _default =
     },
     getBannerData: function getBannerData() {var _this2 = this;
       this.fun.getReq(this.baseUrl + '/api/banner/index', { "space_id": 22 }).then(function (res) {
-        console.log(res[1].data);
         _this2.bannerdata = res[1].data.data;
       });
     },
     poll: function poll() {//回到顶部
+      if (this.addNum == 1) {
+        uni.pageScrollTo({
+          scrollTop: this.topdata,
+          duration: 300 });
 
-      uni.pageScrollTo({
-        scrollTop: this.topdata,
-        duration: 100 });
-      //onReachBottom
-      // uni.stopPullDownRefresh()
-      // console.log(this.topdata,222)
-      this.isShow = true;
+        var _sefl = this;
+        setTimeout(function () {
+          _sefl.mark = true;
+        }, 300);
+        this.$refs.deli.childMethod(true);
+      }
       this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
+      this.addNum = 1;
     },
     //存缓存
     setStore: function setStore(key, val) {

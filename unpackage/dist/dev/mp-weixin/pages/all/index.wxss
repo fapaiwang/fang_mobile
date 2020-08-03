@@ -30,4 +30,12 @@
 	height: 138rpx;
 	box-sizing: border-box;
 }
+.mark.data-v-9c43a68a{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+}
+.pol.data-v-9c43a68a{
+	height: 138rpx;
+}
 

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 393));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/takeout */ "components/delicacy/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/takeout.vue */ 400));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 550));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -148,25 +148,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _self,page = 1,timer = null; //timer延迟期
-var _default2 =
+
+
+
+var _self,page = 1,timer = null,query,animation; //timer延迟期
+var _default =
 {
   components: {
-    banner: banner,
+    Banner: Banner,
     FocusList: FocusList,
     Takeout: Takeout },
 
-  props: {
-    focus: {
-      type: String,
-      default: function _default() {
-        return 'focusList_warp';
-      } } },
-
+  computed: {
+    scrollLeft: function scrollLeft() {
+      return (this.TabCur - 1) * 60;
+    } },
 
   data: function data() {
     return {
       bannerdata: [],
+      isfixed: false,
       rect: '',
       topdata: '',
       menuData: '',
@@ -179,17 +180,28 @@ var _default2 =
       loadingTxt: "加载更多",
       recommendHouseData: [],
       cate: "",
-      isShow: false };
+      tabList: [{ name: "重点推荐", val: "y1" }, { name: "自由购", val: "m10" }, { name: "6折房源", val: "y2" }, { name: "一口价", val: "g163" }],
+      TabCur: 0,
+      keyword: "",
+      isShow: true,
+      mark: false,
+      addNum: 1 };
 
   },
-  onShow: function onShow() {//监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
-    _self.cate = "";
-    this.getRes();
-  },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(e) {
+    uni.setNavigationBarTitle({
+      title: e.tit });
+
     _self = this;
-    this.isShow = false;
+    if (e.a != undefined) {
+      _self.cate = e.a;
+    }
+    if (e.keyword != undefined) {
+      this.keyword = e.keyword;
+      _self.cate = e.keyword;
+    }
     this.getRes();
+    this.isShow = false;
   },
   onPullDownRefresh: function onPullDownRefresh() {//上滑获取数据
     this.getRecommendHouseData();
@@ -204,13 +216,24 @@ var _default2 =
     }, 500);
   },
   mounted: function mounted() {var _this = this;
-    var query = uni.createSelectorQuery().in(this);
+    query = uni.createSelectorQuery().in(this);
     query.select('#boxFixed').boundingClientRect(function (data) {
       _this.topdata = data.top;
       _this.menuData = data.top;
     }).exec();
   },
   methods: {
+    tabChange: function tabChange(index) {
+      this.TabCur = index;
+      this.getRes();
+    },
+    touchMe: function touchMe(val) {//子组件向父组件传值，接收值
+      _self.cate = val;
+      _self.$refs.deli.childMethod(false);
+      _self.addNum = 2;
+      this.mark = false;
+      _self.getRecommendHouseData();
+    },
     getRes: function getRes() {
       this.getSortlist();
       this.getPricelist();
@@ -219,17 +242,15 @@ var _default2 =
       this.getRecommendHouseData();
       this.getBannerData();
     },
-    touchMe: function touchMe(val) {
-      _self.cate = val;
-      this.isShow = false;
-      _self.getRecommendHouseData();
-    },
     getRecommendHouseData: function getRecommendHouseData() {
       page = 1;
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList';
+      var url = this.baseUrl + '/api/second/houseList?a=' + _self.tabList[this.TabCur].val;
+      if (this.keyword != "") {
+        url = this.baseUrl + '/api/second/houseList?keyword=' + _self.cate;
+      }
       if (_self.cate != "") {
-        url = _self.baseUrl + '/api/second/houseList?a=' + _self.cate;
+        url = _self.baseUrl + '/api/second/houseList?a=' + _self.cate + _self.tabList[this.TabCur].val;
       }
       _self.fun.getReq(url).
       then(function (res) {
@@ -241,7 +262,6 @@ var _default2 =
           _self.getLoad();
           return false;
         }
-
         _self.loadingTxt = '加载更多';
         var newsList = res[1].data.data.lists.data;
         _self.recommendHouseData = newsList;
@@ -255,9 +275,9 @@ var _default2 =
       }
       _self.loadingTxt = '加载中';
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList?a=' + _self.cate + '&page=' + page;
+      var url = this.baseUrl + '/api/second/houseList?a=' + _self.cate + _self.tabList[this.TabCur].val + '&page=' + page;
       if (this.cate == "") {
-        url = this.baseUrl + '/api/second/houseList?page=' + page;
+        url = this.baseUrl + '/api/second/houseList?a=' + _self.tabList[this.TabCur].val + "&page=" + page;
       }
       this.fun.getReq(url).then(function (res) {
         uni.hideNavigationBarLoading();
@@ -276,73 +296,123 @@ var _default2 =
     },
     getLoad: function getLoad() {
       this.isShow = false;
-      this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt, this.isShow);
+      this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
     },
-    getSortlist: function getSortlist() {var _this2 = this; //获取区域
-      uni.request({
-        url: this.baseUrl + '/api/second/getAreaByCityId',
-        method: 'GET',
-        data: { "city_id": 39 } }).
-      then(function (res) {
-        _this2.arealist = res[1].data.data;
-      });
-    },
-    getPricelist: function getPricelist() {var _this3 = this;
-      this.fun.getReq(this.baseUrl + '/api/second/getSecondPrice').then(function (res) {
-        _this3.pricelist = res[1].data.data;
-      });
-    },
-    getHouseType: function getHouseType() {var _this4 = this; //户型
-      this.fun.getReq(this.baseUrl + '/api/second/getRoom').then(function (res) {
-        _this4.familyData = res[1].data.data;
-      });
-    },
-    getMoreData: function getMoreData() {var _this5 = this;
-      var _res = [];
-      uni.request({
-        url: this.baseUrl + '/api/second/houseType',
-        method: 'GET',
-        data: { "id": 26 } }).
-      then(function (res) {
-        _this5.houseProperty = res[1].data.data;
-      });
-
-      uni.request({
-        url: this.baseUrl + '/api/second/getAcreage',
-        method: 'GET' }).
-      then(function (res) {
-        _this5.areaData = res[1].data.data;
-      });
-      uni.request({
-        url: this.baseUrl + '/api/second/houseType',
-        method: 'GET',
-        data: { "id": 25 } }).
-      then(function (res) {
-        _this5.levelData = res[1].data.data;
-      });
-    },
-    getBannerData: function getBannerData() {var _this6 = this;
-      uni.request({
-        url: this.baseUrl + '/api/banner/index',
-        data: { "space_id": 22 },
+    getSortlist: function getSortlist() {//获取区域
+      uni.getStorage({
+        key: "area",
         success: function success(res) {
-          _this6.bannerdata = res.data.data;
+          _self.arealist = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/getAreaByCityId', { "city_id": 39 }).then(function (res) {
+            _self.arealist = res[1].data.data;
+            _self.setStore("area", res[1].data.data);
+          });
         } });
 
     },
-    poll: function poll() {//回到顶部
-      uni.pageScrollTo({
-        scrollTop: this.topdata + 2,
-        duration: 100 });
+    getPricelist: function getPricelist() {//获取价格
+      uni.getStorage({
+        key: "price",
+        success: function success(res) {
+          _self.pricelist = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/getSecondPrice').then(function (res) {
+            _self.pricelist = res[1].data.data;
+            _self.setStore("price", res[1].data.data);
+          });
+        } });
 
-      this.isShow = true;
-      this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt, this.isShow);
+    },
+    getHouseType: function getHouseType() {//户型
+      uni.getStorage({
+        key: "room",
+        success: function success(res) {
+          _self.familyData = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/getRoom').then(function (res) {
+            _self.familyData = res[1].data.data;
+            _self.setStore("room", res[1].data.data);
+          });
+        } });
+
+    },
+    getMoreData: function getMoreData() {
+      uni.getStorage({
+        key: "houseProperty",
+        success: function success(res) {
+          _self.houseProperty = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/houseType', { "id": 26 }).then(function (res) {
+            _self.houseProperty = res[1].data.data;
+            _self.setStore("houseProperty", res[1].data.data);
+          });
+        } });
+
+
+      uni.getStorage({
+        key: "areaData",
+        success: function success(res) {
+          _self.areaData = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/getAcreage').then(function (res) {
+            _self.areaData = res[1].data.data;
+            _self.setStore("areaData", res[1].data.data);
+          });
+        } });
+
+
+      uni.getStorage({
+        key: "levelData",
+        success: function success(res) {
+          _self.levelData = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/houseType', { "id": 25 }).then(function (res) {
+            _self.levelData = res[1].data.data;
+            _self.setStore("levelData", res[1].data.data);
+          });
+        } });
+
+    },
+    getBannerData: function getBannerData() {var _this2 = this;
+      this.fun.getReq(this.baseUrl + '/api/banner/index', { "space_id": 22 }).then(function (res) {
+        _this2.bannerdata = res[1].data.data;
+      });
+    },
+    poll: function poll() {//回到顶部
+      if (this.addNum == 1) {
+        uni.pageScrollTo({
+          scrollTop: this.topdata,
+          duration: 300 });
+
+        var _sefl = this;
+        setTimeout(function () {
+          _sefl.mark = true;
+        }, 300);
+        this.$refs.deli.childMethod(true);
+      }
+      this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
+      this.addNum = 1;
+    },
+    //存缓存
+    setStore: function setStore(key, val) {
+      uni.setStorage({
+        key: key,
+        data: val });
+
     } },
 
   // 监听页面滚动距离
   onPageScroll: function onPageScroll(e) {
+    // console.log(e.scrollTop);
     this.rect = e.scrollTop;
-  } };exports.default = _default2;
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

@@ -42,7 +42,6 @@
 				"navigationBarTitleText": "客服"
 			}
 		},
-		
 		{
 			"path" : "pages/mine/mine",
 			"style" : {
@@ -182,6 +181,12 @@
         ,{
             "path" : "pages/detail/map",
             "style" : {}
+        }
+        ,{
+            "path" : "pages/mine/subscribe",
+            "style" : {
+            	"navigationBarTitleText": "预约清单"
+            }
         }
     ],
 	"globalStyle": {

@@ -48,7 +48,7 @@
 				}],
 				detialText: '',
 				showCon:false,
-				detial:[],
+				detial:"",
 				houseType: '',
 				buildYear: '',
 				houseTit: '',
@@ -95,7 +95,10 @@
 					this.getResult(res[1].data.data);
 					this.getStoreHouse(res[1].data.data);
 				}
+			}).catch((err)=>{
+				this.getHome();
 			})
+			
 			// uni.clearStorage(this.fun.historyHouse)
 			// uni.clearStorage(this.fun.houseKeys)
 		},

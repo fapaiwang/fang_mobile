@@ -1,5 +1,5 @@
 <template>
-	<view class="recommendHouseView">
+	<view class="recommendHouseView" v-if="">
 		<view class="recommendHouseTitleItem">
 			房源情况
 		</view>
@@ -70,15 +70,16 @@
 		    }
 		},
 		created:function(){
+			var _self = this;
 			uni.getStorage({
-				key:"userInfo",
+				key:_self.fun.userInfo,
 				success:function(res){
-					this.bmrs = true;
-					this.userRule = res.data.model;
+					_self.bmrs = true;
+					_self.userRule = res.data.model;
 				},
 				fail:function(){
-					this.bmrs = true;
-					this.userRule = -1;
+					_self.bmrs = true;
+					_self.userRule = -1;
 				}
 			})
 		},

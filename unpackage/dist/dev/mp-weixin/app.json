@@ -29,7 +29,8 @@
     "pages/mine/password",
     "pages/mine/history",
     "pages/detail/banner",
-    "pages/detail/map"
+    "pages/detail/map",
+    "pages/mine/subscribe"
   ],
   "subPackages": [],
   "window": {

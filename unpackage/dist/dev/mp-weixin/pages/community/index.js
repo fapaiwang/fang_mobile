@@ -130,9 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 463));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 480));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 487));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -171,7 +169,9 @@ var _default =
       levelData: [],
       loadingTxt: "加载更多",
       recommendHouseData: [],
-      cate: "" };
+      cate: "",
+      mark: false,
+      addNum: 1 };
 
   },
   onLoad: function onLoad() {
@@ -208,6 +208,9 @@ var _default =
     },
     touchMe: function touchMe(val) {
       _self.cate = val;
+      _self.$refs.deli.childMethod(false);
+      _self.addNum = 2;
+      this.mark = false;
       _self.getRecommendHouseData();
     },
     getRecommendHouseData: function getRecommendHouseData() {
@@ -316,11 +319,17 @@ var _default =
 
     },
     poll: function poll() {//回到顶部
-      uni.pageScrollTo({
-        scrollTop: this.topdata + 2,
-        duration: 100 });
+      if (this.addNum == 1) {
+        uni.pageScrollTo({
+          scrollTop: this.topdata,
+          duration: 300 });
 
-
+        var _sefl = this;
+        setTimeout(function () {
+          _sefl.mark = true;
+        }, 300);
+        this.$refs.deli.childMethod(true);
+      }
     } },
 
   // 监听页面滚动距离

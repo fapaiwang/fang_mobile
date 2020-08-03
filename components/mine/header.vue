@@ -35,7 +35,7 @@
 				this.isLogin("/pages/mine/attention")
 			},
 			reserve(){
-				this.isLogin("/pages/mine/attention")
+				this.isLogin("/pages/mine/subscribe")
 			},
 			attention(){
 				this.isLogin("/pages/mine/attention")

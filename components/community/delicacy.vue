@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="prefer-posi">
+		<view class="prefer-posi" :class="isShow ? 't0' : 't1'">
 			<!-- 刷选区 -->
 			<view class="delica-view">
 				<view class="delica-list" @click="multiple()">
@@ -101,6 +101,12 @@
 			}
 		},
 		methods: {
+			childMethod(option){
+				var _seflDe = this;
+				setTimeout(function(){
+					_seflDe.isShow = option;
+				},300);
+			},
 			multiple(){
 				this.drop = true;
 				this.avgPrice = false;
@@ -166,6 +172,7 @@
 				}
 			},
 			soureSort(index){
+				this.isShow = false;
 				this.$emit("myEvent",this.synthesize+this.avgMoney+this.familyVal);
 				this.hiddenAll()
 			},
@@ -186,4 +193,7 @@
 
 <style scoped>
 	@import url("./css/delicacy.css");
+	.t0{
+		top: 0;
+	}
 </style>

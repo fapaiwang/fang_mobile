@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="prefer-posi">
+		<view class="prefer-posi" :class="isShow ? 't0' : 't1'">
 			<!-- 刷选区 -->
 			<view class="delica-view">
 				<view class="delica-list" @tap="multiple()">
@@ -139,18 +139,18 @@
 			</view>
 		</view>
 		<!-- 透明背景 -->
-		<view class="mark" v-if="mark" @touchmove.stop.prevent></view>
+		<view class="mark" v-if="mark"></view>
 	</view>
 </template>
 
 <script>
 	import showList from '@/components/delicacy/showList.vue';
-	
+	var _seflDe;
 	export default {
 		components:{
 			showList
 		},
-		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor","isShow"],
+		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor"],
 		data() {
 			return {
 				drop: false,
@@ -182,21 +182,18 @@
 				param:"",
 				cust_begin:"",//自定义平米
 				cust_end:"",
-				isHide:false,
+				isShow:false,
 			}
-		},
-		mounted:function() {
-			const query = uni.createSelectorQuery().in(this);
-			query.select('.prefer-posi').boundingClientRect(data => {
-				this.topdata = data.top;
-			}).exec();
 		},
 		onNavigationBarButtonTap(e) {
 			this.hiddenAll();
 		},
 		methods: {
-			touchmove(){
-				console.log(11111);
+			childMethod(option){
+				_seflDe = this;
+				setTimeout(function(){
+					_seflDe.isShow = option;
+				},300);
 			},
 			multiple(){
 				this.drop = true;
@@ -209,6 +206,7 @@
 			onSort(index,val){
 				this.sortNum = index;
 				this.defaultVal = val;
+				this.isShow = false;
 				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+val);
 				this.hiddenAll();
 			},
@@ -288,16 +286,11 @@
 				this.backOne();
 			},
 			backOne(){//透明背景
-		
 				setTimeout(()=>{
 					this.mark = true;
 				},310);
 			},
 			backClick(){//隐藏透明背景
-				// setTimeout(()=>{
-				// 	this.mark = false;
-				// },100);
-
 				this.mark= false;
 			},
 			clearSearch(index){//清除
@@ -324,6 +317,7 @@
 			},
 			soureSort(){
 				var _self = this;
+				_self.isShow = false;
 				if (this.def_start !="" || this.def_end!="") {//价格
 					//t最低价格 u最高价格
 					if (this.def_start =="") {
@@ -350,12 +344,10 @@
 			
 				if (_self.fSelect.length >= 1) {//户型
 					this.fSelectVal = "e"+_self.fSelect.join("e");
-					console.log(this.fSelectVal);
 				}
 				if (this.LSelect.length >= 1) {//阶段
 					this.LSelectVal = "g"+this.LSelect.join("g");
 				}
-				
 				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+this.defaultVal);
 				this.hiddenAll()
 			},
@@ -365,7 +357,6 @@
 				this.house = false;
 				this.more =false;
 				this.defaultMore = false;
-				this.isShow = false;
 				this.backClick();
 			},
 			getImg(index,val){
@@ -380,4 +371,7 @@
 
 <style scoped>
 	@import url("./css/delicacy.css");
+	.t0{
+		top: 0;
+	}
 </style>

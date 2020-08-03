@@ -1,5 +1,5 @@
 <template>
-	<view class="community">
+	<view class="community" v-if="detial">
 		<view class="featuredtTitleView" @click="moreCommunity(detial.id)">
 			<view class="titleText">
 				小区介绍

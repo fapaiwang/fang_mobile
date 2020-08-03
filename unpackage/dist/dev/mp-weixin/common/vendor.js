@@ -7936,7 +7936,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 367:
+/***/ 391:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
   \*************************************************************************************************/
@@ -7949,7 +7949,7 @@ conditions;exports.default = _default;
 
 /***/ }),
 
-/***/ 375:
+/***/ 399:
 /*!***********************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
   \***********************************************************************************************/
@@ -9010,7 +9010,18 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 383:
+/***/ 4:
+/*!*****************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/pages.json ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 407:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
   \*************************************************************************************************/
@@ -9342,17 +9353,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 qualification;exports.default = _default;
-
-/***/ }),
-
-/***/ 4:
-/*!*****************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/pages.json ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 

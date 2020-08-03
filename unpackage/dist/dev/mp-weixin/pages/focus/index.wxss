@@ -1,12 +1,13 @@
 
-.content.data-v-4cd75b72{
+.mark.data-v-4cd75b72{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+}
+.container.data-v-4cd75b72{
 	padding: 0 30rpx;
 }
-.focusList_warp.data-v-4cd75b72{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+.pol.data-v-4cd75b72{
+	height: 138rpx;
 }
 

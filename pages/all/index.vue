@@ -1,18 +1,18 @@
 <template>
-	<view>
-		<Banner :bannerdata="bannerdata"></Banner>
-		<view class="container">
-		<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
-			<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
-				{{item.name}}
-			</view>
-		</scroll-view>
+	<view :class="mark ? 'mark' : ''">
 		<view>
-			<view @tap="poll()">
-				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" :isShow.sync="isShow"></FocusList>
+			<Banner :bannerdata="bannerdata"></Banner>
+			<view class="container">
+				<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
+					<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
+						{{item.name}}
+					</view>
+				</scroll-view>
+				<view @tap="poll()" class="pol">
+					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
+				</view>
+				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>	
 			</view>
-			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>
-		</view>
 		</view>
 	</view>
 </template>
@@ -22,7 +22,7 @@
 	import FocusList from '@/components/delicacy/delicacy.vue';
 	import Takeout from '@/components/delicacy/list.vue';
 	
-	var _self, page = 1, timer = null,query;//timer延迟期
+	var _self, page = 1, timer = null, query;//timer延迟期
 	
 	export default {
 		components:{
@@ -55,6 +55,8 @@
 				TabCur:0,
 				keyword:"",
 				isShow:true,
+				mark:false,
+				addNum:1,
 			}
 		},
 		onLoad:function(e){
@@ -92,14 +94,15 @@
 			}).exec();
 		},
 		methods: {
-			
 			tabChange(index) {
 				this.TabCur = index;
 				this.getRes();
 			},
 			touchMe(val) { //子组件向父组件传值，接收值
 				_self.cate = val;
-				this.isShow = false;
+				_self.$refs.deli.childMethod(false);
+				_self.addNum = 2;
+				this.mark = false;
 				_self.getRecommendHouseData();
 			},
 			getRes(){
@@ -107,8 +110,8 @@
 				this.getPricelist();
 				this.getHouseType();
 				this.getMoreData();
-				this.getBannerData();
 				this.getRecommendHouseData();
+				this.getBannerData();
 			},
 			getRecommendHouseData() {
 				page = 1;
@@ -250,20 +253,23 @@
 			},
 			getBannerData() {
 				this.fun.getReq(this.baseUrl+'/api/banner/index',{"space_id":22}).then((res)=>{
-					console.log(res[1].data)
 					this.bannerdata = res[1].data.data;
 				});
 			},
 			poll(){//回到顶部
-				
-				uni.pageScrollTo({
-					scrollTop:this.topdata,
-					duration:100,
-				})//onReachBottom
-				// uni.stopPullDownRefresh()
-				// console.log(this.topdata,222)
-				this.isShow = true;
+				if (this.addNum ==1) {
+					uni.pageScrollTo({
+						scrollTop:this.topdata,
+						duration:300,
+					})
+					var _sefl = this;
+					setTimeout(function(){
+						_sefl.mark = true;
+					},300);
+					this.$refs.deli.childMethod(true);
+				}
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
+				this.addNum = 1;
 			},
 			//存缓存
 			setStore(key,val){

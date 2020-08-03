@@ -2,4 +2,9 @@
 .container.data-v-5fb47dc3{
 	padding: 0 30rpx;
 }
+.mark.data-v-5fb47dc3{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+}
 

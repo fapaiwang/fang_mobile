@@ -1,13 +1,11 @@
 <template>
-	<view >
+	<view :class="mark ? 'mark' : ''">
 		<banner :bannerdata="bannerdata"></banner>
 		<view class="container">
-			<view class="focusList_warp">
-				<view @click="poll()">
-					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe"></FocusList>
-				</view>
-				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
+			<view @click="poll()">
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
 			</view>
+			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
 		</view>
 	</view>
 </template>
@@ -39,7 +37,9 @@
 				levelData:[],
 				loadingTxt:"加载更多",
 				recommendHouseData:[],
-				cate:""
+				cate:"",
+				mark:false,
+				addNum:1,
 			}
 		},
 		onLoad:function(){
@@ -76,6 +76,9 @@
 			},
 			touchMe(val){
 				_self.cate = val;
+				_self.$refs.deli.childMethod(false);
+				_self.addNum = 2;
+				this.mark = false;
 				_self.getRecommendHouseData();
 			},
 			getRecommendHouseData() {
@@ -184,11 +187,17 @@
 				})
 			},
 			poll(){//回到顶部
-				uni.pageScrollTo({
-					scrollTop:this.topdata+2,
-					duration:100
-				})
-				
+				if (this.addNum ==1) {
+					uni.pageScrollTo({
+						scrollTop:this.topdata,
+						duration:300,
+					})
+					var _sefl = this;
+					setTimeout(function(){
+						_sefl.mark = true;
+					},300);
+					this.$refs.deli.childMethod(true);
+				}
 			}
 		},
 		// 监听页面滚动距离
@@ -202,5 +211,10 @@
 <style scoped>
 .container{
 	padding: 0 30upx;
+}
+.mark{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
 }
 </style>
