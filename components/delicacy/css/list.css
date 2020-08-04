@@ -47,11 +47,13 @@
 	margin-left: 10upx;
 	color: #E02E24;
 	font-size: 26upx;
+	font-weight: bold;
 }
 .grayPrice {
 	margin-left: 10upx;
 	color: #333;
 	font-size: 26upx;
+	font-weight: bold;
 }
 .createIime {
 	margin-top: 26upx;
@@ -74,6 +76,7 @@
 	height: 24upx;
 	margin-left: 12upx;
 	margin-right: 7upx;
+	margin-bottom: 7upx;
 }
 .navigator-hover,.navigator-hover:hover{
 	background: none;
@@ -108,6 +111,7 @@
 	color:#C8A96A;
 	line-height:50upx;
 	text-align: center;
+	border-radius:0 15upx 0 0;
 }
 .tag text:last-child{
 	background:#E4EFFD !important;
@@ -117,4 +121,32 @@
 	position: fixed;
 	overflow: hidden;
 	height: 100%;
+}
+.house_status{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 20upx;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	color: #fff;
+	font-size: 20upx;
+	margin-top: 20upx;
+}
+.house_status text{
+	width:84upx;
+	height: 30upx;
+	line-height:30upx;
+	text-align: center;
+}
+.house_status .house_status_red{
+	background: #E02E24;
+}
+.house_status .house_status_blue{
+	background: #3C76D9;
+}
+.house_status .house_status_ash{
+	background: #989898;
 }
