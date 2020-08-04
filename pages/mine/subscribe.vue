@@ -47,6 +47,7 @@
 		data() {
 			return {
 				houseData:[],
+				userId:-1,
 			}
 		},
 		onShow:function(){
@@ -56,14 +57,28 @@
 			this.getRes();
 		},
 		methods: {
+			getUserInfo(){
+				_self = this;
+				uni.getStorage({
+					key:_self.fun.userInfo,
+					success:function(res){
+						_self.userId = res.data.id;
+					},
+					fail:function(){
+						uni.navigateBack({
+							delta:1
+						})
+					}
+				})
+			},
 			getRes(){
 				this.getStoreHouse();
 			},
 			getStoreHouse() {//预约房源
-				// this.fun.getReq(this.baseUrl+'/api/banner/index?space_id=28')
-				// .then((res)=>{
-				// 	this.bannerdata = res[1].data.data
-				// });
+				this.fun.getReq(this.baseUrl+'/api/banner/index',{space_id:this.userId})
+				.then((res)=>{
+					this.bannerdata = res[1].data.data
+				});
 			},
 			getImg(imgSrc){
 				return this.fun.getImgSrc(imgSrc);

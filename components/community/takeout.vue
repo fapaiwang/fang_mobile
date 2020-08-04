@@ -11,28 +11,13 @@
 						<view class="itemTitle">
 							<text>{{housItem.title}}</text>
 						</view>
-						<view class="itemInfo">
-							<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations} | ${housItem.toilet}`}}</text>
+						<view class="itemTitle">
+							房源
+							<text class="redPrice">{{housItem.second_total}}</text>
+							套
 						</view>
-						<view class="itemPrice">
-							<view>
-								<text>起拍价</text>
-								<text class="redPrice">{{housItem.qipai}}万</text>
-							</view>
-							<view>
-								<text>市场价</text>
-								<text class="grayPrice">{{housItem.toilet}}万</text>
-							</view>
-						</view>
-						<view class="createIime">
-							<view class="createIimeIcon">
-								<image src="../../static/img/home/item@2x.png" mode=""></image>
-							</view>
-							<view class="createIimeIconinfo">
-								<text>
-									开拍时间：{{housItem.kptime}}
-								</text>
-							</view>
+						<view class="itemTitle">
+							<text class="redPrice">{{housItem.price}}元/㎡</text>
 						</view>
 					</view>
 				</view>
@@ -61,7 +46,7 @@
 				return this.fun.getImgSrc(icon);
 			},
 			detail(index){
-				return '/pages/detail/index?id='+index;
+				return '/pages/community/community?id='+index;
 			},
 			getDate(dates) {
 				return this.fun.getDate(dates);

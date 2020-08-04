@@ -50,7 +50,21 @@
                         "appkey_ios" : ""
                     }
                 },
-                "ad" : {}
+                "ad" : {},
+                "share" : {
+                    "weixin" : {
+                        "appid" : "",
+                        "UniversalLinks" : ""
+                    },
+                    "sina" : {
+                        "appkey" : "",
+                        "appsecret" : "",
+                        "redirect_uri" : ""
+                    },
+                    "qq" : {
+                        "appid" : ""
+                    }
+                }
             }
         }
     },

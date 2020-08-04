@@ -96,7 +96,7 @@
 				house: false,
 				isShow:false,
 				param:"",
-				sortVal:"",//排序
+				sortVal:3,//排序
 				hot:false,
 			}
 		},
@@ -116,15 +116,18 @@
 			sortClick(index,name,posi){
 				if (posi==1) {//区域
 					this.num = index;
-					this.synthesize = "a"+this.arealist[name].id;
+					// this.synthesize = "a"+this.arealist[name].id;
+					this.synthesize = this.arealist[name].id;
 				}
 				if (posi==2) {//价格
 					this.avgNum = index;
-					this.avgMoney = "t"+name[0]+"u"+name[1];
+					// this.avgMoney = "t"+name[0]+"u"+name[1];
+					this.avgMoney = index
 				}
 				if (posi==3) {//类型
 					this.familyKey = index;
-					this.familyVal = 'i'+name;
+					// this.familyVal = 'i'+name;
+					this.familyVal = name;
 				}
 			},
 			getMoney(){
@@ -141,12 +144,20 @@
 			},
 			getHot(){
 				if (this.hot) {
-					this.sortVal = 1;
+					this.sortVal = 3;
 					this.hot = false;
 				} else {
-					this.sortVal = 2;
+					this.sortVal = 4;
 					this.hot = true;
 				}
+				this.isShow = false;
+				let _param = {
+					area:this.synthesize,
+					price:this.avgMoney,
+					sort:this.sortVal
+				}
+				this.$emit("myEvent",_param);
+				// this.$emit("myEvent",this.synthesize,this.avgMoney,this.familyVal,this.sortVal);
 				this.hiddenAll();
 			},
 			backOne(){//透明背景
@@ -173,7 +184,13 @@
 			},
 			soureSort(index){
 				this.isShow = false;
-				this.$emit("myEvent",this.synthesize+this.avgMoney+this.familyVal);
+				let _param = {
+					area:this.synthesize,
+					price:this.avgMoney,
+					sort:this.sortVal
+				}
+				this.$emit("myEvent",_param);
+				// this.$emit("myEvent",this.synthesize,this.avgMoney,this.familyVal,this.sortVal);
 				this.hiddenAll()
 			},
 			hiddenAll(){//隐藏全部

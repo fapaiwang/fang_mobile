@@ -1,4 +1,5 @@
 .recommendHouseView {
+	padding: 0 30rpx;
 	padding-top: 160rpx;
 }.houseItemView {
 	display: -webkit-box;

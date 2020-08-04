@@ -1,5 +1,5 @@
 .recommendHouseView {
-	/* padding-top: 160upx; */
+	padding: 0 30upx;
 },
 .houseItemView {
 	display: flex;

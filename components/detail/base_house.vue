@@ -180,7 +180,20 @@
 				});
 			},
 			look(){
-				
+				if (this.uuid == -1) {
+					this.fun.navTo("/pages/login/login");
+				}
+				let _param = {
+					house_id:this.detial.id,
+					model:'second_house',
+					house_name:this.houseTit,
+					broker_id:this.detial.broker_id,
+					user_id:this.uuid,
+				}
+				var _self = this;
+				this.fun.getReq(this.baseUrl+'/api/subscribe/save',_param).then((res)=>{
+					_self.fun.showMsg(res[1].data.msg);
+				})
 			},
 			close(){
 				this.con == "";

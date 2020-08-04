@@ -291,9 +291,6 @@
 		height: 100%;
 		overflow: hidden;
 	}
-	.container{
-		padding: 0 30upx;
-	}
 	.pol{
 		height: 138upx;
 	}

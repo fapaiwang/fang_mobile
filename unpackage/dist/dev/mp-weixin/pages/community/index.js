@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 480));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 487));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 418));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 502));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -216,15 +216,12 @@ var _default =
     getRecommendHouseData: function getRecommendHouseData() {
       page = 1;
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList';
-      if (_self.cate != "") {
-        url = _self.baseUrl + '/api/second/houseList?a=' + _self.cate;
-      }
-      _self.fun.getReq(url).
+      var url = this.baseUrl + '/api/estate/estate_list';
+      _self.fun.getReq(url, _self.cate).
       then(function (res) {
         uni.hideNavigationBarLoading();
         uni.stopPullDownRefresh();
-        if (res[1].data.data.lists.data == 0 && page == 1) {
+        if (res[1].data.lists.data == 0 && page == 1) {
           _self.loadingTxt = '已经加载全部';
           _self.recommendHouseData = [];
           _self.getLoad();
@@ -232,7 +229,7 @@ var _default =
         }
 
         _self.loadingTxt = '加载更多';
-        var newsList = res[1].data.data.lists.data;
+        var newsList = res[1].data.lists.data;
         _self.recommendHouseData = newsList;
         _self.getLoad();
         page++;
@@ -244,9 +241,9 @@ var _default =
       }
       _self.loadingTxt = '加载中';
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList?a=' + _self.cate + '&page=' + page;
+      var url = this.baseUrl + '/api/estate/estate_list?a=' + _self.cate + '&page=' + page;
       if (this.cate == "") {
-        url = this.baseUrl + '/api/second/houseList?page=' + page;
+        url = this.baseUrl + '/api/estate/estate_list?page=' + page;
       }
       this.fun.getReq(url).then(function (res) {
         uni.hideNavigationBarLoading();
@@ -330,6 +327,7 @@ var _default =
         }, 300);
         this.$refs.deli.childMethod(true);
       }
+      this.addNum = 1;
     } },
 
   // 监听页面滚动距离

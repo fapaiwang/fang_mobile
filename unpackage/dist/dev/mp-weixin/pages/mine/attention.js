@@ -138,7 +138,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var _self;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 536));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 543));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _self;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 551));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 558));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

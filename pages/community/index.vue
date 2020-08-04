@@ -2,7 +2,7 @@
 	<view :class="mark ? 'mark' : ''">
 		<banner :bannerdata="bannerdata"></banner>
 		<view class="container">
-			<view @click="poll()">
+			<view @click="poll()" style="width: 100%;">
 				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
 			</view>
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
@@ -84,15 +84,12 @@
 			getRecommendHouseData() {
 				page = 1;
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList';
-				if (_self.cate != "") {
-					url = _self.baseUrl+'/api/second/houseList?a='+_self.cate;
-				}
-				_self.fun.getReq(url)
+				var url = this.baseUrl+'/api/estate/estate_list';
+				_self.fun.getReq(url,_self.cate)
 				.then((res)=>{
 					uni.hideNavigationBarLoading();
 					uni.stopPullDownRefresh();
-					if (res[1].data.data.lists.data ==0 && page==1) {
+					if (res[1].data.lists.data ==0 && page==1) {
 						_self.loadingTxt = '已经加载全部'
 						_self.recommendHouseData = [];
 						_self.getLoad();
@@ -100,7 +97,7 @@
 					}
 					
 					_self.loadingTxt = '加载更多'
-					var newsList = res[1].data.data.lists.data;
+					var newsList = res[1].data.lists.data;
 					_self.recommendHouseData = newsList;
 					_self.getLoad();
 					page++;
@@ -112,9 +109,9 @@
 				}
 				_self.loadingTxt = '加载中';
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+'&page='+page;
+				var url = this.baseUrl+'/api/estate/estate_list?a='+_self.cate+'&page='+page;
 				if (this.cate == "") {
-					url = this.baseUrl+'/api/second/houseList?page='+page;
+					url = this.baseUrl+'/api/estate/estate_list?page='+page;
 				}
 				this.fun.getReq(url).then((res)=>{
 					uni.hideNavigationBarLoading();
@@ -198,6 +195,7 @@
 					},300);
 					this.$refs.deli.childMethod(true);
 				}
+				this.addNum = 1;
 			}
 		},
 		// 监听页面滚动距离
@@ -209,12 +207,15 @@
 </script>
 
 <style scoped>
-.container{
+/* .container{
 	padding: 0 30upx;
-}
+} */
 .mark{
 	position: fixed;
 	height: 100%;
 	overflow: hidden;
+}
+uni-view {
+    width: 100%;
 }
 </style>

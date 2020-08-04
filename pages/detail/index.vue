@@ -96,7 +96,8 @@
 					this.getStoreHouse(res[1].data.data);
 				}
 			}).catch((err)=>{
-				this.getHome();
+				console.log(err,11)
+				// this.getHome();
 			})
 			
 			// uni.clearStorage(this.fun.historyHouse)

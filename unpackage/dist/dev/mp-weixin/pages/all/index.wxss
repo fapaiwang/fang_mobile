@@ -1,11 +1,12 @@
 .container.data-v-9c43a68a{
-	padding: 40rpx 30rpx 0 30rpx;
+	padding-top: 40rpx;
 }
 .scv.data-v-9c43a68a{
 	-webkit-flex-wrap: nowrap;
 	        flex-wrap: nowrap;
 	white-space: nowrap;
 	height: 62rpx;
+	padding: 0 30rpx;
 }
 .scv view.data-v-9c43a68a{
 	display: inline-block;

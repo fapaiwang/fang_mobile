@@ -1,10 +1,11 @@
 .container{
-	padding: 40upx 30upx 0 30upx;
+	padding-top: 40upx;
 }
 .scv{
 	flex-wrap: nowrap;
 	white-space: nowrap;
 	height: 62upx;
+	padding: 0 30upx;
 }
 .scv view{
 	display: inline-block;
