@@ -95,8 +95,8 @@
 						uni.clearStorage(_self.fun.houseKeys);
 						uni.clearStorage(_self.fun.historyEstate);
 						uni.clearStorage(_self.fun.estateKeys);
-						uni.clearStorage(_self.fun.searchList);
-						uni.clearStorage(_self.fun.searchEstate);
+						// uni.clearStorage(_self.fun.searchList);
+						// uni.clearStorage(_self.fun.searchEstate);
 						uni.switchTab({
 							url:"/pages/index/index"
 						})
