@@ -130,7 +130,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 418));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 502));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure | components/community/navSearchHeader */ "components/community/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/community/navSearchHeader.vue */ 503));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/community/banner */ "components/community/banner").then((function () {return resolve(__webpack_require__(/*! @/components/community/banner.vue */ 670));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 510));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 517));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
+
+
 
 
 
@@ -150,6 +154,7 @@ var _self,page = 1,timer = null; //timer延迟期
 var _default =
 {
   components: {
+    navSearch: navSearch,
     banner: banner,
     FocusList: FocusList,
     Takeout: Takeout },
@@ -171,11 +176,18 @@ var _default =
       recommendHouseData: [],
       cate: "",
       mark: false,
-      addNum: 1 };
+      addNum: 1,
+      typeNum: -1 };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(option) {
     _self = this;
+    if (option.type != undefined) {
+      _self.cate = {
+        type: option.type };
+
+      _self.typeNum = option.type;
+    }
     this.getRes();
   },
   onPullDownRefresh: function onPullDownRefresh() {//上滑获取数据
@@ -241,18 +253,15 @@ var _default =
       }
       _self.loadingTxt = '加载中';
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/estate/estate_list?a=' + _self.cate + '&page=' + page;
-      if (this.cate == "") {
-        url = this.baseUrl + '/api/estate/estate_list?page=' + page;
-      }
-      this.fun.getReq(url).then(function (res) {
+      var url = this.baseUrl + '/api/estate/estate_list?page=' + page;
+      this.fun.getReq(url, _self.cate).then(function (res) {
         uni.hideNavigationBarLoading();
-        if (res[1].data.data.lists.data.length == 0) {
+        if (res[1].data.lists.data.length == 0) {
           _self.loadingTxt = '已经加载全部';
           _self.getLoad();
           return false;
         }
-        var newsList = res[1].data.data.lists.data;
+        var newsList = res[1].data.lists.data;
         _self.recommendHouseData = _self.recommendHouseData.concat(newsList);
         uni.stopPullDownRefresh();
         _self.loadingTxt = '加载更多';

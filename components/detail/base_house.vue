@@ -186,6 +186,7 @@
 				let _param = {
 					house_id:this.detial.id,
 					model:'second_house',
+					type:1,
 					house_name:this.houseTit,
 					broker_id:this.detial.broker_id,
 					user_id:this.uuid,

@@ -53,7 +53,6 @@
 </template>
 <script>
 	export default {
-		props: ["isShow"],
 		data() {
 			return {
 				recommendHouseData: [],
@@ -72,7 +71,7 @@
 				this.loadingTxt = tit;
 			},
 			getImgUrl(icon) {
-				return this.baseUrl + `/${icon}`;
+				return this.fun.getImgSrc(icon);
 			},
 			detail(index) {
 				return '/pages/detail/index?id=' + index;

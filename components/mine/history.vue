@@ -11,7 +11,7 @@
 				</view>
 				<view class="taxes_symbol">></view>
 			</view>
-			<view class="taxes_con">
+			<view class="taxes_con" @click="recommend">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
 						<image src="../../static/img/mine/recommend.png"></image>
@@ -20,7 +20,7 @@
 				</view>
 				<view class="taxes_symbol">></view>
 			</view>
-			<view class="taxes_con">
+			<view class="taxes_con" @click="discount">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
 						<image src="../../static/img/mine/Pick.png"></image>
@@ -52,26 +52,39 @@
 </template>
 
 <script>
-	var _self = this;
 	import grayBox from "@/components/detail/gray_box.vue" //灰色边框
 	export default {
 		data() {
 			return {
-				
+				uuid : -1,
 			}
 		},
 		components:{
 			grayBox
 		},
+		created:function(){
+			this.getUserInfo();
+		},
+		onShow:function(){
+			this.getUserInfo();
+		},
 		methods: {
+			recommend(){//推荐房源
+				this.fun.navTo("/pages/all/index?tabCur=0");
+			},
+			discount(){//6折房源
+				this.fun.navTo("/pages/all/index?tabCur=2");
+			},
 			list(){
-				this.isLogin("/pages/mine/list")
+				if (this.uuid !=-1) {
+					this.fun.navTo("/pages/mine/list")
+				}
 			},
 			history(){
 				this.fun.navTo("/pages/mine/history")
 			},
 			logout(){
-				_self = this;
+				var _self = this;
 				uni.getStorage({
 					key:_self.fun.userInfo,
 					success:function(res){
@@ -89,13 +102,12 @@
 					},
 				})
 			},
-			isLogin(url){
+			getUserInfo(){
+				var _self = this;
 				uni.getStorage({
 					key:_self.fun.userInfo,
 					success:function(res){
-						uni.navigateTo({
-							url:url
-						})
+						_self.uuid = res.data.id;
 					},
 					fail:function(){
 						uni.showToast({

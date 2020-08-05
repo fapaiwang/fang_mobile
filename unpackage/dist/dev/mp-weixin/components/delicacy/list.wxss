@@ -118,7 +118,7 @@
 	color:#C8A96A;
 	line-height:50rpx;
 	text-align: center;
-	border-radius:0 15rpx 0 0;
+	border-radius:5rpx;
 }.tag text.data-v-22e9c460:last-child{
 	background:#E4EFFD !important;
 	color: #4297FF !important;

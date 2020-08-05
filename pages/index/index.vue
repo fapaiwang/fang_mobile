@@ -110,30 +110,30 @@
 				})
 			},
 			getRecommendHouseData() { //推荐房源
-				this.fun.getReq(RequestUrl.recommendHouse,{"page":page})
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=y1&page='+page)
 				.then((res)=>{
-					this.recommendHouseData = res[1].data.data.data
+					this.recommendHouseData = res[1].data.data.lists.data;
 					page++
 				})
-				this.fun.getReq(RequestUrl.restrictHouse,{"page":freePage})//自由购
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=a=m10&page='+freePage)//自由购
 				.then((res)=>{
-					this.restrictHouseData = res[1].data.data
+					this.restrictHouseData = res[1].data.data.lists.data;
 					freePage++
 				})
 			},
 			getMorequalityEstateData() { // 更多推荐房源
-				this.fun.getReq(RequestUrl.recommendHouse,{"page":page})
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=y1&page='+page)
 				.then((res)=>{
-					var newsList = res[1].data.data.data;
+					var newsList = res[1].data.data.lists.data;
 					_self.recommendHouseData = _self.recommendHouseData.concat(newsList);
 					page++;
 					this.getLoad()
 				})
 			},
 			getMoreRecommendHouseData() { // 更多自由购
-				this.fun.getReq(RequestUrl.restrictHouse,{"page":freePage})
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=a=m10&page='+freePage)
 				.then((res)=>{
-					var newsList = res[1].data.data;
+					var newsList = res[1].data.data.lists.data;
 					_self.restrictHouseData = _self.restrictHouseData.concat(newsList);
 					freePage++;
 					this.getLoad()

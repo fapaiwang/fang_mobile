@@ -148,6 +148,12 @@
             	"navigationBarTitleText": "搜索"
             }
         }
+		,{
+		    "path" : "pages/search/estate_search",
+		    "style" : {
+		    	"navigationBarTitleText": "搜索"
+		    }
+		}
         ,{
             "path" : "pages/login/pact",
             "style" : {
@@ -156,7 +162,9 @@
         }
         ,{
             "path" : "pages/detail/recording",
-            "style" : {}
+            "style" : {
+            	"navigationBarTitleText": "拍卖成交记录"
+            }
         },
 		{
 		    "path" : "pages/detail/house",

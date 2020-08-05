@@ -1,23 +1,28 @@
 <template>
 	<view :class="mark ? 'mark' : ''">
+		<navSearch></navSearch>
 		<banner :bannerdata="bannerdata"></banner>
-		<view class="container">
-			<view @click="poll()" style="width: 100%;">
-				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
+		<view>
+			<view class="container">
+				<view @click="poll()" style="width: 100%;">
+					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli" :typeNum="typeNum"></FocusList>
+				</view>
+				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
 			</view>
-			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
 		</view>
 	</view>
 </template>
 
 <script>
-	import banner from '@/components/base/banner.vue'; //
+	import navSearch from '@/components/community/navSearchHeader.vue'; // 搜索框
+	import banner from '@/components/community/banner.vue'; //
 	import FocusList from '@/components/community/delicacy.vue';
 	import Takeout from '@/components/community/takeout.vue';
 	var _self, page = 1, timer = null;//timer延迟期
 	
 	export default {
 		components:{
+			navSearch,
 			banner,
 			FocusList,
 			Takeout
@@ -40,10 +45,17 @@
 				cate:"",
 				mark:false,
 				addNum:1,
+				typeNum:-1
 			}
 		},
-		onLoad:function(){
+		onLoad:function(option){
 			_self = this;
+			if (option.type != undefined) {
+				_self.cate = {
+					type:option.type
+				}
+				_self.typeNum = option.type;
+			}
 			this.getRes();
 		},
 		onPullDownRefresh:function(){//上滑获取数据
@@ -109,18 +121,15 @@
 				}
 				_self.loadingTxt = '加载中';
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/estate/estate_list?a='+_self.cate+'&page='+page;
-				if (this.cate == "") {
-					url = this.baseUrl+'/api/estate/estate_list?page='+page;
-				}
-				this.fun.getReq(url).then((res)=>{
+				var url = this.baseUrl+'/api/estate/estate_list?page='+page;
+				this.fun.getReq(url,_self.cate).then((res)=>{
 					uni.hideNavigationBarLoading();
-					if (res[1].data.data.lists.data.length ==0) {
+					if (res[1].data.lists.data.length ==0) {
 						_self.loadingTxt = '已经加载全部'
 						_self.getLoad();
 						return false;
 					}
-					var newsList = res[1].data.data.lists.data;
+					var newsList = res[1].data.lists.data;
 					_self.recommendHouseData = _self.recommendHouseData.concat(newsList);
 					uni.stopPullDownRefresh();
 					_self.loadingTxt = '加载更多';
@@ -207,15 +216,17 @@
 </script>
 
 <style scoped>
-/* .container{
-	padding: 0 30upx;
-} */
 .mark{
 	position: fixed;
 	height: 100%;
 	overflow: hidden;
+	width: 100%;
+}
+.container{
+	width: 100%;
 }
 uni-view {
     width: 100%;
 }
+
 </style>

@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/detail/banner */ "components/detail/banner").then((function () {return resolve(__webpack_require__(/*! @/components/detail/banner.vue */ 324));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityHead = function communityHead() {__webpack_require__.e(/*! require.ensure | components/community/community_head */ "components/community/community_head").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_head.vue */ 460));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityBase = function communityBase() {__webpack_require__.e(/*! require.ensure | components/community/community_base */ "components/community/community_base").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_base.vue */ 467));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/community/recommend_hosue */ "components/community/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/community/recommend_hosue.vue */ 474));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 366));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 345));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/community/community_featured */ "components/community/community_featured").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_featured.vue */ 481));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/community/banner */ "components/community/banner").then((function () {return resolve(__webpack_require__(/*! @/components/community/banner.vue */ 670));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityHead = function communityHead() {__webpack_require__.e(/*! require.ensure | components/community/community_head */ "components/community/community_head").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_head.vue */ 468));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityBase = function communityBase() {__webpack_require__.e(/*! require.ensure | components/community/community_base */ "components/community/community_base").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_base.vue */ 475));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendHosue = function recommendHosue() {__webpack_require__.e(/*! require.ensure | components/community/recommend_hosue */ "components/community/recommend_hosue").then((function () {return resolve(__webpack_require__(/*! @/components/community/recommend_hosue.vue */ 482));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var communityMap = function communityMap() {__webpack_require__.e(/*! require.ensure | components/detail/community_map */ "components/detail/community_map").then((function () {return resolve(__webpack_require__(/*! @/components/detail/community_map.vue */ 374));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var grayBox = function grayBox() {__webpack_require__.e(/*! require.ensure | components/detail/gray_box */ "components/detail/gray_box").then((function () {return resolve(__webpack_require__(/*! @/components/detail/gray_box.vue */ 353));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/community/community_featured */ "components/community/community_featured").then((function () {return resolve(__webpack_require__(/*! @/components/community/community_featured.vue */ 489));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -162,9 +162,7 @@ var _default =
 
   data: function data() {
     return {
-      info: [{
-        title: "" }],
-
+      info: '',
       qualityEstateData: [],
       choiceEstateData: [],
       marker: [],
@@ -176,13 +174,15 @@ var _default =
       address: '',
       communityId: 0,
       like: -1,
-      estateKey: '' };
+      estateKey: '',
+      detailId: -1 };
 
   },
   onLoad: function onLoad(options) {
     if (options.like != undefined) {
       this.like = options.like;
     }
+    this.detailId = options.id;
     this.getHomeData(options.id);
     // uni.clearStorage(this.fun.historyEstate)
     // uni.clearStorage(this.fun.estateKeys)
@@ -252,7 +252,8 @@ var _default =
           _this.cBase = _this.detail.data;
           _this.buildYears = _this.detail.years;
           _this.address = _this.detail.address;
-          _this.info = _this.detail.file == null ? _this.info : _this.detail.file;
+          // this.info = this.detail.file == null ? this.info : this.detail.file;
+          _this.info = res.data.data.img;
           _this.latitude = _this.detail.lat;
           _this.longitude = _this.detail.lng;
           _this.marker = [{

@@ -54,11 +54,12 @@
 			this.getRes();
 		},
 		onLoad:function(){
+			
 			this.getRes();
 		},
 		methods: {
 			getUserInfo(){
-				_self = this;
+				var _self = this;
 				uni.getStorage({
 					key:_self.fun.userInfo,
 					success:function(res){
@@ -72,12 +73,13 @@
 				})
 			},
 			getRes(){
+				this.getUserInfo();
 				this.getStoreHouse();
 			},
 			getStoreHouse() {//预约房源
-				this.fun.getReq(this.baseUrl+'/api/banner/index',{space_id:this.userId})
+				this.fun.getReq(this.baseUrl+'/api/user/subscribeHouse',{user_id:this.userId})
 				.then((res)=>{
-					this.bannerdata = res[1].data.data
+					this.houseData = res[1].data.data.lists.data;
 				});
 			},
 			getImg(imgSrc){

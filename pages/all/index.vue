@@ -11,7 +11,7 @@
 				<view @tap="poll()" class="pol">
 					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
 				</view>
-				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>	
+				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 			</view>
 		</view>
 	</view>
@@ -71,6 +71,9 @@
 				this.keyword = e.keyword;
 				_self.cate = e.keyword;
 			}
+			if (e.tabCur !=undefined) {
+				_self.TabCur = Number(e.tabCur);
+			}
 			this.getRes();
 			this.isShow = false;
 		},
@@ -123,6 +126,7 @@
 				if (_self.cate != "") {
 					url = _self.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val;
 				}
+
 				_self.fun.getReq(url)
 				.then((res)=>{
 					uni.hideNavigationBarLoading();
@@ -167,7 +171,7 @@
 			},
 			getLoad(){
 				this.isShow = false;
-				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
+				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt);
 			},
 			getSortlist(){//获取区域
 				uni.getStorage({

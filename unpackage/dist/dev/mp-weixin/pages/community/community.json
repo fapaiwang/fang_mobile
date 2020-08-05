@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "房拍网",
   "usingComponents": {
-    "banner": "/components/detail/banner",
+    "banner": "/components/community/banner",
     "community-head": "/components/community/community_head",
     "community-base": "/components/community/community_base",
     "recommend-hosue": "/components/community/recommend_hosue",

@@ -9,10 +9,10 @@
 				<image src="../../static/img/mine/order.png"></image>
 				<text>预约清单</text>
 			</view>
-			<view @click="trust">
+			<!-- <view @click="trust">
 				<image src="../../static/img/mine/trust.png"></image>
 				<text>我的委托</text>
-			</view>
+			</view> -->
 			<!-- <view>
 				<image src="../../static/img/mine/made.png"></image>
 				

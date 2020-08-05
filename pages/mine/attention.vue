@@ -6,7 +6,6 @@
 </template>
 
 <script>
-	var _self;
 	import Attention from '@/components/attention/attention.vue';
 	import House from '@/components/attention/house.vue';
 	
@@ -22,29 +21,39 @@
 				userId:-1
 			}
 		},
+		onShow:function(){
+			this.getUserInfo();
+		},
 		onLoad:function(){
-			_self = this;
-			uni.getStorage({
-				key:_self.fun.userInfo,
-				success:function(res){
-					if (res.data.code==20000){
+			this.getUserInfo();
+		
+		},
+		created:function(){
+			this.getUserInfo();
+		},
+		methods: {
+			getUserInfo(){
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.userInfo,
+					success:function(res){
+						_self.userId = res.data.id;
+						_self.getRes();
+					},
+					fail:function(){
 						uni.clearStorage(_self.fun.userInfo);
 						this.fun.navTo("/pages/login/login")
 					}
-					_self.userId = res.data.id;
-				},
-			})
-			this.getRes();
-		},
-		methods: {
+				})
+			},
 			getRes(){
 				this.getHouse();
 				this.getCommunity();
 			},
 			getHouse() {
-				_self = this;
+				var _self = this;
 				var houseData = new Array();
-				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"second_house","user_id":this.userId})
+				this.fun.getReq(this.baseUrl+'/api/user/followHouse',{"model":"second_house","user_id":_self.userId})
 				.then((res)=>{
 					this.houseData = res[1].data.data.lists.data;
 					res[1].data.data.lists.data.forEach(function(item,key){
@@ -65,7 +74,8 @@
 			},
 			getCommunity(){
 				var estateData = new Array();
-				this.fun.getReq(this.baseUrl+'/api/user/followEstate',{"user_id":this.userId})
+				var _self = this;
+				this.fun.getReq(this.baseUrl+'/api/user/followEstate',{"user_id":_self.userId})
 				.then((res)=>{
 					this.communityData = res[1].data.data.data;
 					res[1].data.data.data.forEach(function(item,key){

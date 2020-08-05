@@ -12,6 +12,7 @@
 		border-radius:51rpx;
 		margin:0 auto 30rpx auto;
 		box-sizing: border-box;
+		font-size: 32rpx;
 }
 .login_inp.data-v-34eec457{
 		width: 100%;

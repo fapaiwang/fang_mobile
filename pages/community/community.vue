@@ -5,14 +5,14 @@
 		<communityBase :cBase="cBase" :buildYears="buildYears" :address="address"></communityBase>
 		<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 		<grayBox></grayBox>
-		<communityMap :marker="marker" :latitude="latitude" :longitude="longitude"></communityMap>
+		<communityMap :marker="marker" :latitude="latitude" :longitude="longitude" :detailId="detailId"></communityMap>
 		<grayBox></grayBox>
 		<featured :choiceEstateData="choiceEstateData"></featured>
 	</view>
 </template>
 
 <script>
-	import banner from "@/components/detail/banner.vue" //轮播图
+	import banner from "@/components/community/banner.vue" //轮播图
 	import communityHead from "@/components/community/community_head.vue" //房源基础信息
 	import communityBase from "@/components/community/community_base.vue" //小区基础信息
 	import recommendHosue from "@/components/community/recommend_hosue.vue" //小区房源
@@ -32,9 +32,7 @@
 		},
 		data() {
 			return {
-				info: [{
-					title: ""
-				}],
+				info: '',
 				qualityEstateData:[],
 				choiceEstateData:[],
 				marker: [],
@@ -47,12 +45,14 @@
 				communityId:0,
 				like:-1,
 				estateKey:'',
+				detailId:-1,
 			}
 		},
 		onLoad:function(options) {
 			if (options.like != undefined) {
 				this.like = options.like;
 			}
+			this.detailId= options.id;
 			this.getHomeData(options.id);
 			// uni.clearStorage(this.fun.historyEstate)
 			// uni.clearStorage(this.fun.estateKeys)
@@ -122,7 +122,8 @@
 						this.cBase = this.detail.data;
 						this.buildYears = this.detail.years;
 						this.address = this.detail.address;
-						this.info = this.detail.file == null ? this.info : this.detail.file;
+						// this.info = this.detail.file == null ? this.info : this.detail.file;
+						this.info  = res.data.data.img;
 						this.latitude = this.detail.lat
 						this.longitude = this.detail.lng
 						this.marker = [{

@@ -9,6 +9,8 @@ class Fun{
 	houseKeys = "houseKeys";//浏览的房源的ID
 	historyEstate = "historyEstate";//浏览的小区
 	estateKeys = "estateKeys";//浏览的小区的ID
+	searchList = "searchList";//搜索房源
+	searchEstate = "searchEstate";//搜索小区
 
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({
@@ -86,7 +88,7 @@ class Fun{
 		if (ImgSrc == null || ImgSrc == "" ) {
 			return "../../static/img/base/default.png";
 		}
-		if (ImgSrc.substr(0,4) == "http") {
+		if (ImgSrc.indexOf('http')!=-1) {
 			return ImgSrc;
 		} else if (ImgSrc.substr(0,1) == "/") {
 			return this.webSite+`${ImgSrc}`;

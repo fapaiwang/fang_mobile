@@ -7,6 +7,7 @@
 		border-radius:51upx;
 		margin:0 auto 30upx auto;
 		box-sizing: border-box;
+		font-size: 32upx;
 	}
 	.login_inp{
 		width: 100%;

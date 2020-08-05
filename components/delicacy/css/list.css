@@ -111,7 +111,7 @@
 	color:#C8A96A;
 	line-height:50upx;
 	text-align: center;
-	border-radius:0 15upx 0 0;
+	border-radius:5upx;
 }
 .tag text:last-child{
 	background:#E4EFFD !important;

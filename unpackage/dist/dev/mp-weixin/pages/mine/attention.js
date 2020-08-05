@@ -130,15 +130,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 566));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 573));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
-var _self;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 551));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 558));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -154,29 +153,39 @@ var _self;var Attention = function Attention() {__webpack_require__.e(/*! requir
       userId: -1 };
 
   },
+  onShow: function onShow() {
+    this.getUserInfo();
+  },
   onLoad: function onLoad() {
-    _self = this;
-    uni.getStorage({
-      key: _self.fun.userInfo,
-      success: function success(res) {
-        if (res.data.code == 20000) {
-          uni.clearStorage(_self.fun.userInfo);
-          this.fun.navTo("/pages/login/login");
-        }
-        _self.userId = res.data.id;
-      } });
+    this.getUserInfo();
 
-    this.getRes();
+  },
+  created: function created() {
+    this.getUserInfo();
   },
   methods: {
+    getUserInfo: function getUserInfo() {
+      var _self = this;
+      uni.getStorage({
+        key: _self.fun.userInfo,
+        success: function success(res) {
+          _self.userId = res.data.id;
+          _self.getRes();
+        },
+        fail: function fail() {
+          uni.clearStorage(_self.fun.userInfo);
+          this.fun.navTo("/pages/login/login");
+        } });
+
+    },
     getRes: function getRes() {
       this.getHouse();
       this.getCommunity();
     },
     getHouse: function getHouse() {var _this = this;
-      _self = this;
+      var _self = this;
       var houseData = new Array();
-      this.fun.getReq(this.baseUrl + '/api/user/followHouse', { "model": "second_house", "user_id": this.userId }).
+      this.fun.getReq(this.baseUrl + '/api/user/followHouse', { "model": "second_house", "user_id": _self.userId }).
       then(function (res) {
         _this.houseData = res[1].data.data.lists.data;
         res[1].data.data.lists.data.forEach(function (item, key) {
@@ -197,7 +206,8 @@ var _self;var Attention = function Attention() {__webpack_require__.e(/*! requir
     },
     getCommunity: function getCommunity() {var _this2 = this;
       var estateData = new Array();
-      this.fun.getReq(this.baseUrl + '/api/user/followEstate', { "user_id": this.userId }).
+      var _self = this;
+      this.fun.getReq(this.baseUrl + '/api/user/followEstate', { "user_id": _self.userId }).
       then(function (res) {
         _this2.communityData = res[1].data.data.data;
         res[1].data.data.data.forEach(function (item, key) {

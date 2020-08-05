@@ -7936,19 +7936,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 399:
-/*!*************************************************************************************************!*\
-  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var conditions = { "1": { "id": 1, "name": "\u623F\u5C4B\u7C7B\u578B", "en_name": "building_type", "type": "select", "value": 100, "option": [{ "name": "\u5546\u54C1\u623F", "value": 100 }, { "name": "\u4E00\u7C7B\u7ECF\u6D4E\u9002\u7528\u623F", "value": 101 }, { "name": "\u4E8C\u7C7B\u7ECF\u6D4E\u9002\u7528\u623F", "value": 102 }, { "name": "\u516C\u623F", "value": 103 }], "on_change": [8, 9, 10, 11] }, "2": { "id": 2, "name": "\u4F4F\u5B85\u7C7B\u578B", "en_name": "house_type", "type": "select", "value": 200, "tips": "\u5BB9\u79EF\u7387\u5C0F\u4E8E1.0\u6216\u9762\u79EF\u5927\u4E8E140\u5E73\u7C73,\u5355\u4EF7\u6216\u603B\u4EF7\u9AD8\u4E8E\u5E02\u573A\u6307\u5BFC\u4EF7\u5373\u4E3A\u975E\u666E\u901A\u4F4F\u5B85", "option": [{ "name": "\u666E\u901A\u4F4F\u5B85", "value": 200 }, { "name": "\u975E\u666E\u901A\u4F4F\u5B85", "value": 201 }], "on_change": [8, 10] }, "5": { "id": 5, "name": "\u4E70\u65B9\u5BB6\u5EAD", "en_name": "first_house", "type": "select", "value": 500, "option": [{ "name": "\u9996\u5957", "value": 500 }, { "name": "\u4E8C\u5957", "value": 501 }] }, "6": { "id": 6, "name": "\u623F\u5C4B\u9762\u79EF", "en_name": "house_area", "type": "input", "value": "", "unit": "\u5E73\u7C73", "min": 20, "max": 2000 }, "7": { "id": 7, "name": "\u623F\u5C4B\u603B\u4EF7", "en_name": "house_price_listing", "type": "input", "value": "0", "unit": "\u4E07\u5143", "min": 100, "max": 20000 }, "8": { "id": 8, "name": "\u623F\u5C4B\u539F\u503C", "en_name": "last_trans_price", "type": "input", "value": "", "tips": "\u623F\u5C4B\u539F\u503C\u4E3A\u4E0A\u6B21\u7F51\u7B7E\u4EF7\u683C,\u53EF\u5411\u6CD5\u62CD\u4E13\u5458\u8BE2\u95EE", "unit": "\u4E07\u5143", "min": 1, "max": 20000, "is_hide": "((100 == $('#building_type').attr('data-value') || 102 == $('#building_type').attr('data-value') || 103 == $('#building_type').attr('data-value')) && (200 == $('#house_type').attr('data-value'))) || (101 == $('#building_type').attr('data-value') && 200 == $('#house_type').attr('data-value') && 1100 == $('#buy_time').attr('data-value'));" }, "9": { "id": 9, "name": "\u539F\u8D2D\u4E70\u65B9\u5F0F", "en_name": "last_trans_type", "type": "select", "value": 900, "option": [{ "name": "\u6210\u672C\u4EF7", "value": 900 }, { "name": "\u4F18\u60E0\u4EF7", "value": 901 }], "is_hide": "103 != $('#building_type').attr('data-value')" }, "10": { "id": 10, "name": "\u6240\u5728\u533A\u57DF", "en_name": "location", "type": "select", "value": 1000, "tips": "\u6839\u636E\u5C0F\u89C4\u6A21\u7EB3\u7A0E\u4EBA\u3001\u81EA\u7136\u4EBA\u57CE\u5EFA\u7A0E\u53CA\u9644\u52A0\u3001\u5370\u82B1\u7A0E\u76F8\u5173\u51CF\u6536\u653F\u7B56\uFF0C\u76EE\u524D\u5DF2\u5168\u9762\u6267\u884C\u51CF\u534A\u5F81\u6536\uFF0C\u8C03\u6574\u540E\u589E\u503C\u7A0E\u53CA\u9644\u52A0\u7531\u539F\u6765\u7684\u5E02\u533A5.6%\u53D8\u4E3A5.3%\uFF0C\u90CA\u533A5.5%\u53D8\u4E3A5.25%\uFF0C\u5370\u82B1\u7A0E\u7531\u539F\u6765\u76840.05%\uFF0C\u53D8\u4E3A0.025%\uFF0C\u5177\u4F53\u76F8\u5173\u653F\u7B56\u53EF\u5411\u6CD5\u62CD\u4E13\u5458\u54A8\u8BE2\u3002", "option": [{ "name": "\u57CE\u516D\u533A", "value": 1000 }, { "name": "\u90CA\u533A", "value": 1001 }], "is_hide": "200 == $('#house_type').attr('data-value') && 103 != $('#building_type').attr('data-value')" }, "11": { "id": 11, "name": "\u8D2D\u4E70\u65F6\u95F4", "en_name": "buy_time", "type": "select", "value": 1100, "option": [{ "name": "2008\u5E744\u670811\u65E5\u524D", "value": 1100 }, { "name": "2008\u5E744\u670811\u65E5\u540E", "value": 1101 }], "is_hide": "101 != $('#building_type').attr('data-value')", "on_change": [8] } };var _default =
-conditions;exports.default = _default;
-
-/***/ }),
-
 /***/ 4:
 /*!*****************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/pages.json ***!
@@ -7961,6 +7948,19 @@ conditions;exports.default = _default;
 /***/ }),
 
 /***/ 407:
+/*!*************************************************************************************************!*\
+  !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var conditions = { "1": { "id": 1, "name": "\u623F\u5C4B\u7C7B\u578B", "en_name": "building_type", "type": "select", "value": 100, "option": [{ "name": "\u5546\u54C1\u623F", "value": 100 }, { "name": "\u4E00\u7C7B\u7ECF\u6D4E\u9002\u7528\u623F", "value": 101 }, { "name": "\u4E8C\u7C7B\u7ECF\u6D4E\u9002\u7528\u623F", "value": 102 }, { "name": "\u516C\u623F", "value": 103 }], "on_change": [8, 9, 10, 11] }, "2": { "id": 2, "name": "\u4F4F\u5B85\u7C7B\u578B", "en_name": "house_type", "type": "select", "value": 200, "tips": "\u5BB9\u79EF\u7387\u5C0F\u4E8E1.0\u6216\u9762\u79EF\u5927\u4E8E140\u5E73\u7C73,\u5355\u4EF7\u6216\u603B\u4EF7\u9AD8\u4E8E\u5E02\u573A\u6307\u5BFC\u4EF7\u5373\u4E3A\u975E\u666E\u901A\u4F4F\u5B85", "option": [{ "name": "\u666E\u901A\u4F4F\u5B85", "value": 200 }, { "name": "\u975E\u666E\u901A\u4F4F\u5B85", "value": 201 }], "on_change": [8, 10] }, "5": { "id": 5, "name": "\u4E70\u65B9\u5BB6\u5EAD", "en_name": "first_house", "type": "select", "value": 500, "option": [{ "name": "\u9996\u5957", "value": 500 }, { "name": "\u4E8C\u5957", "value": 501 }] }, "6": { "id": 6, "name": "\u623F\u5C4B\u9762\u79EF", "en_name": "house_area", "type": "input", "value": "", "unit": "\u5E73\u7C73", "min": 20, "max": 2000 }, "7": { "id": 7, "name": "\u623F\u5C4B\u603B\u4EF7", "en_name": "house_price_listing", "type": "input", "value": "0", "unit": "\u4E07\u5143", "min": 100, "max": 20000 }, "8": { "id": 8, "name": "\u623F\u5C4B\u539F\u503C", "en_name": "last_trans_price", "type": "input", "value": "", "tips": "\u623F\u5C4B\u539F\u503C\u4E3A\u4E0A\u6B21\u7F51\u7B7E\u4EF7\u683C,\u53EF\u5411\u6CD5\u62CD\u4E13\u5458\u8BE2\u95EE", "unit": "\u4E07\u5143", "min": 1, "max": 20000, "is_hide": "((100 == $('#building_type').attr('data-value') || 102 == $('#building_type').attr('data-value') || 103 == $('#building_type').attr('data-value')) && (200 == $('#house_type').attr('data-value'))) || (101 == $('#building_type').attr('data-value') && 200 == $('#house_type').attr('data-value') && 1100 == $('#buy_time').attr('data-value'));" }, "9": { "id": 9, "name": "\u539F\u8D2D\u4E70\u65B9\u5F0F", "en_name": "last_trans_type", "type": "select", "value": 900, "option": [{ "name": "\u6210\u672C\u4EF7", "value": 900 }, { "name": "\u4F18\u60E0\u4EF7", "value": 901 }], "is_hide": "103 != $('#building_type').attr('data-value')" }, "10": { "id": 10, "name": "\u6240\u5728\u533A\u57DF", "en_name": "location", "type": "select", "value": 1000, "tips": "\u6839\u636E\u5C0F\u89C4\u6A21\u7EB3\u7A0E\u4EBA\u3001\u81EA\u7136\u4EBA\u57CE\u5EFA\u7A0E\u53CA\u9644\u52A0\u3001\u5370\u82B1\u7A0E\u76F8\u5173\u51CF\u6536\u653F\u7B56\uFF0C\u76EE\u524D\u5DF2\u5168\u9762\u6267\u884C\u51CF\u534A\u5F81\u6536\uFF0C\u8C03\u6574\u540E\u589E\u503C\u7A0E\u53CA\u9644\u52A0\u7531\u539F\u6765\u7684\u5E02\u533A5.6%\u53D8\u4E3A5.3%\uFF0C\u90CA\u533A5.5%\u53D8\u4E3A5.25%\uFF0C\u5370\u82B1\u7A0E\u7531\u539F\u6765\u76840.05%\uFF0C\u53D8\u4E3A0.025%\uFF0C\u5177\u4F53\u76F8\u5173\u653F\u7B56\u53EF\u5411\u6CD5\u62CD\u4E13\u5458\u54A8\u8BE2\u3002", "option": [{ "name": "\u57CE\u516D\u533A", "value": 1000 }, { "name": "\u90CA\u533A", "value": 1001 }], "is_hide": "200 == $('#house_type').attr('data-value') && 103 != $('#building_type').attr('data-value')" }, "11": { "id": 11, "name": "\u8D2D\u4E70\u65F6\u95F4", "en_name": "buy_time", "type": "select", "value": 1100, "option": [{ "name": "2008\u5E744\u670811\u65E5\u524D", "value": 1100 }, { "name": "2008\u5E744\u670811\u65E5\u540E", "value": 1101 }], "is_hide": "101 != $('#building_type').attr('data-value')", "on_change": [8] } };var _default =
+conditions;exports.default = _default;
+
+/***/ }),
+
+/***/ 415:
 /*!***********************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
   \***********************************************************************************************/
@@ -9021,7 +9021,7 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 415:
+/***/ 423:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
   \*************************************************************************************************/

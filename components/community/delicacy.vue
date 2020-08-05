@@ -81,7 +81,7 @@
 
 <script>
 	export default {
-		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData"],
+		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","typeNum"],
 		data() {
 			return {
 				drop: false,
@@ -98,6 +98,12 @@
 				param:"",
 				sortVal:3,//排序
 				hot:false,
+			}
+		},
+		created:function(){
+			if (Number(this.typeNum)==48) {
+				this.familyKey = 3;
+				this.familyVal = 48;
 			}
 		},
 		methods: {
@@ -154,7 +160,8 @@
 				let _param = {
 					area:this.synthesize,
 					price:this.avgMoney,
-					sort:this.sortVal
+					sort:this.sortVal,
+					type:this.familyVal,
 				}
 				this.$emit("myEvent",_param);
 				// this.$emit("myEvent",this.synthesize,this.avgMoney,this.familyVal,this.sortVal);
@@ -187,7 +194,8 @@
 				let _param = {
 					area:this.synthesize,
 					price:this.avgMoney,
-					sort:this.sortVal
+					sort:this.sortVal,
+					type:this.familyVal
 				}
 				this.$emit("myEvent",_param);
 				// this.$emit("myEvent",this.synthesize,this.avgMoney,this.familyVal,this.sortVal);

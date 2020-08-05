@@ -23,6 +23,7 @@
     "pages/detail/result",
     "pages/all/index",
     "pages/search/search",
+    "pages/search/estate_search",
     "pages/login/pact",
     "pages/detail/recording",
     "pages/detail/house",
@@ -72,5 +73,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap41.json"
+  "sitemapLocation": "sitemap77.json"
 }
