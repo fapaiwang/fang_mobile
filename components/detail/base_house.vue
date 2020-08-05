@@ -139,6 +139,7 @@
 				key:_self.fun.userInfo,
 				success:function(res){
 					_self.uuid = res.data.id;
+					_self.bmrs = true;
 				},
 				fail:function(){
 					_self.bmrs = false;
