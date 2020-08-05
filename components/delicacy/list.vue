@@ -48,7 +48,7 @@
 				</navigator>
 			</block>
 		</view>
-		<view class="loading">{{loadingTxt}}</view>
+		<!-- <view class="loading">{{loadingTxt}}</view> -->
 	</view>
 </template>
 <script>

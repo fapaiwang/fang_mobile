@@ -6,7 +6,7 @@
 			<grayBox></grayBox>
 			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData"></housingSituation>
 			<grayBox></grayBox>
-			<recommendPersion :recommendData="recommendData"></recommendPersion>
+			<recommendPersion :recommendData="recommendData" :detailId="detailId"></recommendPersion>
 			<grayBox></grayBox>
 			<communityDesc :detial="detial" :communityThumb="communityThumb" :estateData="estateData" :buildYear="buildYear"></communityDesc>
 			<grayBox></grayBox>
@@ -358,7 +358,7 @@
 				return new Date(fullDate[0], fullDate[1]-1, fullDate[2], (fullTime[0] != null ? fullTime[0] : 0), (fullTime[1] != null ? fullTime[1] : 0), (fullTime[2] != null ? fullTime[2] : 0));
 			},
 			getRecommendPersion(houseId){//法拍专员推荐
-				this.fun.getReq(this.baseUrl+"/api/second/houseComment",{"house_id":3883})
+				this.fun.getReq(this.baseUrl+"/api/second/houseComment",{"house_id":houseId})
 				.then((res)=>{
 					this.recommendData = res[1].data.data;
 				});

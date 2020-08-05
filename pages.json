@@ -198,6 +198,12 @@
             	"navigationBarTitleText": "预约清单"
             }
         }
+        ,{
+            "path" : "pages/detail/recommend",
+            "style" : {
+            	"navigationBarTitleText": "法拍专员"
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

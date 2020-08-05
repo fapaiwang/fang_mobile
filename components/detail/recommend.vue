@@ -1,6 +1,6 @@
 <template>
 	<view class="recommend_warp">
-		<view class="recommend_con">
+		<view class="recommend_con" @click="recommend">
 			<view class="featuredtTitleView">
 				<view class="titleText">
 					法拍专员推荐
@@ -25,14 +25,13 @@
 				</view>
 				<view class="persion_desc">{{userRule ==4 ? item.house_name : ''}}</view>
 			</view>
-		
 		</view>
 	</view>
 </template>
 
 <script>
 	export default{
-		props:["recommendData"],
+		props:["recommendData","detailId"],
 		name: "recommend",
 		data(){
 			return {
@@ -65,6 +64,9 @@
 					},
 				})
 			},
+			recommend(){
+				this.fun.navTo("/pages/detail/recommend?id="+this.detailId)
+			}
 		}
 	}
 </script>
