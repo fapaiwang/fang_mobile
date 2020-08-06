@@ -32,7 +32,7 @@
 					this.fun.navTo("/pages/all/index?a=f18334&tit=住宅/公寓");
 					break;
 					case 3:
-					this.fun.navTo("/pages/community/index?type=48");
+					this.fun.navTo("/pages/all/index?a=i48&tit=社会委托");
 					break;
 					case 5:
 					this.fun.navTo("/pages/news/index?id=3");

@@ -23,7 +23,7 @@
 										<text>房源<text class="fColor">{{item.second_total}}</text>套</text>
 									</view>
 									<view class="price">
-										<text class="fColor">{{item.second_total}}元/㎡</text>
+										<text class="fColor">{{item.price}}元/㎡</text>
 									</view>
 								</view>
 							</view>

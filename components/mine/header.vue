@@ -72,7 +72,7 @@
 		margin-bottom: 39upx;
 	}
 	.nav view{
-		width: 25%;
+		width: 50%;
 		text-align: center;
 	}
 	.nav view text{

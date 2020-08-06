@@ -6,7 +6,9 @@
 			</view>
 			<view class="header">
 				<view class="header_login">
-					<view class="avatar"><image mode="" :src="getImg()"></image></view>
+					<view class="avatar">
+						<image mode="" :src="getImg()"></image>
+					</view>
 					<view class="header_text" v-if="isShow">
 						<text @click="login">登录</text>
 						/
@@ -27,60 +29,60 @@
 	import MineBanner from '@/components/base/banner.vue';
 	import Header from '@/components/mine/header.vue';
 	import History from "@/components/mine/history.vue"
-	
+
 	export default {
-		components:{
+		components: {
 			MineBanner,
 			Header,
 			History
 		},
 		data() {
 			return {
-				bannerdata:[],
-				isShow:true,
-				userInfo:[],
+				bannerdata: [],
+				isShow: true,
+				userInfo: [],
 			}
 		},
-		onLoad:function(){
+		onLoad: function() {
 			this.getBannerData();
 		},
-		onShow:function(){
+		onShow: function() {
 			this.getStore();
 		},
 		methods: {
-			getStore(){
+			getStore() {
 				var _self = this;
 				uni.getStorage({
-					key:_self.fun.userInfo,
-					success:function(res){
+					key: _self.fun.userInfo,
+					success: function(res) {
 						_self.userInfo = res.data;
 						_self.isShow = false;
 					},
-					fail:function(){
+					fail: function() {
 						_self.isShow = true;
 					}
 				})
 			},
 			getBannerData() {
-				this.fun.getReq(this.baseUrl+'/api/banner/index?space_id=28')
-				.then((res)=>{
-					this.bannerdata = res[1].data.data
-				});
+				this.fun.getReq(this.baseUrl + '/api/banner/index?space_id=28')
+					.then((res) => {
+						this.bannerdata = res[1].data.data
+					});
 			},
-			login(){//登录
+			login() { //登录
 				this.fun.navTo("/pages/login/login");
 			},
-			register(){//注册
+			register() { //注册
 				this.fun.navTo("/pages/login/register");
 			},
-			getImg(){
+			getImg() {
 				var ImgSrc = "";
-				if (this.userInfo.length >=1) {
+				if (this.userInfo.length >= 1) {
 					ImgSrc = userInfo.img
 				}
 				return this.fun.getImgSrc(ImgSrc);
 			},
-			changeInfo(){
+			changeInfo() {
 				if (this.isShow) {
 					this.fun.showMsg("请登录");
 					return false;
@@ -93,5 +95,5 @@
 </script>
 
 <style scoped>
-@import url("./css/mine.css");
+	@import url("./css/mine.css");
 </style>

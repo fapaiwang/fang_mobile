@@ -129,17 +129,17 @@
 	width: 100%;
 	font-size: 20upx;
 	position: absolute;
-	width: 100%;
 	z-index: 10;
 	color: #fff;
-	font-size: 20upx;
 	margin-top: 20upx;
 }
 .house_status text{
-	width:84upx;
-	height: 30upx;
-	line-height:30upx;
+	width:100upx;
+	height: 40upx;
+	line-height:40upx;
 	text-align: center;
+	font-size: 20upx;
+	border-radius:0 17px 17px 0;
 }
 .house_status .house_status_red{
 	background: #E02E24;
