@@ -1739,7 +1739,8 @@ function normalizeComponent (
     "houseKeys");_defineProperty(this, "historyEstate",
     "historyEstate");_defineProperty(this, "estateKeys",
     "estateKeys");_defineProperty(this, "searchList",
-    "searchList");}_createClass(Fun, [{ key: "navTo", //搜索key
+    "searchList");_defineProperty(this, "searchEstate",
+    "searchEstate");}_createClass(Fun, [{ key: "navTo", //搜索小区key
     value: function navTo(
     url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({
@@ -7947,7 +7948,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 407:
+/***/ 417:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
   \*************************************************************************************************/
@@ -7960,7 +7961,7 @@ conditions;exports.default = _default;
 
 /***/ }),
 
-/***/ 415:
+/***/ 425:
 /*!***********************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
   \***********************************************************************************************/
@@ -9021,7 +9022,7 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 423:
+/***/ 433:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
   \*************************************************************************************************/

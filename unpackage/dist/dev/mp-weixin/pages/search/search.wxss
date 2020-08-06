@@ -88,6 +88,7 @@
 	font-size: 30rpx;
 }.container.data-v-4cedc0c6{
 	padding: 0 30rpx;
+	margin-top: 80rpx;
 }.history.data-v-4cedc0c6{
 	width: 100%;
 	text-align: left;
@@ -117,7 +118,7 @@
 	z-index: 1111;
 	background: #fff;
 	left: 0;
-	top: 0;
+	top: 80rpx;
 	width: 90%;
 	left: 4%;
 }.search_list view.data-v-4cedc0c6{

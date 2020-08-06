@@ -1,78 +1,79 @@
 .header-wrap {
-		height: 78upx;
-		padding: 20upx 30upx 0 30upx;	
-		margin-bottom: 25upx;
-		margin-top: 0;
-	},
-	.index-header {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		align-items:center;	    
-	},
-	.addressView{
-		width: 114upx;
-		display: flex;
-		flex-direction: row;
-		align-items:center;
-	}
-	.addressView .arrowIcon {
-		margin-left: 10upx;
-		width: 16upx;
-		height: 16upx;
-	},
-	.address {
-	    font-size: 26upx;
-		color: #000;
-	},
-	
-	.input-wrap {
-		display: flex;
-		flex: 1;
-		flex-direction: row;
-		align-items:center;	    
-	    height: 78upx;
-		border: 1upx solid #EBEBEB;
-	    background-color: #fff;
-	    border-radius: 50upx;
-	},
-	
-	.uni-input {
-		flex: 1;
-		display: block;
-		height: 100%;
-		color: #999;
-		opacity: 1;
-		font-size: 24upx;
-		-webkit-text-fill-color: currentcolor;
-	},
-	.uni-inputPlaceholder {
-		color: #999999;
-	}
-	
-	.iconfangdajing {
-		width: 32upx;
-		height: 32upx;
-		margin-left: 27upx;
-		margin-right: 15upx;
-	}
-	
-	.user-wrap {
-		display: flex;
-		align-items:center;
-		justify-content:flex-end;
-		width: 76upx;
-	},
-	
-	
-	 .user-wrap .userIconfont {
-	    width: 44upx;
-	    height: 44upx;
-	},
-	.input-wrap text{
-		position: absolute;
-		left: 40upx;
-		top: -8upx;
-		color: #000;
-		font-size: 30upx;
-	}
+	height: 78upx;
+	padding: 20upx 30upx 0 30upx;	
+	margin-bottom: 25upx;
+	margin-top: 0;
+	padding-top: 60upx;
+},
+.index-header {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items:center;	    
+},
+.addressView{
+	width: 114upx;
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+}
+.addressView .arrowIcon {
+	margin-left: 10upx;
+	width: 16upx;
+	height: 16upx;
+},
+.address {
+	font-size: 26upx;
+	color: #000;
+},
+
+.input-wrap {
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	align-items:center;	    
+	height: 78upx;
+	border: 1upx solid #EBEBEB;
+	background-color: #fff;
+	border-radius: 50upx;
+},
+
+.uni-input {
+	flex: 1;
+	display: block;
+	height: 100%;
+	color: #999;
+	opacity: 1;
+	font-size: 24upx;
+	-webkit-text-fill-color: currentcolor;
+},
+.uni-inputPlaceholder {
+	color: #999999;
+}
+
+.iconfangdajing {
+	width: 32upx;
+	height: 32upx;
+	margin-left: 27upx;
+	margin-right: 15upx;
+}
+
+.user-wrap {
+	display: flex;
+	align-items:center;
+	justify-content:flex-end;
+	width: 76upx;
+},
+
+
+ .user-wrap .userIconfont {
+	width: 44upx;
+	height: 44upx;
+},
+.input-wrap text{
+	position: absolute;
+	left: 40upx;
+	top: -8upx;
+	color: #000;
+	font-size: 30upx;
+}

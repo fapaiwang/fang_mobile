@@ -139,7 +139,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 426));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 447));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 454));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 436));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 457));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 464));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -215,11 +217,11 @@ __webpack_require__.r(__webpack_exports__);
       this.fun.navTo("/pages/login/register");
     },
     getImg: function getImg() {
-      var ImgSrc = "";
       if (this.userInfo.length >= 1) {
         ImgSrc = userInfo.img;
+        return this.fun.getImgSrc(userInfo.img);
       }
-      return this.fun.getImgSrc(ImgSrc);
+      return "../../static/img/base/default_avatar.png";
     },
     changeInfo: function changeInfo() {
       if (this.isShow) {

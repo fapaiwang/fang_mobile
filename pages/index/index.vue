@@ -115,7 +115,7 @@
 					this.recommendHouseData = res[1].data.data.lists.data;
 					page++
 				})
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=a=m10&page='+freePage)//自由购
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)//自由购
 				.then((res)=>{
 					this.restrictHouseData = res[1].data.data.lists.data;
 					freePage++
@@ -131,7 +131,7 @@
 				})
 			},
 			getMoreRecommendHouseData() { // 更多自由购
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=a=m10&page='+freePage)
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)
 				.then((res)=>{
 					var newsList = res[1].data.data.lists.data;
 					_self.restrictHouseData = _self.restrictHouseData.concat(newsList);

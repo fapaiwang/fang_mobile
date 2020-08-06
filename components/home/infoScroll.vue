@@ -32,7 +32,7 @@
 		},
 		methods: {
 			getTargetUrl(index){ //跳转页面
-				this.fun.navTo(`/pages/news/detail?id=${index}`);
+				this.fun.navTo(`/pages/detail/index?id=${index}`);
 			}
 		}
 	}

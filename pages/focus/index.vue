@@ -282,7 +282,6 @@
 			this.rect = e.scrollTop
 		},
 	}
-
 </script>
 
 <style scoped>

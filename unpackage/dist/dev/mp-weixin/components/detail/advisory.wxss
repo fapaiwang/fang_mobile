@@ -10,6 +10,8 @@
 		        flex-wrap: row wrap;
 		-webkit-justify-content: space-around;
 		        justify-content: space-around;
+		position: fixed;
+		bottom: 0;
 }
 .consultant.data-v-5f2e5ccc{
 		width: 90%;

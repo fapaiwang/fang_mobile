@@ -22,7 +22,7 @@ scroll-view {
 	.featuredView {
 		margin-top: 45upx;
 		padding: 0 30upx;
-		margin-bottom: 53upx;
+		padding-bottom: 150upx;
 	}
 	.featuredtTitleView {
 		height: 38upx;

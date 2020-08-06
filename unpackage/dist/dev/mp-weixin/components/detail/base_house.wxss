@@ -226,17 +226,17 @@
 }.share view.data-v-3e8ddd05:first-child{
 	margin-right: 20rpx;
 }.joinImg.data-v-3e8ddd05{
-	width: 48rpx;
-	height: 48rpx;
+	width: 52rpx;
+	height: 52rpx;
 	float: left;
 	display: inline-block;
 }.joinText.data-v-3e8ddd05{
-	height:23rpx;
-	font-size:24rpx;
+	height:19rpx;
+	font-size:20rpx;
 	font-family:PingFang SC;
 	font-weight:500;
 	color:#666;
-	width: 100%;
+	width: 52rpx;
 	float: left;
 }.share.data-v-3e8ddd05{
 	display: -webkit-box;

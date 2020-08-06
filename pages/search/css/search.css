@@ -81,6 +81,7 @@
 
 .container{
 	padding: 0 30upx;
+	margin-top: 80px;
 }
 .history{
 	width: 100%;
@@ -115,7 +116,7 @@
 	z-index: 1111;
 	background: #fff;
 	left: 0;
-	top: 0;
+	top: 80upx;
 	width: 90%;
 	left: 4%;
 }

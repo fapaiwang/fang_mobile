@@ -1,0 +1,14 @@
+
+.uni-padding-wrap.data-v-63eff6de{
+	padding: 0 30rpx;
+	margin-bottom: 30rpx;
+}
+.page-section-spacing.data-v-63eff6de,.swiper.data-v-63eff6de{
+	height:300rpx;
+}
+.swiper-item.data-v-63eff6de {
+	width:690rpx;
+	height:300rpx;
+	border-radius:10rpx;
+}
+

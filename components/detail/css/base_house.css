@@ -210,18 +210,18 @@
 	margin-right: 20upx;
 }
 .joinImg{
-	width: 48upx;
-	height: 48upx;
+	width: 52upx;
+	height: 52upx;
 	float: left;
 	display: inline-block;
 }
 .joinText{
-	height:23upx;
-	font-size:24upx;
+	height:19upx;
+	font-size:20upx;
 	font-family:PingFang SC;
 	font-weight:500;
 	color:#666;
-	width: 100%;
+	width: 52upx;
 	float: left;
 }
 .share{

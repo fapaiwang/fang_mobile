@@ -76,11 +76,11 @@
 				this.fun.navTo("/pages/login/register");
 			},
 			getImg() {
-				var ImgSrc = "";
 				if (this.userInfo.length >= 1) {
 					ImgSrc = userInfo.img
+					return this.fun.getImgSrc(userInfo.img);
 				}
-				return this.fun.getImgSrc(ImgSrc);
+				return "../../static/img/base/default_avatar.png";
 			},
 			changeInfo() {
 				if (this.isShow) {

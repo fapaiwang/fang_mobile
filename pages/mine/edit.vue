@@ -80,16 +80,15 @@
 				this.nickName = this.userInfo.nick_name ? this.userInfo.nick_name : '';
 			},
 			getImg(imgSrc){
-				if (imgSrc=="") {
-					var ImgSrc = "";
-					if (this.userInfo.length >=1) {
-						ImgSrc = userInfo.img
-					}
-					return this.fun.getImgSrc(ImgSrc);
+				var _img = "";
+				if (this.userInfo.length >=1) {
+					_img = userInfo.img
+				} else if (imgSrc == "") {
+					return "../../static/img/base/default_avatar.png";
 				} else {
-					console.log(111);
-					return this.fun.getImgSrc(imgSrc);
+					_img = imgSrc
 				}
+				return this.fun.getImgSrc(_img);
 			},
 			edit(){
 				let _param = {

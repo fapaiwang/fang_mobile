@@ -1,13 +1,16 @@
 <template>
 	<view class="community_warp">
-		<banner :info="info"></banner>
-		<communityHead :detail="detail" :communityId="communityId" :like="like"></communityHead>
-		<communityBase :cBase="cBase" :buildYears="buildYears" :address="address"></communityBase>
-		<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
-		<grayBox></grayBox>
-		<communityMap :marker="marker" :latitude="latitude" :longitude="longitude" :detailId="detailId"></communityMap>
-		<grayBox></grayBox>
-		<featured :choiceEstateData="choiceEstateData"></featured>
+		<view v-if="showCon">
+			<banner :info="info"></banner>
+			<communityHead :detail="detail" :communityId="communityId" :like="like"></communityHead>
+			<communityBase :cBase="cBase" :buildYears="buildYears" :address="address"></communityBase>
+			<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
+			<grayBox></grayBox>
+			<communityMap :marker="marker" :latitude="latitude" :longitude="longitude" :detailId="detailId"></communityMap>
+			<grayBox></grayBox>
+			<featured :choiceEstateData="choiceEstateData"></featured>
+		</view>
+		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
 	</view>
 </template>
 
@@ -46,19 +49,31 @@
 				like:-1,
 				estateKey:'',
 				detailId:-1,
+				showCon:false,
+				detialText:"",
 			}
 		},
 		onLoad:function(options) {
+			if (!options.id) {
+				this.getHome();
+			}
 			if (options.like != undefined) {
 				this.like = options.like;
 			}
 			this.detailId= options.id;
 			this.getHomeData(options.id);
-			// uni.clearStorage(this.fun.historyEstate)
-			// uni.clearStorage(this.fun.estateKeys)
 			this.getEstateKey();
 		},
 		methods: {
+			getHome() {
+				this.detialText = '没有内容'
+				this.showCon = false
+				setTimeout(function(){
+					uni.navigateBack({
+						delta:1
+					})
+				},500)
+			},
 			getStoreHouse(id,detailData) {//浏览小区
 				var _self = this;
 				var storeList = new Array();
@@ -113,32 +128,38 @@
 				this.getChoiceHouseData(id);
 			},
 			getBaseInfo(id){
+				var _self = this;
 				uni.request({
 					url:this.baseUrl+"/api/estate/estate_detail?id="+id,
 					success:(res) => {
-						this.detail = res.data.data;
-						this.communityId = id;
-						this.getStoreHouse(id,res.data.data);
-						this.cBase = this.detail.data;
-						this.buildYears = this.detail.years;
-						this.address = this.detail.address;
-						// this.info = this.detail.file == null ? this.info : this.detail.file;
-						this.info  = res.data.data.img;
-						this.latitude = this.detail.lat
-						this.longitude = this.detail.lng
-						this.marker = [{
-							longitude:this.detail.lng,
-							latitude:this.detail.lat,
-							iconPath: '',
-							callout:{//自定义标记点上方的气泡窗口 点击有效
-								content:this.detail.title,//文本
-								color:'#3A6385',//文字颜色
-								fontSize:14,//文本大小
-								borderRadius:2,//边框圆角
-								bgColor:'#7ABBCB',//背景颜色
-								display:'ALWAYS',//常显
-							},
-						}];
+						if (Number(res.data.code)==20000) {
+							_self.getHome();
+						} else {
+							this.showCon = true;
+							this.detail = res.data.data;
+							this.communityId = id;
+							this.getStoreHouse(id,res.data.data);
+							this.cBase = this.detail.data;
+							this.buildYears = this.detail.years;
+							this.address = this.detail.address;
+							// this.info = this.detail.file == null ? this.info : this.detail.file;
+							this.info  = res.data.data.img;
+							this.latitude = this.detail.lat
+							this.longitude = this.detail.lng
+							this.marker = [{
+								longitude:this.detail.lng,
+								latitude:this.detail.lat,
+								iconPath: '',
+								callout:{//自定义标记点上方的气泡窗口 点击有效
+									content:this.detail.title,//文本
+									color:'#3A6385',//文字颜色
+									fontSize:14,//文本大小
+									borderRadius:2,//边框圆角
+									bgColor:'#7ABBCB',//背景颜色
+									display:'ALWAYS',//常显
+								},
+							}];
+						}
 					}
 				})
 			},
@@ -159,5 +180,11 @@
 </script>
 
 <style scoped>
-
+.detialTxt{
+		line-height: 2em;
+		text-align: center;
+		color: #888;
+		font-size: 20upx;
+		margin-top: 20upx;
+	}
 </style>

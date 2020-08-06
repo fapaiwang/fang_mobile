@@ -73,6 +73,8 @@
 			}
 			if (e.tabCur !=undefined) {
 				_self.TabCur = Number(e.tabCur);
+			} else {
+				_self.TabCur = 999;
 			}
 			this.getRes();
 			this.isShow = false;
@@ -119,14 +121,15 @@
 			getRecommendHouseData() {
 				page = 1;
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val;
-				if (this.keyword !="") {
-					url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
+				var url = this.baseUrl+'/api/second/houseList';
+				if (this.TabCur !=999) {
+					if (this.keyword !="") {
+						url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
+					}
+					if (_self.cate != "") {
+						url = _self.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val;
+					}
 				}
-				if (_self.cate != "") {
-					url = _self.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val;
-				}
-
 				_self.fun.getReq(url)
 				.then((res)=>{
 					uni.hideNavigationBarLoading();
@@ -150,9 +153,12 @@
 				}
 				_self.loadingTxt = '加载中';
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val+'&page='+page;
-				if (this.cate == "") {
-					url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val+"&page="+page;
+				var url = this.baseUrl+'/api/second/houseList?page='+page;
+				if (this.TabCur !=999)  {
+					url = this.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val+'&page='+page;
+					if (this.cate == "") {
+						url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val+"&page="+page;
+					}
 				}
 				this.fun.getReq(url).then((res)=>{
 					uni.hideNavigationBarLoading();

@@ -31,7 +31,8 @@
     "pages/mine/history",
     "pages/detail/banner",
     "pages/detail/map",
-    "pages/mine/subscribe"
+    "pages/mine/subscribe",
+    "pages/detail/recommend"
   ],
   "subPackages": [],
   "window": {
@@ -73,5 +74,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap77.json"
+  "sitemapLocation": "sitemap31.json"
 }

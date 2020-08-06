@@ -14,4 +14,12 @@
 	line-height: 70rpx;
 	color: #fff;
 }
+.swiper-box{
+	height:465rpx;
+}
+.swiper-item {
+	width:750rpx;
+	height:465rpx;
+	background:rgba(241,241,241,1);
+}
 
