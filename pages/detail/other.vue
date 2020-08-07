@@ -6,12 +6,12 @@
 					<text>基本信息</text>
 				</view>
 				<view class="other_base_desc">
-					<view><text class="tit">小区名称：</text><text>{{isShow ? getResult.estate_name : '*'}}</text></view>
-					<view class="sec"><text class="tit">单价：</text><text>{{isShow ? `${getResult.junjia}万` : '*'}}</text></view>
+					<view><text class="tit">小区名称：</text><text>{{getResult.estate_name}}</text></view>
+					<view class="sec"><text class="tit">单价：</text><text>{{getResult.price}}元/㎡</text></view>
 				</view>
 				<view class="other_base_desc">
-					<view><text class="tit">所在区域：</text><text>{{isShow ? communityRes.area_name : '*'}}</text></view>
-					<view class="sec"><text class="tit">电梯情况：</text><text>{{isShow ? `${getResult.floor}层/共${getResult.total_floor}层` : '*'}}</text></view>
+					<view><text class="tit">所在区域：</text><text>{{communityRes.area_name}}</text></view>
+					<view class="sec"><text class="tit">电梯情况：</text><text>{{isShow ? getResult.elevator : '*'}}</text></view>
 				</view>
 				<view class="other_base_desc">
 					<view><text class="tit">户型结构：</text><text>{{isShow ? getResult.basic_info[2] : '*'}}</text></view>
@@ -33,26 +33,28 @@
 				<view class="other_base_desc">
 					<view>
 						<text class="tit">拍卖阶段：</text>
-						<text>{{isShow ? getResult.jieduan_name : '*'}}</text>
+						<text>{{getResult.jieduan_name}}</text>
 					</view>
-					<view class="sec">
+					<view><text class="tit">产权证号：</text><text>{{getResult.property_no}}</text></view>
+					<!-- <view class="sec">
 						<text class="tit">执行依据：</text>
 						<text>{{isShow ? getResult.enforcement : '*'}}</text>
-					</view>
+					</view> -->
 				</view>
 				<view class="other_base_desc">
-					<view>拍卖属性：<text>{{isShow ? getResult.xsname : '*'}}</text></view>
+					<view>房屋用途：<text>{{isShow ? getResult.xsname : '*'}}</text></view>
 					<!-- <view>土地证号：<text>土地证号</text></view> -->
 					<view class="sec"><text class="tit">查封情况：</text><text>{{isShow ? getResult.sequestration : '*'}}</text></view>
 				</view>
 				<view class="other_base_desc">
-					<view><text class="tit">产权证号：</text><text>{{isShow ? getResult.property_no : '*'}}</text></view>
-					<view class="sec"><text class="tit">土地用途：</text><text>{{isShow ? getResult.house_purpse : '*'}}</text></view>
+				
+					<!-- <view><text class="tit">房屋用途：</text><text>{{isShow ? getResult.house_purpse : '*'}}</text></view> -->
+					<!-- <view class="sec"><text class="tit">土地用途：</text><text>{{isShow ? getResult.house_purpse : '*'}}</text></view> -->
 				</view>
-				<view class="other_base_desc">
-					<view><text class="tit">房屋用途：</text><text>{{isShow ? getResult.house_purpse : '*'}}</text></view>
+				<!-- <view class="other_base_desc">
+					
 					<view class="sec">经营情况：</text><text>{{isShow ? getResult.management : '*'}}</text></view>
-				</view>
+				</view> -->
 				<view class="other_base_desc">
 					<view><text class="tit">租赁情况：</text><text>{{isShow ? getResult.lease : '*'}}</text></view>
 					<view class="sec">
@@ -60,9 +62,9 @@
 						<text>{{isShow ? getResult.mortgage : '*'}}</text>
 					</view>
 				</view>
-				<view class="other_base_desc last_child">
+				<!-- <view class="other_base_desc last_child">
 					<view>腾退情况：<text>{{isShow ? getResult.vacate : '*'}}</text></view>
-				</view>
+				</view> -->
 			</view>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
