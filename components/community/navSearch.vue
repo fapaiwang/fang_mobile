@@ -1,10 +1,6 @@
 <template name="uni-navSearchHeader">
 	<view class="header-wrap">
 			 <view class="index-header">
-				<view  @click="onPickCityClick" class="addressView">
-					<text class="address">北京</text>
-					<image class="arrowIcon" src='../../static/img/base/arrow@2x.png'></image>
-				</view>
 				<view class="input-wrap">
 					<image class="iconfangdajing" src='../../static/img/base/searchIcon@2x.png'></image>
 					<input maxlength="140"
@@ -34,9 +30,6 @@
 			}
 		},
 		methods: {
-			onPickCityClick:function(){
-				console.log(this.value)
-			},
 			inputChange:function(){
 				this.fun.navTo("/pages/search/estate_search")
 			},

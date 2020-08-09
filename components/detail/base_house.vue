@@ -43,7 +43,7 @@
 						<text class="sTime">{{detial.weiguan}}</text>人围观
 					</view>
 				</view>
-				<view class="people" @click="common()">
+				<view class="people" @click="common()" v-if="mark && userRule==4">
 					<text class="sTime">房源点评</text>
 				</view>
 			</view>
@@ -103,7 +103,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="mark" v-if="mark">
+		<view class="mark" v-if="mark && userRule==4">
 			<view class="viewTxt">
 				<view class="viewNavBar">
 					<text class="dianpin">房源点评</text>
@@ -131,6 +131,7 @@
 				likeHouse:[],
 				con:"",
 				mark:false,
+				userRule:-1,
 			};
 		},
 		created:function(){
@@ -139,6 +140,7 @@
 				key:_self.fun.userInfo,
 				success:function(res){
 					_self.uuid = res.data.id;
+					_self.userRule = Number(res.data.model);
 					_self.bmrs = true;
 				},
 				fail:function(){
@@ -239,16 +241,19 @@
 			},
 			share(){
 				uni.share({
-					provider:uni.getProvider({
-						service:'oauth',
-						success:function(res){
-							console.log(res.provider)
-						}
-					}),
+					provider:"weixin",
+					scene: "WXSceneSession",
 					type:0,
 					title:this.houseTit,
 					summary:this.houseTit,
+					imageUrl:this.fun.getImgSrc(this.detial.img),
 					href:"/pages/detail/index?id="+this.detial.id,
+					success: function (res) {
+						console.log("success:" + JSON.stringify(res));
+					},
+					fail: function (err) {
+						console.log("fail1111:" + JSON.stringify(err));
+					}
 				})
 			}
 		}

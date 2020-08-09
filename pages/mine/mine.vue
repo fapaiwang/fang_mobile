@@ -9,6 +9,9 @@
 					<view class="avatar">
 						<image mode="" :src="getImg()"></image>
 					</view>
+					<view class="header_text" v-if="isShowNickName">
+						<text>{{nickName}}</text>
+					</view>
 					<view class="header_text" v-if="isShow">
 						<text @click="login">登录</text>
 						/
@@ -40,6 +43,8 @@
 			return {
 				bannerdata: [],
 				isShow: true,
+				isShowNickName:false,
+				nickName:"",
 				userInfo: [],
 			}
 		},
@@ -57,6 +62,8 @@
 					success: function(res) {
 						_self.userInfo = res.data;
 						_self.isShow = false;
+						_self.isShowNickName = true;
+						_self.nickName = res.data.nick_name;
 					},
 					fail: function() {
 						_self.isShow = true;

@@ -139,7 +139,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 436));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 457));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 464));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 450));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 457));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 464));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
 
 
 
@@ -181,6 +184,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       bannerdata: [],
       isShow: true,
+      isShowNickName: false,
+      nickName: "",
       userInfo: [] };
 
   },
@@ -198,6 +203,8 @@ __webpack_require__.r(__webpack_exports__);
         success: function success(res) {
           _self.userInfo = res.data;
           _self.isShow = false;
+          _self.isShowNickName = true;
+          _self.nickName = res.data.nick_name;
         },
         fail: function fail() {
           _self.isShow = true;

@@ -1,8 +1,9 @@
 {
   "navigationBarTitleText": "全部房源",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
   "usingComponents": {
-    "banner": "/components/base/banner",
-    "focus-list": "/components/delicacy/delicacy",
-    "takeout": "/components/delicacy/list"
+    "focus-list": "/components/all/delicacy",
+    "takeout": "/components/all/list"
   }
 }

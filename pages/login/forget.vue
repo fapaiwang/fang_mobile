@@ -58,8 +58,8 @@
 				}
 			},
 			onInput(){
-				if (this.mobile != "" && this.captcha !="" && this.pwd !="" && this.newpwd !="")
-				console.log(1111)
+				// if (this.mobile != "" && this.captcha !="" && this.pwd !="" && this.newpwd !="")
+				// console.log(1111)
 			}
 		}
 	}

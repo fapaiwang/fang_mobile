@@ -182,8 +182,9 @@ var _default =
       if (Number(res[1].data.code) == 20000) {
         _this.getHome();
       } else {
+        var num = res[1].data.data.file.length;
         uni.setNavigationBarTitle({
-          title: res[1].data.data.title });
+          title: "\u623F\u6E90".concat(num, "\u5F20") });
 
         _this.info = res[1].data.data.file;
       }

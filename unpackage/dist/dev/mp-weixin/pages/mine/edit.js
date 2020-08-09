@@ -192,6 +192,7 @@ var _self;var _default =
     uni.getStorage({
       key: _self.fun.userInfo,
       success: function success(res) {
+        console.log(111, res.data);
         _self.userInfo = res.data;
         _self.phone = res.data.mobile;
         _self.nickName = res.data.nick_name;

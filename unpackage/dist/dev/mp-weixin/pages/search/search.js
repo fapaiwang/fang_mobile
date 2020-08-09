@@ -165,28 +165,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+//
+//
+//
+
+var query;var _default =
 {
   data: function data() {
     return {
       keyword: '',
       keyList: [],
       historyData: '',
-      historyList: [] };
+      historyList: [],
+      Height: 0,
+      isShow: true };
 
   },
   onShow: function onShow() {
     this.keyList = [];
     this.keyword = "";
     this.getStore();
+    isShow: true;
   },
   onLoad: function onLoad() {
     this.keyList = [];
     this.keyword = "";
     this.getStore();
   },
+  mounted: function mounted() {
+    var _seflDe = this;
+    query = uni.createSelectorQuery().in(this);
+    query.select('#boxFixed').boundingClientRect(function (data) {
+      _seflDe.Height = data.height + 30;
+    }).exec();
+  },
   methods: {
     inputChange: function inputChange() {var _this = this;
+      this.isShow = false;
       var _self = this;
       this.fun.getReq(this.baseUrl + '/api/second/houseList', { keyword: this.keyword }).
       then(function (res) {
@@ -210,7 +225,7 @@ var _default =
       uni.getStorage({
         key: _self.fun.searchList,
         success: function success(ops) {
-          _self.historyData = ops.data;
+          _self.historyList = ops.data.split(" ");
         },
         fail: function fail() {
         } });
@@ -222,6 +237,12 @@ var _default =
     goUserClick: function goUserClick() {
       uni.switchTab({
         url: "/pages/mine/mine" });
+
+    },
+    goBack: function goBack() {
+      uni.navigateBack({
+        delta: 2 });
+
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

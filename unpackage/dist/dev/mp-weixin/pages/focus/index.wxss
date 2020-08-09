@@ -1,10 +1,16 @@
 
-.mark.data-v-4cd75b72{
+.topSty.data-v-4cd75b72{
+		position: fixed;
+		margin-top: 0;
+		width: 100%;
+		top: 90rpx;	
+		z-index: 1111;
+		background: #fff;
+}
+.fix.data-v-4cd75b72{
 	position: fixed;
 	height: 100%;
 	overflow: hidden;
-}
-.pol.data-v-4cd75b72{
-	height: 138rpx;
+	width: 100%;
 }
 

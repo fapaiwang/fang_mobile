@@ -61,8 +61,8 @@
 							key:_self.fun.userInfo,
 							data:res[1].data.data
 						})
-						uni.navigateBack({
-							delta:3
+						uni.switchTab({
+							url:"/pages/index/index"
 						})
 					} else {
 						this.fun.showMsg(res[1].data.msg);

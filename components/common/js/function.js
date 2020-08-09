@@ -11,6 +11,15 @@ class Fun{
 	estateKeys = "estateKeys";//浏览的小区的ID
 	searchList = "searchList";//搜索房源key
 	searchEstate = "searchEstate";//搜索小区key
+	price = "price";//刷选列表 价格
+	area = "area";//刷选列表 区域
+	room = "room";//刷选列表 户型
+	houseProperty = "houseProperty"; //刷选列表 更多 类型
+	areaData = "areaData"; //刷选列表 更多 面积
+	levelData = "levelData" //刷选列表 更多 阶段
+	statusData = "statusData" //刷选列表 更多 状态
+	HomeMenu = "HomeMenu" //首页快速导航
+	auction = "auction" //首页 即将拍卖
 
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({

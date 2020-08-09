@@ -186,17 +186,47 @@ var _default = {
   },
   methods: {
     recommend: function recommend() {//推荐房源
+      if (this.uuid == -1) {
+        uni.showToast({
+          icon: 'none',
+          title: '请登录',
+          duration: 3000 });
+
+        return false;
+      }
       this.fun.navTo("/pages/all/index?tabCur=0");
     },
     discount: function discount() {//6折房源
+      if (this.uuid == -1) {
+        uni.showToast({
+          icon: 'none',
+          title: '请登录',
+          duration: 3000 });
+
+        return false;
+      }
       this.fun.navTo("/pages/all/index?tabCur=2");
     },
     list: function list() {
-      if (this.uuid != -1) {
-        this.fun.navTo("/pages/mine/list");
+      if (this.uuid == -1) {
+        uni.showToast({
+          icon: 'none',
+          title: '请登录',
+          duration: 3000 });
+
+        return false;
       }
+      this.fun.navTo("/pages/mine/list");
     },
     history: function history() {
+      if (this.uuid == -1) {
+        uni.showToast({
+          icon: 'none',
+          title: '请登录',
+          duration: 3000 });
+
+        return false;
+      }
       this.fun.navTo("/pages/mine/history");
     },
     logout: function logout() {
@@ -227,11 +257,11 @@ var _default = {
           _self.uuid = res.data.id;
         },
         fail: function fail() {
-          uni.showToast({
-            icon: 'none',
-            title: '请登录',
-            duration: 3000 });
-
+          // uni.showToast({
+          // 	icon:'none',
+          // 	title:'请登录',
+          // 	duration:3000
+          // })
           return false;
         } });
 

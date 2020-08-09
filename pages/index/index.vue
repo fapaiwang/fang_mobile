@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	var _self, page,freePage = 1;//timer延迟期
+	var _self, page,freePage = 1, timer = null;//timer延迟期
 	
 	import navSearch from '@/components/base/navSearchHeader.vue'; // 搜索框
 	import banner from '@/components/home/banner.vue'; // banner
@@ -67,6 +67,29 @@
 			_self = this;
 			this.getHomeData()
 		},
+		// onPullDownRefresh:function(){//上滑获取数据
+		// 	if (this.tabIndex == 0 ){
+		// 		this.getMorequalityEstateData();
+		// 	} else {
+		// 		this.getMoreRecommendHouseData()
+		// 	}
+		// },
+		// onReachBottom:function(){//下滑获取数据
+		// 	if (timer!=null){
+		// 		clearTimeout(timer);
+		// 	}
+		// 	if (this.tabIndex == 0 ){
+		// 		this.getMorequalityEstateData();
+		// 		timer = setTimeout(function(){
+		// 			_self.getMorequalityEstateData();
+		// 		},500);
+		// 	} else {
+		// 		this.getMoreRecommendHouseData()
+		// 		timer = setTimeout(function(){
+		// 			_self.getMoreRecommendHouseData();
+		// 		},500);
+		// 	}
+		// },
 		methods: {
 			getHomeData() {
 				this.getHomeMenuData();
@@ -77,8 +100,25 @@
 				this.getRecommendHouseData();
 			},
 			getHomeMenuData() {
-				this.fun.getReq(RequestUrl.homeMenu).then((res)=>{
-					this.homeMenuData = res[1].data.data;
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.HomeMenu,
+					success:function(res){
+						_self.homeMenuData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(RequestUrl.homeMenu).then((res)=>{
+							_self.homeMenuData = res[1].data.data;
+							_self.setStore(_self.fun.HomeMenu,res[1].data.data);
+						});
+					}
+				})
+			},
+			//存缓存
+			setStore(key,val){
+				uni.setStorage({
+					key:key,
+					data:val
 				})
 			},
 			getBannerData() {
@@ -92,9 +132,18 @@
 				})
 			},
 			getHomeSecondSearch() {
-				this.fun.getReq(RequestUrl.homeSearch)
-				.then((res)=>{
-					this.auctionData = res[1].data.data
+				var _self = this;
+				uni.getStorage({
+					key:_self.fun.auction,
+					success:function(res){
+						_self.auctionData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(RequestUrl.homeSearch).then((res)=>{
+							_self.auctionData = res[1].data.data;
+							_self.setStore(_self.fun.auction,res[1].data.data);
+						});
+					}
 				})
 			},
 			getTodayAddData() {
@@ -141,9 +190,9 @@
 			},
 			goMore() {//加载更多
 				if (this.tabIndex == 0 ){
-					this.getMorequalityEstateData();
+					this.fun.navTo("/pages/all/index?a=y1")
 				} else {
-					this.getMoreRecommendHouseData()
+					this.fun.navTo("/pages/all/index?a=m10")
 				}
 			},
 			getLoad() {//更新子组件

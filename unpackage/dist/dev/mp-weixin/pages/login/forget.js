@@ -190,8 +190,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       }
     },
     onInput: function onInput() {
-      if (this.mobile != "" && this.captcha != "" && this.pwd != "" && this.newpwd != "")
-      console.log(1111);
+      // if (this.mobile != "" && this.captcha !="" && this.pwd !="" && this.newpwd !="")
+      // console.log(1111)
     } } };exports.default = _default;
 
 /***/ }),

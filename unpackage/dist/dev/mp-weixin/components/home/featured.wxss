@@ -1,9 +1,5 @@
-scroll-view {
-  width: 100%;
-  white-space: nowrap;  /* 不让它换行 */
-}
 .fColor{
-	color: #DF2D23;
+	color: #DF2D23 !important;
 }
 .item {
   width: 49%;
@@ -48,6 +44,10 @@ scroll-view {
 	padding-right: 20rpx;
 	font-size: 24rpx;
 }
+.second_total{
+	display: inline-block;
+	margin-top: 4rpx;
+}
 .second_total text{
 	color: #333333;
 }
@@ -90,5 +90,9 @@ scroll-view {
 }
 .featuredtSwiper {
 	height: 348rpx;
+}
+scroll-view {
+  width: 100%;
+  white-space: nowrap;  /* 不让它换行 */
 }	
 

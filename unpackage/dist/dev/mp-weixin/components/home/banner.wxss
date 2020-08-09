@@ -2,11 +2,13 @@
 	padding: 0 30rpx;
 }
 .page-section-spacing.data-v-120f5e71,.swiper.data-v-120f5e71{
-	height: 237rpx;
+	width:690rpx;
+	height:237rpx;
 }
 .swiper-item.data-v-120f5e71 {
 	border-radius: 10rpx;
-	height: 237rpx;
+	width:690rpx;
+	height:237rpx;
 }
 image.data-v-120f5e71{will-change: transform}
 

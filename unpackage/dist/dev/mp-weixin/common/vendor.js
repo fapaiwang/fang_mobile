@@ -1740,7 +1740,16 @@ function normalizeComponent (
     "historyEstate");_defineProperty(this, "estateKeys",
     "estateKeys");_defineProperty(this, "searchList",
     "searchList");_defineProperty(this, "searchEstate",
-    "searchEstate");}_createClass(Fun, [{ key: "navTo", //搜索小区key
+    "searchEstate");_defineProperty(this, "price",
+    "price");_defineProperty(this, "area",
+    "area");_defineProperty(this, "room",
+    "room");_defineProperty(this, "houseProperty",
+    "houseProperty");_defineProperty(this, "areaData",
+    "areaData");_defineProperty(this, "levelData",
+    "levelData");_defineProperty(this, "statusData",
+    "statusData");_defineProperty(this, "HomeMenu",
+    "HomeMenu");_defineProperty(this, "auction",
+    "auction");}_createClass(Fun, [{ key: "navTo", //首页 即将拍卖
     value: function navTo(
     url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({

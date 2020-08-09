@@ -5,9 +5,11 @@
 .swiper-item.data-v-7208eae6 {
 	border-radius: 10rpx;
 	height: 172rpx;
+	width:690rpx;
 }
 .swiper.data-v-7208eae6 {
-	height: 172rpx;
+	width:690rpx;
+	height:172rpx;
 }
 image.data-v-7208eae6{will-change: transform}
 

@@ -1,21 +1,16 @@
 <template>
-	<view :class="mark ? 'mark' : ''">
-		<view>
-			<Banner :bannerdata="bannerdata"></Banner>
-			<view class="container">
-				<view>
-					<view @tap="poll()" class="pol">
-						<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
-					</view>
-					<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend" :isShow.sync="isShow"></Takeout>
-				</view>
+	<view :class="isFix ? 'fix' : '' ">
+		<view class="container">
+			<view @click="poll" class="topSty">
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" :statusReData="statusReData"  @myEvent="touchMe"></FocusList>
 			</view>
+			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
 		</view>
 	</view>
 </template>
 
 <script>
-	import Banner from '@/components/base/banner.vue'; //
+	
 	import FocusList from '@/components/delicacy/delicacy.vue';
 	import Takeout from '@/components/delicacy/list.vue';
 	
@@ -23,44 +18,45 @@
 	
 	export default {
 		components:{
-			Banner,
 			FocusList,
 			Takeout
 		},
-		computed: {
-		    scrollLeft() {
-		        return (this.TabCur - 1) * 60;
-		    }
-		},
 		data() {
 			return {
-				bannerdata: [],
-				isfixed: false,
-				rect:'',
-				topdata:'',
-				menuData: '',
 				arealist:[],
 				pricelist:[],
 				houseProperty:[],
 				familyData:[],
 				areaData:[],
 				levelData:[],
+				statusReData:[],//状态
 				loadingTxt:"加载更多",
 				recommendHouseData:[],
 				cate:"",
-				tabList: [{name : "重点推荐" ,val:"y1"}, {name : "自由购", val:"m10"}, {name: "6折房源", val:"y2"}, {name : "一口价", val:"g163"}],
-				TabCur:0,
 				keyword:"",
-				isShow:true,
-				mark:false,
-				addNum:1,
+				isNum:1,
+				isFix:false,
 			}
 		},
+		onLaunch:function(){
+			uni.getSystemInfo({
+				success:function(e){
+					Vue.prototype.statusBar = e.statusBarHeight  
+					console.log(e.statusBarHeight,222);
+				}
+			})
+		},
+		onShow:function(){
+			this.cate = "";
+			this.getRes();
+		},
 		onLoad:function(e){
+			_self = this;
+		
 			uni.setNavigationBarTitle({
 				title:e.tit
 			})
-			_self = this;
+			
 			if (e.a !=undefined) {
 				_self.cate = e.a;
 			}
@@ -69,7 +65,6 @@
 				_self.cate = e.keyword;
 			}
 			this.getRes();
-			this.isShow = false;
 		},
 		onPullDownRefresh:function(){//上滑获取数据
 			this.getRecommendHouseData();
@@ -83,23 +78,16 @@
 				_self.getMoreRecommend();
 			},500);
 		},
-		mounted:function() {
-			query = uni.createSelectorQuery().in(this);
-			query.select('#boxFixed').boundingClientRect(data => {
-				this.topdata = data.top;
-				this.menuData = data.top;
-			}).exec();
-		},
 		methods: {
-			tabChange(index) {
-				this.TabCur = index;
-				this.getRes();
+			poll(){
+				if (this.isNum==1) {
+					this.isFix = true;
+					this.isNum=2;
+				}
 			},
 			touchMe(val) { //子组件向父组件传值，接收值
+				this.isFix = false;
 				_self.cate = val;
-				_self.$refs.deli.childMethod(false);
-				_self.addNum = 2;
-				this.mark = false;
 				_self.getRecommendHouseData();
 			},
 			getRes(){
@@ -108,20 +96,23 @@
 				this.getHouseType();
 				this.getMoreData();
 				this.getRecommendHouseData();
-				this.getBannerData();
 			},
 			getRecommendHouseData() {
 				page = 1;
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val;
+				if (_self.cate == "init") {
+					return false;
+				}
+				var url = this.baseUrl+'/api/second/houseList?'
 				if (this.keyword !="") {
-					url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
+					url = _self.baseUrl+'/api/second/houseList?keyword='+_self.cate
 				}
 				if (_self.cate != "") {
-					url = _self.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val;
+					url = _self.baseUrl+'/api/second/houseList?a='+_self.cate;
 				}
 				_self.fun.getReq(url)
 				.then((res)=>{
+					_self.isNum=1;
 					uni.hideNavigationBarLoading();
 					uni.stopPullDownRefresh();
 					if (res[1].data.data.lists.data ==0 && page==1) {
@@ -143,9 +134,9 @@
 				}
 				_self.loadingTxt = '加载中';
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val+'&page='+page;
+				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+'&page='+page;
 				if (this.cate == "") {
-					url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val+"&page="+page;
+					url = this.baseUrl+'/api/second/houseList?page='+page;
 				}
 				this.fun.getReq(url).then((res)=>{
 					uni.hideNavigationBarLoading();
@@ -163,110 +154,102 @@
 				})
 			},
 			getLoad(){
-				this.isShow = false;
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
 			},
 			getSortlist(){//获取区域
 				uni.getStorage({
-					key:"area",
+					key:_self.fun.area,
 					success:function(res){
 						_self.arealist = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/getAreaByCityId',{"city_id":39}).then((res)=>{
 							_self.arealist = res[1].data.data;
-							_self.setStore("area",res[1].data.data);
+							_self.setStore(_self.fun.area,res[1].data.data);
 						});
 					}
 				})
 			},
 			getPricelist(){//获取价格
 				uni.getStorage({
-					key:"price",
+					key:_self.fun.price,
 					success:function(res){
 						_self.pricelist = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/getSecondPrice').then((res)=>{
 							_self.pricelist = res[1].data.data;
-							_self.setStore("price",res[1].data.data);
+							_self.setStore(_self.fun.price,res[1].data.data);
 						});
 					}
 				})
 			},
 			getHouseType(){//户型
 				uni.getStorage({
-					key:"room",
+					key:_self.fun.room,
 					success:function(res){
 						_self.familyData = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/getRoom').then((res)=>{
 							_self.familyData = res[1].data.data;
-							_self.setStore("room",res[1].data.data)
+							_self.setStore(_self.fun.room,res[1].data.data)
 						});
 					}
 				})
 			},
 			getMoreData(){
 				uni.getStorage({
-					key:"houseProperty",
+					key:_self.fun.houseProperty,
 					success:function(res){
 						_self.houseProperty = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":26}).then((res)=>{
 							_self.houseProperty = res[1].data.data;
-							_self.setStore("houseProperty",res[1].data.data);
+							_self.setStore(_self.fun.houseProperty,res[1].data.data);
 						});
 					}
 				})
 				
 				uni.getStorage({
-					key:"areaData",
+					key:_self.fun.areaData,
 					success:function(res){
 						_self.areaData = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/getAcreage').then((res)=>{
 							_self.areaData = res[1].data.data;
-							_self.setStore("areaData",res[1].data.data);
+							_self.setStore(_self.fun.areaData,res[1].data.data);
 						});
 					}
 				})
 				
 				uni.getStorage({
-					key:"levelData",
+					key:_self.fun.levelData,
 					success:function(res){
 						_self.levelData = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":25}).then((res)=>{
 							_self.levelData = res[1].data.data;
-							_self.setStore("levelData",res[1].data.data);
+							_self.setStore(_self.fun.levelData,res[1].data.data);
 						});
 					}
 				})
-			},
-			getBannerData() {
-				this.fun.getReq(this.baseUrl+'/api/banner/index',{"space_id":22}).then((res)=>{
-					this.bannerdata = res[1].data.data;
-				});
-			},
-			poll(){//回到顶部
-				if (this.addNum ==1) {
-					uni.pageScrollTo({
-						scrollTop:this.topdata,
-						duration:300,
-					})
-					var _sefl = this;
-					setTimeout(function(){
-						_sefl.mark = true;
-					},300);
-					this.$refs.deli.childMethod(true);
-				}
-				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
-				this.addNum = 1;
+				
+				uni.getStorage({
+					key:_self.fun.statusData,
+					success:function(res){
+						_self.statusReData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":27}).then((res)=>{
+							_self.statusReData = res[1].data.data;
+							_self.setStore(_self.fun.statusData,res[1].data.data);
+						});
+					}
+				})
 			},
 			//存缓存
 			setStore(key,val){
@@ -276,21 +259,36 @@
 				})
 			},
 		},
-		// 监听页面滚动距离
-		onPageScroll(e) {
-			// console.log(e.scrollTop);
-			this.rect = e.scrollTop
-		},
 	}
 </script>
 
 <style scoped>
-	.mark{
+	/* #ifdef MP-WEIXIN */
+		.topSty{
+			position: fixed;
+			margin-top: 0;
+			width: 100%;
+			top: 90upx;	
+			z-index: 1111;
+			background: #fff;
+		}
+	/* #endif */
+	
+	/* #ifdef APP-PLUS */
+	.topSty{
+		position: fixed;
+		margin-top: 0;
+		width: 100%;
+		top: 0;	
+		z-index: 1111;
+		background: #fff;
+	}
+	/* #endif */
+	
+	.fix{
 		position: fixed;
 		height: 100%;
 		overflow: hidden;
-	}
-	.pol{
-		height: 138upx;
+		width: 100%;
 	}
 </style>

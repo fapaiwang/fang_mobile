@@ -5,8 +5,10 @@
 .swiper-item {
 	border-radius: 10upx;
 	height: 172upx;
+	width:690upx;
 }
 .swiper {
-	height: 172upx;
+	width:690upx;
+	height:172upx;
 }
 image{will-change: transform}

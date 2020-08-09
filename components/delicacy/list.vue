@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="recommendList">
 		<view class="recommendHouseView">
 			<block v-for="(housItem, indexs) in recommendHouseData" :key="indexs">
 				<navigator :url="detail(housItem.id)" class="quickTabSwiperItem">
@@ -48,7 +48,7 @@
 				</navigator>
 			</block>
 		</view>
-		<!-- <view class="loading">{{loadingTxt}}</view> -->
+		<view class="loading" v-if="isShow">{{recommendHouseData.length>0 ? loadingTxt : '暂无数据'}}</view>
 	</view>
 </template>
 <script>
@@ -57,10 +57,13 @@
 			return {
 				recommendHouseData: [],
 				loadingTxt: "",
+				isShow:true,
 			}
 		},
 		mounted: function() {
 			this.bus.$on("click", function(e) {})
+		},
+		onLoad:function(){
 		},
 		methods: {
 			// moveHandle(){
@@ -69,6 +72,14 @@
 			childMethod(val, tit) {
 				this.recommendHouseData = val;
 				this.loadingTxt = tit;
+				this.isShow = true;
+				var _sefl = this;
+				if (tit == '加载更多' || tit=='已经加载全部' || tit == '加载中') {
+					setTimeout(function(){
+						console.log(1111);
+						_sefl.isShow = false;
+					},500);
+				}
 			},
 			getImgUrl(icon) {
 				return this.fun.getImgSrc(icon);

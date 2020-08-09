@@ -43,14 +43,13 @@
 					_self.fun.showMsg("手机号码不正确")
 					return false;
 				}
-				_self.fun.getReq(_self.baseUrl+'/api/send_sms',{"mobile":_self.phone}).then((res)=>{
-					
+				if (time==60) {
+					_self.fun.getReq(_self.baseUrl+'/api/send_sms',{"mobile":_self.phone}).then((res)=>{
 						this.capVal = res[1].data.data.code;
-						if (time ==60){
-							_self.daojs();
-						}
+						_self.daojs();
 						_self.updateVal()
-				})
+					})
+				}
 			},
 			daojs(){
 				interval = setInterval(()=>{

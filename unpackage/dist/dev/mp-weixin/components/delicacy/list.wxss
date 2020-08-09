@@ -1,4 +1,9 @@
-.recommendHouseView.data-v-22e9c460 {
+.recommendList.data-v-22e9c460{
+	padding-top: 294rpx;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}.recommendHouseView.data-v-22e9c460 {
 	padding: 0 30rpx;
 }.houseItemView.data-v-22e9c460 {
 	display: -webkit-box;

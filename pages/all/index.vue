@@ -1,44 +1,27 @@
 <template>
-	<view :class="mark ? 'mark' : ''">
-		<view>
-			<Banner :bannerdata="bannerdata"></Banner>
-			<view class="container">
-				<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
-					<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
-						{{item.name}}
-					</view>
-				</scroll-view>
-				<view @tap="poll()" class="pol">
-					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli"></FocusList>
-				</view>
-				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
+	<view :class="isFix ? 'fix' : 'fix1' ">
+		<view class="container">
+			<view @tap="poll()" class="topSty">
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData"  @myEvent="touchMe" :tabCur="tabCur" :backVal="backVal"></FocusList>
 			</view>
+			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 		</view>
 	</view>
 </template>
 
 <script>
-	import Banner from '@/components/base/banner.vue'; //
-	import FocusList from '@/components/delicacy/delicacy.vue';
-	import Takeout from '@/components/delicacy/list.vue';
+	import FocusList from '@/components/all/delicacy.vue';
+	import Takeout from '@/components/all/list.vue';
 	
 	var _self, page = 1, timer = null, query;//timer延迟期
 	
 	export default {
 		components:{
-			Banner,
 			FocusList,
 			Takeout
 		},
-		computed: {
-		    scrollLeft() {
-		        return (this.TabCur - 1) * 60;
-		    }
-		},
 		data() {
 			return {
-				bannerdata: [],
-				isfixed: false,
 				rect:'',
 				topdata:'',
 				menuData: '',
@@ -51,12 +34,11 @@
 				loadingTxt:"加载更多",
 				recommendHouseData:[],
 				cate:"",
-				tabList: [{name : "重点推荐" ,val:"y1"}, {name : "自由购", val:"m10"}, {name: "6折房源", val:"y2"}, {name : "一口价", val:"g163"}],
-				TabCur:0,
 				keyword:"",
-				isShow:true,
-				mark:false,
-				addNum:1,
+				isNum:1,
+				isFix:false,
+				tabCur:999,
+				backVal:"",
 			}
 		},
 		onLoad:function(e){
@@ -66,6 +48,7 @@
 			_self = this;
 			if (e.a !=undefined) {
 				_self.cate = e.a;
+				_self.backVal = e.a;
 			}
 			if (e.keyword !=undefined) {
 				this.keyword = e.keyword;
@@ -77,7 +60,6 @@
 				_self.TabCur = 999;
 			}
 			this.getRes();
-			this.isShow = false;
 		},
 		onPullDownRefresh:function(){//上滑获取数据
 			this.getRecommendHouseData();
@@ -99,15 +81,10 @@
 			}).exec();
 		},
 		methods: {
-			tabChange(index) {
-				this.TabCur = index;
-				this.getRes();
-			},
 			touchMe(val) { //子组件向父组件传值，接收值
 				_self.cate = val;
-				_self.$refs.deli.childMethod(false);
-				_self.addNum = 2;
-				this.mark = false;
+				_self.isNum = 2;
+				this.isFix = false;
 				_self.getRecommendHouseData();
 			},
 			getRes(){
@@ -121,14 +98,11 @@
 			getRecommendHouseData() {
 				page = 1;
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList';
-				if (this.TabCur !=999) {
-					if (this.keyword !="") {
-						url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
-					}
-					if (_self.cate != "") {
-						url = _self.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val;
-					}
+				var url = '';
+				if (this.TabCur !=999 && this.keyword !="") {
+					url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
+				} else {
+					url = this.baseUrl+'/api/second/houseList?a='+_self.cate;
 				}
 				_self.fun.getReq(url)
 				.then((res)=>{
@@ -153,13 +127,7 @@
 				}
 				_self.loadingTxt = '加载中';
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?page='+page;
-				if (this.TabCur !=999)  {
-					url = this.baseUrl+'/api/second/houseList?a='+_self.cate+_self.tabList[this.TabCur].val+'&page='+page;
-					if (this.cate == "") {
-						url = this.baseUrl+'/api/second/houseList?a='+_self.tabList[this.TabCur].val+"&page="+page;
-					}
-				}
+				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+'&page='+page;
 				this.fun.getReq(url).then((res)=>{
 					uni.hideNavigationBarLoading();
 					if (res[1].data.data.lists.data.length ==0) {
@@ -176,7 +144,6 @@
 				})
 			},
 			getLoad(){
-				this.isShow = false;
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt);
 			},
 			getSortlist(){//获取区域
@@ -267,19 +234,11 @@
 				});
 			},
 			poll(){//回到顶部
-				if (this.addNum ==1) {
-					uni.pageScrollTo({
-						scrollTop:this.topdata,
-						duration:300,
-					})
-					var _sefl = this;
-					setTimeout(function(){
-						_sefl.mark = true;
-					},300);
-					this.$refs.deli.childMethod(true);
+				if (this.isNum==1) {
+					this.isFix = true;
+					this.isNum=2;
 				}
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
-				this.addNum = 1;
 			},
 			//存缓存
 			setStore(key,val){
@@ -300,4 +259,32 @@
 
 <style scoped>
 	@import url("./css/index.css");
+	/* #ifdef MP-WEIXIN */
+		.topSty{
+			position: fixed;
+			margin-top: 0;
+			width: 100%;
+			top: 90upx;	
+			z-index: 1111;
+			background: #fff;
+		}
+	/* #endif */
+	
+	/* #ifdef APP-PLUS */
+	.topSty{
+		position: fixed;
+		margin-top: 0;
+		width: 100%;
+		top: 0;	
+		z-index: 1111;
+		background: #fff;
+	}
+	/* #endif */
+	
+	.fix{
+		position: fixed;
+		height: 100%;
+		overflow: hidden;
+		width: 100%;
+	}
 </style>

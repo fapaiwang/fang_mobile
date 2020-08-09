@@ -1,30 +1,34 @@
 <template>
 	<view>
-		<view class="prefer-posi" :class="isShow ? 't0' : 't1'">
-			<!-- 刷选区 -->
-			<view class="delica-view">
-				<view class="delica-list" @tap="multiple()">
-					区域
-					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
-				</view>
-				<view class="delica-list" @tap="getMoney()">
-					价格
-					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
-				</view>
-				<view class="delica-list" @tap="getHouse()">
-					户型
-					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
-				</view>
-				<view class="delica-list" @tap="getMore()">
-					更多
-					<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
-				</view>
-				<view class="delica-list" @tap="getSortItem()">
-					<image src="../../static/img/delicacy/sort.png" class="withFix sort"></image>
+		<view class="prefer-posi">
+			<view class="complex" id="boxFixed">
+				<!-- 搜索区 -->
+				<navSearch :back="1"></navSearch>
+				<!-- 刷选区 -->
+				<view class="delica-view">
+					<view class="delica-list" @tap="multiple()">
+						区域
+						<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
+					</view>
+					<view class="delica-list" @tap="getMoney()">
+						价格
+						<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
+					</view>
+					<view class="delica-list" @tap="getHouse()">
+						户型
+						<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
+					</view>
+					<view class="delica-list" @tap="getMore()">
+						更多
+						<image src="../../static/img/delicacy/bottom.png" class="withFix"></image>
+					</view>
+					<view class="delica-list" @tap="getSortItem()">
+						<image src="../../static/img/delicacy/sort.png" class="withFix sort"></image>
+					</view>
 				</view>
 			</view>
 			<!--区域排序刷选-->
-			<view class="sortlist srotlitetle avgList" v-if="drop">
+			<view class="sortlist srotlitetle avgList" v-if="drop" :style="{top:Height+'px'}">
 				<view class="areaList">
 					<view class="areaTit">
 						<text>区域</text>
@@ -45,7 +49,7 @@
 				</view>
 			</view>
 			<!--均价排序刷选   -->
-			<view class="sortlist srotlitetle avgList" v-if="avgPrice">
+			<view class="sortlist srotlitetle avgList" v-if="avgPrice" :style="{top:Height+'px'}">
 				<view class="checkMoreRes">
 					<block v-for="(priceItem,index) in pricelist" :key="index">
 						<text :class="{'activeb': index == avgNum}" @tap="sortClick(index,priceItem.name,2)">{{priceItem.name}}</text>
@@ -68,7 +72,7 @@
 				</view>
 			</view>
 			<!--户型排序刷选-->
-			<view class="sortlist srotlitetle avgList" v-if="house">
+			<view class="sortlist srotlitetle avgList" v-if="house" :style="{top:Height+'px'}">
 				<view class="checkMoreRes">
 					<block v-for="(item,index) in familyData" :key="index">
 						<text :class="{'activeb': fSelect.indexOf(index)!=-1}" @tap="sortHouse(index,item.name)">{{item.name}}</text>
@@ -84,7 +88,7 @@
 				</view>
 			</view>
 			<!--更多排序刷选-->
-			<view class="sortlist moreList moreSort" v-if="more">
+			<view class="sortlist moreList moreSort" v-if="more" :style="{top:Height+'px'}">
 				<view class="checkMoreRes area_list">
 					<view>
 						<view class="check_tit">类型</view>
@@ -120,6 +124,15 @@
 							</block>
 						</view>
 					</view>
+					<view>
+						<view class="check_tit">状态</view>
+						<view class="check_more areaCon">
+							
+							<block v-for="(itemHouse,houseIndex) in statusReData" :key="houseIndex">
+								<text :class="{'activeb': houseIndex == statusNum}" @tap="sortClick(houseIndex,itemHouse.id,5)">{{itemHouse.name}}</text>
+							</block>
+						</view>
+					</view>
 				</view>
 				<view class="sortlist-bottom last">
 					<view class="area_list_clear">
@@ -131,7 +144,7 @@
 				</view>
 			</view>
 			<!-- 默认排序 -->
-			<view class="sortlist sortitem" v-if="defaultMore">
+			<view class="sortlist sortitem" v-if="defaultMore" :style="{top:Height+'px'}">
 				<view :class="{'activeb': key == sortNum}" v-for="(item,key) in defaultData" :key="key" @click="onSort(key,item.value)">
 					{{item.name}}
 					<image mode="" :src="getImg(key,item.value)"></image>
@@ -139,18 +152,19 @@
 			</view>
 		</view>
 		<!-- 透明背景 -->
-		<view class="mark" v-if="mark"></view>
+		<view class="mark" v-if="mark" @click="hideMark"></view>
 	</view>
 </template>
 
 <script>
-	import showList from '@/components/delicacy/showList.vue';
-	var _seflDe;
+	import navSearch from '@/components/delicacy/navSearch.vue'; // 搜索框
+	
+	var query,_seflDe;
 	export default {
 		components:{
-			showList
+			navSearch,
 		},
-		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","dateFor"],
+		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","statusReData","dateFor"],
 		data() {
 			return {
 				drop: false,
@@ -182,18 +196,23 @@
 				param:"",
 				cust_begin:"",//自定义平米
 				cust_end:"",
-				isShow:false,
+				statusNum:0,//状态
+				statusVal:'',//状态
+				Height:0,
 			}
 		},
-		onNavigationBarButtonTap(e) {
-			this.hiddenAll();
+		mounted:function(){
+			var _seflDe = this;
+			query = uni.createSelectorQuery().in(this);
+			query.select('#boxFixed').boundingClientRect(data => {
+				_seflDe.Height = data.height
+			}).exec();
 		},
 		methods: {
-			childMethod(option){
-				_seflDe = this;
-				setTimeout(function(){
-					_seflDe.isShow = option;
-				},300);
+			hideMark(){
+				var _self = this;
+				this.$emit("myEvent","init");
+				this.hiddenAll();
 			},
 			multiple(){
 				this.drop = true;
@@ -206,7 +225,6 @@
 			onSort(index,val){
 				this.sortNum = index;
 				this.defaultVal = val;
-				this.isShow = false;
 				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+val);
 				this.hiddenAll();
 			},
@@ -226,6 +244,10 @@
 				if (posi==4) {//更多 面积
 					this.areaNum = index;
 					this.areaVal = `d${index}`;////面积
+				}
+				if (posi==5) {//更多 状态
+					this.statusNum = index;
+					this.statusVal = `h${index}`;////面积
 				}
 			},
 			sortHouse(index,name){//户型
@@ -317,7 +339,6 @@
 			},
 			soureSort(){
 				var _self = this;
-				_self.isShow = false;
 				if (this.def_start !="" || this.def_end!="") {//价格
 					//t最低价格 u最高价格
 					if (this.def_start =="") {
@@ -348,7 +369,7 @@
 				if (this.LSelect.length >= 1) {//阶段
 					this.LSelectVal = "g"+this.LSelect.join("g");
 				}
-				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+this.defaultVal);
+				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+this.defaultVal+this.statusVal);
 				this.hiddenAll()
 			},
 			hiddenAll(){//隐藏全部
@@ -371,7 +392,4 @@
 
 <style scoped>
 	@import url("./css/delicacy.css");
-	.t0{
-		top: 0;
-	}
 </style>

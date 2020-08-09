@@ -70,17 +70,47 @@
 		},
 		methods: {
 			recommend(){//推荐房源
+				if (this.uuid ==-1) {
+					uni.showToast({
+						icon:'none',
+						title:'请登录',
+						duration:3000
+					})
+					return false;
+				}
 				this.fun.navTo("/pages/all/index?tabCur=0");
 			},
 			discount(){//6折房源
+				if (this.uuid ==-1) {
+					uni.showToast({
+						icon:'none',
+						title:'请登录',
+						duration:3000
+					})
+					return false;
+				}
 				this.fun.navTo("/pages/all/index?tabCur=2");
 			},
 			list(){
-				if (this.uuid !=-1) {
-					this.fun.navTo("/pages/mine/list")
+				if (this.uuid ==-1) {
+					uni.showToast({
+						icon:'none',
+						title:'请登录',
+						duration:3000
+					})
+					return false;
 				}
+				this.fun.navTo("/pages/mine/list")
 			},
 			history(){
+				if (this.uuid ==-1) {
+					uni.showToast({
+						icon:'none',
+						title:'请登录',
+						duration:3000
+					})
+					return false;
+				}
 				this.fun.navTo("/pages/mine/history")
 			},
 			logout(){
@@ -111,11 +141,11 @@
 						_self.uuid = res.data.id;
 					},
 					fail:function(){
-						uni.showToast({
-							icon:'none',
-							title:'请登录',
-							duration:3000
-						})
+						// uni.showToast({
+						// 	icon:'none',
+						// 	title:'请登录',
+						// 	duration:3000
+						// })
 						return false;
 					}
 				})

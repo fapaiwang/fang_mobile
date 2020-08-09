@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var TopNav = function TopNav() {__webpack_require__.e(/*! require.ensure | components/login/topNav */ "components/login/topNav").then((function () {return resolve(__webpack_require__(/*! @/components/login/topNav.vue */ 562));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 541));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 555));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Mobile = function Mobile() {__webpack_require__.e(/*! require.ensure | components/login/mobile */ "components/login/mobile").then((function () {return resolve(__webpack_require__(/*! @/components/login/mobile.vue */ 548));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Password = function Password() {__webpack_require__.e(/*! require.ensure | components/login/password */ "components/login/password").then((function () {return resolve(__webpack_require__(/*! @/components/login/password.vue */ 569));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Agreement = function Agreement() {__webpack_require__.e(/*! require.ensure | components/login/agreement */ "components/login/agreement").then((function () {return resolve(__webpack_require__(/*! @/components/login/agreement.vue */ 576));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var TopNav = function TopNav() {__webpack_require__.e(/*! require.ensure | components/login/topNav */ "components/login/topNav").then((function () {return resolve(__webpack_require__(/*! @/components/login/topNav.vue */ 562));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 541));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 555));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Mobile = function Mobile() {__webpack_require__.e(/*! require.ensure | components/login/mobile */ "components/login/mobile").then((function () {return resolve(__webpack_require__(/*! @/components/login/mobile.vue */ 548));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Password = function Password() {__webpack_require__.e(/*! require.ensure | components/login/password */ "components/login/password").then((function () {return resolve(__webpack_require__(/*! @/components/login/password.vue */ 569));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Agreement = function Agreement() {__webpack_require__.e(/*! require.ensure | components/login/agreement */ "components/login/agreement").then((function () {return resolve(__webpack_require__(/*! @/components/login/agreement.vue */ 576));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
 
 
 
@@ -268,12 +268,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.fun.getReq(this.baseUrl + '/api/registerDo', { mobile: this.phone, sms_code: this.captcha }).
       then(function (res) {
         if (res[1].code == 200) {
-          _this2.fun.navTo("/pages/mine/mine");
+          uni.switchTab({
+            url: "/pages/mine/mine" });
+
         }
       }).catch(function (err) {
         _this2.fun.showMsg(err);
       });
     } } };exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

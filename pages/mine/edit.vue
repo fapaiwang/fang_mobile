@@ -51,6 +51,7 @@
 			uni.getStorage({
 				key:_self.fun.userInfo,
 				success:function(res){
+					console.log(111,res.data)
 					_self.userInfo = res.data;
 					_self.phone = res.data.mobile;
 					_self.nickName = res.data.nick_name;

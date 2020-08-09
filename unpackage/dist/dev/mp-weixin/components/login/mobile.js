@@ -159,14 +159,13 @@ var interval;var _default =
         _self.fun.showMsg("手机号码不正确");
         return false;
       }
-      _self.fun.getReq(_self.baseUrl + '/api/send_sms', { "mobile": _self.phone }).then(function (res) {
-
-        _this.capVal = res[1].data.data.code;
-        if (time == 60) {
+      if (time == 60) {
+        _self.fun.getReq(_self.baseUrl + '/api/send_sms', { "mobile": _self.phone }).then(function (res) {
+          _this.capVal = res[1].data.data.code;
           _self.daojs();
-        }
-        _self.updateVal();
-      });
+          _self.updateVal();
+        });
+      }
     },
     daojs: function daojs() {var _this2 = this;
       interval = setInterval(function () {

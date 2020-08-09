@@ -1,5 +1,18 @@
 
+page.data-v-3d889bfe{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+}
 .swiperList.data-v-3d889bfe{
 	padding-top: 50%;
+}
+.page-section-spacing.data-v-3d889bfe,.swiper.data-v-3d889bfe{
+	height:465rpx;
+}
+.swiper-item.data-v-3d889bfe {
+	border-radius: 10rpx;
+	width:750rpx;
+	height:465rpx;
 }
 

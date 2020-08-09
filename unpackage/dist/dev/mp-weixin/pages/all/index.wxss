@@ -39,4 +39,18 @@
 .pol.data-v-9c43a68a{
 	height: 138rpx;
 }
+.topSty.data-v-9c43a68a{
+		position: fixed;
+		margin-top: 0;
+		width: 100%;
+		top: 90rpx;	
+		z-index: 1111;
+		background: #fff;
+}
+.fix.data-v-9c43a68a{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
 

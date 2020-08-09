@@ -130,16 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 436));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/delicacy/delicacy */ "components/delicacy/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/delicacy.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/delicacy/list */ "components/delicacy/list").then((function () {return resolve(__webpack_require__(/*! @/components/delicacy/list.vue */ 450));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/all/delicacy */ "components/all/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/all/delicacy.vue */ 597));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/all/list */ "components/all/list").then((function () {return resolve(__webpack_require__(/*! @/components/all/list.vue */ 604));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -158,19 +149,11 @@ var _self,page = 1,timer = null,query; //timer延迟期
 var _default =
 {
   components: {
-    Banner: Banner,
     FocusList: FocusList,
     Takeout: Takeout },
 
-  computed: {
-    scrollLeft: function scrollLeft() {
-      return (this.TabCur - 1) * 60;
-    } },
-
   data: function data() {
     return {
-      bannerdata: [],
-      isfixed: false,
       rect: '',
       topdata: '',
       menuData: '',
@@ -183,12 +166,11 @@ var _default =
       loadingTxt: "加载更多",
       recommendHouseData: [],
       cate: "",
-      tabList: [{ name: "重点推荐", val: "y1" }, { name: "自由购", val: "m10" }, { name: "6折房源", val: "y2" }, { name: "一口价", val: "g163" }],
-      TabCur: 0,
       keyword: "",
-      isShow: true,
-      mark: false,
-      addNum: 1 };
+      isNum: 1,
+      isFix: false,
+      tabCur: 999,
+      backVal: "" };
 
   },
   onLoad: function onLoad(e) {
@@ -198,6 +180,7 @@ var _default =
     _self = this;
     if (e.a != undefined) {
       _self.cate = e.a;
+      _self.backVal = e.a;
     }
     if (e.keyword != undefined) {
       this.keyword = e.keyword;
@@ -209,7 +192,6 @@ var _default =
       _self.TabCur = 999;
     }
     this.getRes();
-    this.isShow = false;
   },
   onPullDownRefresh: function onPullDownRefresh() {//上滑获取数据
     this.getRecommendHouseData();
@@ -231,15 +213,10 @@ var _default =
     }).exec();
   },
   methods: {
-    tabChange: function tabChange(index) {
-      this.TabCur = index;
-      this.getRes();
-    },
     touchMe: function touchMe(val) {//子组件向父组件传值，接收值
       _self.cate = val;
-      _self.$refs.deli.childMethod(false);
-      _self.addNum = 2;
-      this.mark = false;
+      _self.isNum = 2;
+      this.isFix = false;
       _self.getRecommendHouseData();
     },
     getRes: function getRes() {
@@ -253,14 +230,11 @@ var _default =
     getRecommendHouseData: function getRecommendHouseData() {
       page = 1;
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList';
-      if (this.TabCur != 999) {
-        if (this.keyword != "") {
-          url = this.baseUrl + '/api/second/houseList?keyword=' + _self.cate;
-        }
-        if (_self.cate != "") {
-          url = _self.baseUrl + '/api/second/houseList?a=' + _self.cate + _self.tabList[this.TabCur].val;
-        }
+      var url = '';
+      if (this.TabCur != 999 && this.keyword != "") {
+        url = this.baseUrl + '/api/second/houseList?keyword=' + _self.cate;
+      } else {
+        url = this.baseUrl + '/api/second/houseList?a=' + _self.cate;
       }
       _self.fun.getReq(url).
       then(function (res) {
@@ -285,13 +259,7 @@ var _default =
       }
       _self.loadingTxt = '加载中';
       uni.showNavigationBarLoading();
-      var url = this.baseUrl + '/api/second/houseList?page=' + page;
-      if (this.TabCur != 999) {
-        url = this.baseUrl + '/api/second/houseList?a=' + _self.cate + _self.tabList[this.TabCur].val + '&page=' + page;
-        if (this.cate == "") {
-          url = this.baseUrl + '/api/second/houseList?a=' + _self.tabList[this.TabCur].val + "&page=" + page;
-        }
-      }
+      var url = this.baseUrl + '/api/second/houseList?a=' + _self.cate + '&page=' + page;
       this.fun.getReq(url).then(function (res) {
         uni.hideNavigationBarLoading();
         if (res[1].data.data.lists.data.length == 0) {
@@ -308,7 +276,6 @@ var _default =
       });
     },
     getLoad: function getLoad() {
-      this.isShow = false;
       this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
     },
     getSortlist: function getSortlist() {//获取区域
@@ -399,19 +366,11 @@ var _default =
       });
     },
     poll: function poll() {//回到顶部
-      if (this.addNum == 1) {
-        uni.pageScrollTo({
-          scrollTop: this.topdata,
-          duration: 300 });
-
-        var _sefl = this;
-        setTimeout(function () {
-          _sefl.mark = true;
-        }, 300);
-        this.$refs.deli.childMethod(true);
+      if (this.isNum == 1) {
+        this.isFix = true;
+        this.isNum = 2;
       }
       this.$refs.recommend.childMethod(_self.recommendHouseData, _self.loadingTxt);
-      this.addNum = 1;
     },
     //存缓存
     setStore: function setStore(key, val) {

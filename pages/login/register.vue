@@ -136,7 +136,9 @@
 				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.phone,sms_code:this.captcha})
 				.then((res)=>{
 					if (res[1].code ==200) {
-						this.fun.navTo("/pages/mine/mine");
+						uni.switchTab({
+							url:"/pages/mine/mine"
+						})
 					}
 				}).catch((err)=>{
 					this.fun.showMsg(err)

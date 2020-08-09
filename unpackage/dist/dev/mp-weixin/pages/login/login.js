@@ -193,8 +193,8 @@ __webpack_require__.r(__webpack_exports__);
             key: _self.fun.userInfo,
             data: res[1].data.data });
 
-          uni.navigateBack({
-            delta: 3 });
+          uni.switchTab({
+            url: "/pages/index/index" });
 
         } else {
           _this.fun.showMsg(res[1].data.msg);

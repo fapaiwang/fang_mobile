@@ -33,7 +33,8 @@
 			"path" : "pages/focus/index",
 			"style" : {
 				"navigationBarTitleText": "重点推荐",
-				"enablePullDownRefresh":true//开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致
+				"enablePullDownRefresh":true,//开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致
+				"navigationStyle": "custom"// 自定义标题
 			}
 		},
 		{
@@ -84,9 +85,10 @@
         }
         ,{
             "path" : "pages/community/index",
-           "style" : {
-           	"navigationBarTitleText": "精选小区"
-           }
+		    "style" : {
+				"navigationBarTitleText": "精选小区",
+				"enablePullDownRefresh":true//开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致
+			}
         }
         ,{
             "path" : "pages/login/login",
@@ -139,13 +141,16 @@
         ,{
             "path" : "pages/all/index",
             "style" : {
-            	"navigationBarTitleText": "全部房源"
+            	"navigationBarTitleText": "全部房源",
+				"enablePullDownRefresh":true,//开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致
+				"navigationStyle": "custom"// 自定义标题
             }
         }
         ,{
             "path" : "pages/search/search",
             "style" : {
-            	"navigationBarTitleText": "搜索"
+            	"navigationBarTitleText": "搜索",
+				"navigationStyle": "custom"// 自定义标题
             }
         }
 		,{
@@ -183,8 +188,10 @@
             }
         }
         ,{
-            "path" : "pages/detail/banner",
-            "style" : {}
+            "path" : "pages/detail/banner"
+   //          "style" : {
+			// 	"backgroundColor": "#000"
+			// }
         }
         ,{
             "path" : "pages/detail/map",
@@ -210,6 +217,7 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#fff",//007AFF
 		"backgroundColor": "#FFFFFF"
+		 // "navigationStyle": "custom"
 	},
 	"tabBar": {
 			"color": "#666666",

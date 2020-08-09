@@ -255,7 +255,8 @@ var _self;var _default =
       isJoin: -1,
       likeHouse: [],
       con: "",
-      mark: false };
+      mark: false,
+      userRule: -1 };
 
   },
   created: function created() {
@@ -264,6 +265,7 @@ var _self;var _default =
       key: _self.fun.userInfo,
       success: function success(res) {
         _self.uuid = res.data.id;
+        _self.userRule = Number(res.data.model);
         _self.bmrs = true;
       },
       fail: function fail() {
@@ -364,16 +366,19 @@ var _self;var _default =
     },
     share: function share() {
       uni.share({
-        provider: uni.getProvider({
-          service: 'oauth',
-          success: function success(res) {
-            console.log(res.provider);
-          } }),
-
+        provider: "weixin",
+        scene: "WXSceneSession",
         type: 0,
         title: this.houseTit,
         summary: this.houseTit,
-        href: "/pages/detail/index?id=" + this.detial.id });
+        imageUrl: this.fun.getImgSrc(this.detial.img),
+        href: "/pages/detail/index?id=" + this.detial.id,
+        success: function success(res) {
+          console.log("success:" + JSON.stringify(res));
+        },
+        fail: function fail(err) {
+          console.log("fail1111:" + JSON.stringify(err));
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

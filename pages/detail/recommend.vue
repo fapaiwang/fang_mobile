@@ -14,7 +14,7 @@
 				<image class="tel" src="../../static/img/detail/tel.png" @click="dial(item.lxtel)"></image>
 				<image class="msg" src="../../static/img/detail/msg.png" @click="online(item.kflj)"></image>
 			</view>
-			<view class="persion_desc">{{userRule ==4 ? item.house_name : ''}}</view>
+			<view class="persion_desc">{{userRule !=-1 ? item.house_name : ''}}</view>
 		</view>
 	</view>
 </template>

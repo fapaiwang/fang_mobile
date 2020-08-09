@@ -4,7 +4,7 @@
 	        <view class="page-section-spacing">
 	            <swiper class="swiper swiperList" :circular="true" :indicator-dots="indicatorDots"  :interval="interval" :duration="duration" mode="scaleToFill" :style="{height:Height+'px'}">
 					<swiper-item v-for="(item,index) in info" :key="index" mode="scaleToFill">
-						<image :src="getImgUrl(item.url)" mode="scaleToFill"></image>
+						<image :src="getImgUrl(item.url)" mode="scaleToFill" class="swiper-item"></image>
 	                </swiper-item>
 	            </swiper>
 	        </view>
@@ -34,8 +34,9 @@
 				if (Number(res[1].data.code) == 20000) {
 					this.getHome();
 				} else {
+					let num = res[1].data.data.file.length;
 					uni.setNavigationBarTitle({
-						title:res[1].data.data.title,
+						title:`房源${num}张`,
 					})
 					this.info = res[1].data.data.file;
 				}
@@ -62,7 +63,20 @@
 	}
 </script>
 <style scoped>
+	page{
+		position: fixed;
+		height: 100%;
+		overflow: hidden;
+	}
 	.swiperList{
 		padding-top: 50%;
+	}
+	.page-section-spacing,.swiper{
+		height:465upx;
+	}
+	.swiper-item {
+		border-radius: 10upx;
+		width:750upx;
+		height:465upx;
 	}
 </style>

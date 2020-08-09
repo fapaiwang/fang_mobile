@@ -1,14 +1,15 @@
 .header-wrap {
 	height: 60upx;
-	padding: 60upx 30upx 0 30upx;	
+	padding:0 30upx;	
 	margin: 0 auto 29upx auto;
 },
 .index-header {
-	width: 100%;
+	width: 92%;
 	display: flex;
 	flex-direction: row;
 	align-items:center;	    
 },
+
 .addressView{
 	width: 18upx;
 	height: 34upx;
