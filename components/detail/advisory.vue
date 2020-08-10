@@ -28,9 +28,21 @@
 		},
 		methods:{
 			call(phone){
-				uni.makePhoneCall({
-					phoneNumber:'phone'
-				})
+				if (uni.getSystemInfoSync().platform == "android") {
+					var Intent = plus.android.importClass("android.content.Intent");
+					var Uri = plus.android.importClass("android.net.Uri");  
+					// 获取主Activity对象的实例  
+					var main = plus.android.runtimeMainActivity();  
+					// 创建Intent  
+					var uri = Uri.parse('tel:phone'); // 这里可修改电话号码  
+					var call = new Intent("android.intent.action.CALL",uri);  
+					// 调用startActivity方法拨打电话  
+					main.startActivity( call );  
+				} else {
+					uni.makePhoneCall({
+					    phoneNumber: 'phone' //仅为示例
+					});
+				}
 			},
 			getImgUrl(icon){
 			   return this.baseUrl+`/uploads/avatar/${icon}/avatar.jpg`;

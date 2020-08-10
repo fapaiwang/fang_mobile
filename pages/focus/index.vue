@@ -38,14 +38,6 @@
 				isFix:false,
 			}
 		},
-		onLaunch:function(){
-			uni.getSystemInfo({
-				success:function(e){
-					Vue.prototype.statusBar = e.statusBarHeight  
-					console.log(e.statusBarHeight,222);
-				}
-			})
-		},
 		onShow:function(){
 			this.cate = "";
 			this.getRes();

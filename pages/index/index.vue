@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	var _self, page,freePage = 1, timer = null;//timer延迟期
+	var _self, page = 1 ,freePage = 1, timer = null;//timer延迟期
 	
 	import navSearch from '@/components/base/navSearchHeader.vue'; // 搜索框
 	import banner from '@/components/home/banner.vue'; // banner

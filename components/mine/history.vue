@@ -43,6 +43,14 @@
 			</view>
 		</view>
 		<grayBox></grayBox>
+		<view class="taxes_warp">
+			<view class="taxes_con" @click="call" style="text-align: center;width: 100%;">
+				<view class="taxes_tit" style="text-align: center;width: 100%;">
+					拨打<text style="color: #BE3A2F;">400 677 0028</text>
+				</view>
+			</view>
+		</view>
+		<grayBox></grayBox>
 		<view class="logout" @click="logout">
 			退出登录
 		</view>
@@ -69,6 +77,23 @@
 			this.getUserInfo();
 		},
 		methods: {
+			call(){
+				if (uni.getSystemInfoSync().platform == "android") {
+					var Intent = plus.android.importClass("android.content.Intent");
+					var Uri = plus.android.importClass("android.net.Uri");  
+					// 获取主Activity对象的实例  
+					var main = plus.android.runtimeMainActivity();  
+					// 创建Intent  
+					var uri = Uri.parse("tel:400 677 0028"); // 这里可修改电话号码  
+					var call = new Intent("android.intent.action.CALL",uri);  
+					// 调用startActivity方法拨打电话  
+					main.startActivity( call );  
+				} else {
+					uni.makePhoneCall({
+					    phoneNumber: '400 677 0028' //仅为示例
+					});
+				}
+			},
 			recommend(){//推荐房源
 				if (this.uuid ==-1) {
 					uni.showToast({

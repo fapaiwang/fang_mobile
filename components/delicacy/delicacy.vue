@@ -199,6 +199,7 @@
 				statusNum:0,//状态
 				statusVal:'',//状态
 				Height:0,
+				isSort:true,
 			}
 		},
 		mounted:function(){
@@ -223,8 +224,34 @@
 				this.backOne();
 			},
 			onSort(index,val){
-				this.sortNum = index;
-				this.defaultVal = val;
+				var _num = Number(this.sortNum);
+				var _index = Number(index);
+				var _self = this;
+				switch(_index) {
+					case 2:
+						if (_num == _index && _self.isSort) {
+							_self.defaultVal = 'm2';
+							_self.isSort = false;
+						} else {
+							_self.defaultVal = 'm1';
+							_self.isSort = true;
+						}
+						_self.sortNum = _index;
+					break;
+					case 3:
+					if (_num == _index && _self.isSort) {
+						_self.defaultVal = 'm6';
+						_self.isSort = false;
+					} else {
+						_self.defaultVal = 'm5';
+						_self.isSort = true;
+					}
+					_self.sortNum = _index;
+					break;
+					default:
+					_self.sortNum = index;
+					_self.defaultVal = val;
+				}
 				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+val);
 				this.hiddenAll();
 			},
@@ -380,11 +407,19 @@
 				this.defaultMore = false;
 				this.backClick();
 			},
-			getImg(index,val){
-				if (index == this.sortNum && val !=0 ) {
+			getImg(index,val) {
+				if (index>1 && index == this.sortNum){
+					if (this.isSort == false) {
+						return '../../static/img/delicacy/jt_bottom.png'
+					}
+					if (this.isSort == true) {
+						return '../../static/img/delicacy/top.png'
+					}
+				}
+				if (index == this.sortNum && val >1 ) {
 					return '../../static/img/delicacy/top.png';
 				} 
-				return val == '' ? "" : '../../static/img/delicacy/jt_bottom.png'
+				return val == '' ||  val == 'm7' ? "" : '../../static/img/delicacy/jt_bottom.png'
 			},
 		}
 	}

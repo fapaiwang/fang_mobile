@@ -67,6 +67,8 @@
 					},
 					fail: function() {
 						_self.isShow = true;
+						_self.nickName = '';
+						_self.isShowNickName = false;
 					}
 				})
 			},

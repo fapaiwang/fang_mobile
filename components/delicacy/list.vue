@@ -76,7 +76,6 @@
 				var _sefl = this;
 				if (tit == '加载更多' || tit=='已经加载全部' || tit == '加载中') {
 					setTimeout(function(){
-						console.log(1111);
 						_sefl.isShow = false;
 					},500);
 				}
