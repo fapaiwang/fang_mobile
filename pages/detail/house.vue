@@ -72,6 +72,7 @@
 		methods: {
 			getRes(tit){
 				this.fun.getReq(this.baseUrl+'/api/second/characteristic_house_info',{name:tit}).then((res)=>{
+					console.log(res[1].data,222);
 					if (res[1].data.data !=null) {
 						_self.con = res[1].data.data.info;
 						_self.imgSrc = this.getImgUrl(res[1].data.data.img);
@@ -79,6 +80,7 @@
 				})
 			},
 			getList(param){
+				
 				this.fun.getReq(this.baseUrl+'/api/second/houseList',{a:param}).then((res)=>{
 					_self.houseData = res[1].data.data.lists.data;
 				})

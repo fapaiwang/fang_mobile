@@ -4,7 +4,9 @@
 	        <view class="page-section-spacing">
 	            <swiper class="swiper" :circular="true" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 					<swiper-item v-for="(item,index) in centerBannerdata" :key="index">
-						<image class="swiper-item" :src="getImgUrl(item.setting.fileurl)" mode="heightFix"></image>
+						<navigator url="/pages/detail/taxes">
+							<image class="swiper-item" :src="getImgUrl(item.setting.fileurl)" mode="heightFix"></image>
+						</navigator>
 	                </swiper-item>
 	            </swiper>
 	        </view>

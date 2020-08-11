@@ -34,9 +34,6 @@
 					case 3:
 					this.fun.navTo("/pages/all/index?a=i48&tit=社会委托");
 					break;
-					case 4:
-					this.fun.navTo("/pages/detail/taxes");
-					break;
 					case 5:
 					this.fun.navTo("/pages/news/index?id=3");
 					break;

@@ -34,13 +34,13 @@
 					// 获取主Activity对象的实例  
 					var main = plus.android.runtimeMainActivity();  
 					// 创建Intent  
-					var uri = Uri.parse('tel:phone'); // 这里可修改电话号码  
+					var uri = Uri.parse("tel:"+phone); // 这里可修改电话号码  
 					var call = new Intent("android.intent.action.CALL",uri);  
 					// 调用startActivity方法拨打电话  
 					main.startActivity( call );  
 				} else {
 					uni.makePhoneCall({
-					    phoneNumber: 'phone' //仅为示例
+					    phoneNumber: `${phone}` //仅为示例
 					});
 				}
 			},
