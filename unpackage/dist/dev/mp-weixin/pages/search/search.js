@@ -168,6 +168,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 var query;var _default =
 {
@@ -178,7 +181,11 @@ var query;var _default =
       historyData: '',
       historyList: [],
       Height: 0,
-      isShow: true };
+      isShow: true,
+      showIs: true,
+      first: '',
+      mid: '',
+      last: '' };
 
   },
   onShow: function onShow() {
@@ -200,18 +207,34 @@ var query;var _default =
     }).exec();
   },
   methods: {
-    inputChange: function inputChange() {var _this = this;
+    inputChange: function inputChange() {
       this.isShow = false;
       var _self = this;
-      this.fun.getReq(this.baseUrl + '/api/second/houseList', { keyword: this.keyword }).
-      then(function (res) {
-        if (_self.historyData.indexOf(_self.keyword) == -1) {
-          _self.historyData = _self.historyData + " " + _self.keyword;
-          _self.setStore(_self.historyData);
-          _self.historyList = _self.historyData.split(" ");
-        }
-        _this.keyList = res[1].data.data.lists.data;
-      });
+      var _key = this.keyword;
+      if (_key != "") {
+        this.fun.getReq(this.baseUrl + '/api/searchSecond', { keyword: _key }).
+        then(function (res) {
+
+          if (res[1].data.data.length > 0) {
+            var _newData = new Array();
+            res[1].data.data.forEach(function (k, v) {
+              var key = k.title;
+              var first = key.substr(0, key.indexOf(_key));
+              var mid = key.substr(key.indexOf(_key), _key.length);
+              var last = key.substr(first.length + mid.length, 20);
+              _newData.push({
+                "id": v.id,
+                "first": first,
+                "mid": mid,
+                "last": last });
+
+              _self.keyList = _newData;
+            });
+          } else {
+            _self.keyList = [];
+          }
+        });
+      }
     },
     setStore: function setStore(strRes) {
       var _self = this;
@@ -242,7 +265,6 @@ var query;var _default =
     goBack: function goBack() {
       uni.navigateBack({
         delta: 2 });
-
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

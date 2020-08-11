@@ -125,7 +125,7 @@
 	        justify-content: space-between;
 	width: 100%;
 	border-bottom:1rpx solid rgba(241,241,241,1);
-}.search_list .search_item text.data-v-4cedc0c6{
+}.search_list .search_item .search_item_con.data-v-4cedc0c6{
 	font-size: 28rpx;
 	display: inline-block;
 	overflow: hidden;
@@ -133,9 +133,17 @@
 	display:-webkit-box; /*作为弹性伸缩盒子模型显示。 */
 	-webkit-box-orient:vertical;
 	-webkit-line-clamp:1;
-}.search_list .search_item text.data-v-4cedc0c6:last-child{
-	font-size: 24rpx;
+}/* .search_list .search_item text:last-child{
+	font-size: 24upx;
 	color: #999999;
+} */.search_list .search_item view.data-v-4cedc0c6{
+	font-size: 28rpx;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box; /*作为弹性伸缩盒子模型显示。 */
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1;
 }
 .header-wrap.data-v-4cedc0c6 {
 	margin-top: 10rpx;

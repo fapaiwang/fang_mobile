@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 583));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 590));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 589));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 596));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

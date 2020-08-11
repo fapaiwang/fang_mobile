@@ -222,6 +222,7 @@ var _self;var _default =
   methods: {
     getRes: function getRes(tit) {var _this = this;
       this.fun.getReq(this.baseUrl + '/api/second/characteristic_house_info', { name: tit }).then(function (res) {
+        console.log(res[1].data, 222);
         if (res[1].data.data != null) {
           _self.con = res[1].data.data.info;
           _self.imgSrc = _this.getImgUrl(res[1].data.data.img);
@@ -229,6 +230,7 @@ var _self;var _default =
       });
     },
     getList: function getList(param) {
+
       this.fun.getReq(this.baseUrl + '/api/second/houseList', { a: param }).then(function (res) {
         _self.houseData = res[1].data.data.lists.data;
       });

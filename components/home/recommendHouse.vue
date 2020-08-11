@@ -70,7 +70,7 @@
 
 <script>
 	export default {
-		props:['tabIndex','recommendHouseData','restrictHouseData'],
+		props:['recommendHouseData','restrictHouseData'],
 		data() {
 			return {
 				TabCur: 0,
@@ -78,36 +78,19 @@
 				listHeight:690,
 				recommend:this.recommendHouseData,
 				restrict:this.restrictHouseData,
-				currentNum:1,
-				ScurrentNum:1
 			}
 		},
 		methods: {
 			tabChange(index) {
 			    this.TabCur = index;
-				this.$emit("update:tabIndex",index)
-			},
-			childMethod(val1,val2,h){
-				this.listHeight = h;
-				if ( this.TabCur == 0) {
-					this.recommend = val1;
-				} else {
-					this.restrict = val2;
-				}
 			},
 			houseData(num) {
 				if (num == 0) {
-					if (this.ScurrentNum ==1){
-						this.listHeight = 115*this.recommendHouseData.length;
-					}
-					return this.currentNum ==1 ? this.recommendHouseData : this.recommend;
-					this.currentNum = 2;
+					this.listHeight = 115*this.recommendHouseData.length;
+					return this.recommendHouseData;
 				} else {
-					if (this.ScurrentNum ==1){
-						this.listHeight = 115*this.restrictHouseData.length;
-					}
-					return this.ScurrentNum ==1 ? this.restrictHouseData : this.restrict;;
-					this.ScurrentNum = 2;
+					this.listHeight = 115*this.restrictHouseData.length;
+					return this.restrictHouseData;
 				}
 			},
 			getDetail(index) {//跳转到小区详情页面

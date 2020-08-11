@@ -28,9 +28,12 @@
 			</view>
 		</view>
 		<view class="search_list" :style="{top:Height+'px'}">
-			 <view v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem.id)" class="search_item">
-				 <text>{{houseItem.estate_name}}</text>
-				 <text>{{houseItem.average_price}}</text>
+			 <view v-if="keyList.length>0" v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem.id)" class="search_item">
+				 <view>
+				 {{houseItem.first}}
+				 <text style="color:#E02E24">{{houseItem.mid}}</text>
+				 {{houseItem.last}}
+				 </view>
 			 </view>
 		</view>
 	</view>
@@ -47,6 +50,10 @@
 				historyList:[],
 				Height:0,
 				isShow:true,
+				showIs:true,
+				first:'',
+				mid:'',
+				last:'',
 			}
 		},
 		onShow:function(){
@@ -71,15 +78,31 @@
 			inputChange:function() {
 				this.isShow = false;
 				var _self = this;
-				this.fun.getReq(this.baseUrl+'/api/second/houseList',{keyword:this.keyword})
-				.then((res)=>{
-					if (_self.historyData.indexOf(_self.keyword) ==-1) {
-						_self.historyData = _self.historyData+" "+_self.keyword
-						_self.setStore(_self.historyData);
-						_self.historyList = _self.historyData.split(" ");
-					}
-					this.keyList = res[1].data.data.lists.data
-				});
+				var _key = this.keyword;
+				if (_key != "") {
+					this.fun.getReq(this.baseUrl+'/api/searchSecond',{keyword:_key})
+					.then((res)=>{
+						
+						if (res[1].data.data.length > 0) {
+							var _newData = new Array();
+							res[1].data.data.forEach(function(k,v){
+								let key = k.title;
+								let first = key.substr(0,key.indexOf(_key));
+								let mid = key.substr(key.indexOf(_key),_key.length);
+								let last = key.substr(first.length+mid.length,20);
+								_newData.push({
+									"id":v.id,
+									"first":first,
+									"mid":mid,
+									"last":last
+								});
+								_self.keyList = _newData;
+							})
+						} else {
+							_self.keyList = [];
+						}
+					});
+				}
 			},
 			setStore(strRes) {
 				var _self = this;
@@ -111,7 +134,6 @@
 				uni.navigateBack({
 					delta:2
 				})
-			
 			},
 		}
 	}

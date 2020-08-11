@@ -2264,14 +2264,23 @@ var render = function() {
                     "v-uni-swiper-item",
                     { key: item, attrs: { _i: "4-" + $30 } },
                     [
-                      _c("v-uni-image", {
-                        staticClass: _vm._$g("5-" + $30, "sc"),
-                        attrs: {
-                          src: _vm._$g("5-" + $30, "a-src"),
-                          mode: "heightFix",
-                          _i: "5-" + $30
-                        }
-                      })
+                      _c(
+                        "v-uni-navigator",
+                        {
+                          attrs: { url: "/pages/detail/taxes", _i: "5-" + $30 }
+                        },
+                        [
+                          _c("v-uni-image", {
+                            staticClass: _vm._$g("6-" + $30, "sc"),
+                            attrs: {
+                              src: _vm._$g("6-" + $30, "a-src"),
+                              mode: "heightFix",
+                              _i: "6-" + $30
+                            }
+                          })
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -4159,7 +4168,18 @@ var render = function() {
             { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
             [_vm._v(_vm._$g(15, "t0-0"))]
           )
-        : _vm._e()
+        : _vm._e(),
+      _c(
+        "v-uni-navigator",
+        {
+          attrs: {
+            src:
+              "http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0",
+            _i: 16
+          }
+        },
+        [_vm._v("1111111")]
+      )
     ],
     1
   )
@@ -7712,7 +7732,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".advisory_warp[data-v-5f2e5ccc]{\n\t\twidth:100%;\n\t\theight:138upx;\n\t\tbackground:#fff;\n\t\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-flex-wrap: row wrap;\n\t\t        flex-wrap: row wrap;\n\t\t-webkit-justify-content: space-around;\n\t\t        justify-content: space-around;\n\t\tposition: fixed;\n\t\tbottom: 0;\n}\n.consultant[data-v-5f2e5ccc]{\n\t\twidth: 90%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\t\tborder-radius:10upx;\n\t\tmargin-top: 19upx;\n\t\tfont-size:28upx;\n\t\tcolor: #FFF;\n\t\tline-height: 70upx;\n\t\ttext-align: center;\n\t\tpadding: 0 17upx;\n\t\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\t\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\t\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 19upx;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\t\twidth:100upx;\n\t\theight:100upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\t\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\t\twidth: 100%;\n\t\tfont-size:32upx;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\t\tfont-size:22upx;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\t    margin-left: 5px;\n}\n", ""]);
+exports.push([module.i, ".advisory_warp[data-v-5f2e5ccc]{\n\t\twidth:100%;\n\t\theight:138upx;\n\t\tbackground:#fff;\n\t\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-flex-wrap: row wrap;\n\t\t        flex-wrap: row wrap;\n\t\t-webkit-justify-content: space-around;\n\t\t        justify-content: space-around;\n\t\tposition: fixed;\n\t\tbottom: 0;\n\t\tz-index: 11111 !important;\n}\n.consultant[data-v-5f2e5ccc]{\n\t\twidth: 90%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\t\tborder-radius:10upx;\n\t\tmargin-top: 19upx;\n\t\tfont-size:28upx;\n\t\tcolor: #FFF;\n\t\tline-height: 70upx;\n\t\ttext-align: center;\n\t\tpadding: 0 17upx;\n\t\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\t\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\t\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 19upx;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\t\twidth:100upx;\n\t\theight:100upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\t\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\t\twidth: 100%;\n\t\tfont-size:32upx;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\t\tfont-size:22upx;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\t    margin-left: 5px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -12385,7 +12405,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-uni-view", { attrs: { _i: 0 } })
+  return _c(
+    "v-uni-view",
+    { attrs: { _i: 0 } },
+    [_c("v-uni-web-view", { attrs: { src: _vm._$g(1, "a-src"), _i: 1 } })],
+    1
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -13363,9 +13388,50 @@ var render = function() {
       _c("grayBox", { attrs: { _i: 29 } }),
       _c(
         "v-uni-view",
+        { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+        [
+          _c(
+            "v-uni-view",
+            {
+              staticClass: _vm._$g(31, "sc"),
+              staticStyle: { "text-align": "center", width: "100%" },
+              attrs: { _i: 31 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
+            [
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(32, "sc"),
+                  staticStyle: { "text-align": "center", width: "100%" },
+                  attrs: { _i: 32 }
+                },
+                [
+                  _vm._v("拨打"),
+                  _c(
+                    "v-uni-text",
+                    { staticStyle: { color: "#BE3A2F" }, attrs: { _i: 33 } },
+                    [_vm._v("400 677 0028")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _c("grayBox", { attrs: { _i: 34 } }),
+      _c(
+        "v-uni-view",
         {
-          staticClass: _vm._$g(30, "sc"),
-          attrs: { _i: 30 },
+          staticClass: _vm._$g(35, "sc"),
+          attrs: { _i: 35 },
           on: {
             click: function($event) {
               return _vm.$handleViewEvent($event)
@@ -13374,8 +13440,8 @@ var render = function() {
         },
         [_vm._v("退出登录")]
       ),
-      _c("grayBox", { attrs: { _i: 31 } }),
-      _c("grayBox", { attrs: { _i: 32 } })
+      _c("grayBox", { attrs: { _i: 36 } }),
+      _c("grayBox", { attrs: { _i: 37 } })
     ],
     1
   )
@@ -23893,16 +23959,39 @@ var render = function() {
                               attrs: { _i: "11-" + $30 }
                             },
                             [
-                              _vm._$g("12-" + $30, "i")
+                              _c("v-uni-text", { attrs: { _i: "12-" + $30 } }, [
+                                _vm._v(_vm._$g("12-" + $30, "t0-0"))
+                              ]),
+                              _vm._$g("13-" + $30, "i")
                                 ? _c(
                                     "v-uni-text",
-                                    { attrs: { _i: "12-" + $30 } },
-                                    [_vm._v(_vm._$g("12-" + $30, "t0-0"))]
+                                    {
+                                      staticClass: _vm._$g("13-" + $30, "sc"),
+                                      attrs: { _i: "13-" + $30 }
+                                    },
+                                    [_vm._v("自由购")]
                                   )
                                 : _vm._e(),
-                              _c("v-uni-text", { attrs: { _i: "13-" + $30 } }, [
-                                _vm._v(_vm._$g("13-" + $30, "t0-0"))
-                              ])
+                              _vm._$g("14-" + $30, "i")
+                                ? _c(
+                                    "v-uni-text",
+                                    {
+                                      staticClass: _vm._$g("14-" + $30, "sc"),
+                                      attrs: { _i: "14-" + $30 }
+                                    },
+                                    [_vm._v("社会委托")]
+                                  )
+                                : _vm._e(),
+                              _vm._$g("15-" + $30, "i")
+                                ? _c(
+                                    "v-uni-text",
+                                    {
+                                      staticClass: _vm._$g("15-" + $30, "sc"),
+                                      attrs: { _i: "15-" + $30 }
+                                    },
+                                    [_vm._v(_vm._$g("15-" + $30, "t0-0"))]
+                                  )
+                                : _vm._e()
                             ],
                             1
                           )
@@ -23912,23 +24001,10 @@ var render = function() {
                       _c(
                         "v-uni-view",
                         {
-                          staticClass: _vm._$g("14-" + $30, "sc"),
-                          attrs: { _i: "14-" + $30 }
+                          staticClass: _vm._$g("16-" + $30, "sc"),
+                          attrs: { _i: "16-" + $30 }
                         },
                         [
-                          _c(
-                            "v-uni-view",
-                            {
-                              staticClass: _vm._$g("15-" + $30, "sc"),
-                              attrs: { _i: "15-" + $30 }
-                            },
-                            [
-                              _c("v-uni-text", { attrs: { _i: "16-" + $30 } }, [
-                                _vm._v(_vm._$g("16-" + $30, "t0-0"))
-                              ])
-                            ],
-                            1
-                          ),
                           _c(
                             "v-uni-view",
                             {
@@ -23949,24 +24025,41 @@ var render = function() {
                               attrs: { _i: "19-" + $30 }
                             },
                             [
+                              _c("v-uni-text", { attrs: { _i: "20-" + $30 } }, [
+                                _vm._v(_vm._$g("20-" + $30, "t0-0"))
+                              ])
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("21-" + $30, "sc"),
+                              attrs: { _i: "21-" + $30 }
+                            },
+                            [
                               _c(
                                 "v-uni-view",
-                                { attrs: { _i: "20-" + $30 } },
+                                { attrs: { _i: "22-" + $30 } },
                                 [
                                   _c(
                                     "v-uni-text",
-                                    { attrs: { _i: "21-" + $30 } },
-                                    [_vm._v("起拍价")]
+                                    { attrs: { _i: "23-" + $30 } },
+                                    [
+                                      _vm._v(
+                                        "起拍价" + _vm._$g("23-" + $30, "t0-0")
+                                      )
+                                    ]
                                   ),
                                   _c(
                                     "v-uni-text",
                                     {
-                                      staticClass: _vm._$g("22-" + $30, "sc"),
-                                      attrs: { _i: "22-" + $30 }
+                                      staticClass: _vm._$g("24-" + $30, "sc"),
+                                      attrs: { _i: "24-" + $30 }
                                     },
                                     [
                                       _vm._v(
-                                        _vm._$g("22-" + $30, "t0-0") + "万"
+                                        _vm._$g("24-" + $30, "t0-0") + "万"
                                       )
                                     ]
                                   )
@@ -23975,22 +24068,22 @@ var render = function() {
                               ),
                               _c(
                                 "v-uni-view",
-                                { attrs: { _i: "23-" + $30 } },
+                                { attrs: { _i: "25-" + $30 } },
                                 [
                                   _c(
                                     "v-uni-text",
-                                    { attrs: { _i: "24-" + $30 } },
+                                    { attrs: { _i: "26-" + $30 } },
                                     [_vm._v("市场价")]
                                   ),
                                   _c(
                                     "v-uni-text",
                                     {
-                                      staticClass: _vm._$g("25-" + $30, "sc"),
-                                      attrs: { _i: "25-" + $30 }
+                                      staticClass: _vm._$g("27-" + $30, "sc"),
+                                      attrs: { _i: "27-" + $30 }
                                     },
                                     [
                                       _vm._v(
-                                        _vm._$g("25-" + $30, "t0-0") + "万"
+                                        _vm._$g("27-" + $30, "t0-0") + "万"
                                       )
                                     ]
                                   )
@@ -24003,22 +24096,22 @@ var render = function() {
                           _c(
                             "v-uni-view",
                             {
-                              staticClass: _vm._$g("26-" + $30, "sc"),
-                              attrs: { _i: "26-" + $30 }
+                              staticClass: _vm._$g("28-" + $30, "sc"),
+                              attrs: { _i: "28-" + $30 }
                             },
                             [
                               _c(
                                 "v-uni-view",
                                 {
-                                  staticClass: _vm._$g("27-" + $30, "sc"),
-                                  attrs: { _i: "27-" + $30 }
+                                  staticClass: _vm._$g("29-" + $30, "sc"),
+                                  attrs: { _i: "29-" + $30 }
                                 },
                                 [
                                   _c("v-uni-image", {
                                     attrs: {
-                                      src: _vm._$g("28-" + $30, "a-src"),
+                                      src: _vm._$g("30-" + $30, "a-src"),
                                       mode: "",
-                                      _i: "28-" + $30
+                                      _i: "30-" + $30
                                     }
                                   })
                                 ],
@@ -24027,17 +24120,17 @@ var render = function() {
                               _c(
                                 "v-uni-view",
                                 {
-                                  staticClass: _vm._$g("29-" + $30, "sc"),
-                                  attrs: { _i: "29-" + $30 }
+                                  staticClass: _vm._$g("31-" + $30, "sc"),
+                                  attrs: { _i: "31-" + $30 }
                                 },
                                 [
                                   _c(
                                     "v-uni-text",
-                                    { attrs: { _i: "30-" + $30 } },
+                                    { attrs: { _i: "32-" + $30 } },
                                     [
                                       _vm._v(
                                         "开拍时间：" +
-                                          _vm._$g("30-" + $30, "t0-0")
+                                          _vm._$g("32-" + $30, "t0-0")
                                       )
                                     ]
                                   )
@@ -24061,11 +24154,11 @@ var render = function() {
         ],
         2
       ),
-      _vm._$g(31, "i")
+      _vm._$g(33, "i")
         ? _c(
             "v-uni-view",
-            { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
-            [_vm._v(_vm._$g(31, "t0-0"))]
+            { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+            [_vm._v(_vm._$g(33, "t0-0"))]
           )
         : _vm._e()
     ],
@@ -24160,7 +24253,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".recommendList[data-v-1ac55af2]{\n\tpadding-top: 354upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-1ac55af2] {\n\tpadding: 0 30upx;\n}.quickTabSwiperItem[data-v-1ac55af2] {\n\tdisplay: inline-block;\n\tfloat: left;\n}.houseItemView[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-1ac55af2] {\n\twidth: 240upx;\n\theight: 149upx;\n\tborder-radius:10upx;\n}.houseItemImg uni-image[data-v-1ac55af2] {\n\twidth: 100%;\n\theight: 100%;\n}.houseItem[data-v-1ac55af2] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-1ac55af2]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n\tfont-weight: bold;\n}.grayPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n\tfont-weight: bold;\n}.createIime[data-v-1ac55af2] {\n\tmargin-top: 26upx;\n\tbackground:rgba(199,49,38, 0.15);\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\tbackground-color:#f8f8f8;\n}.createIimeIconinfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #E02E24;\n\tline-height: 44upx;\n}.createIimeIcon[data-v-1ac55af2] {\n}.createIimeIcon uni-image[data-v-1ac55af2] {\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin-left: 12upx;\n\tmargin-right: 7upx;\n\tmargin-bottom: 7upx;\n}.navigator-hover[data-v-1ac55af2],.navigator-hover[data-v-1ac55af2]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-1ac55af2]{\n\topacity: unset;\n}.loading[data-v-1ac55af2]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n\twidth: 100%;\n\tdisplay: inline-block;\n}.tag[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 20upx;\n}.tag uni-text[data-v-1ac55af2]{\n\twidth:114upx;\n\theight:50upx;\n\tbackground:#F5F3EA;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#C8A96A;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag uni-text[data-v-1ac55af2]:last-child{\n\tbackground:#E4EFFD !important;\n\tcolor: #4297FF !important;\n}.posi[data-v-1ac55af2]{\n\tposition: fixed;\n\toverflow: hidden;\n\theight: 100%;\n}.house_status[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-1ac55af2]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-1ac55af2]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-1ac55af2]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-1ac55af2]{\n\tbackground: #989898;\n}\n", ""]);
+exports.push([module.i, ".recommendList[data-v-1ac55af2]{\n\tpadding-top: 354upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-1ac55af2] {\n\tpadding: 0 30upx;\n}.quickTabSwiperItem[data-v-1ac55af2] {\n\tdisplay: inline-block;\n\tfloat: left;\n}.houseItemView[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-1ac55af2] {\n\twidth: 240upx;\n\theight: 149upx;\n\tborder-radius:10upx;\n}.houseItemImg uni-image[data-v-1ac55af2] {\n\twidth: 100%;\n\theight: 100%;\n}.houseItem[data-v-1ac55af2] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-1ac55af2]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n\tfont-weight: bold;\n}.grayPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n\tfont-weight: bold;\n}.createIime[data-v-1ac55af2] {\n\tmargin-top: 26upx;\n\tbackground:rgba(199,49,38, 0.15);\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\tbackground-color:#f8f8f8;\n}.createIimeIconinfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #E02E24;\n\tline-height: 44upx;\n}.createIimeIcon[data-v-1ac55af2] {\n}.createIimeIcon uni-image[data-v-1ac55af2] {\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin-left: 12upx;\n\tmargin-right: 7upx;\n\tmargin-bottom: 7upx;\n}.navigator-hover[data-v-1ac55af2],.navigator-hover[data-v-1ac55af2]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-1ac55af2]{\n\topacity: unset;\n}.loading[data-v-1ac55af2]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n\twidth: 100%;\n\tdisplay: inline-block;\n}.tag[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 20upx;\n}.tag uni-text[data-v-1ac55af2]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-1ac55af2]{\n\t/* background:#FF8126 !important; */\n\topacity: 0.2;\n\tcolor: #FF8126 !important;\n}.posi[data-v-1ac55af2]{\n\tposition: fixed;\n\toverflow: hidden;\n\theight: 100%;\n}.house_status[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-1ac55af2]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-1ac55af2]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-1ac55af2]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-1ac55af2]{\n\tbackground: #989898;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

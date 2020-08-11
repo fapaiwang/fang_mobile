@@ -4,7 +4,7 @@
 			<banner :info="info" :bannerTit="bannerTit" :bannerCol="bannerCol" :detailId="detailId"></banner>
 			<baseHouse :communityName="communityName" :detial="detial" :houseType="houseType" :buildYear="buildYear" :houseTit="houseTit" :countDownList="countDownList" :like="like"></baseHouse>
 			<grayBox></grayBox>
-			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData"></housingSituation>
+			<housingSituation :surroundingData='surroundingData' :trafficData='trafficData' :announcementData='announcementData' :defectData='defectData' :recordingData='recordingData' :estateId="estateId" :recordingLogData="recordingLogData" :detailId="detailId"></housingSituation>
 			<grayBox></grayBox>
 			<recommendPersion :recommendData="recommendData" :detailId="detailId"></recommendPersion>
 			<grayBox></grayBox>
@@ -16,6 +16,7 @@
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
+		<navigator src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0">1111111</navigator>
 	</view>
 </template>
 

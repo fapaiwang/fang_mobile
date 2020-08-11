@@ -187,8 +187,8 @@ var _requests = _interopRequireDefault(__webpack_require__(/*! @/components/comm
 //
 //
 //
-var _self,page,freePage = 1,timer = null; //timer延迟期
-var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure | components/base/navSearchHeader */ "components/base/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/base/navSearchHeader.vue */ 272));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/home/banner */ "components/home/banner").then((function () {return resolve(__webpack_require__(/*! @/components/home/banner.vue */ 279));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeMenu = function HomeMenu() {__webpack_require__.e(/*! require.ensure | components/home/navSearchHeader */ "components/home/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/home/navSearchHeader.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auctionMenu = function auctionMenu() {__webpack_require__.e(/*! require.ensure | components/home/auction */ "components/home/auction").then((function () {return resolve(__webpack_require__(/*! @/components/home/auction.vue */ 293));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var infoScroll = function infoScroll() {__webpack_require__.e(/*! require.ensure | components/home/infoScroll */ "components/home/infoScroll").then((function () {return resolve(__webpack_require__(/*! @/components/home/infoScroll.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var centerBanner = function centerBanner() {__webpack_require__.e(/*! require.ensure | components/home/centerBanner */ "components/home/centerBanner").then((function () {return resolve(__webpack_require__(/*! @/components/home/centerBanner.vue */ 307));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/home/featured */ "components/home/featured").then((function () {return resolve(__webpack_require__(/*! @/components/home/featured.vue */ 314));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var getrecommendHouse = function getrecommendHouse() {__webpack_require__.e(/*! require.ensure | components/home/recommendHouse */ "components/home/recommendHouse").then((function () {return resolve(__webpack_require__(/*! @/components/home/recommendHouse.vue */ 321));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var WucTab = function WucTab() {__webpack_require__.e(/*! require.ensure | components/tab/wuc-tab */ "components/tab/wuc-tab").then((function () {return resolve(__webpack_require__(/*! @/components/tab/wuc-tab.vue */ 328));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SelectHouse = function SelectHouse() {__webpack_require__.e(/*! require.ensure | components/home/selectHouse */ "components/home/selectHouse").then((function () {return resolve(__webpack_require__(/*! @/components/home/selectHouse.vue */ 335));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { navSearch: navSearch, HomeMenu: HomeMenu, banner: banner, auctionMenu: auctionMenu, infoScroll: infoScroll, centerBanner: centerBanner, featured: featured, getrecommendHouse: getrecommendHouse, WucTab: WucTab, SelectHouse: SelectHouse }, name: "index", data: function data() {return { homeMenuData: [], bannerdata: [], auctionData: [],
+var _self,page = 1,freePage = 1,timer = null; //timer延迟期
+var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure | components/base/navSearchHeader */ "components/base/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/base/navSearchHeader.vue */ 278));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/home/banner */ "components/home/banner").then((function () {return resolve(__webpack_require__(/*! @/components/home/banner.vue */ 285));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeMenu = function HomeMenu() {__webpack_require__.e(/*! require.ensure | components/home/navSearchHeader */ "components/home/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/home/navSearchHeader.vue */ 292));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auctionMenu = function auctionMenu() {__webpack_require__.e(/*! require.ensure | components/home/auction */ "components/home/auction").then((function () {return resolve(__webpack_require__(/*! @/components/home/auction.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var infoScroll = function infoScroll() {__webpack_require__.e(/*! require.ensure | components/home/infoScroll */ "components/home/infoScroll").then((function () {return resolve(__webpack_require__(/*! @/components/home/infoScroll.vue */ 306));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var centerBanner = function centerBanner() {__webpack_require__.e(/*! require.ensure | components/home/centerBanner */ "components/home/centerBanner").then((function () {return resolve(__webpack_require__(/*! @/components/home/centerBanner.vue */ 313));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var featured = function featured() {__webpack_require__.e(/*! require.ensure | components/home/featured */ "components/home/featured").then((function () {return resolve(__webpack_require__(/*! @/components/home/featured.vue */ 320));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var getrecommendHouse = function getrecommendHouse() {__webpack_require__.e(/*! require.ensure | components/home/recommendHouse */ "components/home/recommendHouse").then((function () {return resolve(__webpack_require__(/*! @/components/home/recommendHouse.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var WucTab = function WucTab() {__webpack_require__.e(/*! require.ensure | components/tab/wuc-tab */ "components/tab/wuc-tab").then((function () {return resolve(__webpack_require__(/*! @/components/tab/wuc-tab.vue */ 334));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SelectHouse = function SelectHouse() {__webpack_require__.e(/*! require.ensure | components/home/selectHouse */ "components/home/selectHouse").then((function () {return resolve(__webpack_require__(/*! @/components/home/selectHouse.vue */ 341));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { navSearch: navSearch, HomeMenu: HomeMenu, banner: banner, auctionMenu: auctionMenu, infoScroll: infoScroll, centerBanner: centerBanner, featured: featured, getrecommendHouse: getrecommendHouse, WucTab: WucTab, SelectHouse: SelectHouse }, name: "index", data: function data() {return { homeMenuData: [], bannerdata: [], auctionData: [],
       todayAddData: [],
       centerBannerdata: [],
       qualityEstateData: [],
@@ -236,6 +236,7 @@ var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure |
       this.getTodayAddData();
       this.getqualityEstateData();
       this.getRecommendHouseData();
+      this.getFreeHouseData();
     },
     getHomeMenuData: function getHomeMenuData() {
       var _self = this;
@@ -302,28 +303,30 @@ var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure |
         _this4.recommendHouseData = res[1].data.data.lists.data;
         page++;
       });
-      this.fun.getReq(this.baseUrl + '/api/second/houseList?a=m10&page=' + freePage) //自由购
-      .then(function (res) {
-        _this4.restrictHouseData = res[1].data.data.lists.data;
+    },
+    getFreeHouseData: function getFreeHouseData() {var _this5 = this; //自由购
+      this.fun.getReq(this.baseUrl + '/api/second/houseList?a=m10&page=' + freePage).
+      then(function (res) {
+        _this5.restrictHouseData = res[1].data.data.lists.data;
         freePage++;
       });
     },
-    getMorequalityEstateData: function getMorequalityEstateData() {var _this5 = this; // 更多推荐房源
+    getMorequalityEstateData: function getMorequalityEstateData() {var _this6 = this; // 更多推荐房源
       this.fun.getReq(this.baseUrl + '/api/second/houseList?a=y1&page=' + page).
       then(function (res) {
         var newsList = res[1].data.data.lists.data;
         _self.recommendHouseData = _self.recommendHouseData.concat(newsList);
         page++;
-        _this5.getLoad();
+        _this6.getLoad();
       });
     },
-    getMoreRecommendHouseData: function getMoreRecommendHouseData() {var _this6 = this; // 更多自由购
+    getMoreRecommendHouseData: function getMoreRecommendHouseData() {var _this7 = this; // 更多自由购
       this.fun.getReq(this.baseUrl + '/api/second/houseList?a=m10&page=' + freePage).
       then(function (res) {
         var newsList = res[1].data.data.lists.data;
         _self.restrictHouseData = _self.restrictHouseData.concat(newsList);
         freePage++;
-        _this6.getLoad();
+        _this7.getLoad();
       });
     },
     goMore: function goMore() {//加载更多

@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 450));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 457));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 464));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var MineBanner = function MineBanner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Header = function Header() {__webpack_require__.e(/*! require.ensure | components/mine/header */ "components/mine/header").then((function () {return resolve(__webpack_require__(/*! @/components/mine/header.vue */ 463));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var History = function History() {__webpack_require__.e(/*! require.ensure | components/mine/history */ "components/mine/history").then((function () {return resolve(__webpack_require__(/*! @/components/mine/history.vue */ 470));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -208,6 +208,8 @@ __webpack_require__.r(__webpack_exports__);
         },
         fail: function fail() {
           _self.isShow = true;
+          _self.nickName = '';
+          _self.isShowNickName = false;
         } });
 
     },

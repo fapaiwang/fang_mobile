@@ -211,6 +211,16 @@
             	"navigationBarTitleText": "法拍专员"
             }
         }
+        ,{
+		"path" : "pages/detail/single",
+		"style" : {
+			"navigationBarTitleText": "法拍公告"
+		}
+        }
+        ,{
+            "path" : "pages/detail/single",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

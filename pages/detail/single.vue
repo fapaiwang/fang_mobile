@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<web-view :src="src"></web-view>
+		 <web-view :src="src"></web-view>
 	</view>
 </template>
 
@@ -12,11 +12,10 @@
 			}
 		},
 		onLoad:function(options){
-			var url = 'http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0';
+			var url = 'https://www.fangpaiwang.com/house_notice_'+options.id;
 			this.src = url;
 		},
 		methods: {
-			
 		}
 	}
 </script>

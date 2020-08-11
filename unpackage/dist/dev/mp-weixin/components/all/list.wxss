@@ -120,18 +120,17 @@
 }.tag text.data-v-1ac55af2{
 	width:114rpx;
 	height:50rpx;
-	background:#F5F3EA;
 	border-radius:5rpx;
 	font-size:24rpx;
 	font-family:PingFang SC;
 	font-weight:500;
-	color:#C8A96A;
+	background:#E4EFFD;
+	color:#4297FF;
 	line-height:50rpx;
 	text-align: center;
 	border-radius:5rpx;
-}.tag text.data-v-1ac55af2:last-child{
-	background:#E4EFFD !important;
-	color: #4297FF !important;
+}.tag .tag_label_2.data-v-1ac55af2{
+	color: #EF8B46 !important;
 }.posi.data-v-1ac55af2{
 	position: fixed;
 	overflow: hidden;

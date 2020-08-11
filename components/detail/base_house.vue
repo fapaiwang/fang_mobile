@@ -81,8 +81,8 @@
 				</view>
 			</view>
 			
-			<view class="featuredtTitleView">
-				<view class="titleText" @click="getOther(detial.id)">
+			<view class="featuredtTitleView" @click="getOther(detial.id)">
+				<view class="titleText">
 					<view>其他：<text class="desc">产权号、土地证、欠费...</text></view>
 				</view>
 				<view class="tieleImg">

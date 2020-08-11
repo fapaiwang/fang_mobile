@@ -16,6 +16,7 @@
 						<block v-for="(housItem, indexs) in houseData(TabCur)" :key="indexs" v-if="index<3">
 						  <text class="quickTabItem">{{housItem}}</text>
 						</block>
+						<view @click="moreLock" class="more IndexMore" v-if="index==2">点击查看更多</view>
 						<!-- 瑕疵 -->
 						<block v-for="(housItem, indexs) in defectData" :key="indexs" v-if="index==3  && userRule==4">
 						  <view style="width: 100%;display: block;font-size: 17px;">{{housItem}}</view>
@@ -43,7 +44,7 @@
 								<text style="width: 33%;">成交价:{{housItem.price}}</text>
 								<text style="width: 33%;">{{housItem.cjprice}}元/㎡</text>
 							</view>
-							<view @click="more">更多</view>
+							<view @click="more" class="more">点击查看更多</view>
 						</block>
 					</swiper-item>
 				 </block>
@@ -55,7 +56,7 @@
 <script>
 	export default {
 		//周边 交通 拍卖 欠费瑕疵 成交记录
-		props:["surroundingData","trafficData","announcementData","defectData","recordingData","estateId","recordingLogData"],
+		props:["surroundingData","trafficData","announcementData","defectData","recordingData","estateId","recordingLogData","detailId"],
 		data() {
 			return {
 				TabCur: 0,
@@ -78,7 +79,7 @@
 					_self.userRule = res.data.model;
 				},
 				fail:function(){
-					_self.bmrs = true;
+					_self.bmrs = true; //cheng jiao ji lv
 					_self.userRule = -1;
 				}
 			})
@@ -93,6 +94,9 @@
 			},
 			more(){
 				this.fun.navTo(`/pages/detail/recording?id=${this.estateId}`)
+			},
+			moreLock(){
+				this.fun.navTo(`/pages/detail/single?id=${this.detailId}`)
 			},
 			houseData(tabIndex){
 				switch(tabIndex){
@@ -114,4 +118,20 @@
 
 <style scoped>
 	@import url("./css/housingSituation.css");
+	.more{
+		width:100%;
+		height:88upx;
+		background:rgba(247,247,247,1);
+		border-radius:10upx;
+		text-align: center;
+		line-height: 88upx;
+		font-size:32upx;
+		font-family:PingFang SC;
+		font-weight:bold;
+		color:rgba(222,55,49,1);
+	}
+	.IndexMore{
+		margin-top: 10upx;
+		margin-bottom: 20upx;
+	}
 </style>

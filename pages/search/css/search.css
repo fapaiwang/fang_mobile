@@ -117,7 +117,7 @@
 	width: 100%;
 	border-bottom:1upx solid rgba(241,241,241,1);
 }
-.search_list .search_item text{
+.search_list .search_item .search_item_con{
 	font-size: 28upx;
 	display: inline-block;
 	overflow: hidden;
@@ -126,7 +126,17 @@
 	-webkit-box-orient:vertical;
 	-webkit-line-clamp:1;
 }
-.search_list .search_item text:last-child{
+/* .search_list .search_item text:last-child{
 	font-size: 24upx;
 	color: #999999;
+} */
+
+.search_list .search_item view{
+	font-size: 28upx;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box; //作为弹性伸缩盒子模型显示。
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1;
 }

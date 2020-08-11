@@ -8,7 +8,7 @@
 		<SelectHouse></SelectHouse>
 		<centerBanner :centerBannerdata='centerBannerdata'></centerBanner>
 		<featured :qualityEstateData='qualityEstateData'></featured>
-		<getrecommendHouse ref="recommend" :tabIndex.sync="tabIndex" :recommendHouseData='recommendHouseData' :restrictHouseData='restrictHouseData'></getrecommendHouse>
+		<getrecommendHouse :recommendHouseData='recommendHouseData' :restrictHouseData='restrictHouseData'></getrecommendHouse>
 		<view class="moreView">
 			<view @click="goMore" class="moreViewBtn">
 				<text>更多推荐房源</text>
@@ -98,6 +98,7 @@
 				this.getTodayAddData();
 				this.getqualityEstateData();
 				this.getRecommendHouseData();
+				this.getFreeHouseData();
 			},
 			getHomeMenuData() {
 				var _self = this;
@@ -164,7 +165,9 @@
 					this.recommendHouseData = res[1].data.data.lists.data;
 					page++
 				})
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)//自由购
+			},
+			getFreeHouseData() { //自由购
+				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)
 				.then((res)=>{
 					this.restrictHouseData = res[1].data.data.lists.data;
 					freePage++

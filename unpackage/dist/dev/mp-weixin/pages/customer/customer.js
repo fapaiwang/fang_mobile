@@ -137,9 +137,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      src: "" };
 
-
+  },
+  onLoad: function onLoad(options) {
+    var url = 'http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0';
+    this.src = url;
   },
   methods: {} };exports.default = _default;
 
