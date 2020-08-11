@@ -118,19 +118,21 @@
 .tag text{
 	width:114upx;
 	height:50upx;
-	background:#F5F3EA;
 	border-radius:5upx;
 	font-size:24upx;
 	font-family:PingFang SC;
 	font-weight:500;
-	color:#C8A96A;
+	background:#E4EFFD;
+	color:#4297FF;
 	line-height:50upx;
 	text-align: center;
 	border-radius:5upx;
 }
-.tag text:last-child{
-	background:#E4EFFD !important;
-	color: #4297FF !important;
+
+.tag .tag_label_2{
+	/* background:#FF8126 !important; */
+	opacity: 0.2;
+	color: #FF8126 !important;
 }
 .posi{
 	position: fixed;
