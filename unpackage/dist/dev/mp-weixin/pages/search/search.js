@@ -214,26 +214,37 @@ var query;var _default =
       if (_key != "") {
         this.fun.getReq(this.baseUrl + '/api/searchSecond', { keyword: _key }).
         then(function (res) {
-
+          var _newData = new Array();
           if (res[1].data.data.length > 0) {
-            var _newData = new Array();
             res[1].data.data.forEach(function (k, v) {
               var key = k.title;
-              var first = key.substr(0, key.indexOf(_key));
-              var mid = key.substr(key.indexOf(_key), _key.length);
-              var last = key.substr(first.length + mid.length, 20);
-              _newData.push({
-                "id": v.id,
-                "first": first,
-                "mid": mid,
-                "last": last });
+              if (key.indexOf(_key) != -1) {
+                var first = key.substr(0, key.indexOf(_key));
+                var mid = key.substr(key.indexOf(_key), _key.length);
+                var last = key.substr(first.length + mid.length, 20);
+                _newData.push({
+                  "id": v.id,
+                  "first": first,
+                  "mid": mid,
+                  "last": last });
 
+              } else {
+                var _first = key;
+                _newData.push({
+                  "id": v.id,
+                  "first": _first,
+                  "mid": '',
+                  "last": '' });
+
+              }
               _self.keyList = _newData;
             });
           } else {
             _self.keyList = [];
           }
         });
+      } else {
+        _self.keyList = [];
       }
     },
     setStore: function setStore(strRes) {

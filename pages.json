@@ -213,13 +213,9 @@
         }
         ,{
 		"path" : "pages/detail/single",
-		"style" : {
-			"navigationBarTitleText": "法拍公告"
-		}
-        }
-        ,{
-            "path" : "pages/detail/single",
-            "style" : {}
+			"style" : {
+				"navigationBarTitleText": "法拍公告"
+			}
         }
     ],
 	"globalStyle": {

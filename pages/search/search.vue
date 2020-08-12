@@ -82,26 +82,37 @@
 				if (_key != "") {
 					this.fun.getReq(this.baseUrl+'/api/searchSecond',{keyword:_key})
 					.then((res)=>{
-						
+						var _newData = new Array();
 						if (res[1].data.data.length > 0) {
-							var _newData = new Array();
 							res[1].data.data.forEach(function(k,v){
 								let key = k.title;
-								let first = key.substr(0,key.indexOf(_key));
-								let mid = key.substr(key.indexOf(_key),_key.length);
-								let last = key.substr(first.length+mid.length,20);
-								_newData.push({
-									"id":v.id,
-									"first":first,
-									"mid":mid,
-									"last":last
-								});
+								if (key.indexOf(_key) !=-1) {
+									let first = key.substr(0,key.indexOf(_key));
+									let mid = key.substr(key.indexOf(_key),_key.length);
+									let last = key.substr(first.length+mid.length,20);
+									_newData.push({
+										"id":v.id,
+										"first":first,
+										"mid":mid,
+										"last":last
+									});
+								} else {
+									let first = key
+									_newData.push({
+										"id":v.id,
+										"first":first,
+										"mid":'',
+										"last":''
+									});
+								}
 								_self.keyList = _newData;
 							})
 						} else {
 							_self.keyList = [];
 						}
 					});
+				} else {
+					_self.keyList = [];
 				}
 			},
 			setStore(strRes) {

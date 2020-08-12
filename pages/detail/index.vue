@@ -16,7 +16,7 @@
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
-		<navigator src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0">1111111</navigator>
+		<navigator src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></navigator>
 	</view>
 </template>
 
