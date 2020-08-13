@@ -21,13 +21,13 @@
 
 <style scoped>
 .head_logo{
-		margin-top: 80upx;
-		text-align: center;
-		margin-bottom: 80upx;
-	}
-	.head_logo image{
-		width:257upx;
-		height:88upx;
-		display: inline-block;
-	}
+	margin-top: 80upx;
+	text-align: center;
+	margin-bottom: 80upx;
+}
+.head_logo image{
+	width:257upx;
+	height:88upx;
+	display: inline-block;
+}
 </style>

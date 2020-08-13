@@ -63,10 +63,12 @@
 	}
 </script>
 <style scoped>
-	page{
+	.uni-padding-wrap{
 		position: fixed;
 		height: 100%;
 		overflow: hidden;
+		width: 100%;
+		background: #010101;
 	}
 	.swiperList{
 		padding-top: 50%;

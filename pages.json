@@ -217,6 +217,12 @@
 				"navigationBarTitleText": "法拍公告"
 			}
         }
+        ,{
+            "path" : "pages/added/index",
+            "style" : {
+            	"navigationBarTitleText": "增值服务"
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

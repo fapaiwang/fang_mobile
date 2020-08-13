@@ -1,7 +1,11 @@
 <template>
-	<view>
-		<Attention :communityData="communityData"></Attention>
-		<House :houseData="houseData"></House>
+	<view style="isShow? 'background:#F3F0F1;!important' :'background: #ffffff;!important' ">
+		<Attention :communityData="communityData" v-if="isShow"></Attention>
+		<House :houseData="houseData" v-if="isShow"></House>
+		<view class="bg" v-if="isShow !=true">
+			<image src="../../static/img/base/noMsg.png" class="bgImg"></image>
+			<text class="desc">暂无任何信息哦~</text>
+		</view>
 	</view>
 </template>
 
@@ -18,7 +22,8 @@
 			return {
 				houseData:[],
 				communityData:[],
-				userId:-1
+				userId:-1,
+				isShow:true,
 			}
 		},
 		onShow:function(){
@@ -69,6 +74,8 @@
 								})
 							}
 						})
+					} else {
+						this.isShow = false;
 					}
 				})
 			},
@@ -91,6 +98,10 @@
 								})
 							}
 						})
+					} else {
+						if (this.houseData.length <1) {
+							this.isShow = false;
+						}
 					}
 				})
 			}
@@ -99,7 +110,30 @@
 </script>
 
 <style scoped>
-	page{
-		background: #F3F0F1;
+	.bg{
+		width: 750upx;
+		height: 482upx;
+		left: 50%;
+		top: 35%;
+		position: absolute;
+		display: inline-block;
+		transform: translate(-50%,-50%);
+	}
+	.bgImg{
+		width: 750upx;
+		height: 482upx;
+	}
+	.desc{
+		width:100%;
+		height:35upx;
+		font-size:36upx;
+		font-family:Adobe Heiti Std;
+		font-weight:normal;
+		color:rgba(51,51,51,1);
+		line-height:38upx;
+		text-align: center;
+		justify-content: center;
+		display: block;
+		margin-top: 63upx;
 	}
 </style>

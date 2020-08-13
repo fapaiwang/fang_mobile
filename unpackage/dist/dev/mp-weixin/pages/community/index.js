@@ -130,10 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var navSearch = function navSearch() {__webpack_require__.e(/*! require.ensure | components/community/navSearchHeader */ "components/community/navSearchHeader").then((function () {return resolve(__webpack_require__(/*! @/components/community/navSearchHeader.vue */ 526));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/community/banner */ "components/community/banner").then((function () {return resolve(__webpack_require__(/*! @/components/community/banner.vue */ 484));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 533));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 540));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/community/banner */ "components/community/banner").then((function () {return resolve(__webpack_require__(/*! @/components/community/banner.vue */ 484));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/community/delicacy */ "components/community/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/community/delicacy.vue */ 526));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/community/takeout */ "components/community/takeout").then((function () {return resolve(__webpack_require__(/*! @/components/community/takeout.vue */ 533));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -154,7 +151,6 @@ var _self,page = 1,timer = null; //timer延迟期
 var _default =
 {
   components: {
-    navSearch: navSearch,
     banner: banner,
     FocusList: FocusList,
     Takeout: Takeout },

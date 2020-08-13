@@ -362,6 +362,9 @@
 					this.typeNum = 0;
 					this.cust_begin = "";
 					this.cust_end = "";
+					this.statusNum = 0;
+					this.statusVal = "";
+					
 				}
 			},
 			soureSort(){

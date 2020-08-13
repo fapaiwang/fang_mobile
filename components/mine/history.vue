@@ -41,12 +41,17 @@
 				</view>
 				<view class="taxes_symbol">></view>
 			</view>
-		</view>
-		<grayBox></grayBox>
-		<view class="taxes_warp">
-			<view class="taxes_con" @click="call" style="text-align: center;width: 100%;">
-				<view class="taxes_tit" style="text-align: center;width: 100%;">
-					拨打<text style="color: #BE3A2F;">400 677 0028</text>
+			
+			<view class="taxes_con client" @click="call">
+				<view class="taxes_tit">
+					<view class="taxes_small_tit">
+						<image src="../../static/img/mine/call.png"></image>
+					</view>
+					<text>客服电话</text>
+				</view>
+				<view class="taxes_symbol">
+					<text class="last">400 677 0028</text>
+					>
 				</view>
 			</view>
 		</view>
@@ -181,4 +186,16 @@
 
 <style scoped>
 	@import url("./css/history.css");
+	.last{
+		float: left;
+		color: #952F25;
+		height: 14px;
+		font-size: 15px;
+		font-family: PingFang SC;
+		font-weight: 500;
+		display: inline-block;
+	}
+	.client .taxes_symbol{
+		width: 31%;
+	}
 </style>

@@ -1,5 +1,5 @@
 .prefer-posi.data-v-90cd101a{
-		position: absolute;
+		position: fixed;
 		left: 0;
 		right: 0;
 		width: 100%;

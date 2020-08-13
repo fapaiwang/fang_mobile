@@ -6,13 +6,13 @@
 					<view class="houseItemView">
 						<view class="houseItemImg">
 							<view class="house_status">
-								<text class="house_status_red" v-if="housItem.fcstatus === '169' ">{{housItem.fcstatus_name}}</text>
-								<text class="house_status_blue" v-else-if="housItem.fcstatus === '170' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_red" v-if="housItem.fcstatus == '169' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_blue" v-else-if="housItem.fcstatus == '170' ">{{housItem.fcstatus_name}}</text>
 								<text class="house_status_ash" v-else>{{housItem.fcstatus_name}}</text>
 							</view>
 							<image :src="getImgUrl(housItem.img)" mode=""></image>
 							<view class="tag">
-								<text v-if="housItem.characteristic_name!=''">{{housItem.characteristic_name}}</text>
+								<text v-if="characteristic(housItem.characteristic_name)">{{housItem.characteristic_name}}</text>
 								<text>{{housItem.jieduan_name}}</text>
 							</view>
 						</view>
@@ -78,6 +78,13 @@
 					setTimeout(function(){
 						_sefl.isShow = false;
 					},500);
+				}
+			},
+			characteristic(con){
+				if (con == "" || con == undefined) {
+					return false;
+				} else {
+					return true;
 				}
 			},
 			getImgUrl(icon) {

@@ -218,7 +218,9 @@
 				if (_self.backVal == "m10") {
 					_self.TabCur = 1;
 				}
-				_self.TabCurVal = _self.tabList[_self.TabCur].val;
+				if (_self.TabCur !=999) {
+					_self.TabCurVal = _self.tabList[_self.TabCur].val;
+				}
 				_self.$emit("myEvent",_self.synthesize+_self.rSelect+_self.fSelectVal+_self.typeVal+_self.areaVal+_self.LSelectVal+_self.defaultVal+_self.statusVal+_self.TabCurVal);
 				_self.hiddenAll()
 			}
@@ -368,6 +370,8 @@
 					this.typeNum = 0;
 					this.cust_begin = "";
 					this.cust_end = "";
+					this.statusNum = 0;
+					this.statusVal = "";
 				}
 			},
 			soureSort(){

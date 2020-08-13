@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "nav-search": "/components/community/navSearchHeader"
+  }
 }

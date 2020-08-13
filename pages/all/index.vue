@@ -2,7 +2,7 @@
 	<view :class="isFix ? 'fix' : 'fix1' ">
 		<view class="container">
 			<view @tap="poll()" class="topSty">
-				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData"  @myEvent="touchMe" :tabCur="tabCur" :backVal="backVal"></FocusList>
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" :statusReData="statusReData" @myEvent="touchMe" :tabCur="tabCur" :backVal="backVal"></FocusList>
 			</view>
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 		</view>
@@ -33,6 +33,7 @@
 				levelData:[],
 				loadingTxt:"加载更多",
 				recommendHouseData:[],
+				statusReData:[],
 				cate:"",
 				keyword:"",
 				isNum:1,
@@ -190,40 +191,53 @@
 			},
 			getMoreData(){
 				uni.getStorage({
-					key:"houseProperty",
+					key:_self.fun.houseProperty,
 					success:function(res){
 						_self.houseProperty = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":26}).then((res)=>{
 							_self.houseProperty = res[1].data.data;
-							_self.setStore("houseProperty",res[1].data.data);
+							_self.setStore(_self.fun.houseProperty,res[1].data.data);
 						});
 					}
 				})
 				
 				uni.getStorage({
-					key:"areaData",
+					key:_self.fun.areaData,
 					success:function(res){
 						_self.areaData = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/getAcreage').then((res)=>{
 							_self.areaData = res[1].data.data;
-							_self.setStore("areaData",res[1].data.data);
+							_self.setStore(_self.fun.areaData,res[1].data.data);
 						});
 					}
 				})
 				
 				uni.getStorage({
-					key:"levelData",
+					key:_self.fun.levelData,
 					success:function(res){
 						_self.levelData = res.data
 					},
 					fail:function(){
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":25}).then((res)=>{
 							_self.levelData = res[1].data.data;
-							_self.setStore("levelData",res[1].data.data);
+							_self.setStore(_self.fun.levelData,res[1].data.data);
+						});
+					}
+				})
+				
+				uni.getStorage({
+					key:_self.fun.statusData,
+					success:function(res){
+						_self.statusReData = res.data
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseType',{"id":27}).then((res)=>{
+							_self.statusReData = res[1].data.data;
+							_self.setStore(_self.fun.statusData,res[1].data.data);
 						});
 					}
 				})

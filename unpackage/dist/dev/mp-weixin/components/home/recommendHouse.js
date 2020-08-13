@@ -217,9 +217,13 @@ var _default =
       TabCur: 0,
       tabList: [{ name: '推荐房源' }, { name: '自由购' }],
       listHeight: 690,
-      recommend: this.recommendHouseData,
-      restrict: this.restrictHouseData };
+      fHeight: 690,
+      SistHeight: 690 };
 
+  },
+  onLoad: function onLoad() {
+    this.fHeight = 115 * this.recommendHouseData.length;
+    this.SistHeight = 115 * this.restrictHouseData.length;
   },
   methods: {
     tabChange: function tabChange(index) {
@@ -227,10 +231,10 @@ var _default =
     },
     houseData: function houseData(num) {
       if (num == 0) {
-        this.listHeight = 115 * this.recommendHouseData.length;
+        this.listHeight = this.fHeight;
         return this.recommendHouseData;
       } else {
-        this.listHeight = 115 * this.restrictHouseData.length;
+        this.listHeight = this.SistHeight;
         return this.restrictHouseData;
       }
     },

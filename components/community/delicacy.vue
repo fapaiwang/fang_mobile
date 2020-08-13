@@ -1,6 +1,7 @@
 <template>
 	<view>
-		<view class="prefer-posi" :class="isShow ? 't0' : 't1'">
+		<view class="prefer-posi">
+			<navSearch></navSearch>
 			<!-- 刷选区 -->
 			<view class="delica-view">
 				<view class="delica-list" @click="multiple()">
@@ -80,7 +81,11 @@
 </template>
 
 <script>
+	import navSearch from '@/components/community/navSearchHeader.vue'; // 搜索框
 	export default {
+		components:{
+			navSearch
+		},
 		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","typeNum"],
 		data() {
 			return {

@@ -1,10 +1,8 @@
 <template>
 	<view :class="mark ? 'mark' : ''">
-		<navSearch></navSearch>
-		<banner :bannerdata="bannerdata"></banner>
 		<view>
 			<view class="container">
-				<view @click="poll()" style="width: 100%;">
+				<view @click="poll()" style="width: 100%;height: 30px;">
 					<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" id="boxFixed" :class="{'is_fixed' : isfixed}" @myEvent="touchMe" ref="deli" :typeNum="typeNum"></FocusList>
 				</view>
 				<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>
@@ -14,7 +12,6 @@
 </template>
 
 <script>
-	import navSearch from '@/components/community/navSearchHeader.vue'; // 搜索框
 	import banner from '@/components/community/banner.vue'; //
 	import FocusList from '@/components/community/delicacy.vue';
 	import Takeout from '@/components/community/takeout.vue';
@@ -22,7 +19,6 @@
 	
 	export default {
 		components:{
-			navSearch,
 			banner,
 			FocusList,
 			Takeout
