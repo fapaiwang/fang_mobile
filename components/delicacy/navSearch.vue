@@ -42,7 +42,6 @@
 			},
 			goBack:function(){
 				if (Number(this.back)==1) {
-					console.log(111)
 					uni.switchTab({
 						url:"/pages/index/index"
 					})

@@ -38,7 +38,7 @@
 					this.fun.navTo("/pages/added/index");
 					break;
 					case 5:
-					this.fun.navTo("/pages/news/index?id=3");
+					this.fun.navTo("/pages/deal/index");
 					break;
 					case 6:
 					this.fun.navTo("/pages/news/index");

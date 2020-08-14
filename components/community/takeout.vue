@@ -12,6 +12,9 @@
 							<text>{{housItem.title}}</text>
 						</view>
 						<view class="itemTitle">
+							<text>法拍房源|{{housItem.years}}年</text>
+						</view>
+						<view class="itemTitle">
 							房源
 							<text class="redPrice">{{housItem.second_total}}</text>
 							套

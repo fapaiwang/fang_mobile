@@ -223,6 +223,12 @@
             	"navigationBarTitleText": "增值服务"
             }
         }
+        ,{
+            "path" : "pages/deal/index",
+            "style" : {
+            	"navigationBarTitleText": "成交案例"
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -75,9 +75,9 @@
 			return {
 				TabCur: 0,
 				tabList: [{ name: '推荐房源' }, { name: '自由购' }],
-				listHeight:690,
-				fHeight:690,
-				SistHeight:690
+				listHeight:1250,
+				fHeight:1250,
+				SistHeight:1250
 			}
 		},
 		onLoad:function(){
