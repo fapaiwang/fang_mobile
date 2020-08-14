@@ -188,11 +188,11 @@
 	@import url("./css/history.css");
 	.last{
 		float: left;
-		color: #952F25;
+		color: #E02E24;
 		height: 14px;
-		font-size: 15px;
+		font-size: 28px;
 		font-family: PingFang SC;
-		font-weight: 500;
+		font-weight: bold;
 		display: inline-block;
 	}
 	.client .taxes_symbol{
