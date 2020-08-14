@@ -20,6 +20,8 @@ class Fun{
 	statusData = "statusData" //刷选列表 更多 状态
 	HomeMenu = "HomeMenu" //首页快速导航
 	auction = "auction" //首页 即将拍卖
+	listing = "y1" //首页 推荐房源
+	freeBuy = "freeBuy" //首页 自由购
 
 	navTo(url){//保留当前页面，跳转到应用内的某个页面 url跳转
 		uni.navigateTo({
@@ -45,6 +47,11 @@ class Fun{
 		} else {
 			return "";
 		}
+	}
+	
+	getCurrenTime(){
+		var myDate = new Date;
+		return myDate.getFullYear()+""+myDate.getMonth()+1+""+myDate.getDate(); //获取当前年
 	}
 	
 	getReq(_url,_data="",_method='GET'){//get请求

@@ -207,7 +207,11 @@
 				return this.likeHouse.indexOf(id) != -1 ? '../../static/img/community/xin.png' :  '../../static/img/community/join.png';
 			},
 			getOther(id) {
-				this.fun.navTo(`/pages/detail/other?id=${id}`);
+				if (this.uuid == -1) {
+					this.fun.navTo("/pages/login/login");
+				} else {
+					this.fun.navTo(`/pages/detail/other?id=${id}`);
+				}
 			},
 			taxes(id,price) {
 				this.fun.navTo(`/pages/detail/taxes?id=${id}&qp=${price}`);

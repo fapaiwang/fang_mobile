@@ -54,7 +54,8 @@
 			getRes(){
 				this.fun.getReq(this.baseUrl+'/api/estate/transactionRecord')
 				.then((res)=>{
-					resData.bannerdata = res[1].data.data;
+					console.log(res[1]);
+					this.bannerdata = res[1].data.data;
 				})
 				
 			},

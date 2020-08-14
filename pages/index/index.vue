@@ -8,7 +8,7 @@
 		<SelectHouse></SelectHouse>
 		<centerBanner :centerBannerdata='centerBannerdata'></centerBanner>
 		<featured :qualityEstateData='qualityEstateData'></featured>
-		<getrecommendHouse :recommendHouseData='recommendHouseData' :restrictHouseData='restrictHouseData'></getrecommendHouse>
+		<getrecommendHouse></getrecommendHouse>
 		<view class="moreView">
 			<view @click="goMore" class="moreViewBtn">
 				<text>更多推荐房源</text>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	var _self, page = 1 ,freePage = 1, timer = null;//timer延迟期
+	var _self, timer = null;//timer延迟期
 	
 	import navSearch from '@/components/base/navSearchHeader.vue'; // 搜索框
 	import banner from '@/components/home/banner.vue'; // banner
@@ -67,29 +67,6 @@
 			_self = this;
 			this.getHomeData()
 		},
-		// onPullDownRefresh:function(){//上滑获取数据
-		// 	if (this.tabIndex == 0 ){
-		// 		this.getMorequalityEstateData();
-		// 	} else {
-		// 		this.getMoreRecommendHouseData()
-		// 	}
-		// },
-		// onReachBottom:function(){//下滑获取数据
-		// 	if (timer!=null){
-		// 		clearTimeout(timer);
-		// 	}
-		// 	if (this.tabIndex == 0 ){
-		// 		this.getMorequalityEstateData();
-		// 		timer = setTimeout(function(){
-		// 			_self.getMorequalityEstateData();
-		// 		},500);
-		// 	} else {
-		// 		this.getMoreRecommendHouseData()
-		// 		timer = setTimeout(function(){
-		// 			_self.getMoreRecommendHouseData();
-		// 		},500);
-		// 	}
-		// },
 		methods: {
 			getHomeData() {
 				this.getHomeMenuData();
@@ -160,35 +137,33 @@
 				})
 			},
 			getRecommendHouseData() { //推荐房源
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=y1&page='+page)
-				.then((res)=>{
-					this.recommendHouseData = res[1].data.data.lists.data;
-					page++
+				var _self = this;
+				let _key = this.fun.listing+""+this.fun.getCurrenTime;
+				uni.getStorage({
+					key:_key,
+					success:function(res){
+						
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
+							_self.setStore(_key,res[1].data.data.lists.data);
+						});
+					}
 				})
 			},
 			getFreeHouseData() { //自由购
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)
-				.then((res)=>{
-					this.restrictHouseData = res[1].data.data.lists.data;
-					freePage++
-				})
-			},
-			getMorequalityEstateData() { // 更多推荐房源
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=y1&page='+page)
-				.then((res)=>{
-					var newsList = res[1].data.data.lists.data;
-					_self.recommendHouseData = _self.recommendHouseData.concat(newsList);
-					page++;
-					this.getLoad()
-				})
-			},
-			getMoreRecommendHouseData() { // 更多自由购
-				this.fun.getReq(this.baseUrl+'/api/second/houseList?a=m10&page='+freePage)
-				.then((res)=>{
-					var newsList = res[1].data.data.lists.data;
-					_self.restrictHouseData = _self.restrictHouseData.concat(newsList);
-					freePage++;
-					this.getLoad()
+				var _self = this;
+				let _key = this.fun.freeBuy+""+this.fun.getCurrenTime;
+				uni.getStorage({
+					key:_key,
+					success:function(res){
+					
+					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
+							_self.setStore(_key,res[1].data.data.lists.data);
+						});
+					}
 				})
 			},
 			goMore() {//加载更多

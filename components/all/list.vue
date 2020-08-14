@@ -101,4 +101,5 @@
 
 <style scoped>
 	@import url("./css/list.css");
+	@import url("@/components/common/css/base/item.css");
 </style>

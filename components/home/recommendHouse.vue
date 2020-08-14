@@ -70,32 +70,27 @@
 
 <script>
 	export default {
-		props:['recommendHouseData','restrictHouseData'],
 		data() {
 			return {
 				TabCur: 0,
 				tabList: [{ name: '推荐房源' }, { name: '自由购' }],
 				listHeight:1250,
 				fHeight:1250,
-				SistHeight:1250
+				SistHeight:1250,
+				recommendHouseData:[],
+				restrictHouseData:[]
 			}
 		},
-		onLoad:function(){
-			this.fHeight = 115*this.recommendHouseData.length;
-			this.SistHeight = 115*this.restrictHouseData.length;
+		created:function(){
+			this.getRecommendHouseData();
+			this.getFreeHouseData();
 		},
 		methods: {
 			tabChange(index) {
 			    this.TabCur = index;
 			},
 			houseData(num) {
-				if (num == 0) {
-					this.listHeight = this.fHeight;
-					return this.recommendHouseData;
-				} else {
-					this.listHeight = this.SistHeight;
-					return this.restrictHouseData;
-				}
+				return num <1 ? this.recommendHouseData : this.restrictHouseData;
 			},
 			getDetail(index) {//跳转到小区详情页面
 				return '/pages/detail/index?id='+index;
@@ -110,10 +105,33 @@
 				var index=e.target.current || e.detail.current;
 				this.TabCur = index;
 			},
+			getRecommendHouseData() { //推荐房源
+				var _self = this;
+				let _key = this.fun.listing+""+this.fun.getCurrenTime;
+				uni.getStorage({
+					key:_key,
+					success:function(res){
+						_self.recommendHouseData = res.data;
+						_self.fHeight = 115*res.data.length;
+					},
+				})
+			},
+			getFreeHouseData() { //自由购
+				var _self = this;
+				let _key = this.fun.freeBuy+""+this.fun.getCurrenTime;
+				uni.getStorage({
+					key:_key,
+					success:function(res){
+						_self.restrictHouseData = res.data
+						_self.SistHeight = 115*res.data.length;
+					},
+				})
+			},
 		}
 	}
 </script>
 
 <style scoped>
 	@import url("./css/recommendHouse.css");
+	@import url("@/components/common/css/base/item.css");
 </style>

@@ -161,8 +161,11 @@
 			top: 0;
 			z-index: 999;
 			left: 40upx;
-			padding: 80upx 30upx 0 20upx;	
-			width: 100%;
+			padding-top: 60upx;
+			width:91%;
+		}
+		.container{
+			margin-top: 78px;
 		}
 	/* #endif */
 	
@@ -175,7 +178,20 @@
 		z-index: 999;
 		left: 40upx;
 		padding: 180upx 30upx 0 20upx;	
-		width: 98%;
+		width: 91%;
+	}
+	/* #endif */
+	
+	/* #ifdef H5 */
+	.header-wrap {
+		margin-top: 10upx;
+		height: 60upx;
+		width: 100%;
+		top: 0;
+		z-index: 999;
+		left: 40upx;
+		padding: 0 30upx;
+		width: 91%;
 	}
 	/* #endif */
 </style>

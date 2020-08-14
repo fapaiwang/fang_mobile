@@ -1,0 +1,141 @@
+.houseItemView {
+	display: flex;
+	height: 280upx;
+	flex-direction: row;
+}
+.houseItemImg {
+	width:240upx;
+	height:149upx;
+	display: inline-block;
+}
+.houseItemImg image {
+	width:240upx;
+	height:149upx;
+	border-radius:10upx;
+}
+.houseItem {
+	flex: 1;
+	margin-left: 25upx;
+}
+.itemTitle{
+	height:80upx;
+	font-size:30upx;
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:#333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box; //作为弹性伸缩盒子模型显示。
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+}
+.itemInfo {
+	font-size: 24upx;
+	color: #666;
+	margin: 3upx 0;
+}
+.itemPrice {
+	display: flex;
+	flex-direction: row;
+	color: #333333;
+	justify-content: space-between;
+	font-size: 20upx;
+}
+
+.redPrice {
+	margin-left: 10upx;
+	color: #E02E24;
+	font-size: 26upx;
+}
+.grayPrice {
+	margin-left: 10upx;
+	color: #333;
+	font-size: 26upx;
+}
+.createIime {
+	margin-top: 14upx;
+	background:rgba(199,49,38, 0.15);
+	/* opacity:0.06; */
+	border-radius: 10upx;
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	height: 51upx;
+},
+.createIimeIcon{
+	width: 24upx;
+	height: 24upx;
+	margin: 16upx 0 7upx 9upx;
+}
+.createIimeIcon image {
+	width: 24upx;
+	height: 24upx;
+	float: left;
+}
+.createIimeIconinfo {
+	font-size: 26upx;
+	color: #E02E24;
+	line-height: 55upx;
+},
+.navigator-hover,.navigator-hover:hover{
+	background: none;
+	cursor: pointer;
+}
+.navigator-hover{
+	opacity: unset;
+}
+.tag{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 4upx;
+}
+.tag text{
+	width:114upx;
+	height:50upx;
+	border-radius:5upx;
+	font-size:24upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	background:#E4EFFD;
+	color:#4297FF;
+	line-height:50upx;
+	text-align: center;
+	border-radius:5upx;
+}
+
+.tag .tag_label_2{
+	color: #EF8B46 !important;
+}
+.house_status{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 20upx;
+	position: absolute;
+	z-index: 10;
+	color: #fff;
+	margin-top: 20upx;
+}
+.house_status text{
+	width:84upx;
+	height: 30upx;
+	line-height:30upx;
+	text-align: center;
+	font-size: 20upx;
+	border-radius:0 15px 15px 0;
+}
+.house_status .house_status_red{
+	background: #E02E24;
+}
+.house_status .house_status_blue{
+	background: #3C76D9;
+}
+.house_status .house_status_ash{
+	background: #989898;
+}
+.tag_label_1 {
+ color: #EF8B46 !important;
+}
