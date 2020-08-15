@@ -9,7 +9,7 @@
 					<image class="iconfangdajing" src='../../static/img/base/searchIcon@2x.png'></image>
 					<input maxlength="140"
 						step="" 
-						placeholder="请输入小区/房源/管理员名称" 
+						placeholder="请输入小区/房源/法拍经理名称" 
 						autocomplete="off" 
 						type="search"
 						v-model="value"

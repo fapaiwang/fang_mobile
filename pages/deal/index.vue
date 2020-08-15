@@ -3,39 +3,41 @@
 		<view class="header_img">
 			<image src="../../static/img/deal/deal.png"></image>
 		</view>
-		<view class="con">
+		<block v-for="(dealStory, indexs) in info" :key="indexs">
+			<view class="con">
 			<view class="con_header">
 				<view class="house">
-					<image></image>
+					<image :src="imgList(dealStory.img)" mode="scaleToFill" class="swiper-item"></image>
 				</view>
 				<view class="deal_info">
-					<text class="tit">张女士</text>
+					<!-- <text class="tit">{{dealStory.customer_name}}</text> -->
 					<view class="yuanjiao">
-						成交时间：<text class="chengjiaotime">2012</text>
+						<text>成交时间</text> <text class="chengjiaotime">{{dealStory.cjtime}}</text>
 					</view>
 					<view class="loupan">
-						购买楼盘：<text class="loupan_info">珠江骏景北区</text>
+						<text class="yuanjiao_label">购买楼盘：</text><text class="loupan_info">{{dealStory.community}}</text>
 					</view>
 					<view class="loupan">
-						法拍经理：：<text class="loupan_info">111</text>
+						<text>法拍经理：</text><text class="loupan_info">{{dealStory.fapai_manager}}</text>
 					</view>
 					<view class="loupan">
-						成交价：<text class="chengjiao">111</text>万
+						<text>成交价：</text><text class="chengjiao">{{dealStory.price}}</text>万
 					</view>
 					<view class="loupan">
-						低于市场价：<text class="chengjiao">111</text>万
+						<text>低于市场价：</text><text class="chengjiao">{{dealStory.save_money}}</text>万
 					</view>
 				</view>
 			</view>
 			<view class="con_body">
 				<text class="con_body_text" :class="isShow ? 'con_body_a' : 'con_body_h' ">
-					客户张女士是通过朋友介绍了解的金铂顺昌房拍网，张女士的朋友通过房拍网成功拍下低于市场价115万的海淀区某房源，张女士听到后非常震惊并且兴奋，张女士想海淀区的房源都是抢手的，她的朋友不但拍到了而且还低于市场价100多万！真是赚到了！因为张女士正准备用手里的闲散资金进行购房当做投资，随后张女士通过朋友的引荐来到公司进行咨询，法拍冯经理进行了接待，并耐心听取了张女士的需求，并找了4套适合的房源推荐给张女士，张女士选择了其中两套准备尝试，结果首次就竞拍成功珠江骏景北区某房源，成交价835万，市场价1000万，低于市场价165万！张女士非常激动，第二天把感谢的锦旗送到了公司。责接待林先生的是法拍经理刘伟刚，刘经理的自信心、专业大方的态度、以
+					{{dealStory.description}}
 				</text>
 				<view class="bottom" @click="show">
 					<image :src="getImg()"></image>
 				</view>
 			</view>
 		</view>
+		</block>
 	</view>
 </template>
 
@@ -44,7 +46,7 @@
 		data() {
 			return {
 				isShow:false,
-				resData:[],
+				info:[],
 			}
 		},
 		onLoad:function(){
@@ -52,12 +54,11 @@
 		},
 		methods: {
 			getRes(){
-				this.fun.getReq(this.baseUrl+'/api/estate/transactionRecord')
+				this.fun.getReq(this.baseUrl+'/api/article/dealStory')
 				.then((res)=>{
-					console.log(res[1]);
-					this.bannerdata = res[1].data.data;
+					this.info = res[1].data.data;
 				})
-				
+
 			},
 			show(){
 				if (this.isShow) {
@@ -68,6 +69,9 @@
 			},
 			getImg(){
 				return this.isShow ? '../../static/img/delicacy/top.png' : '../../static/img/deal/body_bottom.png';
+			},
+			imgList(url){
+				return this.fun.getImgSrc(url);
 			}
 		}
 	}
@@ -119,6 +123,9 @@
 	}
 	.deal_info{
 		float: right;
+		width: calc(100% - 360upx);
+		padding-left: 20upx;
+		box-sizing: border-box;
 	}
 	.tit{
 		width:100%;
@@ -152,6 +159,7 @@
 	}
 	.chengjiaotime{
 		color:#333 !important;
+		margin-left: 15upx;
 	}
 	.loupan{
 		width:100%;
@@ -162,9 +170,19 @@
 		color:rgba(153,153,153,1);
 		line-height:23upx;
 		margin-top: 19upx;
+		overflow: hidden;
+		display: flex;
 	}
 	.loupan_info{
-		color:rgba(153,153,153,1) !important
+        /* padding: 30upx; */
+		color:rgba(153,153,153,1) !important;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
+		width: calc(100% - 114upx);
+	}
+	.yuanjiao_label {
+		width: 114upx;
 	}
 	.chengjiao{
 		color: #DF2D23 !important;
@@ -184,7 +202,7 @@
 		color:#333;
 		height: 90upx;
 		overflow: hidden;
-		line-height:40upx;	
+		line-height:40upx;
 		display: inline-block;
 	}
 	.con_body_h{
