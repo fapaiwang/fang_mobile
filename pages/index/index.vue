@@ -74,8 +74,6 @@
 				this.getHomeSecondSearch();
 				this.getTodayAddData();
 				this.getqualityEstateData();
-				this.getRecommendHouseData();
-				this.getFreeHouseData();
 			},
 			getHomeMenuData() {
 				var _self = this;
@@ -134,36 +132,6 @@
 				this.fun.getReq(RequestUrl.recommendedCommunity)
 				.then((res)=>{
 					this.qualityEstateData = res[1].data.data
-				})
-			},
-			getRecommendHouseData() { //推荐房源
-				var _self = this;
-				let _key = this.fun.listing+""+this.fun.getCurrenTime;
-				uni.getStorage({
-					key:_key,
-					success:function(res){
-						
-					},
-					fail:function(){
-						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
-							_self.setStore(_key,res[1].data.data.lists.data);
-						});
-					}
-				})
-			},
-			getFreeHouseData() { //自由购
-				var _self = this;
-				let _key = this.fun.freeBuy+""+this.fun.getCurrenTime;
-				uni.getStorage({
-					key:_key,
-					success:function(res){
-					
-					},
-					fail:function(){
-						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
-							_self.setStore(_key,res[1].data.data.lists.data);
-						});
-					}
 				})
 			},
 			goMore() {//加载更多

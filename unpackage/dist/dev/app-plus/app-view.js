@@ -468,7 +468,7 @@ var render = function() {
                 attrs: {
                   maxlength: "140",
                   step: "",
-                  placeholder: "请输入小区/房源/管理员名称",
+                  placeholder: "请输入小区/房源/法拍经理名称",
                   autocomplete: "off",
                   type: "search",
                   "placeholder-class": "uni-inputPlaceholder",
@@ -3425,7 +3425,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".recommendHouseView[data-v-84369bee] {\n\tmargin-top: 43upx;\n\tpadding: 0 30upx;\n}.recommendHouseTitleView[data-v-84369bee] {\n\theight: 117upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n}.recommendHouseTitleItem[data-v-84369bee] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tfont-size:40upx;\n\tfont-family:PingFang SC;\n\tfont-weight:800;\n\tcolor:rgba(51,51,51,1);\n\tmargin-bottom: 25px;\n}.scv[data-v-84369bee]{\n\t-webkit-flex-wrap: nowrap;\n\t        flex-wrap: nowrap;\n\twhite-space: nowrap;\n\tmargin: 0 auto;\n\twidth: 50%;\n\tmargin-bottom: 40upx;\n}.scv uni-view[data-v-84369bee]{\n\tdisplay: inline-block;\n\theight: 50upx;\n\tline-height: 50upx;\n\ttext-align: center;\n\tcolor: #999;\n\tfont-size:28upx;\n\twidth: 50%;\n\ttext-align: center;\n}.scv_line[data-v-84369bee]{\n\tborder:4upx solid #fff;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin: 0 auto;\n\twidth:47upx;\n}.text-red[data-v-84369bee]{\n\tcolor: #000 !important;\n}.text-red uni-text[data-v-84369bee]{\n\tbackground:rgba(224,46,36,1);\n\tborder:4upx solid rgba(224,46,36,1);\n}.quickTabSwiperItem[data-v-84369bee]{\n\tdisplay: inline-block;\n}.houseItemView[data-v-84369bee] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-84369bee] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-84369bee] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-84369bee] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-84369bee]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-84369bee] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-84369bee] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-84369bee] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-84369bee] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-84369bee] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-84369bee]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-84369bee] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-84369bee] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-84369bee],\n.navigator-hover[data-v-84369bee]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-84369bee]{\n\topacity: unset;\n}.tag[data-v-84369bee]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-84369bee]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-84369bee]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-84369bee]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-84369bee]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-84369bee]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-84369bee]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-84369bee]{\n\tbackground: #989898;\n}.tag_label_1[data-v-84369bee] {\n color: #EF8B46 !important;\n}\n", ""]);
+exports.push([module.i, ".recommendHouseView[data-v-84369bee] {\n\tmargin-top: 43upx;\n\tpadding: 0 30upx;\n}.recommendHouseTitleView[data-v-84369bee] {\n\theight: 117upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n}.recommendHouseTitleItem[data-v-84369bee] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tfont-size:40upx;\n\tfont-family:PingFang SC;\n\tfont-weight:800;\n\tcolor:rgba(51,51,51,1);\n\tmargin-bottom: 25px;\n}.scv[data-v-84369bee]{\n\t-webkit-flex-wrap: nowrap;\n\t        flex-wrap: nowrap;\n\twhite-space: nowrap;\n\tmargin: 0 auto;\n\twidth: 50%;\n\tmargin-bottom: 40upx;\n}.scv uni-view[data-v-84369bee]{\n\tdisplay: inline-block;\n\theight: 50upx;\n\tline-height: 50upx;\n\ttext-align: center;\n\tcolor: #999;\n\tfont-size:28upx;\n\twidth: 50%;\n\ttext-align: center;\n}.scv_line[data-v-84369bee]{\n\tborder:4upx solid #fff;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin: 0 auto;\n\twidth:47upx;\n}.text-red[data-v-84369bee]{\n\tcolor: #000 !important;\n}.text-red uni-text[data-v-84369bee]{\n\tbackground:rgba(224,46,36,1);\n\tborder:4upx solid rgba(224,46,36,1);\n}.quickTabSwiperItem[data-v-84369bee]{\n\tdisplay: inline-block;\n}.houseItemView[data-v-84369bee] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-84369bee] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-84369bee] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-84369bee] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-84369bee]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-84369bee] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-84369bee] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-84369bee] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-84369bee] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-84369bee] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-84369bee]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-84369bee] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-84369bee] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-84369bee],\n.navigator-hover[data-v-84369bee]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-84369bee]{\n\topacity: unset;\n}.tag[data-v-84369bee]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-84369bee]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-84369bee]{\n\tcolor: #EF8B46 !important;\n}.tag .tag_label_2[data-v-84369bee]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-84369bee]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-84369bee]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-84369bee]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-84369bee]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-84369bee]{\n\tbackground: #989898;\n}.tag_label_1[data-v-84369bee] {\n color: #EF8B46 !important;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -12251,7 +12251,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".recommendList[data-v-22e9c460]{\n\tpadding-top: 294upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-22e9c460] {\n\tpadding: 0 30upx;\n}.loading[data-v-22e9c460]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n}.houseItemView[data-v-22e9c460] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-22e9c460] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-22e9c460] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-22e9c460] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-22e9c460]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-22e9c460] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-22e9c460] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-22e9c460] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-22e9c460] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-22e9c460] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-22e9c460]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-22e9c460] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-22e9c460] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-22e9c460],\n.navigator-hover[data-v-22e9c460]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-22e9c460]{\n\topacity: unset;\n}.tag[data-v-22e9c460]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-22e9c460]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-22e9c460]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-22e9c460]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-22e9c460]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-22e9c460]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-22e9c460]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-22e9c460]{\n\tbackground: #989898;\n}.tag_label_1[data-v-22e9c460] {\n color: #EF8B46 !important;\n}\n", ""]);
+exports.push([module.i, ".recommendList[data-v-22e9c460]{\n\tpadding-top: 294upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-22e9c460] {\n\tpadding: 0 30upx;\n}.loading[data-v-22e9c460]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n}.houseItemView[data-v-22e9c460] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-22e9c460] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-22e9c460] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-22e9c460] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-22e9c460]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-22e9c460] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-22e9c460] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-22e9c460] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-22e9c460] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-22e9c460] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-22e9c460]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-22e9c460] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-22e9c460] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-22e9c460],\n.navigator-hover[data-v-22e9c460]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-22e9c460]{\n\topacity: unset;\n}.tag[data-v-22e9c460]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-22e9c460]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-22e9c460]{\n\tcolor: #EF8B46 !important;\n}.tag .tag_label_2[data-v-22e9c460]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-22e9c460]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-22e9c460]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-22e9c460]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-22e9c460]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-22e9c460]{\n\tbackground: #989898;\n}.tag_label_1[data-v-22e9c460] {\n color: #EF8B46 !important;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -24277,7 +24277,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".recommendList[data-v-1ac55af2]{\n\tpadding-top: 354upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-1ac55af2] {\n\tpadding: 0 30upx;\n}.quickTabSwiperItem[data-v-1ac55af2] {\n\tdisplay: inline-block;\n\tfloat: left;\n}.loading[data-v-1ac55af2]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n\twidth: 100%;\n\tdisplay: inline-block;\n}.houseItemView[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-1ac55af2] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-1ac55af2] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-1ac55af2] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-1ac55af2]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-1ac55af2] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-1ac55af2]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-1ac55af2] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-1ac55af2] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-1ac55af2],\n.navigator-hover[data-v-1ac55af2]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-1ac55af2]{\n\topacity: unset;\n}.tag[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-1ac55af2]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-1ac55af2]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-1ac55af2]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-1ac55af2]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-1ac55af2]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-1ac55af2]{\n\tbackground: #989898;\n}.tag_label_1[data-v-1ac55af2] {\n color: #EF8B46 !important;\n}\n", ""]);
+exports.push([module.i, ".recommendList[data-v-1ac55af2]{\n\tpadding-top: 354upx;\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.recommendHouseView[data-v-1ac55af2] {\n\tpadding: 0 30upx;\n}.quickTabSwiperItem[data-v-1ac55af2] {\n\tdisplay: inline-block;\n\tfloat: left;\n}.loading[data-v-1ac55af2]{\n\tline-height: 2em;\n\ttext-align: center;\n\tcolor: #888;\n\tfont-size: 20upx;\n\tmargin-top: 20upx;\n\twidth: 100%;\n\tdisplay: inline-block;\n}.houseItemView[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\theight: 280upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n}.houseItemImg[data-v-1ac55af2] {\n\twidth:240upx;\n\theight:149upx;\n\tdisplay: inline-block;\n}.houseItemImg uni-image[data-v-1ac55af2] {\n\twidth:240upx;\n\theight:149upx;\n\tborder-radius:10upx;\n}.houseItem[data-v-1ac55af2] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tmargin-left: 25upx;\n}.itemTitle[data-v-1ac55af2]{\n\theight:80upx;\n\tfont-size:30upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:#333;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:2;\n}.itemInfo[data-v-1ac55af2] {\n\tfont-size: 24upx;\n\tcolor: #666;\n\tmargin: 3upx 0;\n}.itemPrice[data-v-1ac55af2] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tcolor: #333333;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tfont-size: 20upx;\n}.redPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #E02E24;\n\tfont-size: 26upx;\n}.grayPrice[data-v-1ac55af2] {\n\tmargin-left: 10upx;\n\tcolor: #333;\n\tfont-size: 26upx;\n}.createIime[data-v-1ac55af2] {\n\tmargin-top: 14upx;\n\tbackground:rgba(199,49,38, 0.15);\n\t/* opacity:0.06; */\n\tborder-radius: 10upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\ttext-align: center;\n\theight: 51upx;\n}.createIimeIcon[data-v-1ac55af2]{\n\twidth: 24upx;\n\theight: 24upx;\n\tmargin: 16upx 0 7upx 9upx;\n}.createIimeIcon uni-image[data-v-1ac55af2] {\n\twidth: 24upx;\n\theight: 24upx;\n\tfloat: left;\n}.createIimeIconinfo[data-v-1ac55af2] {\n\tfont-size: 26upx;\n\tcolor: #E02E24;\n\tline-height: 55upx;\n}.navigator-hover[data-v-1ac55af2],\n.navigator-hover[data-v-1ac55af2]:hover{\n\tbackground: none;\n\tcursor: pointer;\n}.navigator-hover[data-v-1ac55af2]{\n\topacity: unset;\n}.tag[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tmargin-top: 4upx;\n}.tag uni-text[data-v-1ac55af2]{\n\twidth:114upx;\n\theight:50upx;\n\tborder-radius:5upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tbackground:#E4EFFD;\n\tcolor:#4297FF;\n\tline-height:50upx;\n\ttext-align: center;\n\tborder-radius:5upx;\n}.tag .tag_label_2[data-v-1ac55af2]{\n\tcolor: #EF8B46 !important;\n}.tag .tag_label_2[data-v-1ac55af2]{\n\tcolor: #EF8B46 !important;\n}.house_status[data-v-1ac55af2]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tfont-size: 20upx;\n\tposition: absolute;\n\tz-index: 10;\n\tcolor: #fff;\n\tmargin-top: 20upx;\n}.house_status uni-text[data-v-1ac55af2]{\n\twidth:84upx;\n\theight: 30upx;\n\tline-height:30upx;\n\ttext-align: center;\n\tfont-size: 20upx;\n\tborder-radius:0 15px 15px 0;\n}.house_status .house_status_red[data-v-1ac55af2]{\n\tbackground: #E02E24;\n}.house_status .house_status_blue[data-v-1ac55af2]{\n\tbackground: #3C76D9;\n}.house_status .house_status_ash[data-v-1ac55af2]{\n\tbackground: #989898;\n}.tag_label_1[data-v-1ac55af2] {\n color: #EF8B46 !important;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -24458,7 +24458,7 @@ var render = function() {
                     attrs: {
                       maxlength: "140",
                       step: "",
-                      placeholder: "请输入小区/房源/管理员名称",
+                      placeholder: "请输入小区/房源/法拍经理名称",
                       autocomplete: "off",
                       type: "search",
                       "placeholder-class": "uni-inputPlaceholder",
@@ -28915,145 +28915,213 @@ var render = function() {
         [_c("v-uni-image", { attrs: { src: _vm._$g(2, "a-src"), _i: 2 } })],
         1
       ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
-        [
+      _vm._l(_vm._$g(3, "f"), function(dealStory, indexs, $20, $30) {
+        return [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            {
+              key: dealStory["k0"],
+              staticClass: _vm._$g("4-" + $30, "sc"),
+              attrs: { _i: "4-" + $30 }
+            },
             [
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
-                [_c("v-uni-image", { attrs: { _i: 6 } })],
-                1
-              ),
-              _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                {
+                  staticClass: _vm._$g("5-" + $30, "sc"),
+                  attrs: { _i: "5-" + $30 }
+                },
                 [
                   _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-                    [_vm._v("张女士")]
-                  ),
-                  _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                    {
+                      staticClass: _vm._$g("6-" + $30, "sc"),
+                      attrs: { _i: "6-" + $30 }
+                    },
                     [
-                      _vm._v("成交时间："),
-                      _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
-                        [_vm._v("2012")]
-                      )
+                      _c("v-uni-image", {
+                        staticClass: _vm._$g("7-" + $30, "sc"),
+                        attrs: {
+                          src: _vm._$g("7-" + $30, "a-src"),
+                          mode: "scaleToFill",
+                          _i: "7-" + $30
+                        }
+                      })
                     ],
                     1
                   ),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                    {
+                      staticClass: _vm._$g("8-" + $30, "sc"),
+                      attrs: { _i: "8-" + $30 }
+                    },
                     [
-                      _vm._v("购买楼盘："),
                       _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
-                        [_vm._v("珠江骏景北区")]
-                      )
-                    ],
-                    1
-                  ),
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-                    [
-                      _vm._v("法拍经理：："),
-                      _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                        [_vm._v("111")]
-                      )
-                    ],
-                    1
-                  ),
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
-                    [
-                      _vm._v("成交价："),
-                      _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
-                        [_vm._v("111")]
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("9-" + $30, "sc"),
+                          attrs: { _i: "9-" + $30 }
+                        },
+                        [
+                          _c("v-uni-text", { attrs: { _i: "10-" + $30 } }, [
+                            _vm._v("成交时间")
+                          ]),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("11-" + $30, "sc"),
+                              attrs: { _i: "11-" + $30 }
+                            },
+                            [_vm._v(_vm._$g("11-" + $30, "t0-0"))]
+                          )
+                        ],
+                        1
                       ),
-                      _vm._v("万")
-                    ],
-                    1
-                  ),
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-                    [
-                      _vm._v("低于市场价："),
                       _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-                        [_vm._v("111")]
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("12-" + $30, "sc"),
+                          attrs: { _i: "12-" + $30 }
+                        },
+                        [
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("13-" + $30, "sc"),
+                              attrs: { _i: "13-" + $30 }
+                            },
+                            [_vm._v("购买楼盘：")]
+                          ),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("14-" + $30, "sc"),
+                              attrs: { _i: "14-" + $30 }
+                            },
+                            [_vm._v(_vm._$g("14-" + $30, "t0-0"))]
+                          )
+                        ],
+                        1
                       ),
-                      _vm._v("万")
+                      _c(
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("15-" + $30, "sc"),
+                          attrs: { _i: "15-" + $30 }
+                        },
+                        [
+                          _c("v-uni-text", { attrs: { _i: "16-" + $30 } }, [
+                            _vm._v("法拍经理：")
+                          ]),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("17-" + $30, "sc"),
+                              attrs: { _i: "17-" + $30 }
+                            },
+                            [_vm._v(_vm._$g("17-" + $30, "t0-0"))]
+                          )
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("18-" + $30, "sc"),
+                          attrs: { _i: "18-" + $30 }
+                        },
+                        [
+                          _c("v-uni-text", { attrs: { _i: "19-" + $30 } }, [
+                            _vm._v("成交价：")
+                          ]),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("20-" + $30, "sc"),
+                              attrs: { _i: "20-" + $30 }
+                            },
+                            [_vm._v(_vm._$g("20-" + $30, "t0-0"))]
+                          ),
+                          _vm._v("万")
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("21-" + $30, "sc"),
+                          attrs: { _i: "21-" + $30 }
+                        },
+                        [
+                          _c("v-uni-text", { attrs: { _i: "22-" + $30 } }, [
+                            _vm._v("低于市场价：")
+                          ]),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g("23-" + $30, "sc"),
+                              attrs: { _i: "23-" + $30 }
+                            },
+                            [_vm._v(_vm._$g("23-" + $30, "t0-0"))]
+                          ),
+                          _vm._v("万")
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
                 ],
                 1
-              )
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-            [
-              _c(
-                "v-uni-text",
-                {
-                  staticClass: _vm._$g(20, "sc"),
-                  class: _vm._$g(20, "c"),
-                  attrs: { _i: 20 }
-                },
-                [
-                  _vm._v(
-                    "客户张女士是通过朋友介绍了解的金铂顺昌房拍网，张女士的朋友通过房拍网成功拍下低于市场价115万的海淀区某房源，张女士听到后非常震惊并且兴奋，张女士想海淀区的房源都是抢手的，她的朋友不但拍到了而且还低于市场价100多万！真是赚到了！因为张女士正准备用手里的闲散资金进行购房当做投资，随后张女士通过朋友的引荐来到公司进行咨询，法拍冯经理进行了接待，并耐心听取了张女士的需求，并找了4套适合的房源推荐给张女士，张女士选择了其中两套准备尝试，结果首次就竞拍成功珠江骏景北区某房源，成交价835万，市场价1000万，低于市场价165万！张女士非常激动，第二天把感谢的锦旗送到了公司。责接待林先生的是法拍经理刘伟刚，刘经理的自信心、专业大方的态度、以"
-                  )
-                ]
               ),
               _c(
                 "v-uni-view",
                 {
-                  staticClass: _vm._$g(21, "sc"),
-                  attrs: { _i: 21 },
-                  on: {
-                    click: function($event) {
-                      return _vm.$handleViewEvent($event)
-                    }
-                  }
+                  staticClass: _vm._$g("24-" + $30, "sc"),
+                  attrs: { _i: "24-" + $30 }
                 },
                 [
-                  _c("v-uni-image", {
-                    attrs: { src: _vm._$g(22, "a-src"), _i: 22 }
-                  })
+                  _c(
+                    "v-uni-text",
+                    {
+                      staticClass: _vm._$g("25-" + $30, "sc"),
+                      class: _vm._$g("25-" + $30, "c"),
+                      attrs: { _i: "25-" + $30 }
+                    },
+                    [_vm._v(_vm._$g("25-" + $30, "t0-0"))]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    {
+                      staticClass: _vm._$g("26-" + $30, "sc"),
+                      attrs: { _i: "26-" + $30 },
+                      on: {
+                        click: function($event) {
+                          return _vm.$handleViewEvent($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("v-uni-image", {
+                        attrs: {
+                          src: _vm._$g("27-" + $30, "a-src"),
+                          _i: "27-" + $30
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ],
                 1
               )
             ],
             1
           )
-        ],
-        1
-      )
+        ]
+      })
     ],
-    1
+    2
   )
 }
 var recyclableRender = false
@@ -29147,7 +29215,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../static/img/dea
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "\nbody[data-v-434da478]{\n\twidth:100%;\n\theight: 100%;\n\tbackground:-webkit-linear-gradient(288deg,#FF895F,#FF715D);\n\tbackground:linear-gradient(162deg,#FF895F,#FF715D);\n\topacity:0.88;\n}\n.header_img[data-v-434da478]{\n\twidth: 100%;\n\theight: 296upx;\n}\n.header_img uni-image[data-v-434da478]{\n\twidth: 750upx;\n\theight: 296upx;\n\tdisplay: inline-block;\n\tmargin: 0 auto;\n}\n.con[data-v-434da478]{\n\twidth:654upx;\n\tbackground:rgba(255,255,255,1);\n\tborder-radius:10upx;\n\tmargin: 0 auto;\n\toverflow: hidden;\n}\n.con_header[data-v-434da478]{\n\theight:295upx;\n\twidth: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tpadding: 20upx 0 0 20upx;\n\tbox-sizing: border-box;\n\tmargin-bottom: 25upx;\n}\n.house[data-v-434da478]{\n\twidth:360upx;\n\theight:275upx;\n\tbackground:rgba(237,159,159,1);\n}\n.house uni-image[data-v-434da478]{\n\twidth:360upx;\n\theight:275upx;\n\tdisplay: inline-block;\n}\n.deal_info[data-v-434da478]{\n\tfloat: right;\n}\n.tit[data-v-434da478]{\n\twidth:100%;\n\ttext-align: left;\n\theight:31upx;\n\tfont-size:32upx;\n\tfont-family:PingFang SC;\n\tfont-weight:bold;\n\tcolor:rgba(51,51,51,1);\n\tline-height:31upx;\n\tmargin-top:6upx;\n\tdisplay: inline-block;\n\tfloat: left;\n\tmargin-bottom: 6upx;\n}\n.yuanjiao[data-v-434da478]{\n\twidth: 100%;\n\theight: 32upx;\n\tfont-size:20upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:rgba(255,255,255,1);\n\tline-height:32upx;\n\tbackground:#F7F7F7 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat left top;\n\tbackground-size: 112upx 32upx;\n\ttext-indent: 2upx;\n\tfont-weight:500;\n\tcolor:rgba(255,255,255,1);\n\tmargin-bottom: 13upx;\n\tdisplay: inline-block;\n}\n.chengjiaotime[data-v-434da478]{\n\tcolor:#333 !important;\n}\n.loupan[data-v-434da478]{\n\twidth:100%;\n\theight:23upx;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:rgba(153,153,153,1);\n\tline-height:23upx;\n\tmargin-top: 19upx;\n}\n.loupan_info[data-v-434da478]{\n\tcolor:rgba(153,153,153,1) !important\n}\n.chengjiao[data-v-434da478]{\n\tcolor: #DF2D23 !important;\n}\n.con_body[data-v-434da478]{\n\tfloat: left;\n\twidth: 100%;\n\tpadding: 20upx;\n\tbox-sizing: border-box;\n\tborder-top: 1upx solid #F1F1F1;\n}\n.con_body_text[data-v-434da478]{\n\twidth:100%;\n\tfont-size:24upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#333;\n\theight: 90upx;\n\toverflow: hidden;\n\tline-height:40upx;\t\n\tdisplay: inline-block;\n}\n.con_body_h[data-v-434da478]{\n\theight: 90upx;\n}\n.con_body_a[data-v-434da478]{\n\theight: auto;\n}\n.bottom[data-v-434da478] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\tmargin-bottom: 33upx;\n\tmargin-top: 33upx;\n}\n.bottom uni-image[data-v-434da478]{\n\twidth: 32upx;\n\theight: 16upx;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-434da478]{\n\t\twidth:100%;\n\t\theight: 100%;\n\t\tbackground:-webkit-linear-gradient(288deg,#FF895F,#FF715D);\n\t\tbackground:linear-gradient(162deg,#FF895F,#FF715D);\n\t\topacity:0.88;\n}\n.header_img[data-v-434da478]{\n\t\twidth: 100%;\n\t\theight: 296upx;\n}\n.header_img uni-image[data-v-434da478]{\n\t\twidth: 750upx;\n\t\theight: 296upx;\n\t\tdisplay: inline-block;\n\t\tmargin: 0 auto;\n}\n.con[data-v-434da478]{\n\t\twidth:654upx;\n\t\tbackground:rgba(255,255,255,1);\n\t\tborder-radius:10upx;\n\t\tmargin: 0 auto;\n\t\toverflow: hidden;\n}\n.con_header[data-v-434da478]{\n\t\theight:295upx;\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tpadding: 20upx 0 0 20upx;\n\t\tbox-sizing: border-box;\n\t\tmargin-bottom: 25upx;\n}\n.house[data-v-434da478]{\n\t\twidth:360upx;\n\t\theight:275upx;\n\t\tbackground:rgba(237,159,159,1);\n}\n.house uni-image[data-v-434da478]{\n\t\twidth:360upx;\n\t\theight:275upx;\n\t\tdisplay: inline-block;\n}\n.deal_info[data-v-434da478]{\n\t\tfloat: right;\n\t\twidth: calc(100% - 360upx);\n\t\tpadding-left: 20upx;\n\t\tbox-sizing: border-box;\n}\n.tit[data-v-434da478]{\n\t\twidth:100%;\n\t\ttext-align: left;\n\t\theight:31upx;\n\t\tfont-size:32upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:bold;\n\t\tcolor:rgba(51,51,51,1);\n\t\tline-height:31upx;\n\t\tmargin-top:6upx;\n\t\tdisplay: inline-block;\n\t\tfloat: left;\n\t\tmargin-bottom: 6upx;\n}\n.yuanjiao[data-v-434da478]{\n\t\twidth: 100%;\n\t\theight: 32upx;\n\t\tfont-size:20upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tcolor:rgba(255,255,255,1);\n\t\tline-height:32upx;\n\t\tbackground:#F7F7F7 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat left top;\n\t\tbackground-size: 112upx 32upx;\n\t\ttext-indent: 2upx;\n\t\tfont-weight:500;\n\t\tcolor:rgba(255,255,255,1);\n\t\tmargin-bottom: 13upx;\n\t\tdisplay: inline-block;\n}\n.chengjiaotime[data-v-434da478]{\n\t\tcolor:#333 !important;\n\t\tmargin-left: 15upx;\n}\n.loupan[data-v-434da478]{\n\t\twidth:100%;\n\t\theight:23upx;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tcolor:rgba(153,153,153,1);\n\t\tline-height:23upx;\n\t\tmargin-top: 19upx;\n\t\toverflow: hidden;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n}\n.loupan_info[data-v-434da478]{\n        /* padding: 30upx; */\n\t\tcolor:rgba(153,153,153,1) !important;\n\t\toverflow: hidden;\n\t\ttext-overflow:ellipsis;\n\t\twhite-space: nowrap;\n\t\twidth: calc(100% - 114upx);\n}\n.yuanjiao_label[data-v-434da478] {\n\t\twidth: 114upx;\n}\n.chengjiao[data-v-434da478]{\n\t\tcolor: #DF2D23 !important;\n}\n.con_body[data-v-434da478]{\n\t\tfloat: left;\n\t\twidth: 100%;\n\t\tpadding: 20upx;\n\t\tbox-sizing: border-box;\n\t\tborder-top: 1upx solid #F1F1F1;\n}\n.con_body_text[data-v-434da478]{\n\t\twidth:100%;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tcolor:#333;\n\t\theight: 90upx;\n\t\toverflow: hidden;\n\t\tline-height:40upx;\n\t\tdisplay: inline-block;\n}\n.con_body_h[data-v-434da478]{\n\t\theight: 90upx;\n}\n.con_body_a[data-v-434da478]{\n\t\theight: auto;\n}\n.bottom[data-v-434da478] {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: center;\n\t\t-webkit-justify-content: center;\n\t\t        justify-content: center;\n\t\tmargin-bottom: 33upx;\n\t\tmargin-top: 33upx;\n}\n.bottom uni-image[data-v-434da478]{\n\t\twidth: 32upx;\n\t\theight: 16upx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

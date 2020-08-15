@@ -74,9 +74,9 @@
 			return {
 				TabCur: 0,
 				tabList: [{ name: '推荐房源' }, { name: '自由购' }],
-				listHeight:1250,
-				fHeight:1250,
-				SistHeight:1250,
+				listHeight:1550,
+				fHeight:1550,
+				SistHeight:1550,
 				recommendHouseData:[],
 				restrictHouseData:[]
 			}
@@ -114,6 +114,13 @@
 						_self.recommendHouseData = res.data;
 						_self.fHeight = 115*res.data.length;
 					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
+							_self.recommendHouseData = res.data
+							_self.fHeight = 115*res.data.length;
+							_self.setStore(_key,res[1].data.data.lists.data);
+						});
+					}
 				})
 			},
 			getFreeHouseData() { //自由购
@@ -125,6 +132,20 @@
 						_self.restrictHouseData = res.data
 						_self.SistHeight = 115*res.data.length;
 					},
+					fail:function(){
+						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
+							_self.restrictHouseData = res.data
+							_self.SistHeight = 115*res.data.length;
+							_self.setStore(_key,res[1].data.data.lists.data);
+						});
+					}
+				})
+			},
+			//存缓存
+			setStore(key,val){
+				uni.setStorage({
+					key:key,
+					data:val
 				})
 			},
 		}
