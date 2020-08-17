@@ -105,13 +105,15 @@
 			},
 			getRecommendHouseData() { //推荐房源
 				var _self = this;
-				let _key = this.fun.listing+""+this.fun.getCurrenTime;
+				let _key = this.fun.listing+""+this.getCurrenTime();
+				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
 				uni.getStorage({
 					key:_key,
 					success:function(res){
 						_self.recommendHouseData = res.data;
 					},
 					fail:function(){
+						uni.clearStorage(lastKey);
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
 							_self.recommendHouseData = res[1].data.data.lists.data;
 							_self.setStore(_key,res[1].data.data.lists.data);
@@ -121,13 +123,15 @@
 			},
 			getFreeHouseData() { //自由购
 				var _self = this;
-				let _key = this.fun.freeBuy+""+this.fun.getCurrenTime;
+				let _key = this.fun.freeBuy+""+this.getCurrenTime();
+				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
 				uni.getStorage({
 					key:_key,
 					success:function(res){
 						_self.restrictHouseData = res.data;
 					},
 					fail:function(){
+						uni.clearStorage(lastKey);
 						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
 							_self.restrictHouseData = res[1].data.data.lists.data;
 							_self.setStore(_key,res[1].data.data.lists.data);
@@ -142,6 +146,27 @@
 					data:val
 				})
 			},
+			getCurrenTime(){
+				var date = new Date;
+				var Y = date.getFullYear();
+				var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+				var D = date.getDate();
+				return Y+M+D;
+			},
+			getYesterdayTime() {
+				let today = new Date();
+				let now = new Date(today.getTime()-86400000);
+				let year= now.getFullYear();
+				let month= (now.getMonth() + 1).toString();
+				let day = now .getDate().toString();
+				if (month.length == 1) {
+					month= '0' + month;
+				}
+				if (day .length == 1) {
+					day = '0' + day ;
+				}
+				return year + month+day;
+			}
 		}
 	}
 </script>
