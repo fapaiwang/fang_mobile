@@ -126,20 +126,35 @@
 			},
 			sortClick(index,name,posi){
 				if (posi==1) {//区域
-					this.num = index;
-					// this.synthesize = "a"+this.arealist[name].id;
-					this.synthesize = this.arealist[name].id;
+					if (this.checkYes(this.num,index)) {
+						this.num = 999;
+						this.synthesize = '';
+					} else {
+						this.num = index;
+						this.synthesize = this.arealist[name].id;
+					}
 				}
 				if (posi==2) {//价格
-					this.avgNum = index;
-					// this.avgMoney = "t"+name[0]+"u"+name[1];
-					this.avgMoney = index
+					if (this.checkYes(this.avgNum,index)) {
+						this.avgNum = 999;
+						this.avgMoney = ''
+					} else {
+						this.avgNum = index;
+						this.avgMoney = index
+					}
 				}
 				if (posi==3) {//类型
-					this.familyKey = index;
-					// this.familyVal = 'i'+name;
-					this.familyVal = name;
+					if (this.checkYes(this.familyKey,index)) {
+						this.familyKey = 999;
+						this.familyVal = '';
+					} else {
+						this.familyKey = index;
+						this.familyVal = name;
+					}
 				}
+			},
+			checkYes(val,val2){
+				return Number(val) == Number(val2) ? true : false;
 			},
 			getMoney(){
 				this.avgPrice = true;

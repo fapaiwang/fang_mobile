@@ -257,25 +257,53 @@
 			},
 			sortClick(index,name,posi){
 				if (posi==1) {//区域
-					this.num = index;
-					this.synthesize = "a"+this.arealist[name].id;
+					if (this.checkYes(this.num,index)) {
+						this.num = 999;
+						this.synthesize = "";
+					} else {
+						this.num = index;
+						this.synthesize = "a"+this.arealist[name].id;
+					}
 				}
 				if (posi==2) {//价格
-					this.avgNum = index;
-					this.rSelect = name;
+					if (this.checkYes(this.avgNum,index)) {
+						this.avgNum = 999;
+						this.rSelect = '';
+					} else {
+						this.avgNum = index;
+						this.rSelect = name;
+					}
 				}
 				if (posi==3) {//更多 类型
-					this.typeNum = index;
-					this.typeVal = `f${name}`;
+					if (this.checkYes(this.typeNum,index)) {
+						this.typeNum = 999;
+						this.typeVal = '';
+					} else {
+						this.typeNum = index;
+						this.typeVal = `f${name}`;
+					}
 				}
 				if (posi==4) {//更多 面积
-					this.areaNum = index;
-					this.areaVal = `d${index}`;////面积
+					if (this.checkYes(this.areaNum,index)) {
+						this.areaNum = 999;
+						this.areaVal = '';
+					} else {
+						this.areaNum = index;
+						this.areaVal = `d${index}`;//面积
+					}
 				}
 				if (posi==5) {//更多 状态
-					this.statusNum = index;
-					this.statusVal = `h${index}`;////面积
+					if (this.checkYes(this.statusNum,index)) {
+						this.statusNum = 999;
+						this.statusVal = '';////面积
+					} else {
+						this.statusNum = index;
+						this.statusVal = `h${index}`;////面积
+					}
 				}
+			},
+			checkYes(val,val2){
+				return Number(val) == Number(val2) ? true : false;
 			},
 			sortHouse(index,name){//户型
 				var _self = this

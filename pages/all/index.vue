@@ -250,7 +250,7 @@
 			poll(){//回到顶部
 				if (this.isNum==1) {
 					this.isFix = true;
-					this.isNum=2;
+					this.isNum = 2;
 				}
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt)
 			},
