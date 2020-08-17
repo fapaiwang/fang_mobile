@@ -252,7 +252,7 @@
 					_self.sortNum = index;
 					_self.defaultVal = val;
 				}
-				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+val);
+				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+this.defaultVal);
 				this.hiddenAll();
 			},
 			sortClick(index,name,posi){
