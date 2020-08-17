@@ -27,7 +27,7 @@
 							</view>
 							<view class="itemPrice">
 								<view>
-									<text>起拍价{{housItem.characteristic_name}}</text>
+									<text>起拍价</text>
 									<text class="redPrice">{{housItem.qipai}}万</text>
 								</view>
 								<view>

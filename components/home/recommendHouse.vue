@@ -26,8 +26,10 @@
 									</view>
 									<image :src="getImgUrl(housItem.img)" mode=""></image>
 									<view class="tag">
-										<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''">{{housItem.characteristic_name}}</text>
 										<text v-if="housItem.jieduan_name">{{housItem.jieduan_name}}</text>
+										<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
+										<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
+										<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''"  class="tag_label_1">{{housItem.characteristic_name}}</text>
 									</view>
 								</view>
 								<view class="houseItem">
@@ -44,7 +46,7 @@
 										</view>
 										<view>
 											<text>市场价</text>
-											<text class="grayPrice">{{housItem.toilet}}万</text>
+											<text class="grayPrice">{{housItem.price}}万</text>
 										</view>
 									</view>
 									<view class="createIime">

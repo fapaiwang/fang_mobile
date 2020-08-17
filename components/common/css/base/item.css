@@ -54,7 +54,7 @@
 }
 .createIime {
 	margin-top: 14upx;
-	background:rgba(199,49,38, 0.15);
+	background:#F8F8F8;
 	/* opacity:0.06; */
 	border-radius: 10upx;
 	display: flex;
@@ -106,10 +106,12 @@
 }
 
 .tag .tag_label_2{
-	color: #EF8B46 !important;
+	color: #C8A96A !important;
+	background: #f6f1e7 !important;
 }
-.tag .tag_label_2{
-	color: #EF8B46 !important;
+.tag .tag_label_1{
+	color: #FF8126 !important;
+	background: #fff2e9 !important;
 }
 .house_status{
 	display: flex;

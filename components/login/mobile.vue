@@ -4,7 +4,6 @@
 			<view class="login_img">
 				<image src="../../static/img/login/mobile.png" mode=""></image>
 			</view>
-			<input placeholder="请输入手机号" class="login_inp" v-model="phone" @input="onInput"/>
 		</view>
 		<view class="login_input">
 			<view class="login_img" >
