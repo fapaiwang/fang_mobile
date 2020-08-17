@@ -1,8 +1,10 @@
 
-page.data-v-3d889bfe{
+.uni-padding-wrap.data-v-3d889bfe{
 	position: fixed;
 	height: 100%;
 	overflow: hidden;
+	width: 100%;
+	background: #010101;
 }
 .swiperList.data-v-3d889bfe{
 	padding-top: 50%;

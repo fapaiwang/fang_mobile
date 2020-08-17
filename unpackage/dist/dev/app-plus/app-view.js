@@ -7014,7 +7014,12 @@ var render = function() {
           _c(
             "v-uni-map",
             {
-              staticStyle: { width: "100%", height: "35vh" },
+              staticStyle: {
+                width: "100%",
+                height: "35vh",
+                position: "relative",
+                "z-index": "-1"
+              },
               attrs: {
                 latitude: _vm._$g(4, "a-latitude"),
                 longitude: _vm._$g(4, "a-longitude"),
@@ -7028,29 +7033,22 @@ var render = function() {
                 }
               }
             },
-            [
-              _c(
+            _vm._l(_vm._$g(5, "f"), function(item, index, $20, $30) {
+              return _c(
                 "v-uni-cover-view",
-                { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
-                _vm._l(_vm._$g(6, "f"), function(item, index, $20, $30) {
-                  return _c(
-                    "v-uni-cover-view",
-                    {
-                      key: item,
-                      staticClass: _vm._$g("6-" + $30, "sc"),
-                      attrs: { _i: "6-" + $30 },
-                      on: {
-                        click: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._$g("6-" + $30, "t0-0"))]
-                  )
-                }),
-                1
+                {
+                  key: item,
+                  staticClass: _vm._$g("5-" + $30, "sc"),
+                  attrs: { _i: "5-" + $30 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [_vm._v(_vm._$g("5-" + $30, "t0-0"))]
               )
-            ],
+            }),
             1
           )
         ],
@@ -7148,7 +7146,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".community[data-v-3fc89683]{\n\tpadding: 40upx 30upx 0 30upx;\n}\n.featuredtTitleView[data-v-3fc89683] {\n\theight: 60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.titleText[data-v-3fc89683]{\n\tcolor: #333333;\t\n\theight:39upx;\n\tfont-size:40upx;\n\tfont-family:PingFang SC;\n\tfont-weight:800;\n\tline-height:60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n}\n.moreData[data-v-3fc89683] {\n\theight:39upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999;\n\tline-height:60upx;\n}\n.more[data-v-3fc89683]{\n\tcolor: #999;\n\tmargin-left: 16upx;\n}\n.community_name[data-v-3fc89683]{\n\tmargin-top: 49upx;\n\twidth:100%;\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#CF2924;\n\tline-height:60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n}\n.taotalHouse[data-v-3fc89683]{\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#333;\n}\n.community_about[data-v-3fc89683]{\n\tmargin-top: 30upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tmargin-bottom: 60upx;\n}\n.community_info[data-v-3fc89683]{\n\tfont-size:28upx;\n\tfont-weight:500;\n\tcolor:#666;\n\tline-height:50upx;\n}\n.community_img[data-v-3fc89683]{\n\twidth:240upx;\n\theight:148upx;\n\tborder-radius:10upx;\n\tbackground: #ccc;\n}\n.tabList[data-v-3fc89683]{\n\twidth:90%;\n\theight:60upx;\n\tbackground:#FFF;\n\tbox-shadow:0px 0upx 8upx 0px #231815;\n\tborder-radius:10upx;\n\tmargin: 0 auto;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n\tposition: absolute;\n\tbottom: 30upx;\n\tleft: 5%;\n\tz-index: 1;\n}\n.tabItem[data-v-3fc89683]{\n\tfont-size:28upx;\n\tfont-weight:bold;\n\tcolor:#333 !important;\n\tline-height:60upx;\n\tz-index: 111;\n}\n.item_line[data-v-3fc89683]{\n\tborder-left: 1px solid #EBEBEB;\n\tmargin-left: 25upx;\n}\n.cover[data-v-3fc89683]{\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tz-index: 1;\n}\n", ""]);
+exports.push([module.i, ".community[data-v-3fc89683]{\n\tpadding: 40upx 30upx 0 30upx;\n}\n.featuredtTitleView[data-v-3fc89683] {\n\theight: 60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.titleText[data-v-3fc89683]{\n\tcolor: #333333;\t\n\theight:39upx;\n\tfont-size:40upx;\n\tfont-family:PingFang SC;\n\tfont-weight:800;\n\tline-height:60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n}\n.moreData[data-v-3fc89683] {\n\theight:39upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999;\n\tline-height:60upx;\n}\n.more[data-v-3fc89683]{\n\tcolor: #999;\n\tmargin-left: 16upx;\n}\n.community_name[data-v-3fc89683]{\n\tmargin-top: 49upx;\n\twidth:100%;\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#CF2924;\n\tline-height:60upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n}\n.taotalHouse[data-v-3fc89683]{\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#333;\n}\n.community_about[data-v-3fc89683]{\n\tmargin-top: 30upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tmargin-bottom: 60upx;\n}\n.community_info[data-v-3fc89683]{\n\tfont-size:28upx;\n\tfont-weight:500;\n\tcolor:#666;\n\tline-height:50upx;\n}\n.community_img[data-v-3fc89683]{\n\twidth:240upx;\n\theight:148upx;\n\tborder-radius:10upx;\n\tbackground: #ccc;\n}\n.tabList[data-v-3fc89683]{\n\twidth:90%;\n\theight:60upx;\n\tbackground:#FFF;\n\tbox-shadow:0px 0upx 8upx 0px #231815;\n\tborder-radius:10upx;\n\tmargin: 0 auto;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n\tposition: absolute;\n\tbottom: 30upx;\n\tleft: 5%;\n\tz-index: 1;\n}\n.tabItem[data-v-3fc89683]:first-child{\n\tborder-radius:10upx 0 0 10upx;\n}\n.tabItem[data-v-3fc89683]:last-child{\n\tborder-radius:0 10upx 10upx 0;\n}\n.tabItem[data-v-3fc89683]{\n\tfont-size:28upx;\n\tfont-weight:bold;\n\tcolor:#333 !important;\n\tline-height:60upx;\n\tposition: relative;\n\tbottom: 30upx;\n\tleft: 5%;\n\tz-index: 1;\n\twidth: 15%;\n\tdisplay: inline-block;\n\theight:60upx;\n\tbackground:#FFF;\n\ttop: 80%;\n\ttext-align: center;\n}\n.item_line[data-v-3fc89683]{\n\tborder-left: 1px solid #EBEBEB;\n\tmargin-left: 25upx;\n}\n.cover[data-v-3fc89683]{\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tz-index: 1;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7543,7 +7541,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm._$g(0, "i")
     ? _c(
-        "v-uni-view",
+        "v-uni-cover-view",
         { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
         [
           _c(
@@ -7713,7 +7711,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".advisory_warp[data-v-5f2e5ccc]{\n\t\twidth:100%;\n\t\theight:138upx;\n\t\tbackground:#fff;\n\t\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-flex-wrap: row wrap;\n\t\t        flex-wrap: row wrap;\n\t\t-webkit-justify-content: space-around;\n\t\t        justify-content: space-around;\n\t\tposition: fixed;\n\t\tbottom: 0;\n\t\tz-index: 11111 !important;\n}\n.consultant[data-v-5f2e5ccc]{\n\t\twidth: 90%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\t\tborder-radius:10upx;\n\t\tmargin-top: 19upx;\n\t\tfont-size:28upx;\n\t\tcolor: #FFF;\n\t\tline-height: 70upx;\n\t\ttext-align: center;\n\t\tpadding: 0 17upx;\n\t\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\t\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\t\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 19upx;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\t\twidth:100upx;\n\t\theight:100upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\t\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\t\twidth: 100%;\n\t\tfont-size:32upx;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\t\tfont-size:22upx;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\t    margin-left: 5px;\n}\n", ""]);
+exports.push([module.i, ".advisory_warp[data-v-5f2e5ccc]{\n\t\twidth:100%;\n\t\theight:138upx;\n\t\tbackground:#fff;\n\t\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-flex-wrap: row wrap;\n\t\t        flex-wrap: row wrap;\n\t\t-webkit-justify-content: space-around;\n\t\t        justify-content: space-around;\n\t\tposition: fixed;\n\t\tbottom: 0;\n\t\tz-index: 1\n}\n.consultant[data-v-5f2e5ccc]{\n\t\twidth: 90%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\t\tborder-radius:10upx;\n\t\tmargin-top: 19upx;\n\t\tfont-size:28upx;\n\t\tcolor: #FFF;\n\t\tline-height: 70upx;\n\t\ttext-align: center;\n\t\tpadding: 0 17upx;\n\t\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\t\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\t\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tmargin-top: 19upx;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\t\twidth:100upx;\n\t\theight:100upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\t\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\t\twidth: 100%;\n\t\tfont-size:32upx;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\t\tfont-size:22upx;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\t    margin-left: 5px;\n}\n.page[data-v-5f2e5ccc] {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: flex;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n                justify-content: center;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

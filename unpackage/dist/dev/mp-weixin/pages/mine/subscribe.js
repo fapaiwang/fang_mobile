@@ -97,16 +97,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l0 = _vm.__map(_vm.houseData, function(houseItem, key) {
-    var m0 = _vm.getDetail(houseItem.id)
-    var m1 = _vm.getImg(houseItem.img)
-    return {
-      $orig: _vm.__get_orig(houseItem),
-      m0: m0,
-      m1: m1
-    }
-  })
+  var l0 =
+    _vm.houseData.length > 0
+      ? _vm.__map(_vm.houseData, function(houseItem, key) {
+          var $orig = _vm.__get_orig(houseItem)
 
+          var m0 = _vm.getDetail(houseItem.id)
+          var m1 = _vm.getImg(houseItem.img)
+          return {
+            $orig: $orig,
+            m0: m0,
+            m1: m1
+          }
+        })
+      : null
   _vm.$mp.data = Object.assign(
     {},
     {

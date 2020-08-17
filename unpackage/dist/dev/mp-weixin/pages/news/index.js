@@ -98,9 +98,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   var l0 = _vm.__map(_vm.frontList, function(items, indexs) {
+    var $orig = _vm.__get_orig(items)
+
     var m0 = _vm.getImgSrc(items.img)
     return {
-      $orig: _vm.__get_orig(items),
+      $orig: $orig,
       m0: m0
     }
   })
@@ -217,7 +219,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var _self,page = 1,timer = null; //timer延迟期
-var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var navMenu = function navMenu() {__webpack_require__.e(/*! require.ensure | components/news/navMenu */ "components/news/navMenu").then((function () {return resolve(__webpack_require__(/*! @/components/news/navMenu.vue */ 519));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var banner = function banner() {__webpack_require__.e(/*! require.ensure | components/base/banner */ "components/base/banner").then((function () {return resolve(__webpack_require__(/*! @/components/base/banner.vue */ 472));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var navMenu = function navMenu() {__webpack_require__.e(/*! require.ensure | components/news/navMenu */ "components/news/navMenu").then((function () {return resolve(__webpack_require__(/*! @/components/news/navMenu.vue */ 535));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 {

@@ -78,12 +78,27 @@
 	left: 5%;
 	z-index: 1;
 }
+.tabItem:first-child{
+	border-radius:10upx 0 0 10upx;
+}
+.tabItem:last-child{
+	border-radius:0 10upx 10upx 0;
+}
 .tabItem{
 	font-size:28upx;
 	font-weight:bold;
 	color:#333 !important;
 	line-height:60upx;
-	z-index: 111;
+	position: relative;
+	bottom: 30upx;
+	left: 5%;
+	z-index: 1;
+	width: 15%;
+	display: inline-block;
+	height:60upx;
+	background:#FFF;
+	top: 80%;
+	text-align: center;
 }
 .item_line{
 	border-left: 1px solid #EBEBEB;

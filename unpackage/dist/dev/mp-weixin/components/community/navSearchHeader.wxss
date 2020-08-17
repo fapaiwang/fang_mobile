@@ -1,7 +1,7 @@
 .header-wrap.data-v-e21b1972 {
 	height: 60rpx;
 	padding:0 30rpx;	
-	margin: 0 auto 29rpx auto;
+	margin: 0 auto;
 }.index-header.data-v-e21b1972 {
 	width: 92%;
 	display: -webkit-box;

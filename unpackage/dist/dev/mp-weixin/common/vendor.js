@@ -862,6 +862,11 @@ function initProperties(props) {var isBehavior = arguments.length > 1 && argumen
       type: String,
       value: '' };
 
+    // 用于字节跳动小程序模拟抽象节点
+    properties.generic = {
+      type: Object,
+      value: null };
+
     properties.vueSlots = { // 小程序不能直接定义 $slots 的 props，所以通过 vueSlots 转换到 $slots
       type: null,
       value: [],
@@ -1160,14 +1165,17 @@ function handleEvent(event) {var _this = this;
             }
             handler.once = true;
           }
-          ret.push(handler.apply(handlerCtx, processEventArgs(
+          var params = processEventArgs(
           _this.$vm,
           event,
           eventArray[1],
           eventArray[2],
           isCustom,
-          methodName)));
-
+          methodName) ||
+          [];
+          // 参数尾部增加原始事件对象用于复杂表达式内获取额外数据
+          // eslint-disable-next-line no-sparse-arrays
+          ret.push(handler.apply(handlerCtx, params.concat([,,,,,,,,,, event])));
         }
       });
     }
@@ -1749,7 +1757,9 @@ function normalizeComponent (
     "levelData");_defineProperty(this, "statusData",
     "statusData");_defineProperty(this, "HomeMenu",
     "HomeMenu");_defineProperty(this, "auction",
-    "auction");}_createClass(Fun, [{ key: "navTo", //首页 即将拍卖
+    "auction");_defineProperty(this, "listing",
+    "y1");_defineProperty(this, "freeBuy",
+    "freeBuy");}_createClass(Fun, [{ key: "navTo", //首页 自由购
     value: function navTo(
     url) {//保留当前页面，跳转到应用内的某个页面 url跳转
       uni.navigateTo({
@@ -1775,6 +1785,11 @@ function normalizeComponent (
       } else {
         return "";
       }
+    } }, { key: "getCurrenTime", value: function getCurrenTime()
+
+    {
+      var myDate = new Date();
+      return myDate.getFullYear() + "" + myDate.getMonth() + 1 + "" + myDate.getDate(); //获取当前年
     } }, { key: "getReq", value: function getReq(
 
     _url) {var _data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";var _method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET'; //get请求
@@ -7803,7 +7818,7 @@ function internalMixin(Vue) {
   };
 
   Vue.prototype.__map = function(val, iteratee) {
-    //TODO 暂不考虑 string,number
+    //TODO 暂不考虑 string
     var ret, i, l, keys, key;
     if (Array.isArray(val)) {
       ret = new Array(val.length);
@@ -7817,6 +7832,13 @@ function internalMixin(Vue) {
       for (i = 0, l = keys.length; i < l; i++) {
         key = keys[i];
         ret[key] = iteratee(val[key], key, i);
+      }
+      return ret
+    } else if (typeof val === 'number') {
+      ret = new Array(val);
+      for (i = 0, l = val; i < l; i++) {
+        // 第一个参数暂时仍和小程序一致
+        ret[i] = iteratee(i, i);
       }
       return ret
     }
@@ -7957,7 +7979,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 423:
+/***/ 439:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/secondhandtax_info.js ***!
   \*************************************************************************************************/
@@ -7970,7 +7992,7 @@ conditions;exports.default = _default;
 
 /***/ }),
 
-/***/ 431:
+/***/ 447:
 /*!***********************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/downpayment_info.js ***!
   \***********************************************************************************************/
@@ -9031,7 +9053,7 @@ downpayment;exports.default = _default;
 
 /***/ }),
 
-/***/ 439:
+/***/ 455:
 /*!*************************************************************************************************!*\
   !*** /Users/bincao/Documents/HBuilderProjects/fapai/components/common/js/qualification_info.js ***!
   \*************************************************************************************************/

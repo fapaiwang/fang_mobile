@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/all/delicacy */ "components/all/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/all/delicacy.vue */ 596));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/all/list */ "components/all/list").then((function () {return resolve(__webpack_require__(/*! @/components/all/list.vue */ 603));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var FocusList = function FocusList() {__webpack_require__.e(/*! require.ensure | components/all/delicacy */ "components/all/delicacy").then((function () {return resolve(__webpack_require__(/*! @/components/all/delicacy.vue */ 612));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Takeout = function Takeout() {__webpack_require__.e(/*! require.ensure | components/all/list */ "components/all/list").then((function () {return resolve(__webpack_require__(/*! @/components/all/list.vue */ 619));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -165,6 +165,7 @@ var _default =
       levelData: [],
       loadingTxt: "加载更多",
       recommendHouseData: [],
+      statusReData: [],
       cate: "",
       keyword: "",
       isNum: 1,
@@ -322,40 +323,53 @@ var _default =
     },
     getMoreData: function getMoreData() {
       uni.getStorage({
-        key: "houseProperty",
+        key: _self.fun.houseProperty,
         success: function success(res) {
           _self.houseProperty = res.data;
         },
         fail: function fail() {
           _self.fun.getReq(_self.baseUrl + '/api/second/houseType', { "id": 26 }).then(function (res) {
             _self.houseProperty = res[1].data.data;
-            _self.setStore("houseProperty", res[1].data.data);
+            _self.setStore(_self.fun.houseProperty, res[1].data.data);
           });
         } });
 
 
       uni.getStorage({
-        key: "areaData",
+        key: _self.fun.areaData,
         success: function success(res) {
           _self.areaData = res.data;
         },
         fail: function fail() {
           _self.fun.getReq(_self.baseUrl + '/api/second/getAcreage').then(function (res) {
             _self.areaData = res[1].data.data;
-            _self.setStore("areaData", res[1].data.data);
+            _self.setStore(_self.fun.areaData, res[1].data.data);
           });
         } });
 
 
       uni.getStorage({
-        key: "levelData",
+        key: _self.fun.levelData,
         success: function success(res) {
           _self.levelData = res.data;
         },
         fail: function fail() {
           _self.fun.getReq(_self.baseUrl + '/api/second/houseType', { "id": 25 }).then(function (res) {
             _self.levelData = res[1].data.data;
-            _self.setStore("levelData", res[1].data.data);
+            _self.setStore(_self.fun.levelData, res[1].data.data);
+          });
+        } });
+
+
+      uni.getStorage({
+        key: _self.fun.statusData,
+        success: function success(res) {
+          _self.statusReData = res.data;
+        },
+        fail: function fail() {
+          _self.fun.getReq(_self.baseUrl + '/api/second/houseType', { "id": 27 }).then(function (res) {
+            _self.statusReData = res[1].data.data;
+            _self.setStore(_self.fun.statusData, res[1].data.data);
           });
         } });
 

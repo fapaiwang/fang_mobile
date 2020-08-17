@@ -22,6 +22,36 @@
 	font-weight:800;
 	color:rgba(51,51,51,1);
 	margin-bottom: 25rpx;
+}.scv.data-v-84369bee{
+	-webkit-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	white-space: nowrap;
+	margin: 0 auto;
+	width: 50%;
+	margin-bottom: 40rpx;
+}.scv view.data-v-84369bee{
+	display: inline-block;
+	height: 50rpx;
+	line-height: 50rpx;
+	text-align: center;
+	color: #999;
+	font-size:28rpx;
+	width: 50%;
+	text-align: center;
+}.scv_line.data-v-84369bee{
+	border:4rpx solid #fff;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin: 0 auto;
+	width:47rpx;
+}.text-red.data-v-84369bee{
+	color: #000 !important;
+}.text-red text.data-v-84369bee{
+	background:rgba(224,46,36,1);
+	border:4rpx solid rgba(224,46,36,1);
+}.quickTabSwiperItem.data-v-84369bee{
+	display: inline-block;
 }.houseItemView.data-v-84369bee {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -107,42 +137,11 @@
 	color: #E02E24;
 	line-height: 55rpx;
 }.navigator-hover.data-v-84369bee,
-
 .navigator-hover.data-v-84369bee:hover{
 	background: none;
 	cursor: pointer;
 }.navigator-hover.data-v-84369bee{
 	opacity: unset;
-}.scv.data-v-84369bee{
-	-webkit-flex-wrap: nowrap;
-	        flex-wrap: nowrap;
-	white-space: nowrap;
-	margin: 0 auto;
-	width: 50%;
-	margin-bottom: 40rpx;
-}.scv view.data-v-84369bee{
-	display: inline-block;
-	height: 50rpx;
-	line-height: 50rpx;
-	text-align: center;
-	color: #999;
-	font-size:28rpx;
-	width: 50%;
-	text-align: center;
-}.scv_line.data-v-84369bee{
-	border:4rpx solid #fff;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	margin: 0 auto;
-	width:47rpx;
-}.text-red.data-v-84369bee{
-	color: #000 !important;
-}.text-red text.data-v-84369bee{
-	background:rgba(224,46,36,1);
-	border:4rpx solid rgba(224,46,36,1);
-}.quickTabSwiperItem.data-v-84369bee{
-	display: inline-block;
 }.tag.data-v-84369bee{
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -155,22 +154,23 @@
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
 	width: 100%;
-	margin-top:8rpx;
+	margin-top: 4rpx;
 }.tag text.data-v-84369bee{
 	width:114rpx;
 	height:50rpx;
-	background:#F5F3EA;
 	border-radius:5rpx;
 	font-size:24rpx;
 	font-family:PingFang SC;
 	font-weight:500;
-	color:#C8A96A;
+	background:#E4EFFD;
+	color:#4297FF;
 	line-height:50rpx;
 	text-align: center;
 	border-radius:5rpx;
-}.tag text.data-v-84369bee:last-child{
-	background:#E4EFFD !important;
-	color: #4297FF !important;
+}.tag .tag_label_2.data-v-84369bee{
+	color: #EF8B46 !important;
+}.tag .tag_label_2.data-v-84369bee{
+	color: #EF8B46 !important;
 }.house_status.data-v-84369bee{
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -185,10 +185,8 @@
 	width: 100%;
 	font-size: 20rpx;
 	position: absolute;
-	width: 100%;
 	z-index: 10;
 	color: #fff;
-	font-size: 20rpx;
 	margin-top: 20rpx;
 }.house_status text.data-v-84369bee{
 	width:84rpx;
@@ -203,5 +201,7 @@
 	background: #3C76D9;
 }.house_status .house_status_ash.data-v-84369bee{
 	background: #989898;
+}.tag_label_1.data-v-84369bee {
+ color: #EF8B46 !important;
 }
 

@@ -33,7 +33,9 @@
     "pages/detail/map",
     "pages/mine/subscribe",
     "pages/detail/recommend",
-    "pages/detail/single"
+    "pages/detail/single",
+    "pages/added/index",
+    "pages/deal/index"
   ],
   "subPackages": [],
   "window": {
@@ -75,5 +77,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap26.json"
+  "sitemapLocation": "sitemap6.json"
 }

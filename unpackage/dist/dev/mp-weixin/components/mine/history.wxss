@@ -52,4 +52,16 @@
 	background: #FFF;
 	height: 80rpx;
 }
+.last.data-v-309afcda{
+	float: left;
+	color: #E02E24;
+	height: 14rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	display: inline-block;
+}
+.client .taxes_symbol.data-v-309afcda{
+	width: 31%;
+}
 

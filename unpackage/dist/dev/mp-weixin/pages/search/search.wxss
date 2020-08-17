@@ -1,25 +1,26 @@
 
 .index-header.data-v-4cedc0c6 {
-	width: 100%;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	        flex-direction: row;
-	-webkit-box-align:center;
-	-webkit-align-items:center;
-	        align-items:center;
+	-webkit-flex-direction: row wrap;
+	        flex-direction: row wrap;
+	-webkit-box-align:space-between;
+	-webkit-align-items:space-between;
+	        align-items:space-between;	 
+	height: 78rpx;
+    margin-bottom: 25rpx;
 }.addressView.data-v-4cedc0c6{
 	width: 18rpx;
-	height: 34rpx;
-	margin-right: 56rpx;
+	height: 78rpx;
+	margin-right: 15rpx;
 }.addressView .arrowIcon.data-v-4cedc0c6 {
 	width: 18rpx;
 	height: 34rpx;
 	display: inline-block;
-	float: left;
+	margin-top:18rpx;
 }.address.data-v-4cedc0c6 {
 	font-size: 26rpx;
 	color: #000;
@@ -79,7 +80,7 @@
 	font-size: 30rpx;
 }.container.data-v-4cedc0c6{
 	padding: 0 30rpx;
-	margin-top: 108rpx;
+	margin-top: 48rpx;
 }.history.data-v-4cedc0c6{
 	width: 100%;
 	text-align: left;
@@ -153,6 +154,15 @@
 	z-index: 999;
 	left: 40rpx;
 	padding: 180rpx 30rpx 0 20rpx;	
-	width: 98%;
+	width: 91%;
 }
+
+
+
+
+
+
+
+
+
 

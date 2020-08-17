@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 540));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 554));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Head = function Head() {__webpack_require__.e(/*! require.ensure | components/login/head */ "components/login/head").then((function () {return resolve(__webpack_require__(/*! @/components/login/head.vue */ 556));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Bottom = function Bottom() {__webpack_require__.e(/*! require.ensure | components/login/footer */ "components/login/footer").then((function () {return resolve(__webpack_require__(/*! @/components/login/footer.vue */ 570));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

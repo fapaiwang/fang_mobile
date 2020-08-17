@@ -98,9 +98,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   var l0 = _vm.__map(_vm.info, function(item, index) {
+    var $orig = _vm.__get_orig(item)
+
     var m0 = _vm.getImgUrl(item.url)
     return {
-      $orig: _vm.__get_orig(item),
+      $orig: $orig,
       m0: m0
     }
   })

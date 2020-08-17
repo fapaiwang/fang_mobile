@@ -130,7 +130,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 582));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 589));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Attention = function Attention() {__webpack_require__.e(/*! require.ensure | components/attention/attention */ "components/attention/attention").then((function () {return resolve(__webpack_require__(/*! @/components/attention/attention.vue */ 598));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var House = function House() {__webpack_require__.e(/*! require.ensure | components/attention/house */ "components/attention/house").then((function () {return resolve(__webpack_require__(/*! @/components/attention/house.vue */ 605));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
 
 
 
@@ -150,7 +154,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       houseData: [],
       communityData: [],
-      userId: -1 };
+      userId: -1,
+      isShow: true };
 
   },
   onShow: function onShow() {
@@ -201,6 +206,8 @@ __webpack_require__.r(__webpack_exports__);
 
             } });
 
+        } else {
+          _this.isShow = false;
         }
       });
     },
@@ -223,6 +230,10 @@ __webpack_require__.r(__webpack_exports__);
 
             } });
 
+        } else {
+          if (_this2.houseData.length < 1) {
+            _this2.isShow = false;
+          }
         }
       });
     } } };exports.default = _default;
