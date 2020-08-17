@@ -190,7 +190,7 @@
 		float: left;
 		color: #E02E24;
 		height: 14px;
-		font-size: 28px;
+		font-size: 14px;
 		font-family: PingFang SC;
 		font-weight: bold;
 		display: inline-block;
