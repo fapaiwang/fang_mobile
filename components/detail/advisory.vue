@@ -7,12 +7,12 @@
 				</view>
 				<view class="persion">
 					<text class="persion_name">{{advisoryName}}</text>
-					<view class="work">法拍经验：<text class="work_year">6年</text></view>
+					<view class="work">法拍经验：<text class="work_year">{{detial.kefu_nianxian.history_complate}}年</text></view>
 				</view>
 			</view>
 			<view class="consultant_r">
 				<text class="online">在线咨询</text>
-				<text class="tel" @tap='call(detial.pinglun.mobile)'>电话咨询</text>
+				<text class="tel" @tap='call(detial.pinglun.lxtel)'>电话咨询</text>
 			</view>
 		</view>
 	</view>
