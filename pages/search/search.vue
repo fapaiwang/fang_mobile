@@ -10,7 +10,7 @@
 					<input maxlength="140"
 						step="" placeholder="请输入小区/房源/法拍经理名称" autocomplete="off" 
 						type="search" v-model="keyword" placeholder-class="uni-inputPlaceholder"
-						class="uni-input" @input="inputChange">
+						class="uni-input" @input="inputChange" @confirm="doSearch">
 				</view>
 				<view class="user-wrap" @click="goUserClick">
 					<image class="userIconfont" src='../../static/img/base/userIcon@2x.png'></image>
@@ -23,7 +23,9 @@
 			</view>
 			<view class="history_list">
 				<text v-for="(item,key) in historyList" :key="key" v-if="item !=''  ">
-					{{item}}
+					{{item.first}}
+					<text style="color:#E02E24" v-if="item.mid !='' ">{{item.mid}}</text>
+					{{item.last}}
 				</text>
 			</view>
 		</view>
@@ -75,6 +77,9 @@
 			}).exec();
 		},
 		methods: {
+			doSearch(){
+				this.fun.navTo("/pages/all/index?keyword="+this.keyword)
+			},
 			inputChange:function() {
 				this.isShow = false;
 				var _self = this;
@@ -106,6 +111,7 @@
 									});
 								}
 								_self.keyList = _newData;
+								_self.setStore(_newData);
 							})
 						} else {
 							_self.keyList = [];
@@ -117,6 +123,7 @@
 			},
 			setStore(strRes) {
 				var _self = this;
+				console.log(strRes)
 				uni.setStorage({
 					key:_self.fun.searchList,
 					data:strRes
@@ -127,7 +134,7 @@
 				uni.getStorage({
 					key:_self.fun.searchList,
 					success:function(ops){
-						_self.historyList = ops.data.split(" ");
+						_self.historyList = ops.data
 					},
 					fail:function(){
 					}
@@ -194,4 +201,16 @@
 		width: 91%;
 	}
 	/* #endif */
+	.history_list text{
+		margin: 0;
+		margin-bottom: 10upx;
+		width: 100%;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
+	}
+	.history_list{
+		overflow: hidden;
+		text-overflow:ellipsis;
+	}
 </style>

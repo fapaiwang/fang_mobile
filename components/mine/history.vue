@@ -189,8 +189,8 @@
 	.last{
 		float: left;
 		color: #E02E24;
-		height: 14px;
-		font-size: 14px;
+		height:27upx;
+		ffont-size:28upx;
 		font-family: PingFang SC;
 		font-weight: bold;
 		display: inline-block;

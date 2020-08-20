@@ -6,10 +6,10 @@
 		<!-- <text class="desc">程序猿小哥哥正在开发~</text> -->
 		<view class="template_form">
 			<viwe class="template_form_name">
-				<input placeholder="请输入您的姓名" @click="template_form_name_click" class="login_inp" v-model="template_form_name_click"/>
+				<input placeholder="请输入您的姓名" class="login_inp" v-model="template_form_name_click"/>
 			</viwe>
 			<view class="template_form_mobile">
-				<input placeholder="请输入您的联系电话" @click="template_form_phone_click"  class="login_inp" v-model="template_form_phone_click"/>
+				<input placeholder="请输入您的联系电话"  class="login_inp" v-model="template_form_phone_click"/>
 			</view>
 			<view class="">
 				<button class="template_form_button" @click="getButton">提交信息</button>
@@ -23,7 +23,8 @@
 	export default {
 		data() {
 			return {
-				
+				template_form_name_click: '',
+				template_form_phone_click: "",
 			}
 		},
 		methods: {
@@ -59,13 +60,9 @@
 <style scoped>
 	@import url("./css/index.css");
 .bg{
-	/* width: 750upx; */
-	/* height: 482upx; */
-	left: 50%;
-	top: 35%;
-	position: absolute;
-	display: inline-block;
-	transform: translate(-50%,-50%);
+	position: relative;
+	height: 100%;
+	overflow: hidden;
 }
 .bgImg{
 	width: 750upx;

@@ -74,6 +74,7 @@
 				this.getHomeSecondSearch();
 				this.getTodayAddData();
 				this.getqualityEstateData();
+				this.getTit();
 			},
 			getHomeMenuData() {
 				var _self = this;
@@ -132,6 +133,16 @@
 				this.fun.getReq(RequestUrl.recommendedCommunity)
 				.then((res)=>{
 					this.qualityEstateData = res[1].data.data
+				})
+			},
+			getTit() { // 获取标题
+				this.fun.getReq(this.baseUrl+'/api/getTdk',{"type":"index"})
+				.then((res)=>{
+					if (res[1].data.code == 10000) {
+						uni.setNavigationBarTitle({
+							title:res[1].data.data[0].seo_title
+						})
+					}
 				})
 			},
 			goMore() {//加载更多

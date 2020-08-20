@@ -113,6 +113,9 @@
 						_self.getLoad();
 						return false;
 					}
+					uni.setNavigationBarTitle({
+						title:res[1].data.data.setSeo.seo_title
+					})
 					_self.loadingTxt = '加载更多'
 					var newsList = res[1].data.data.lists.data;
 					_self.recommendHouseData = newsList;

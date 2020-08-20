@@ -3,7 +3,7 @@
 		<view class="prefer-posi">
 			<view class="complex" id="boxFixed">
 				<!-- 搜索区 -->
-				<navSearch :back="2"></navSearch>
+				<navSearch :back="2" :search="search"></navSearch>
 				<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
 					<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,$event)">
 						{{item.name}}
@@ -134,7 +134,7 @@
 						<view class="check_more areaCon">
 							
 							<block v-for="(itemHouse,houseIndex) in statusReData" :key="houseIndex">
-								<text :class="{'activeb': houseIndex == statusNum}" @tap="sortClick(houseIndex,itemHouse.id,5)">{{itemHouse.name}}</text>
+								<text :class="{'activeb': houseIndex == statusNum || statusVal == `h${itemHouse.id}` || statusVal=='h175r1' && `h${itemHouse.id}`=='h175'}" @tap="sortClick(houseIndex,itemHouse.id,5)">{{itemHouse.name}}</text>
 							</block>
 						</view>
 					</view>
@@ -169,7 +169,7 @@
 		components:{
 			navSearch,
 		},
-		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","statusReData","dateFor","tabCur","backVal"],
+		props:["arealist","pricelist","familyData","houseProperty","areaData","levelData","statusReData","dateFor","tabCur","backVal","search"],
 		data() {
 			return {
 				drop: false,
@@ -214,6 +214,9 @@
 			if (_self.backVal != "") {
 				if (_self.backVal == "y1") {
 					_self.TabCur = 0;
+				}
+				if (_self.backVal == "h170" || _self.backVal == "h169" || _self.backVal == "h175r1") {//预告
+					_self.statusVal = _self.backVal;
 				}
 				if (_self.backVal == "m10") {
 					_self.TabCur = 1;
@@ -329,6 +332,7 @@
 				if (posi==5) {//更多 状态
 					if (this.checkYes(this.statusNum,index)) {
 						this.statusNum = 999;
+						this.backVal = "";
 						this.statusVal = '';////面积
 					} else {
 						this.statusNum = index;

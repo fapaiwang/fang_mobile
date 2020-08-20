@@ -11,10 +11,10 @@
 						placeholder="请输入小区/房源/法拍经理名称" 
 						autocomplete="off" 
 						type="search"
-						v-model="value"
+						v-model="search"
 						@click="inputChange"
 						placeholder-class="uni-inputPlaceholder"
-						class="uni-input">
+						class="uni-input" style="color: #000;">
 				</view>
 				<view class="user-wrap"
 					  @click="goUserClick">
@@ -27,7 +27,7 @@
 <script>
 	export default {
 		name: "navSearchHeader",
-		props:["back"],
+		props:["back","search"],
 		data () {
 			return {
 				value: ''

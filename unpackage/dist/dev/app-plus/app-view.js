@@ -7048,12 +7048,7 @@ var render = function() {
           _c(
             "v-uni-map",
             {
-              staticStyle: {
-                width: "100%",
-                height: "35vh",
-                position: "relative",
-                "z-index": "1"
-              },
+              staticStyle: { width: "100%", height: "35vh" },
               attrs: {
                 latitude: _vm._$g(4, "a-latitude"),
                 longitude: _vm._$g(4, "a-longitude"),
@@ -7608,7 +7603,7 @@ var render = function() {
                           _c(
                             "v-uni-text",
                             { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-                            [_vm._v("6年")]
+                            [_vm._v(_vm._$g(8, "t0-0") + "年")]
                           )
                         ],
                         1
@@ -7740,7 +7735,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#advisory_warp[data-v-5f2e5ccc]{\n\twidth:100%;\n\theight:138upx;\n\tbackground:#fff;\n\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: row wrap;\n\t        flex-wrap: row wrap;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n\tposition: fixed;\n\tbottom: 0;\n\tz-index: 1\n}\n.consultant[data-v-5f2e5ccc]{\n\twidth: 90%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\tborder-radius:10upx;\n\tmargin-top: 19upx;\n\tfont-size:28upx;\n\tcolor: #FFF;\n\tline-height: 70upx;\n\ttext-align: center;\n\tpadding: 0 17upx;\n\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 19upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\twidth:100upx;\n\theight:100upx;\n\tbackground:#F1F1F1;\n\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\twidth: 100%;\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\tfont-size:22upx;\n\tfont-weight:500;\n\tcolor:#666;\n\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\tmargin-left: 5px;\n}\n", ""]);
+exports.push([module.i, ".advisory_warp[data-v-5f2e5ccc]{\n\twidth:100%;\n\theight:138upx;\n\tbackground:#fff;\n\tbox-shadow:0upx 1upx 8upx 0upx #231815;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: row wrap;\n\t        flex-wrap: row wrap;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n\tposition: fixed;\n\tbottom: 0;\n\tz-index: 1\n}\n.consultant[data-v-5f2e5ccc]{\n\twidth: 90%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n}\n.consultant_r[data-v-5f2e5ccc]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 8px;\n}\n.consultant_r uni-text[data-v-5f2e5ccc]{\n\tborder-radius:10upx;\n\tmargin-top: 19upx;\n\tfont-size:28upx;\n\tcolor: #FFF;\n\tline-height: 70upx;\n\ttext-align: center;\n\tpadding: 0 17upx;\n\tdisplay: inline-table;\n}\n.online[data-v-5f2e5ccc]{\n\tbackground:#78AEE8;\n}\n.tel[data-v-5f2e5ccc]{\n\tbackground:#DE4C47;\n}\n.consultant_l[data-v-5f2e5ccc]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 19upx;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row;\n\t        flex-flow: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.avatar uni-image[data-v-5f2e5ccc]{\n\twidth:100upx;\n\theight:100upx;\n\tbackground:#F1F1F1;\n\tborder-radius:50%;\n}\n.persion[data-v-5f2e5ccc]{\n\tmargin-left: 18upx;\n}\n.persion_name[data-v-5f2e5ccc]{\n\twidth: 100%;\n\tfont-size:32upx;\n\tfont-weight:bold;\n\tcolor:#333;\n}\n.work[data-v-5f2e5ccc]{\n\tfont-size:22upx;\n\tfont-weight:500;\n\tcolor:#666;\n\tline-height:60upx;\n}\n.tel[data-v-5f2e5ccc] {\n\tmargin-left: 5px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -11653,6 +11648,7 @@ var render = function() {
               }),
               _c("v-uni-input", {
                 staticClass: _vm._$g(6, "sc"),
+                staticStyle: { color: "#000" },
                 attrs: {
                   maxlength: "140",
                   step: "",
@@ -11672,7 +11668,7 @@ var render = function() {
                   callback: function($$v) {
                     _vm.$handleVModelEvent(6, $$v)
                   },
-                  expression: "value"
+                  expression: "search"
                 }
               })
             ],
@@ -11737,7 +11733,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  name: "navSearchHeader", props: ["back"],
+  name: "navSearchHeader", props: ["back", "search"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -11792,7 +11788,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".header-wrap[data-v-2d251f2e] {\n\theight: 78upx;\n\tpadding: 80upx 30upx 0 20upx;\t\n\twidth: 100%;\n}.index-header[data-v-2d251f2e] {\n\twidth: 93%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n}.container[data-v-2d251f2e]{\n\tmargin-top: 78upx;\n}.addressView[data-v-2d251f2e]{\n\twidth:58upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n}.addressView .arrowIcon[data-v-2d251f2e] {\n\tmargin-left: 10upx;\n\twidth:18upx;\n\theight:34upx;\n}.address[data-v-2d251f2e] {\n\tfont-size: 26upx;\n\tcolor: #000;\n}.input-wrap[data-v-2d251f2e] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\t    \n\theight: 78upx;\n\tborder: 1upx solid #EBEBEB;\n\tbackground-color: #fff;\n\tborder-radius: 50upx;\n}.uni-input[data-v-2d251f2e] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tdisplay: block;\n\theight: 100%;\n\tcolor: #999;\n\topacity: 1;\n\tfont-size: 24upx;\n\t-webkit-text-fill-color: currentcolor;\n}.uni-inputPlaceholder[data-v-2d251f2e] {\n\tcolor: #999999;\n}.iconfangdajing[data-v-2d251f2e] {\n\twidth: 32upx;\n\theight: 32upx;\n\tmargin-left: 27upx;\n\tmargin-right: 15upx;\n}.user-wrap[data-v-2d251f2e] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n\t-webkit-box-pack:end;\n\t-webkit-justify-content:flex-end;\n\t        justify-content:flex-end;\n\twidth: 76upx;\n}.user-wrap .userIconfont[data-v-2d251f2e] {\n\twidth: 44upx;\n\theight: 44upx;\n}.input-wrap uni-text[data-v-2d251f2e]{\n\tposition: absolute;\n\tleft: 40upx;\n\ttop: -8upx;\n\tcolor: #000;\n\tfont-size: 30upx;\n}\n", ""]);
+exports.push([module.i, ".header-wrap[data-v-2d251f2e] {\n\theight: 78upx;\n\tpadding: 80upx 30upx 0 20upx;\t\n\twidth: 100%;\n}.index-header[data-v-2d251f2e] {\n\twidth: 93%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n}.container[data-v-2d251f2e]{\n\tmargin-top: 78upx;\n}.addressView[data-v-2d251f2e]{\n\twidth:58upx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n}.addressView .arrowIcon[data-v-2d251f2e] {\n\tmargin-left: 10upx;\n\twidth:18upx;\n\theight:34upx;\n}.address[data-v-2d251f2e] {\n\tfont-size: 26upx;\n\tcolor: #000;\n}.input-wrap[data-v-2d251f2e] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\t    \n\theight: 78upx;\n\tborder: 1upx solid #EBEBEB;\n\tbackground-color: #fff;\n\tborder-radius: 50upx;\n}.uni-input[data-v-2d251f2e] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tdisplay: block;\n\theight: 100%;\n\tcolor: #999;\n\topacity: 1;\n\tfont-size: 24upx;\n\t-webkit-text-fill-color: currentcolor;\n}.uni-inputPlaceholder[data-v-2d251f2e] {\n\tcolor: #000;\n}.iconfangdajing[data-v-2d251f2e] {\n\twidth: 32upx;\n\theight: 32upx;\n\tmargin-left: 27upx;\n\tmargin-right: 15upx;\n}.user-wrap[data-v-2d251f2e] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n\t-webkit-box-pack:end;\n\t-webkit-justify-content:flex-end;\n\t        justify-content:flex-end;\n\twidth: 76upx;\n}.user-wrap .userIconfont[data-v-2d251f2e] {\n\twidth: 44upx;\n\theight: 44upx;\n}.input-wrap uni-text[data-v-2d251f2e]{\n\tposition: absolute;\n\tleft: 40upx;\n\ttop: -8upx;\n\tcolor: #000;\n\tfont-size: 30upx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -13571,7 +13567,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".taxes_warp[data-v-309afcda]{\n\t\tpadding: 0 30upx;\n}\n.taxes_con[data-v-309afcda]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tline-height: 98upx;\n\t\tfont-size:32upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n\t\tborder-bottom: 1px solid #EBEBEB;\n}\n.taxes_tit[data-v-309afcda] {\n    width: 61%;\n}\n.taxes_small_tit[data-v-309afcda],.taxes_small_tit uni-image[data-v-309afcda] {\n\twidth: 40upx;\n\theight: 40upx;\n\tfloat: left;\n\tmargin-top: 14upx;\n\tmargin-right: 15upx;\n}\n.taxes_tit uni-text[data-v-309afcda]{\n\theight:27upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n}\n.taxes_symbol[data-v-309afcda]{\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tcolor:#999;\n\twidth: 20%;\n\ttext-align: right;\n}\n.logout[data-v-309afcda]{\n\ttext-align: center;\n\tfont-size:32upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999;\n\tline-height:80upx;\n\tbackground: #FFF;\n\theight: 80upx;\n}\n.last[data-v-309afcda]{\n\tfloat: left;\n\tcolor: #E02E24;\n\theight: 14px;\n\tfont-size: 14px;\n\tfont-family: PingFang SC;\n\tfont-weight: bold;\n\tdisplay: inline-block;\n}\n.client .taxes_symbol[data-v-309afcda]{\n\twidth: 31%;\n}\n", ""]);
+exports.push([module.i, ".taxes_warp[data-v-309afcda]{\n\t\tpadding: 0 30upx;\n}\n.taxes_con[data-v-309afcda]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row wrap;\n\t\t        flex-flow: row wrap;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tline-height: 98upx;\n\t\tfont-size:32upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n\t\tborder-bottom: 1px solid #EBEBEB;\n}\n.taxes_tit[data-v-309afcda] {\n    width: 61%;\n}\n.taxes_small_tit[data-v-309afcda],.taxes_small_tit uni-image[data-v-309afcda] {\n\twidth: 40upx;\n\theight: 40upx;\n\tfloat: left;\n\tmargin-top: 14upx;\n\tmargin-right: 15upx;\n}\n.taxes_tit uni-text[data-v-309afcda]{\n\theight:27upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n}\n.taxes_symbol[data-v-309afcda]{\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tcolor:#999;\n\twidth: 20%;\n\ttext-align: right;\n}\n.logout[data-v-309afcda]{\n\ttext-align: center;\n\tfont-size:32upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999;\n\tline-height:80upx;\n\tbackground: #FFF;\n\theight: 80upx;\n}\n.last[data-v-309afcda]{\n\tfloat: left;\n\tcolor: #E02E24;\n\theight:27upx;\n\tffont-size:28upx;\n\tfont-family: PingFang SC;\n\tfont-weight: bold;\n\tdisplay: inline-block;\n}\n.client .taxes_symbol[data-v-309afcda]{\n\twidth: 31%;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -16967,7 +16963,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front_cove_list[data-v-05485b9f] {\n\t\tmargin: 0 auto;\n\t\tpadding: 0 30upx;\n}.recommendHouseTitleView[data-v-05485b9f] {\n\t\theight: 117upx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align: center;\n\t\t-webkit-align-items: center;\n\t\t        align-items: center;\n}.recommendHouseTitleItem[data-v-05485b9f] {\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n}.recommendHouseTitleItem uni-text[data-v-05485b9f] {\n\t\tfont-size:40upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:800;\n\t\tcolor:rgba(51,51,51,1);\n}.front_cove_about[data-v-05485b9f]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 60upx;\n\t\tbox-sizing: content-box;\n}.front_cove_about[data-v-05485b9f]:first-child{\n\t\tmargin-top: 30upx;\n}.front_cove_img[data-v-05485b9f] {\n\t\twidth:260upx;\n\t\theight:178upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:10px;\n}.front_cove_img uni-image[data-v-05485b9f] {\n\t\twidth:260upx;\n\t\theight:178upx;\n}.front_cove_info[data-v-05485b9f]{\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\tmargin-left: 30upx;\n\t\tmin-width: 0;\n}.front_cove_tit[data-v-05485b9f] {\n\t\theight:90upx;\n\t\tfont-size:32upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n\t\toverflow: hidden;\n\t\ttext-overflow: ellipsis;\n\t\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t\t-webkit-box-orient:vertical;\n\t\t-webkit-line-clamp:2;\n}.front_cove_desc[data-v-05485b9f]{\n\t\twidth:100%;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tmargin-top: 19upx;\n\t\tmargin-bottom: 18upx;\n\t\tmin-width: 0;\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\toverflow: hidden;\n\t\ttext-overflow: ellipsis;\n\t\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t\t-webkit-box-orient:vertical;\n\t\t-webkit-line-clamp:1;\n}.front_cove_time[data-v-05485b9f] {\n\t\twidth: 100%;\n\t\tfont-size:20upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#999;\n}.release_time[data-v-05485b9f]{\n\t\twidth: 50%;\n\t\tfloat: left;\n}.createIimeIcon[data-v-05485b9f],.createIimeIcon uni-image[data-v-05485b9f] {\n\t\twidth: 24upx;\n\t\theight: 24upx;\n\t\tfloat: left;\n}.createIimeIconinfo[data-v-05485b9f]{\n\t\theight:16upx;\n\t\tfont-size:20upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#999;\n}.loading[data-v-05485b9f]{\n\t\tline-height: 2em;\n\t\ttext-align: center;\n\t\tcolor: #888;\n\t\tfont-size: 20upx;\n\t\tmargin-top: 20upx;\n}.uni-padding-wrap[data-v-05485b9f]{\n\t\tmargin-top: 0 !important;\n}/* 切换 */.scv[data-v-05485b9f]{\n\t\t-webkit-flex-wrap: nowrap;\n\t\t        flex-wrap: nowrap;\n\t\twhite-space: nowrap;\n\t\tborder-bottom: 1upx solid #EBEBEB;\n}.scv uni-view[data-v-05485b9f]{\n\t\tdisplay: inline-block;\n\t\tpadding: 0 43upx;\n\t\theight:60upx;\n\t\tfont-size:30upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:800;\n\t\tcolor:#999;\n\t\tline-height:60upx;\n\t\tmargin: 33upx 0 32upx;\n}.text-red[data-v-05485b9f]{\n\t  color:#DF2D23 !important;\n\t  font-weight:800;\n\t  font-family:PingFang SC;\n}.hot_ans[data-v-05485b9f]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tpadding: 0 30upx;\n\t\tmargin-top: 30upx;\n}.hot_ans uni-text[data-v-05485b9f]{\n\t\tcolor: #656565;\n\t\tborder-radius:25px;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tbackground:rgba(241,241,241,1);\n\t\tline-height:60upx;\n\t\twidth:140upx;\n\t\ttext-align: center;\n}.hot-red[data-v-05485b9f]{\n\t\tbackground:-webkit-linear-gradient(left,rgba(245,111,111,1),rgba(221,83,73,1)) !important;\n\t\tbackground:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,83,73,1)) !important;\n\t\tcolor:#fff !important;\n}.hot_ans uni-text[data-v-05485b9f]:first-child{\n\t\tmargin-right: 50upx;\n}.search[data-v-05485b9f]{\n\t\tposition: absolute;\n\t\tz-index: 1;\n\t\ttop: 242upx;\n\t\theight:68upx;\n\t\tbackground:rgba(255,255,255,1);\n\t\tborder-radius:5px;\n\t\twidth: 80%;\n\t\tleft: 10%;\n}.index-header[data-v-05485b9f] {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\n}.iconfangdajing[data-v-05485b9f] {\n\t\twidth: 24upx;\n\t\theight: 24upx;\n\t\tmargin: 18upx 27upx 0 15upx;\n}.input-wrap[data-v-05485b9f] {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\t    \n\t    height: 60upx;\n\t\tborder: 1upx solid #EBEBEB;\n\t    background-color: #fff;\n\t    border-radius: 50upx;\n\t\twidth: 75%;\n\t\tdisplay: flex;\n\t\tborder: none;\n\t\tfloat: left;\n}.input-wrap uni-input[data-v-05485b9f]{\n\t\theight: 60upx;\n\t\tfont-size:24upx;\n\t\tline-height: 60upx;\n\t\tmargin-top: 8upx;\n\t\tdisplay: inline-block;\n}.user-wrap[data-v-05485b9f] {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\n\t\t-webkit-box-pack:end;\n\t\t-webkit-justify-content:flex-end;\n\t\t        justify-content:flex-end;\n\t\twidth:25%;\n\t\theight:68upx;\n\t\tbackground:rgba(199,49,38,1);\n\t\tline-height: 68upx;\n\t\tborder-radius:5px;\n\t\ttext-align: center;\n\t\tfont-size:24px;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#fff;\n\t\t-webkit-box-pack: center;\n\t\t-webkit-justify-content: center;\n\t\t        justify-content: center;\n\t\tfloat: right;\n\t\tborder: none;\n}.user-wrap .userIconfont[data-v-05485b9f] {\n\t    width: 44upx;\n\t    height: 44upx;\n}.input-wrap uni-text[data-v-05485b9f]{\n\t\tposition: absolute;\n\t\tleft: 40upx;\n\t\ttop: -8upx;\n\t\tcolor: #000;\n\t\tfont-size: 30upx;\n}\n", ""]);
+exports.push([module.i, ".container[data-v-05485b9f]{\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}.front_cove_list[data-v-05485b9f] {\n\t\tmargin: 0 auto;\n\t\tpadding: 0 30upx;\n}.recommendHouseTitleView[data-v-05485b9f] {\n\t\theight: 117upx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align: center;\n\t\t-webkit-align-items: center;\n\t\t        align-items: center;\n}.recommendHouseTitleItem[data-v-05485b9f] {\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n}.recommendHouseTitleItem uni-text[data-v-05485b9f] {\n\t\tfont-size:40upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:800;\n\t\tcolor:rgba(51,51,51,1);\n}.front_cove_about[data-v-05485b9f]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-flow: row;\n\t\t        flex-flow: row;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 60upx;\n\t\tbox-sizing: content-box;\n}.front_cove_about[data-v-05485b9f]:first-child{\n\t\tmargin-top: 30upx;\n}.front_cove_img[data-v-05485b9f] {\n\t\twidth:260upx;\n\t\theight:178upx;\n\t\tbackground:#F1F1F1;\n\t\tborder-radius:10px;\n}.front_cove_img uni-image[data-v-05485b9f] {\n\t\twidth:260upx;\n\t\theight:178upx;\n}.front_cove_info[data-v-05485b9f]{\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\tmargin-left: 30upx;\n\t\tmin-width: 0;\n}.front_cove_tit[data-v-05485b9f] {\n\t\theight:90upx;\n\t\tfont-size:32upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:bold;\n\t\tcolor:#333;\n\t\toverflow: hidden;\n\t\ttext-overflow: ellipsis;\n\t\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t\t-webkit-box-orient:vertical;\n\t\t-webkit-line-clamp:2;\n}.front_cove_desc[data-v-05485b9f]{\n\t\twidth:100%;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tcolor:#666;\n\t\tmargin-top: 19upx;\n\t\tmargin-bottom: 18upx;\n\t\tmin-width: 0;\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\toverflow: hidden;\n\t\ttext-overflow: ellipsis;\n\t\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t\t-webkit-box-orient:vertical;\n\t\t-webkit-line-clamp:1;\n}.front_cove_time[data-v-05485b9f] {\n\t\twidth: 100%;\n\t\tfont-size:20upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#999;\n}.release_time[data-v-05485b9f]{\n\t\twidth: 50%;\n\t\tfloat: left;\n}.createIimeIcon[data-v-05485b9f],.createIimeIcon uni-image[data-v-05485b9f] {\n\t\twidth: 24upx;\n\t\theight: 24upx;\n\t\tfloat: left;\n}.createIimeIconinfo[data-v-05485b9f]{\n\t\theight:16upx;\n\t\tfont-size:20upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#999;\n}.loading[data-v-05485b9f]{\n\t\tline-height: 2em;\n\t\ttext-align: center;\n\t\tcolor: #888;\n\t\tfont-size: 20upx;\n\t\tmargin-top: 20upx;\n}.uni-padding-wrap[data-v-05485b9f]{\n\t\tmargin-top: 0 !important;\n}/* 切换 */.scv[data-v-05485b9f]{\n\t\t-webkit-flex-wrap: nowrap;\n\t\t        flex-wrap: nowrap;\n\t\twhite-space: nowrap;\n\t\tborder-bottom: 1upx solid #EBEBEB;\n}.scv uni-view[data-v-05485b9f]{\n\t\tdisplay: inline-block;\n\t\tpadding: 0 43upx;\n\t\theight:60upx;\n\t\tfont-size:30upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:800;\n\t\tcolor:#999;\n\t\tline-height:60upx;\n\t\tmargin: 33upx 0 32upx;\n}.text-red[data-v-05485b9f]{\n\t  color:#DF2D23 !important;\n\t  font-weight:800;\n\t  font-family:PingFang SC;\n}.hot_ans[data-v-05485b9f]{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\tpadding: 0 30upx;\n\t\tmargin-top: 30upx;\n}.hot_ans uni-text[data-v-05485b9f]{\n\t\tcolor: #656565;\n\t\tborder-radius:25px;\n\t\tfont-size:24upx;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:500;\n\t\tbackground:rgba(241,241,241,1);\n\t\tline-height:60upx;\n\t\twidth:140upx;\n\t\ttext-align: center;\n}.hot-red[data-v-05485b9f]{\n\t\tbackground:-webkit-linear-gradient(left,rgba(245,111,111,1),rgba(221,83,73,1)) !important;\n\t\tbackground:linear-gradient(90deg,rgba(245,111,111,1),rgba(221,83,73,1)) !important;\n\t\tcolor:#fff !important;\n}.hot_ans uni-text[data-v-05485b9f]:first-child{\n\t\tmargin-right: 50upx;\n}.search[data-v-05485b9f]{\n\t\tposition: absolute;\n\t\tz-index: 1;\n\t\ttop: 242upx;\n\t\theight:68upx;\n\t\tbackground:rgba(255,255,255,1);\n\t\tborder-radius:5px;\n\t\twidth: 80%;\n\t\tleft: 10%;\n}.index-header[data-v-05485b9f] {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\n}.iconfangdajing[data-v-05485b9f] {\n\t\twidth: 24upx;\n\t\theight: 24upx;\n\t\tmargin: 18upx 27upx 0 15upx;\n}.input-wrap[data-v-05485b9f] {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-flex: 1;\n\t\t-webkit-flex: 1;\n\t\t        flex: 1;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\t    \n\t    height: 60upx;\n\t\tborder: 1upx solid #EBEBEB;\n\t    background-color: #fff;\n\t    border-radius: 50upx;\n\t\twidth: 75%;\n\t\tdisplay: flex;\n\t\tborder: none;\n\t\tfloat: left;\n}.input-wrap uni-input[data-v-05485b9f]{\n\t\theight: 60upx;\n\t\tfont-size:24upx;\n\t\tline-height: 60upx;\n\t\tmargin-top: 8upx;\n\t\tdisplay: inline-block;\n}.user-wrap[data-v-05485b9f] {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-align:center;\n\t\t-webkit-align-items:center;\n\t\t        align-items:center;\n\t\t-webkit-box-pack:end;\n\t\t-webkit-justify-content:flex-end;\n\t\t        justify-content:flex-end;\n\t\twidth:25%;\n\t\theight:68upx;\n\t\tbackground:rgba(199,49,38,1);\n\t\tline-height: 68upx;\n\t\tborder-radius:5px;\n\t\ttext-align: center;\n\t\tfont-size:24px;\n\t\tfont-family:PingFang SC;\n\t\tfont-weight:400;\n\t\tcolor:#fff;\n\t\t-webkit-box-pack: center;\n\t\t-webkit-justify-content: center;\n\t\t        justify-content: center;\n\t\tfloat: right;\n\t\tborder: none;\n}.user-wrap .userIconfont[data-v-05485b9f] {\n\t    width: 44upx;\n\t    height: 44upx;\n}.input-wrap uni-text[data-v-05485b9f]{\n\t\tposition: absolute;\n\t\tleft: 40upx;\n\t\ttop: -8upx;\n\t\tcolor: #000;\n\t\tfont-size: 30upx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -23796,7 +23792,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _navSearch = _interopRequireDefault(__webpack_require__(/*! @/components/delicacy/navSearch.vue */ 240));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
-  props: ["arealist", "pricelist", "familyData", "houseProperty", "areaData", "levelData", "statusReData", "dateFor", "tabCur", "backVal"],
+  props: ["arealist", "pricelist", "familyData", "houseProperty", "areaData", "levelData", "statusReData", "dateFor", "tabCur", "backVal", "search"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -24499,6 +24495,9 @@ var render = function() {
                     on: {
                       input: function($event) {
                         return _vm.$handleViewEvent($event)
+                      },
+                      confirm: function($event) {
+                        return _vm.$handleViewEvent($event)
                       }
                     },
                     model: {
@@ -24554,7 +24553,21 @@ var render = function() {
                     ? _c(
                         "v-uni-text",
                         { key: item, attrs: { _i: "14-" + $30 } },
-                        [_vm._v(_vm._$g("14-" + $30, "t0-0"))]
+                        [
+                          _vm._v(_vm._$g("14-" + $30, "t0-0")),
+                          _vm._$g("15-" + $30, "i")
+                            ? _c(
+                                "v-uni-text",
+                                {
+                                  staticStyle: { color: "#E02E24" },
+                                  attrs: { _i: "15-" + $30 }
+                                },
+                                [_vm._v(_vm._$g("15-" + $30, "t0-0"))]
+                              )
+                            : _vm._e(),
+                          _vm._v(_vm._$g("14-" + $30, "t2-0"))
+                        ],
+                        1
                       )
                     : _vm._e()
                 }),
@@ -24567,18 +24580,18 @@ var render = function() {
       _c(
         "v-uni-view",
         {
-          staticClass: _vm._$g(15, "sc"),
-          style: _vm._$g(15, "s"),
-          attrs: { _i: 15 }
+          staticClass: _vm._$g(16, "sc"),
+          style: _vm._$g(16, "s"),
+          attrs: { _i: 16 }
         },
-        _vm._l(_vm._$g(16, "f"), function(houseItem, key, $21, $31) {
-          return _vm._$g("16-" + $31, "i")
+        _vm._l(_vm._$g(17, "f"), function(houseItem, key, $21, $31) {
+          return _vm._$g("17-" + $31, "i")
             ? _c(
                 "v-uni-view",
                 {
                   key: houseItem,
-                  staticClass: _vm._$g("16-" + $31, "sc"),
-                  attrs: { _i: "16-" + $31 },
+                  staticClass: _vm._$g("17-" + $31, "sc"),
+                  attrs: { _i: "17-" + $31 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -24588,18 +24601,18 @@ var render = function() {
                 [
                   _c(
                     "v-uni-view",
-                    { attrs: { _i: "17-" + $31 } },
+                    { attrs: { _i: "18-" + $31 } },
                     [
-                      _vm._v(_vm._$g("17-" + $31, "t0-0")),
+                      _vm._v(_vm._$g("18-" + $31, "t0-0")),
                       _c(
                         "v-uni-text",
                         {
                           staticStyle: { color: "#E02E24" },
-                          attrs: { _i: "18-" + $31 }
+                          attrs: { _i: "19-" + $31 }
                         },
-                        [_vm._v(_vm._$g("18-" + $31, "t0-0"))]
+                        [_vm._v(_vm._$g("19-" + $31, "t0-0"))]
                       ),
-                      _vm._v(_vm._$g("17-" + $31, "t2-0"))
+                      _vm._v(_vm._$g("18-" + $31, "t2-0"))
                     ],
                     1
                   )
@@ -24702,7 +24715,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.index-header[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row wrap;\n\t        flex-direction: row wrap;\n\t-webkit-box-align:space-between;\n\t-webkit-align-items:space-between;\n\t        align-items:space-between;\t \n\theight: 78upx;\n    margin-bottom: 25upx;\n}.addressView[data-v-6337d5d4]{\n\twidth: 18upx;\n\theight: 78upx;\n\tmargin-right: 15upx;\n}.addressView .arrowIcon[data-v-6337d5d4] {\n\twidth: 18upx;\n\theight: 34upx;\n\tdisplay: inline-block;\n\tmargin-top:18upx ;\n}.address[data-v-6337d5d4] {\n\tfont-size: 26upx;\n\tcolor: #000;\n}.input-wrap[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\t    \n\theight: 60upx;\n\tborder: 1upx solid #EBEBEB;\n\tbackground-color: #fff;\n\tborder-radius: 50upx;\n}.uni-input[data-v-6337d5d4] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tdisplay: block;\n\theight: 100%;\n\tcolor: #000;\n\topacity: 1;\n\tfont-size: 24upx;\n\t-webkit-text-fill-color: currentcolor;\n}.uni-inputPlaceholder[data-v-6337d5d4] {\n\tcolor: #999;\n}.iconfangdajing[data-v-6337d5d4] {\n\twidth: 32upx;\n\theight: 32upx;\n\tmargin-left: 27upx;\n\tmargin-right: 15upx;\n}.user-wrap[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n\t-webkit-box-pack:end;\n\t-webkit-justify-content:flex-end;\n\t        justify-content:flex-end;\n\twidth: 76upx;\n}.user-wrap .userIconfont[data-v-6337d5d4] {\n\twidth: 44upx;\n\theight: 44upx;\n}.input-wrap uni-text[data-v-6337d5d4]{\n\tposition: absolute;\n\tleft: 40upx;\n\tcolor: #000;\n\tfont-size: 30upx;\n}.container[data-v-6337d5d4]{\n\tpadding: 0 30upx;\n\tmargin-top: 48px;\n}.history[data-v-6337d5d4]{\n\twidth: 100%;\n\ttext-align: left;\n\theight:31upx;\n\tfont-size:32upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999999;\n\tline-height:40upx;\n\tmargin: 28px 0;\n}.history_list[data-v-6337d5d4] {\n}.history_list uni-text[data-v-6337d5d4]{\n\theight:60upx;\n\tbackground:#F3F5F7;\n\tborder-radius:30upx;\n\tline-height: 60upx;\n\tpadding: 0 19upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:rgba(51,51,51,1);\n\tdisplay: inline-block;\n\tmargin-bottom: 30upx;\n\tmargin-right: 30upx;\n}.search_list[data-v-6337d5d4]{\n\tposition: absolute;\n\tz-index: 1111;\n\tbackground: #fff;\n\tleft: 0;\n\twidth: 90%;\n\tleft: 4%;\n}.search_item[data-v-6337d5d4]{\n\tpadding: 35upx 0;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tborder-bottom:1upx solid rgba(241,241,241,1);\n}.search_list .search_item .search_item_con[data-v-6337d5d4]{\n\tfont-size: 28upx;\n\tdisplay: inline-block;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:1;\n}/* .search_list .search_item text:last-child{\n\tfont-size: 24upx;\n\tcolor: #999999;\n} */.search_list .search_item uni-view[data-v-6337d5d4]{\n\tfont-size: 28upx;\n\tdisplay: inline-block;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:1;\n}.header-wrap[data-v-6337d5d4] {\n\t\tmargin-top: 10upx;\n\t\theight: 60upx;\n\t\twidth: 100%;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tz-index: 999;\n\t\tleft: 40upx;\n\t\tpadding-top: 60upx;\n\t\twidth:91%;\n}.container[data-v-6337d5d4]{\n\t\tmargin-top: 78px;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.index-header[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row wrap;\n\t        flex-direction: row wrap;\n\t-webkit-box-align:space-between;\n\t-webkit-align-items:space-between;\n\t        align-items:space-between;\t \n\theight: 78upx;\n    margin-bottom: 25upx;\n}.addressView[data-v-6337d5d4]{\n\twidth: 18upx;\n\theight: 78upx;\n\tmargin-right: 15upx;\n}.addressView .arrowIcon[data-v-6337d5d4] {\n\twidth: 18upx;\n\theight: 34upx;\n\tdisplay: inline-block;\n\tmargin-top:18upx ;\n}.address[data-v-6337d5d4] {\n\tfont-size: 26upx;\n\tcolor: #000;\n}.input-wrap[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\t    \n\theight: 60upx;\n\tborder: 1upx solid #EBEBEB;\n\tbackground-color: #fff;\n\tborder-radius: 50upx;\n}.uni-input[data-v-6337d5d4] {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tdisplay: block;\n\theight: 100%;\n\tcolor: #000;\n\topacity: 1;\n\tfont-size: 24upx;\n\t-webkit-text-fill-color: currentcolor;\n}.uni-inputPlaceholder[data-v-6337d5d4] {\n\tcolor: #999;\n}.iconfangdajing[data-v-6337d5d4] {\n\twidth: 32upx;\n\theight: 32upx;\n\tmargin-left: 27upx;\n\tmargin-right: 15upx;\n}.user-wrap[data-v-6337d5d4] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align:center;\n\t-webkit-align-items:center;\n\t        align-items:center;\n\t-webkit-box-pack:end;\n\t-webkit-justify-content:flex-end;\n\t        justify-content:flex-end;\n\twidth: 76upx;\n}.user-wrap .userIconfont[data-v-6337d5d4] {\n\twidth: 44upx;\n\theight: 44upx;\n}.input-wrap uni-text[data-v-6337d5d4]{\n\tposition: absolute;\n\tleft: 40upx;\n\tcolor: #000;\n\tfont-size: 30upx;\n}.container[data-v-6337d5d4]{\n\tpadding: 0 30upx;\n\tmargin-top: 48px;\n}.history[data-v-6337d5d4]{\n\twidth: 100%;\n\ttext-align: left;\n\theight:31upx;\n\tfont-size:32upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:#999999;\n\tline-height:40upx;\n\tmargin: 28px 0;\n}.history_list[data-v-6337d5d4] {\n}.history_list uni-text[data-v-6337d5d4]{\n\theight:60upx;\n\tbackground:#F3F5F7;\n\tborder-radius:30upx;\n\tline-height: 60upx;\n\tpadding: 0 19upx;\n\tfont-size:28upx;\n\tfont-family:PingFang SC;\n\tfont-weight:500;\n\tcolor:rgba(51,51,51,1);\n\tdisplay: inline-block;\n\tmargin-bottom: 30upx;\n\tmargin-right: 30upx;\n}.search_list[data-v-6337d5d4]{\n\tposition: absolute;\n\tz-index: 1111;\n\tbackground: #fff;\n\tleft: 0;\n\twidth: 90%;\n\tleft: 4%;\n}.search_item[data-v-6337d5d4]{\n\tpadding: 35upx 0;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-flow: row wrap;\n\t        flex-flow: row wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\twidth: 100%;\n\tborder-bottom:1upx solid rgba(241,241,241,1);\n}.search_list .search_item .search_item_con[data-v-6337d5d4]{\n\tfont-size: 28upx;\n\tdisplay: inline-block;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:1;\n}/* .search_list .search_item text:last-child{\n\tfont-size: 24upx;\n\tcolor: #999999;\n} */.search_list .search_item uni-view[data-v-6337d5d4]{\n\tfont-size: 28upx;\n\tdisplay: inline-block;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\tdisplay:-webkit-box; /*作为弹性伸缩盒子模型显示。 */\n\t-webkit-box-orient:vertical;\n\t-webkit-line-clamp:1;\n}.header-wrap[data-v-6337d5d4] {\n\t\tmargin-top: 10upx;\n\t\theight: 60upx;\n\t\twidth: 100%;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tz-index: 999;\n\t\tleft: 40upx;\n\t\tpadding-top: 60upx;\n\t\twidth:91%;\n}.container[data-v-6337d5d4]{\n\t\tmargin-top: 78px;\n}\n.history_list uni-text[data-v-6337d5d4]{\n\tmargin: 0;\n\tmargin-bottom: 10upx;\n\twidth: 100%;\n\ttext-overflow: ellipsis;\n\toverflow: hidden;\n}.history_list[data-v-6337d5d4]{\n\toverflow: hidden;\n\ttext-overflow:ellipsis;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -28751,51 +28764,79 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-uni-view",
-    { attrs: { _i: 0 } },
+    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
+      _c("v-uni-image", {
+        staticClass: _vm._$g(1, "sc"),
+        attrs: { src: _vm._$g(1, "a-src"), _i: 1 }
+      }),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
         [
           _c(
-            "v-uni-text",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            "viwe",
+            { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
             [
               _c("v-uni-input", {
-                staticClass: _vm._$g(3, "sc"),
-                attrs: { placeholder: "请输入您的姓名", _i: 3 },
+                staticClass: _vm._$g(4, "sc"),
+                attrs: { placeholder: "请输入您的姓名", _i: 4 },
                 model: {
-                  value: _vm._$g(3, "v-model"),
+                  value: _vm._$g(4, "v-model"),
                   callback: function($$v) {
-                    _vm.$handleVModelEvent(3, $$v)
+                    _vm.$handleVModelEvent(4, $$v)
                   },
-                  expression: "phone"
+                  expression: "template_form_name_click"
                 }
               })
             ],
             1
           ),
           _c(
-            "v-uni-text",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            "v-uni-view",
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
             [
               _c("v-uni-input", {
-                staticClass: _vm._$g(5, "sc"),
-                attrs: { placeholder: "请输入您的联系电话", _i: 5 },
+                staticClass: _vm._$g(6, "sc"),
+                attrs: { placeholder: "请输入您的联系电话", _i: 6 },
                 model: {
-                  value: _vm._$g(5, "v-model"),
+                  value: _vm._$g(6, "v-model"),
                   callback: function($$v) {
-                    _vm.$handleVModelEvent(5, $$v)
+                    _vm.$handleVModelEvent(6, $$v)
                   },
-                  expression: "phone"
+                  expression: "template_form_phone_click"
                 }
               })
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { attrs: { _i: 7 } },
+            [
+              _c(
+                "v-uni-button",
+                {
+                  staticClass: _vm._$g(8, "sc"),
+                  attrs: { _i: 8 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [_vm._v("提交信息")]
+              )
             ],
             1
           )
         ],
         1
-      )
+      ),
+      _c("v-uni-image", {
+        staticClass: _vm._$g(9, "sc"),
+        attrs: { src: _vm._$g(9, "a-src"), _i: 9 }
+      })
     ],
     1
   )
@@ -28888,7 +28929,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.bg[data-v-f9fae82c]{\n\t/* width: 750upx; */\n\t/* height: 482upx; */\n\tleft: 50%;\n\ttop: 35%;\n\tposition: absolute;\n\tdisplay: inline-block;\n\t-webkit-transform: translate(-50%,-50%);\n\t        transform: translate(-50%,-50%);\n}\n.bgImg[data-v-f9fae82c]{\n\twidth: 750upx;\n\theight: 4615upx;\n}\n.desc[data-v-f9fae82c]{\n\twidth:100%;\n\theight:35upx;\n\tfont-size:36upx;\n\tfont-family:Adobe Heiti Std;\n\tfont-weight:normal;\n\tcolor:rgba(51,51,51,1);\n\tline-height:38upx;\n\ttext-align: center;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\tdisplay: block;\n\tmargin-top: 63upx;\n}\n.template_form[data-v-f9fae82c]{\n\twidth: 100%;\n\theight: 504upx;\n\tbackground: #fcf3eb;\n}\n.template_form uni-text uni-input[data-v-f9fae82c]{\n\t/* font-size: 28upx; */\n}\n.login_inp[data-v-f9fae82c]{\n\tbackground:#FFFFFF;\n\twidth: 690upx;\n\theight: 88upx;\n\tfont-size: 28upx;\n\tline-height: 88upx;\n\t\tmargin:49upx auto 30upx auto;\n}\n", ""]);
+exports.push([module.i, ".template_form[data-v-f9fae82c]{\n\twidth: 100%;\n\theight: 504upx;\n\tbackground: #fcf3eb;\n}\n.template_form uni-text uni-input[data-v-f9fae82c]{\n\t/* font-size: 28upx; */\n}\n.template_form_name[data-v-f9fae82c]{\n}\n.template_form_mobile[data-v-f9fae82c]{\n\tmargin:49upx auto 30upx auto;\n}\n.login_inp[data-v-f9fae82c]{\n\tbackground:#FFFFFF;\n\twidth: 690upx;\n\theight: 88upx;\n\tfont-size: 28upx;\n\tline-height: 88upx;\n\tmargin: 0 auto;\n\tborder:#FFFFFF solid 1upx;\n\tborder-radius:15px;\n\tpadding-left:32px;\n}\n.template_form_button[data-v-f9fae82c]{\n\twidth: 596upx;\n\theight: 100upx;\n\tline-height: 100upx;\n\tbackground:-webkit-linear-gradient(left,rgba(255,121,55,1),rgba(255,174,119,1));\n\tbackground:linear-gradient(90deg,rgba(255,121,55,1),rgba(255,174,119,1));\n\tcolor: #FFFFFF;\n\tmargin: 60upx auto 94upx auto;\n\ttext-align: center;\n\tborder-radius: 50upx;\n\tfont-size: 32upx;\n}\n.tailImg[data-v-f9fae82c]{\n\twidth: 750upx;\n\theight: 180upx;\n}\n.bg[data-v-f9fae82c]{\n\tposition: relative;\n\theight: 100%;\n\toverflow: hidden;\n}\n.bgImg[data-v-f9fae82c]{\n\twidth: 750upx;\n\theight: 4615upx;\n}\n.desc[data-v-f9fae82c]{\n\twidth:100%;\n\theight:35upx;\n\tfont-size:36upx;\n\tfont-family:Adobe Heiti Std;\n\tfont-weight:normal;\n\tcolor:rgba(51,51,51,1);\n\tline-height:38upx;\n\ttext-align: center;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\tdisplay: block;\n\tmargin-top: 63upx;\n}\n\n", ""]);
 // Exports
 module.exports = exports;
 

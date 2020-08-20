@@ -2,7 +2,7 @@
 	<view :class="isFix ? 'fix' : 'fix1' ">
 		<view class="container">
 			<view @tap="poll()" class="topSty">
-				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" :statusReData="statusReData" @myEvent="touchMe" :tabCur="tabCur" :backVal="backVal"></FocusList>
+				<FocusList :arealist="arealist" :pricelist="pricelist" :familyData="familyData" :houseProperty="houseProperty" :areaData="areaData" :levelData="levelData" :statusReData="statusReData" @myEvent="touchMe" :tabCur="tabCur" :backVal="backVal" :search="keyword"></FocusList>
 			</view>
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 		</view>
@@ -40,6 +40,7 @@
 				isFix:false,
 				tabCur:999,
 				backVal:"",
+				getRe:true,
 			}
 		},
 		onLoad:function(e){
@@ -73,6 +74,7 @@
 			timer = setTimeout(function(){
 				_self.getMoreRecommend();
 			},500);
+			this.getRe = true;
 		},
 		mounted:function() {
 			query = uni.createSelectorQuery().in(this);
@@ -83,9 +85,10 @@
 		},
 		methods: {
 			touchMe(val) { //子组件向父组件传值，接收值
-				_self.cate = val;
 				_self.isNum = 2;
-				this.isFix = false;
+				if (val !="") {
+					_self.cate = val;
+				}
 				_self.getRecommendHouseData();
 			},
 			getRes(){
@@ -97,52 +100,70 @@
 				this.getBannerData();
 			},
 			getRecommendHouseData() {
-				page = 1;
-				uni.showNavigationBarLoading();
-				var url = '';
-				if (this.TabCur !=999 && this.keyword !="") {
-					url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
-				} else {
-					url = this.baseUrl+'/api/second/houseList?a='+_self.cate;
-				}
-				_self.fun.getReq(url)
-				.then((res)=>{
-					uni.hideNavigationBarLoading();
-					uni.stopPullDownRefresh();
-					if (res[1].data.data.lists.data ==0 && page==1) {
-						_self.loadingTxt = '已经加载全部'
-						_self.recommendHouseData = [];
-						_self.getLoad();
-						return false;
+				if (this.getRe) {
+					page = 1;
+					uni.showNavigationBarLoading();
+					var url = '';
+					if (this.TabCur !=999 && this.keyword !="") {
+						url = this.baseUrl+'/api/second/houseList?keyword='+_self.cate
+					} else if (this.keyword !="") {
+						url = this.baseUrl+'/api/second/houseList?keyword='+this.keyword;
+					} else {
+						url = this.baseUrl+'/api/second/houseList?a='+_self.cate;
 					}
-					_self.loadingTxt = '加载更多'
-					var newsList = res[1].data.data.lists.data;
-					_self.recommendHouseData = newsList;
-					_self.getLoad();
-					page++;
-				})
+					_self.fun.getReq(url)
+					.then((res)=>{
+						uni.hideNavigationBarLoading();
+						uni.stopPullDownRefresh();
+						if (res[1].data.data.lists.data ==0 && page==1) {
+							_self.loadingTxt = '已经加载全部'
+							_self.recommendHouseData = [];
+							_self.getLoad();
+							return false;
+						}
+						_self.loadingTxt = '加载更多'
+						uni.setNavigationBarTitle({
+							title:res[1].data.data.setSeo.seo_title
+						})
+						var newsList = res[1].data.data.lists.data;
+						_self.recommendHouseData = newsList;
+						_self.getLoad();
+						page++;
+					})
+					this.getRe = false;
+				}
 			},
 			getMoreRecommend(){//加载更多
-				if (_self.loadingTxt == '已经加载全部'){
-					return false;
-				}
-				_self.loadingTxt = '加载中';
-				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/second/houseList?a='+_self.cate+'&page='+page;
-				this.fun.getReq(url).then((res)=>{
-					uni.hideNavigationBarLoading();
-					if (res[1].data.data.lists.data.length ==0) {
-						_self.loadingTxt = '已经加载全部'
-						_self.getLoad();
+				if (this.getRe) {
+					if (_self.loadingTxt == '已经加载全部'){
 						return false;
 					}
-					var newsList = res[1].data.data.lists.data;
-					_self.recommendHouseData = _self.recommendHouseData.concat(newsList);
-					uni.stopPullDownRefresh();
-					_self.loadingTxt = '加载更多';
-					_self.getLoad();
-					page++;
-				})
+					_self.loadingTxt = '加载中';
+					uni.showNavigationBarLoading();
+					
+					var url = '';
+					console.log(_self.cate);
+					if (_self.keyword !="") {
+						url = this.baseUrl+'/api/second/houseList?keyword='+_self.keyword+'&page='+page;
+					} else {
+						url = this.baseUrl+'/api/second/houseList?a='+_self.cate+'&page='+page;;
+					}
+					this.fun.getReq(url).then((res)=>{
+						uni.hideNavigationBarLoading();
+						if (res[1].data.data.lists.data.length ==0) {
+							_self.loadingTxt = '已经加载全部'
+							_self.getLoad();
+							return false;
+						}
+						var newsList = res[1].data.data.lists.data;
+						_self.recommendHouseData = _self.recommendHouseData.concat(newsList);
+						uni.stopPullDownRefresh();
+						_self.loadingTxt = '加载更多';
+						_self.getLoad();
+						page++;
+					})
+					this.getRe = false;
+				}
 			},
 			getLoad(){
 				this.$refs.recommend.childMethod(_self.recommendHouseData,_self.loadingTxt);

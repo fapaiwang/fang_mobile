@@ -76,7 +76,7 @@
 			return {
 				TabCur: 0,
 				tabList: [{ name: '推荐房源' }, { name: '自由购' }],
-				listHeight:1550,
+				listHeight:2010,
 				recommendHouseData:[],
 				restrictHouseData:[]
 			}

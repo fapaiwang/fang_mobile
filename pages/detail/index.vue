@@ -89,10 +89,14 @@
 			this.getHouseKey();
 			this.fun.getReq(this.baseUrl+"/api/second/houseDetail",{"id":options.id})
 			.then((res)=>{
+				uni.setNavigationBarTitle({
+					title:res[1].data.data.seo.title
+				})
 				if (Number(res[1].data.code) == 20000) {
 					this.getHome();
 				} else {
 					this.showCon = true
+					
 					this.getResult(res[1].data.data);
 					this.getStoreHouse(res[1].data.data);
 				}

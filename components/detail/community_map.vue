@@ -6,7 +6,7 @@
 			</view>
 		</view>
 		<view class="community_name">
-			<map style="width:100%;height:35vh;position: relative;z-index: 1;" :latitude="latitude" :longitude="longitude" :markers="marker" scale="15" @click="onMap">
+			<map style="width:100%;height:35vh;" :latitude="latitude" :longitude="longitude" :markers="marker" scale="15" @click="onMap">
 				<cover-view class="tabItem" v-for="(item,index) in tabList" :key="index">
 					{{item.name}} 
 				</cover-view>
