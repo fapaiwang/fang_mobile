@@ -95,7 +95,7 @@
 					main.startActivity( call );  
 				} else {
 					uni.makePhoneCall({
-					    phoneNumber: '400 677 0028' //仅为示例
+					    phoneNumber: `400 677 0028` //仅为示例
 					});
 				}
 			},
