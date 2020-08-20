@@ -38,9 +38,7 @@
 								<image src="../../static/img/home/item@2x.png" mode=""></image>
 							</view>
 							<view class="createIimeIconinfo">
-								<text>
-									开拍时间：{{housItem.kptime}}
-								</text>
+								开拍时间：{{housItem.kptime}}
 							</view>
 						</view>
 					</view>
