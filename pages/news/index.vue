@@ -17,7 +17,7 @@
 			</view>
 		</view>
 		<scroll-view class="scv" scroll-x="true" scroll-with-animation="true" :scroll-left="scrollLeft">
-			<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,item.name,$event)">
+			<view :class="index === TabCur ? 'text-red' :''" v-for="(item,index) in tabList" :key="index" :id="index" @tap="tabChange(index,item.id,$event)">
 				{{item.name}}
 			</view>
 		</scroll-view>
@@ -129,7 +129,12 @@
 			    this.TabCur = index;
 				this.isShow = index == 2 ? true : false;
 				this.cate = index;
-				this.tabName = name;
+				if (index <1) {
+					this.tabName = 0;
+				} else {
+					this.tabName = name;
+				}
+				
 				this.getNews()
 			},
 			hotChange(index) {
@@ -157,10 +162,7 @@
 			getNews(){//初始化数据
 				page = 1;
 				uni.showNavigationBarLoading();
-				var url = this.baseUrl+'/api/article/index?cate='+this.cate+'&page='+page;
-				if (this.TabCur >=1 && this.keyword == "") {
-					url = url+"&keyword="+this.tabName
-				}
+				var url = this.baseUrl+'/api/article/index?cate='+this.tabName+'&page='+page;
 				if (this.TabCur == 2 && this.hotVal !="") {
 					url = url+'&hits='+this.hotVal;
 				}
