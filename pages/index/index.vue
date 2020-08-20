@@ -9,11 +9,6 @@
 		<centerBanner :centerBannerdata='centerBannerdata'></centerBanner>
 		<featured :qualityEstateData='qualityEstateData'></featured>
 		<getrecommendHouse></getrecommendHouse>
-		<view class="moreView">
-			<view @click="goMore" class="moreViewBtn">
-				<text>更多推荐房源</text>
-			</view>
-		</view>
 	</view>
 </template>
 
@@ -145,13 +140,7 @@
 					}
 				})
 			},
-			goMore() {//加载更多
-				if (this.tabIndex == 0 ){
-					this.fun.navTo("/pages/all/index?a=y1")
-				} else {
-					this.fun.navTo("/pages/all/index?a=m10")
-				}
-			},
+			
 			getLoad() {//更新子组件
 				var appendH = 0;
 				if (_self.recommendHouseData.length > _self.restrictHouseData.length) {

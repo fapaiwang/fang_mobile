@@ -88,7 +88,7 @@
 .history_list {
 
 }
-.history_list text{
+.history_list .historyitem{
 	height:60upx;
 	background:#F3F5F7;
 	border-radius:30upx;
@@ -101,6 +101,12 @@
 	display: inline-block;
 	margin-bottom: 30upx;
 	margin-right: 30upx;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box; //作为弹性伸缩盒子模型显示。
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1;
 }
 .search_list{
 	position: absolute;

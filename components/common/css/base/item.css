@@ -73,10 +73,12 @@
 	float: left;
 }
 .createIimeIconinfo {
-	font-size: 26upx;
+	font-size: 25upx;
 	color: #E02E24;
 	line-height: 55upx;
+	float: left;
 },
+
 .navigator-hover,.navigator-hover:hover{
 	background: none;
 	cursor: pointer;

@@ -11,7 +11,7 @@
 				</view>
 			</view>
 			<view class="consultant_r">
-				<text class="online">在线咨询</text>
+				<text class="online" @tap="online">在线咨询</text>
 				<text class="tel" @tap='call(detial.pinglun.lxtel)'>电话咨询</text>
 			</view>
 		</view>
@@ -27,6 +27,11 @@
 			}
 		},
 		methods:{
+			online(){
+				uni.switchTab({
+					url:"/pages/customer/customer"
+				})
+			},
 			call(phone){
 				if (uni.getSystemInfoSync().platform == "android") {
 					var Intent = plus.android.importClass("android.content.Intent");

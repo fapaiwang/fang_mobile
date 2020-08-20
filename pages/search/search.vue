@@ -22,15 +22,17 @@
 				<text>搜索历史</text>
 			</view>
 			<view class="history_list">
-				<text v-for="(item,key) in historyList" :key="key" v-if="item !=''  ">
+				<view v-for="(item,key) in historyList" :key="key" v-if="item !=''  " @click="ondetail(item.id)">
+					<view class="historyitem">
 					{{item.first}}
-					<text style="color:#E02E24" v-if="item.mid !='' ">{{item.mid}}</text>
+					<text style="color:#E02E24">{{item.mid}}</text>
 					{{item.last}}
-				</text>
+					</view>
+				</view>
 			</view>
 		</view>
 		<view class="search_list" :style="{top:Height+'px'}">
-			 <view v-if="keyList.length>0" v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem.id)" class="search_item">
+			 <view v-if="keyList.length>0" v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem)" class="search_item">
 				 <view>
 				 {{houseItem.first}}
 				 <text style="color:#E02E24">{{houseItem.mid}}</text>
@@ -57,6 +59,12 @@
 				mid:'',
 				last:'',
 			}
+		},
+		 onReady:function() {  
+			  this.keyList = [];
+			  this.keyword = "";
+			  this.getStore();
+			  isShow:true;
 		},
 		onShow:function(){
 			this.keyList = [];
@@ -111,7 +119,7 @@
 									});
 								}
 								_self.keyList = _newData;
-								_self.setStore(_newData);
+								
 							})
 						} else {
 							_self.keyList = [];
@@ -121,12 +129,51 @@
 					_self.keyList = [];
 				}
 			},
-			setStore(strRes) {
+			ondetail(id){
+				 this.fun.navTo("/pages/detail/index?id="+id);
+			},
+			detail(houseItem){
+				this.setStore(houseItem);
+				this.fun.navTo("/pages/detail/index?id="+houseItem.id);
+			},
+			setStore(houseItem) {
 				var _self = this;
-				console.log(strRes)
-				uni.setStorage({
-					key:_self.fun.searchList,
-					data:strRes
+				var _newData = new Array({
+					"id":houseItem.id,
+					"first":houseItem.first,
+					"mid":houseItem.mid,
+					"last":houseItem.last
+				});
+				var _setkey = _self.fun.searchList;
+				uni.getStorage({
+					key:_setkey,
+					success:function(ops){
+						let oldData = ops.data;
+						ops.data.forEach(function(item,itemKey){
+							if (item.houseItem == houseItem.first) {
+								return false;
+							} else {
+								oldData.push({
+									"id":houseItem.id,
+									"first":houseItem.first,
+									"mid":houseItem.mid,
+									"last":houseItem.last
+								});
+								uni.setStorage({
+									key:_setkey,
+									data:oldData
+								})
+								return false;
+							}
+						})
+						
+					},
+					fail:function(){
+						uni.setStorage({
+							key:_setkey,
+							data:_newData
+						})
+					}
 				})
 			},
 			getStore(){
@@ -139,9 +186,6 @@
 					fail:function(){
 					}
 				})
-			},
-			detail(index){
-				return this.fun.navTo("/pages/detail/index?id="+index);
 			},
 			goUserClick:function(){
 				uni.switchTab({

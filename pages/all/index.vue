@@ -86,9 +86,9 @@
 		methods: {
 			touchMe(val) { //子组件向父组件传值，接收值
 				_self.isNum = 2;
-				if (val !="") {
-					_self.cate = val;
-				}
+				_self.cate = val;
+				this.isFix = false;
+				this.getRe = true;
 				_self.getRecommendHouseData();
 			},
 			getRes(){

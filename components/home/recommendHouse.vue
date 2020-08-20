@@ -11,61 +11,106 @@
 				</view>
 			</scroll-view>
 		</view>
-		<view>
-			<swiper :style="{height:listHeight+'px'}" :current="TabCur" duration="300" @change="swiperChange" class="sss">
-				<block v-for="(item, index) in tabList" :key="index">
-					  <swiper-item >
-						  <block v-for="(housItem, indexs) in houseData(TabCur)" :key="indexs">
-							<navigator :url="getDetail(housItem.id)" class="quickTabSwiperItem">
-							<view class="houseItemView">
-								<view class="houseItemImg">
-									<view class="house_status">
-										<text class="house_status_red" v-if="housItem.fcstatus && housItem.fcstatus === '169' ">{{housItem.fcstatus_name}}</text>
-										<text class="house_status_blue" v-else-if="housItem.fcstatus && housItem.fcstatus === '170' ">{{housItem.fcstatus_name}}</text>
-										<text class="house_status_ash" v-else>{{housItem.fcstatus_name}}</text>
-									</view>
-									<image :src="getImgUrl(housItem.img)" mode=""></image>
-									<view class="tag">
-										<text v-if="housItem.jieduan_name">{{housItem.jieduan_name}}</text>
-										<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
-										<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
-										<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''"  class="tag_label_1">{{housItem.characteristic_name}}</text>
-									</view>
+		<view v-if="showOne">
+			<block v-for="(housItem, indexs) in recommendHouseData" :key="indexs">
+				<navigator :url="getDetail(housItem.id)" class="quickTabSwiperItem">
+					<view class="houseItemView">
+						<view class="houseItemImg">
+							<view class="house_status">
+								<text class="house_status_red" v-if="housItem.fcstatus && housItem.fcstatus === '169' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_blue" v-else-if="housItem.fcstatus && housItem.fcstatus === '170' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_ash" v-else>{{housItem.fcstatus_name}}</text>
+							</view>
+							<image :src="getImgUrl(housItem.img)" mode=""></image>
+							<view class="tag">
+								<text v-if="housItem.jieduan_name">{{housItem.jieduan_name}}</text>
+								<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
+								<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
+								<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''"  class="tag_label_1">{{housItem.characteristic_name}}</text>
+							</view>
+						</view>
+						<view class="houseItem">
+							<view class="itemTitle">
+								<text>{{housItem.title}}</text>
+							</view>
+							<view class="itemInfo">
+								<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations_name} | ${housItem.types_name}`}}</text>
+							</view>
+							<view class="itemPrice">
+								<view>
+									<text>起拍价</text>
+									<text class="redPrice">{{housItem.qipai}}万</text>
 								</view>
-								<view class="houseItem">
-									<view class="itemTitle">
-										<text>{{housItem.title}}</text>
-									</view>
-									<view class="itemInfo">
-										<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations_name} | ${housItem.types_name}`}}</text>
-									</view>
-									<view class="itemPrice">
-										<view>
-											<text>起拍价</text>
-											<text class="redPrice">{{housItem.qipai}}万</text>
-										</view>
-										<view>
-											<text>市场价</text>
-											<text class="grayPrice">{{housItem.price}}万</text>
-										</view>
-									</view>
-									<view class="createIime">
-										<view class="createIimeIcon">
-											<image src="../../static/img/home/item@2x.png" mode="heightFix"></image>
-										</view>
-										<view class="createIimeIconinfo">
-											<text>
-												开拍时间：{{housItem.kptime}}
-											</text>
-										</view>
-									</view>
+								<view>
+									<text>市场价</text>
+									<text class="grayPrice">{{housItem.price}}万</text>
 								</view>
 							</view>
-							</navigator>
-						</block>
-					   </swiper-item>
-				  </block>
-			</swiper>
+							<view class="createIime">
+								<view class="createIimeIcon">
+									<image src="../../static/img/home/item@2x.png" mode="heightFix"></image>
+								</view>
+								<view class="createIimeIconinfo">
+									开拍时间：{{housItem.kptime}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</navigator>
+		  </block>
+		</view>
+		<view v-if="!showOne">
+			<block v-for="(housItem, indexs) in restrictHouseData" :key="indexs">
+				<navigator :url="getDetail(housItem.id)" class="quickTabSwiperItem">
+					<view class="houseItemView">
+						<view class="houseItemImg">
+							<view class="house_status">
+								<text class="house_status_red" v-if="housItem.fcstatus && housItem.fcstatus === '169' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_blue" v-else-if="housItem.fcstatus && housItem.fcstatus === '170' ">{{housItem.fcstatus_name}}</text>
+								<text class="house_status_ash" v-else>{{housItem.fcstatus_name}}</text>
+							</view>
+							<image :src="getImgUrl(housItem.img)" mode=""></image>
+							<view class="tag">
+								<text v-if="housItem.jieduan_name">{{housItem.jieduan_name}}</text>
+								<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
+								<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
+								<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''"  class="tag_label_1">{{housItem.characteristic_name}}</text>
+							</view>
+						</view>
+						<view class="houseItem">
+							<view class="itemTitle">
+								<text>{{housItem.title}}</text>
+							</view>
+							<view class="itemInfo">
+								<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations_name} | ${housItem.types_name}`}}</text>
+							</view>
+							<view class="itemPrice">
+								<view>
+									<text>起拍价</text>
+									<text class="redPrice">{{housItem.qipai}}万</text>
+								</view>
+								<view>
+									<text>市场价</text>
+									<text class="grayPrice">{{housItem.price}}万</text>
+								</view>
+							</view>
+							<view class="createIime">
+								<view class="createIimeIcon">
+									<image src="../../static/img/home/item@2x.png" mode="heightFix"></image>
+								</view>
+								<view class="createIimeIconinfo">
+									开拍时间：{{trimTime(housItem.kptime)}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</navigator>
+		  </block>
+		</view>
+		<view class="moreView">
+			<view @click="goMore" class="moreViewBtn">
+				<text>更多推荐房源</text>
+			</view>
 		</view>
 	</view>
 </template>
@@ -76,9 +121,9 @@
 			return {
 				TabCur: 0,
 				tabList: [{ name: '推荐房源' }, { name: '自由购' }],
-				listHeight:2010,
 				recommendHouseData:[],
-				restrictHouseData:[]
+				restrictHouseData:[],
+				showOne:true,
 			}
 		},
 		created:function(){
@@ -86,11 +131,19 @@
 			this.getFreeHouseData();
 		},
 		methods: {
-			tabChange(index) {
-			    this.TabCur = index;
+			trimTime(timeStr){
+				return timeStr.trim();
 			},
-			houseData(num) {
-				return num <1 ? this.recommendHouseData : this.restrictHouseData;
+			goMore() {//加载更多
+				if (this.TabCur == 0 ){
+					this.fun.navTo("/pages/all/index?a=y1")
+				} else {
+					this.fun.navTo("/pages/all/index?a=m10")
+				}
+			},
+			tabChange(index) {
+				this.showOne = Number(index) == 1 ? false : true;
+			    this.TabCur = index;
 			},
 			getDetail(index) {//跳转到小区详情页面
 				return '/pages/detail/index?id='+index;
@@ -176,4 +229,18 @@
 <style scoped>
 	@import url("./css/recommendHouse.css");
 	@import url("@/components/common/css/base/item.css");
+	.moreView {
+		margin-bottom: 20upx;
+	},
+	.moreViewBtn {
+		width: 100%;
+		height: 88upx;
+		background:rgba(241,241,241,1);
+		border-radius:10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color:rgba(102,102,102,1);
+		font-size: 28upx;
+	}
 </style>

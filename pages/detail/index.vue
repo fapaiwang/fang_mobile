@@ -101,7 +101,6 @@
 					this.getStoreHouse(res[1].data.data);
 				}
 			}).catch((err)=>{
-				console.log(err,11)
 				// this.getHome();
 			})
 			
@@ -164,8 +163,8 @@
 				this.qualityEstateData = this.detial.recommend_house;
 				this.estateData = this.detial.estate.data;
 				this.communityThumb = this.detial.estate.img
-				this.countDown(this.detial.jieduan,this.detial.kptime,this.detial.bianetime)
-				this.advisoryName = this.detial.pinglun.user_name
+				this.countDown(this.detial.jieduan,this.detial.kptime,this.detial.bianetime);
+				this.advisoryName = this.detial.pinglun ? this.detial.pinglun.user_name : '';
 				this.surroundingData = this.detial.rim;
 				this.trafficData = this.detial.traffic;
 				this.announcementData = this.detial.info;

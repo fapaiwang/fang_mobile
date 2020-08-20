@@ -7,27 +7,26 @@
 					<input maxlength="140"
 						step="" placeholder="输入小区名称" autocomplete="off" 
 						type="search" v-model="keyword" placeholder-class="uni-inputPlaceholder"
-						class="uni-input" @input="inputChange">
+						class="uni-input" @input="inputChange" @confirm="doSearch">
 				</view>
 				<view class="user-wrap" @click="goUserClick">
 					<image class="userIconfont" src='../../static/img/base/userIcon@2x.png'></image>
 				</view>
 			</view>
 		</view>
-		<view class="container">
+		<view class="container" v-if="isShow">
 			<view class="history">
 				<text>搜索历史</text>
 			</view>
 			<view class="history_list">
-				<text v-for="(item,key) in historyList" :key="key" v-if="item!=''">
-					{{item}}
+				<text v-for="(item,key) in historyList" :key="key" v-if="item!=''" class="historyitem" @click="ondetail(item.id)">
+					{{item.title}}
 				</text>
 			</view>
 		</view>
 		<view class="search_list">
-			 <view v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem.id)">
-				 <text>{{houseItem.title}}</text>
-				 <text>{{houseItem.address}}</text>
+			 <view v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem)" class="search_item">
+				 <text style="text-align: left;">小区：{{houseItem.title}}</text>
 			 </view>
 		</view>
 	</view>
@@ -39,8 +38,8 @@
 			return {
 				keyword: '',
 				keyList:[],
-				historyData:'',
-				historyList:[]
+				historyList:[],
+				isShow:true,
 			}
 		},
 		onShow:function(){
@@ -54,23 +53,59 @@
 			this.getStore()
 		},
 		methods: {
+			doSearch(){
+				this.fun.navTo("/pages/community/index="+this.keyword)
+			},
+			ondetail(id){
+				this.fun.navTo("/pages/community/community?id="+id);
+			},
 			inputChange:function() {
 				var _self = this;
+				this.isShow = false;
 				this.fun.getReq(this.baseUrl+'/api/estate/estate_list',{keyword:this.keyword})
 				.then((res)=>{
-					if (_self.historyData.indexOf(_self.keyword) ==-1) {
-						_self.historyData = _self.historyData+" "+_self.keyword
-						_self.setStore(_self.historyData);
-						_self.historyList = _self.historyData.split(" ");
-					}
 					this.keyList = res[1].data.lists.data;
 				});
 			},
-			setStore(strRes) {
+			detail(houseItem){
+				this.setStore(houseItem);
+				this.fun.navTo("/pages/community/community?id="+houseItem.id);
+			},
+			setStore(houseItem) {
 				var _self = this;
-				uni.setStorage({
-					key:_self.fun.searchEstate,
-					data:strRes
+				var _key = _self.fun.searchEstate;
+				uni.getStorage({
+					key:_key,
+					success:function(ops) {
+						let oldData = ops.data;
+						ops.data.forEach(function(item,itemKey){
+							if (item.title==houseItem.title) {
+								return false;
+							} else {
+								oldData.push({
+									"id":houseItem.id,
+									"title":houseItem.title
+								});
+								uni.setStorage({
+									key:_key,
+									data:oldData
+								})
+								return false;
+							}
+						})
+						
+						
+					},
+					fail:function(){
+						var _newData = new Array({
+							"id":houseItem.id,
+							"title":houseItem.title
+						});
+						uni.setStorage({
+							key:_key,
+							data:_newData
+						})
+					}
 				})
 			},
 			getStore(){
@@ -78,14 +113,11 @@
 				uni.getStorage({
 					key:_self.fun.searchEstate,
 					success:function(ops){
-						_self.historyData = ops.data
+						_self.historyList = ops.data
 					},
 					fail:function(){
 					}
 				})
-			},
-			detail(index){
-				return this.fun.navTo("/pages/community/community?id="+index);
 			},
 			goUserClick:function(){
 				uni.switchTab({
@@ -98,4 +130,15 @@
 
 <style scoped>
 	@import url("./css/search.css");
+	.header-wrap{
+		width: 95%;
+		margin-left: 2%;
+	}
+	.container{
+		margin-top: 0px;
+	}
+	.user-wrap{
+		/* margin-top: -10upx; */
+		height: 60upx;
+	}
 </style>
