@@ -243,4 +243,9 @@
 		color:rgba(102,102,102,1);
 		font-size: 28upx;
 	}
+	.recommendHouseView{
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
 </style>

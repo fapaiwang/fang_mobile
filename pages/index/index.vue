@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="container">
 		<navSearch></navSearch>
 		<banner :bannerdata="bannerdata"></banner>
 		<HomeMenu :homeMenuData="homeMenuData"></HomeMenu>
