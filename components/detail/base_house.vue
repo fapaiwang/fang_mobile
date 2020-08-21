@@ -25,8 +25,10 @@
 			</view>
 			<view class="price">
 				<view class="start">
-					<text>起拍价：</text>
-					<text class="sTime">{{detial.qipai}}万</text>
+					<text v-if="detial.fcstatus== 175 ">成交价</text>
+					<text v-if="detial.fcstatus!=175 ">起拍价</text>
+					<text class="sTime" v-if="detial.fcstatus!=175 ">{{detial.qipai}}万</text>
+					<text class="sTime" v-if="detial.fcstatus== 175 ">{{detial.cjprice}}万</text>
 				</view>
 				<view class="market">
 					<text>市场价：</text>

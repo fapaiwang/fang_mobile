@@ -27,8 +27,10 @@
 							</view>
 							<view class="itemPrice">
 								<view>
-									<text>起拍价</text>
-									<text class="redPrice">{{housItem.qipai}}万</text>
+									<text v-if="housItem.fcstatus== 175 ">成交价</text>
+									<text v-if="housItem.fcstatus!=175 ">起拍价</text>
+									<text class="redPrice" v-if="housItem.fcstatus!=175 ">{{housItem.qipai}}万</text>
+									<text class="redPrice" v-if="housItem.fcstatus== 175 ">{{housItem.cjprice}}万</text>
 								</view>
 								<view>
 									<text>市场价</text>
