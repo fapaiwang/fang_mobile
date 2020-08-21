@@ -11,7 +11,7 @@
 				</view>
 			</view>
 			<view class="consultant_r">
-				<text class="online" @tap="online">在线咨询</text>
+				<navigator class="online" src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0">在线咨询</navigator>
 				<text class="tel" @tap='call(detial.pinglun.lxtel)'>电话咨询</text>
 			</view>
 		</view>
