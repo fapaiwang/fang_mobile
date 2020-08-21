@@ -95,4 +95,5 @@
 
 <style scoped>
 	@import url("./css/house.css");
+	@import url("@/components/common/css/base/item.css");
 </style>

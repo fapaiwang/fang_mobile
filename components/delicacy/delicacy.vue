@@ -423,10 +423,15 @@
 			
 				if (_self.fSelect.length >= 1) {//户型
 					this.fSelectVal = "e"+_self.fSelect.join("e");
+				} else {
+					this.fSelectVal = "";
 				}
 				if (this.LSelect.length >= 1) {//阶段
 					this.LSelectVal = "g"+this.LSelect.join("g");
+				} else {
+					this.LSelectVal = "";
 				}
+				console.log(111);
 				this.$emit("myEvent",this.synthesize+this.rSelect+this.fSelectVal+this.typeVal+this.areaVal+this.LSelectVal+this.defaultVal+this.statusVal);
 				this.hiddenAll()
 			},
