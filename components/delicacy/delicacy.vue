@@ -114,6 +114,9 @@
 							<view class="end">
 								<input type="number" v-model="cust_end"/>平米
 							</view>
+							<view class="clearCust" @tap="clearCust()">
+								清除
+							</view>
 						</view>
 					</view>
 					<view>
@@ -394,6 +397,10 @@
 					this.statusVal = "";
 					
 				}
+			},
+			clearCust(){
+				this.cust_begin = "";
+				this.cust_end = "";
 			},
 			soureSort(){
 				var _self = this;
