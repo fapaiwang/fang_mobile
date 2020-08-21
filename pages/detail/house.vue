@@ -14,14 +14,25 @@
 				<navigator :url="detail(housItem.id)" class="quickTabSwiperItem">
 				<view class="houseItemView">
 					<view class="houseItemImg">
+						<view class="house_status">
+							<text class="house_status_red" v-if="housItem.fcstatus && housItem.fcstatus === '169' ">{{housItem.fcstatus_name}}</text>
+							<text class="house_status_blue" v-else-if="housItem.fcstatus && housItem.fcstatus === '170' ">{{housItem.fcstatus_name}}</text>
+							<text class="house_status_ash" v-else>{{housItem.fcstatus_name}}</text>
+						</view>
 						<image :src="getImgUrl(housItem.img)" mode=""></image>
+						<view class="tag">
+							<text v-if="housItem.jieduan_name">{{housItem.jieduan_name}}</text>
+							<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
+							<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
+							<text v-if="housItem.characteristic_name && housItem.characteristic_name!=''"  class="tag_label_1">{{housItem.characteristic_name}}</text>
+						</view>
 					</view>
 					<view class="houseItem">
 						<view class="itemTitle">
 							<text>{{housItem.title}}</text>
 						</view>
 						<view class="itemInfo">
-							<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations} | ${housItem.toilet}`}}</text>
+							<text>{{`${housItem.room}室${housItem.living_room}厅 | ${housItem.acreage}㎡ | ${housItem.orientations_name} | ${housItem.types_name}`}}</text>
 						</view>
 						<view class="itemPrice">
 							<view>
@@ -30,15 +41,15 @@
 							</view>
 							<view>
 								<text>市场价</text>
-								<text class="grayPrice">{{housItem.toilet}}万</text>
+								<text class="grayPrice">{{housItem.price}}万</text>
 							</view>
 						</view>
 						<view class="createIime">
 							<view class="createIimeIcon">
-								<image src="../../static/img/home/item@2x.png" mode=""></image>
+								<image src="../../static/img/home/item@2x.png" mode="heightFix"></image>
 							</view>
 							<view class="createIimeIconinfo">
-								开拍时间：{{housItem.kptime}}
+								开拍时间：{{trimTime(housItem.kptime)}}
 							</view>
 						</view>
 					</view>
@@ -81,6 +92,9 @@
 			this.getList(e.id);
 		},
 		methods: {
+			trimTime(timeStr){
+				return timeStr.trim();
+			},
 			getRes(tit){
 				this.fun.getReq(this.baseUrl+'/api/second/characteristic_house_info',{name:tit}).then((res)=>{
 					console.log(res[1].data,222);
