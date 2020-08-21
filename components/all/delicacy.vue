@@ -119,6 +119,9 @@
 							<view class="end">
 								<input type="number" v-model="cust_end"/>平米
 							</view>
+							<view class="clearCust" @tap="clearCust()">
+								清除
+							</view>
 						</view>
 					</view>
 					<view>
@@ -244,6 +247,10 @@
 		    }
 		},
 		methods: {
+			clearCust(){
+				this.cust_begin = "";
+				this.cust_end = "";
+			},
 			tabChange(index) {
 				this.TabCur = index;
 				this.TabCurVal = this.tabList[this.TabCur].val;
