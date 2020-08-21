@@ -61,11 +61,24 @@
 		},
 		onLoad:function(e){
 			_self = this;
+			if (e.tit == undefined) {
+				uni.setNavigationBarTitle({
+					title:"房拍网"
+				})
+			} else {
+				uni.setNavigationBarTitle({
+					title:e.tit
+				})
+			}
+			if (e.id == undefined || !e.id) {
+				setTimeout(function(){
+					uni.switchTab({
+					    url: '/pages/index/index'
+					});
+				},500)
+			} 
 			this.getRes(e.tit);
 			this.getList(e.id);
-			uni.setNavigationBarTitle({
-				title:e.tit
-			})
 		},
 		methods: {
 			getRes(tit){
@@ -78,7 +91,6 @@
 				})
 			},
 			getList(param){
-				
 				this.fun.getReq(this.baseUrl+'/api/second/houseList',{a:param}).then((res)=>{
 					_self.houseData = res[1].data.data.lists.data;
 				})
