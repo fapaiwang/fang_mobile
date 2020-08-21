@@ -96,4 +96,12 @@
 <style scoped>
 	@import url("./css/house.css");
 	@import url("@/components/common/css/base/item.css");
+	.banner{
+		width:750upx;
+		height:350upx;
+	}
+	.swiper-item{
+		width:750upx;
+		height:350upx;
+	}
 </style>
