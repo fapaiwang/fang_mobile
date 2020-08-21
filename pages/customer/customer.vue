@@ -1,5 +1,8 @@
 <template>
     <view>
+		<!-- #ifdef H5 -->
+		<web-view src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></web-view>
+		<!-- #endif -->
     </view>
 </template>
 <script>
