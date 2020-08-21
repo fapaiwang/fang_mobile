@@ -316,8 +316,8 @@
 }
 
 .clearCust{
-	height:60upx;
-	line-height:60upx;
+	height:50upx;
+	line-height:50upx;
 	background:#F1F1F1;
 	border-radius:5upx;
 	text-align: center;
@@ -326,8 +326,9 @@
 	font-family:PingFang SC;
 	font-weight:500;
 	display: block;
-	width: 20%;
+	padding: 0 30upx;
 	margin-left: 20upx;
 	background: #C73126;
 	color: #fff;
+	margin-top: 5upx;
 }
