@@ -134,7 +134,7 @@
 				} else {
 					this.tabName = name;
 				}
-				
+				console.log(this.tabName)
 				this.getNews()
 			},
 			hotChange(index) {

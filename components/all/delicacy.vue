@@ -99,7 +99,7 @@
 						<view class="check_tit">类型</view>
 						<view class="check_more areaCon">
 							<block v-for="(itemHouse,houseIndex) in houseProperty" :key="houseIndex">
-								<text :class="{'activeb': houseIndex == typeNum}" @tap="sortClick(houseIndex,itemHouse.id,3)">{{itemHouse.name}}</text>
+								<text :class="{'activeb': houseIndex == typeNum || typeVal== `f${itemHouse.id}`}" @tap="sortClick(houseIndex,itemHouse.id,3)">{{itemHouse.name}}</text>
 							</block>
 						</view>
 					</view>
@@ -221,10 +221,13 @@
 				if (_self.backVal == "m10") {
 					_self.TabCur = 1;
 				}
+				if (_self.backVal == "f18334") {
+					_self.typeVal = "f18334";
+				}
 				if (_self.TabCur !=999) {
 					_self.TabCurVal = _self.tabList[_self.TabCur].val;
 				}
-				_self.$emit("myEvent",_self.synthesize+_self.rSelect+_self.fSelectVal+_self.typeVal+_self.areaVal+_self.LSelectVal+_self.defaultVal+_self.statusVal+_self.TabCurVal);
+				_self.$emit("myEvent",_self.synthesize+_self.rSelect+_self.fSelectVal+_self.typeVal+_self.areaVal+_self.LSelectVal+_self.defaultVal+_self.statusVal+_self.TabCurVal+_self.backVal);
 				_self.hiddenAll()
 			}
 		},
