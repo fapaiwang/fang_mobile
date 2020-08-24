@@ -45,7 +45,7 @@
 				isShow: true,
 				isShowNickName:false,
 				nickName:"",
-				userInfo: [],
+				userInfoData: [],
 			}
 		},
 		onLoad: function() {
@@ -60,7 +60,7 @@
 				uni.getStorage({
 					key: _self.fun.userInfo,
 					success: function(res) {
-						_self.userInfo = res.data;
+						_self.userInfoData = res.data;
 						_self.isShow = false;
 						_self.isShowNickName = true;
 						_self.nickName = res.data.nick_name;
@@ -85,9 +85,9 @@
 				this.fun.navTo("/pages/login/register");
 			},
 			getImg() {
-				if (this.userInfo.length >= 1) {
-					ImgSrc = userInfo.img
-					return this.fun.getImgSrc(userInfo.img);
+				if (this.userInfoData.length >= 1) {
+					ImgSrc = userInfoData.img
+					return this.fun.getImgSrc(userInfoData.img);
 				}
 				return "../../static/img/base/default_avatar.png";
 			},

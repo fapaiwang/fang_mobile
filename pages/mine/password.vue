@@ -45,7 +45,6 @@
 				uni.getStorage({
 					key:_self.fun.userInfo,
 					success:function(res){
-						console.log(111)
 						uni.redirectTo({
 							url:"/pages/mine/mine"
 						});
@@ -86,7 +85,6 @@
 				}
 				this.fun.getReq(this.baseUrl+'/api/reset_password',_param)
 				.then((res)=>{
-					console.log(res[1],111)
 					if (res[1].data.code ==10000) {
 						this.fun.showMsg(res[1].data.data);
 						uni.clearStorage(_self.fun.userInfo)
