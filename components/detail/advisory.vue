@@ -19,6 +19,8 @@
 </template>
 
 <script>
+	import Easy from './js/easyliao.js';
+	
 	export default{
 		name: "advisory",
 		props: ["detial", "advisoryName"],
