@@ -6,6 +6,7 @@
     </view>
 </template>
 <script>
+	import Easy from './js/easyliao.js';
 var wv;//计划创建的webview
 export default {
     onLoad() {
