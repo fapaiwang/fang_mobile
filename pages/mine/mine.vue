@@ -24,7 +24,7 @@
 			</view>
 		</view>
 		<Header></Header>
-		<History></History>
+		<History :uuid="uuid"></History>
 	</view>
 </template>
 
@@ -46,6 +46,7 @@
 				isShowNickName:false,
 				nickName:"",
 				userInfoData: [],
+				uuid:-1,
 			}
 		},
 		onLoad: function() {
@@ -64,11 +65,13 @@
 						_self.isShow = false;
 						_self.isShowNickName = true;
 						_self.nickName = res.data.nick_name;
+						_self.uuid = _self.userInfoData.id;
 					},
 					fail: function() {
 						_self.isShow = true;
 						_self.nickName = '';
 						_self.isShowNickName = false;
+						_self.uuid = -1;
 					}
 				})
 			},

@@ -67,19 +67,9 @@
 <script>
 	import grayBox from "@/components/detail/gray_box.vue" //灰色边框
 	export default {
-		data() {
-			return {
-				uuid : -1,
-			}
-		},
+		props:["uuid"],
 		components:{
 			grayBox
-		},
-		created:function(){
-			this.getUserInfo();
-		},
-		onShow:function(){
-			this.getUserInfo();
 		},
 		methods: {
 			call(phone){
@@ -163,23 +153,6 @@
 					},
 				})
 			},
-			getUserInfo(){
-				var _self = this;
-				uni.getStorage({
-					key:_self.fun.userInfo,
-					success:function(res){
-						_self.uuid = res.data.id;
-					},
-					fail:function(){
-						// uni.showToast({
-						// 	icon:'none',
-						// 	title:'请登录',
-						// 	duration:3000
-						// })
-						return false;
-					}
-				})
-			}
 		}
 	}
 </script>
