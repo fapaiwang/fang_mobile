@@ -12,7 +12,10 @@
 			}
 		},
 		onLoad:function(options){
-			var url = 'http://m.fangpaiwang.com/zhoubian/index.html?id='+options.id;
+			var lat = options.lat;
+			var lng = options.lng;
+			var tit = options.tit;
+			var url = 'https://www.fangpaiwang.com/second_detail_map?lng='+lng+'&lat='+lat+'&title='+tit;
 			this.src = url;
 		},
 		methods: {
