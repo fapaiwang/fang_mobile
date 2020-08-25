@@ -12,7 +12,7 @@
 			}
 		},
 		onLoad:function(options){
-			var url = 'http://m.fangpaiwang.com/news/'+options.id+'.‘';
+			var url = 'https://www.fangpaiwang.com/new_details?id='+options.id
 			this.src = url;
 		},
 		methods: {
