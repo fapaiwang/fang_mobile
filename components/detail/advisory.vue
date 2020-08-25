@@ -30,9 +30,10 @@
 		},
 		methods:{
 			online(){
-				uni.switchTab({
-					url:"/pages/customer/customer"
-				})
+				openJesongChatByGroup(11122,26881);
+				// uni.switchTab({
+				// 	url:"/pages/customer/customer"
+				// })
 			},
 			call(phone){
 				if (uni.getSystemInfoSync().platform == "android") {
