@@ -17,7 +17,7 @@
 
 <script>
 export default {
-	props: ["latitude","longitude","marker","detailId"],
+	props: ["latitude","longitude","marker","detailId","houseTit"],
 	data() {
 		return {
 			scale:15,
@@ -29,7 +29,7 @@ export default {
 	},
 	methods: {
 		onMap(){
-			this.fun.navTo("/pages/detail/map?id="+this.detailId);
+			this.fun.navTo("/pages/detail/map?lat="+this.latitude+'&lng='+this.longitude+"&tit="+this.houseTit);
 		}
 	}
 }
