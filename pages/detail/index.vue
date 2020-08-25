@@ -10,7 +10,7 @@
 			<grayBox></grayBox>
 			<communityDesc :detial="detial" :communityThumb="communityThumb" :estateData="estateData" :buildYear="buildYear"></communityDesc>
 			<grayBox></grayBox>
-			<communityMap :marker="marker"  :latitude="latitude" :longitude="longitude" :detailId="detailId"></communityMap>
+			<communityMap :marker="marker"  :latitude="latitude" :longitude="longitude" :detailId="detailId" :houseTit="houseTit"></communityMap>
 			<grayBox></grayBox>
 			<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
