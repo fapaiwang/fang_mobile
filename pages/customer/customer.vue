@@ -1,9 +1,15 @@
 <template>
     <view>
+		<view class="bg">
+			<image src="../../static/img/base/bg.png" class="bgImg"></image>
+		</view>
+		<view>
+			 <text class="desc">程序猿小哥哥正在开发~</text>
+		</view>
 		<!-- #ifdef H5 -->
 		<!-- <web-view src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></web-view> -->
 		<!-- #endif -->
-    </view>
+   </view>
 </template>
 <script>
 var wv;//计划创建的webview
@@ -28,4 +34,30 @@ export default {
         // // #endif
     }
 };
+
+</script>
+
+<style scoped>
+	.bg{
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+	.bgImg{
+		width: 750upx;
+		height: 480upx;
+	}
+	.desc{
+		width:100%;
+		height:35upx;
+		font-size:36upx;
+		font-family:Adobe Heiti Std;
+		font-weight:normal;
+		/* color:rgba(51,51,51,1); */
+		line-height:38upx;
+		text-align: center;
+		justify-content: center;
+		display: block;
+		margin-top: 63upx;
+	}
 </script>

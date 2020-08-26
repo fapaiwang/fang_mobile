@@ -32,7 +32,7 @@
 		</view>
 		<grayBox></grayBox>
 		<view class="taxes_warp">
-			<view class="taxes_con" @click="list">
+			<!-- <view class="taxes_con" @click="list">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
 						<image src="../../static/img/mine/hammer.png"></image>
@@ -40,7 +40,7 @@
 					<text>我的法拍专员</text>
 				</view>
 				<view class="taxes_symbol">></view>
-			</view>
+			</view> -->
 			
 			<view class="taxes_con client" @click="call(4006770028)">
 				<view class="taxes_tit">

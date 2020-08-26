@@ -39,5 +39,6 @@
 </script>
 
 <style scoped>
+	
 	@import url("./css/infoScroll.css");
 </style>
