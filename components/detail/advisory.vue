@@ -30,7 +30,8 @@
 		},
 		methods:{
 			online(){
-				openJesongChatByGroup(11122,26881);
+				this.fun.navTo("/pages/detail/kefu")
+				// openJesongChatByGroup(11122,26881);
 				// uni.switchTab({
 				// 	url:"/pages/customer/customer"
 				// })
