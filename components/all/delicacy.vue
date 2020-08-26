@@ -218,6 +218,9 @@
 				if (_self.backVal == "y1") {
 					_self.TabCur = 0;
 				}
+				if (_self.backVal == "y2") {
+					_self.TabCur = 2;
+				}
 				if (_self.backVal == "h170" || _self.backVal == "h169" || _self.backVal == "h175r1") {//预告
 					_self.statusVal = _self.backVal;
 				}

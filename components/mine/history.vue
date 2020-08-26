@@ -98,7 +98,7 @@
 					})
 					return false;
 				}
-				this.fun.navTo("/pages/all/index?tabCur=0");
+				this.fun.navTo("/pages/all/index?a=y1");
 			},
 			discount(){//6折房源
 				if (this.uuid ==-1) {
@@ -109,7 +109,7 @@
 					})
 					return false;
 				}
-				this.fun.navTo("/pages/all/index?tabCur=2");
+				this.fun.navTo("/pages/all/index?a=y2");
 			},
 			list(){
 				if (this.uuid ==-1) {
