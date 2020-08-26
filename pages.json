@@ -228,6 +228,11 @@
             "style" : {
             	"navigationBarTitleText": "成交案例"
             }
+        },{
+            "path" : "pages/detail/kefu",
+            "style" : {
+            	"navigationBarTitleText": "在线咨询"
+            }
         }
     ],
 	"globalStyle": {
