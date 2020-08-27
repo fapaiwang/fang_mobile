@@ -7,7 +7,8 @@
 				</view>
 				<view class="other_base_desc">
 					<view><text class="tit">小区名称：</text><text>{{getResult.estate_name}}</text></view>
-					<view class="sec"><text class="tit">单价：</text><text>{{getResult.price}}元/㎡</text></view>
+					<!-- <view class="sec"><text class="tit">单价：</text><text>{{getResult.price}}元/㎡</text></view> -->
+					<view class="sec"><text class="tit">车位情况：</text><text>{{isShow ? getResult.basic_info[5] : '*'}}</text></view>
 				</view>
 				<view class="other_base_desc">
 					<view><text class="tit">所在区域：</text><text>{{communityRes.area_name}}</text></view>
@@ -19,7 +20,7 @@
 				</view>
 				<view class="other_base_desc">
 					<view><text class="tit">装修情况：</text><text>{{isShow ? getResult.basic_info[3] : '*'}}</text></view>
-					<view class="sec"><text class="tit">车位情况：</text><text>{{isShow ? getResult.basic_info[5] : '*'}}</text></view>
+			
 				</view>
 				<view class="other_base_desc last_child">
 					<view><text class="tit">物业情况：</text><text>{{isShow ? getResult.basic_info[6] : '*'}}</text></view>
@@ -42,7 +43,7 @@
 					</view> -->
 				</view>
 				<view class="other_base_desc">
-					<view>房屋用途：<text>{{isShow ? getResult.xsname : '*'}}</text></view>
+					<view>用途：<text>{{isShow ? getResult.xsname : '*'}}</text></view>
 					<!-- <view>土地证号：<text>土地证号</text></view> -->
 					<view class="sec"><text class="tit">查封情况：</text><text>{{isShow ? getResult.sequestration : '*'}}</text></view>
 				</view>

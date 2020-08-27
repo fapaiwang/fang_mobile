@@ -30,11 +30,11 @@
 		},
 		methods:{
 			online(){
-				this.fun.navTo("/pages/detail/kefu")
+				// this.fun.navTo("/pages/detail/kefu")
 				// openJesongChatByGroup(11122,26881);
-				// uni.switchTab({
-				// 	url:"/pages/customer/customer"
-				// })
+				uni.switchTab({
+					url:"/pages/customer/customer"
+				})
 			},
 			call(phone){
 				if (uni.getSystemInfoSync().platform == "android") {

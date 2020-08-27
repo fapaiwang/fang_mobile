@@ -1,11 +1,12 @@
 <template>
+	
 	<view style="isShow? 'background:#F3F0F1;!important' :'background: #ffffff;!important' ">
 		<Attention :communityData="communityData" v-if="isShow"></Attention>
 		<House :houseData="houseData" v-if="isShow"></House>
-		<view class="bg" v-if="isShow !=true">
+	<!-- 	<view class="bg" v-if="isShow !=true">
 			<image src="../../static/img/base/noMsg.png" class="bgImg"></image>
 			<text class="desc">暂无任何信息哦~</text>
-		</view>
+		</view> -->
 	</view>
 </template>
 

@@ -73,7 +73,7 @@
 			</view>
 			<view class="auction_info">
 				<view class="auction_info_l">
-					<view>拍卖形式：<text>{{detial.jieduan_name}}</text></view>
+					<view>拍卖形式：<text>{{detial.house_type_name}}</text></view>
 					<view class="bianhao">拍卖编号：<text>{{detial.bianhao}}</text></view>
 					<view>小区名称：<text>{{communityName}}</text></view>
 				</view>

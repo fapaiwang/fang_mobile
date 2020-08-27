@@ -1,40 +1,53 @@
 <template>
-	<view>
-		<view class="house_list" v-if="houseData.length > 0">
+	<view class="">
+		<view class="recommendHouseView" v-if="houseData.length > 0">
 			<block v-for="(houseItem,key) in houseData" :key="key">
 				<navigator :url="getDetail(houseItem.id)" class="quickTabSwiperItem">
-					<view class="houseItemView" >
-					<view class="houseItemImg">
-						<image :src="getImg(houseItem.img)" mode=""></image>
-					</view>
-					<view class="houseItem">
-						<view class="itemTitle">
-							<text>{{houseItem.title}}</text>
-						</view>
-						<view class="itemInfo">
-							<text>{{`${houseItem.toilet} | ${houseItem.acreage}㎡ | ${houseItem.orientations}`}}</text>
-						</view>
-						<view class="itemPrice">
-							<view>
-								<text>起拍价</text>
-								<text class="redPrice">{{houseItem.qipai}}万</text>
+					<view class="houseItemView">
+						<view class="houseItemImg">
+							<view class="house_status">
+								<text class="house_status_red" v-if="houseItem.fcstatus === '169' ">{{houseItem.fcstatus_name}}</text>
+								<text class="house_status_blue" v-else-if="houseItem.fcstatus === '170' ">{{houseItem.fcstatus_name}}</text>
+								<text class="house_status_ash" v-else>{{houseItem.fcstatus_name}}</text>
 							</view>
-							<view>
-								<text>市场价</text>
-								<text class="grayPrice">{{houseItem.price}}万</text>
+							<image :src="getImg(houseItem.img)" mode=""></image>
+							<view class="tag">
+								<text>{{houseItem.jieduan_name}}</text>
+								<text v-if="houseItem.is_free!='' " class="tag_label_2">自由购</text>
+								<text v-if="houseItem.house_type =='48'" class="tag_label_2">社会委托</text>
+								<text v-if="showCon(houseItem.characteristic_name) == true" class="tag_label_1">{{houseItem.characteristic_name}}</text>
 							</view>
 						</view>
-						<view class="createIime">
-							<view class="createIimeIcon">
-								<image src="../../static/img/home/item@2x.png" mode=""></image>
+						<view class="houseItem">
+							<view class="itemTitle">
+								<text>{{houseItem.title}}</text>
 							</view>
-							<view class="createIimeIconinfo">
-								<text>
-									开拍时间：{{houseItem.kptime}}
-								</text>
+							<view class="itemInfo">
+								<text>{{`${houseItem.room}室${houseItem.living_room}厅 | ${houseItem.acreage}㎡ | ${houseItem.orientations_name} | ${houseItem.types_name}`}}</text>
+							</view>
+							<view class="itemPrice">
+								<view>
+									<text v-if="houseItem.fcstatus== 175 ">成交价</text>
+									<text v-if="houseItem.fcstatus!=175 ">起拍价</text>
+									<text class="redPrice" v-if="houseItem.fcstatus!=175 ">{{houseItem.qipai}}万</text>
+									<text class="redPrice" v-if="houseItem.fcstatus== 175 ">{{houseItem.cjprice}}万</text>
+								</view>
+								<view>
+									<text>市场价</text>
+									<text class="grayPrice">{{houseItem.price}}万</text>
+								</view>
+							</view>
+							<view class="createIime">
+								<view class="createIimeIcon">
+									<image src="../../static/img/home/item@2x.png" mode=""></image>
+								</view>
+								<view class="createIimeIconinfo">
+									<text>
+										开拍时间：{{houseItem.kptime}}
+									</text>
+								</view>
 							</view>
 						</view>
-					</view>
 					</view>
 				</navigator>
 			</block>
@@ -43,7 +56,11 @@
 </template>
 
 <script>
+	import Takeout from '@/components/all/list_data.vue';
 	export default {
+		components:{
+			Takeout
+		},
 		data() {
 			return {
 				houseData:[],
@@ -58,6 +75,13 @@
 			this.getRes();
 		},
 		methods: {
+			showCon(housItem){
+				if (housItem =='' || housItem==undefined) {
+					return false;
+				} else {
+					return true;
+				}
+			},
 			getUserInfo(){
 				var _self = this;
 				uni.getStorage({
@@ -96,5 +120,6 @@
 </script>
 
 <style>
-@import url("./css/history.css");
+	@import url("@/components/all/css/list.css");
+	@import url("@/components/common/css/base/item.css");
 </style>
