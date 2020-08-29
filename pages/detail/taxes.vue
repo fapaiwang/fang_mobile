@@ -18,9 +18,9 @@
 </template>
 
 <script>
-	import Mortgage from "@/components/taxes/mortgage.vue";
-	import Pickers from "@/components/taxes/taxes.vue";
-	import Payment from "@/components/taxes/payment.vue";
+	import Mortgage from "@/components/taxes/mortgage.vue";//房贷计算
+	import Pickers from "@/components/taxes/taxes.vue"; //税费计算
+	import Payment from "@/components/taxes/payment.vue"; //首付成数测试
 	import Qualification from "@/components/taxes/qualification.vue";
 	
 	export default {

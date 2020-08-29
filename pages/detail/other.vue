@@ -20,7 +20,6 @@
 				</view>
 				<view class="other_base_desc">
 					<view><text class="tit">装修情况：</text><text>{{isShow ? getResult.basic_info[3] : '*'}}</text></view>
-			
 				</view>
 				<view class="other_base_desc last_child">
 					<view><text class="tit">物业情况：</text><text>{{isShow ? getResult.basic_info[6] : '*'}}</text></view>

@@ -12,7 +12,7 @@
 							<text>{{houseItem.title}}</text>
 						</view>
 						<view class="itemInfo">
-							<text>{{`${houseItem.toilet} | ${houseItem.acreage}㎡ | ${houseItem.orientations}`}}</text>
+							<text>{{`${houseItem.toilet} | ${houseItem.acreage} | ${houseItem.orientations}`}}</text>
 						</view>
 						<view class="itemPrice">
 							<view>

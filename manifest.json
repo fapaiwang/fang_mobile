@@ -129,6 +129,7 @@
                 "enable" : true
             }
         },
-        "domain" : "m.fangpaiwang.com"
+        "domain" : "m.fangpaiwang.com",
+        "template" : "./index.html"
     }
 }
