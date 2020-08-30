@@ -121,4 +121,5 @@
 
 <style>
 @import url("./css/history.css");
+@import url("@/components/common/css/base/item.css");
 </style>
