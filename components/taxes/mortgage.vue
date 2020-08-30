@@ -137,7 +137,7 @@
 				}
 				if (this.currentNum==3) {
 					this.yearType = this.yearData[this.selectNum];
-					this.yearVal = this.businessTypeData[this.selectNum];
+					this.yearVal = this.yearData[this.selectNum];
 				}
 				if (this.currentNum==4) {
 					this.businessRadio = this.businessData[this.selectNum];

@@ -153,6 +153,7 @@
 			onSure(){
 				if (this.currentNum ==1) {//房屋类型
 					this.houseType = secondhandtax[this.currentNum].option[this.selectNum].name;
+					this.familVal = secondhandtax[this.currentNum].option[this.selectNum].value;
 					if (this.selectNum ==1) {
 						if (!this.showTime) {
 							this.showTime = true;
@@ -169,6 +170,7 @@
 				}
 				if (this.currentNum ==5) {//买房家庭
 					this.buyFamil = secondhandtax[this.currentNum].option[this.selectNum].name;
+					this.buyVal = secondhandtax[this.currentNum].option[this.selectNum].value;
 					if (this.selectNum ==1) {
 						this.showOriginal = true;
 					} else {
