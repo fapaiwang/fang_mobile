@@ -1,5 +1,5 @@
 <template>
-	<view style="container">
+	<view style="container" :class="showUpdate ? 'fix' : ''">
 		<navSearch></navSearch>
 		<banner :bannerdata="bannerdata"></banner>
 		<HomeMenu :homeMenuData="homeMenuData"></HomeMenu>
@@ -17,20 +17,19 @@
 			</template>
 		</chatSuspension> -->
 		<view v-if="showUpdate" class="showUpdate">
-			<text class="version_num">1.1.1</text>
-			<text class="version_tit">1.1.1</text>
-			<view class="updateCon">
-				<text>
-					1、优化分析
-				</text>
-				<text>
-					2、优化性能
-				</text>
-				<text>
-					3、优化修复bug
-				</text>
+			<view @click="closeUpdate" class="closeImg">
+				<image src="../../static/img/base/close.png"></image>
 			</view>
-			<button @click="update()" class="update">抢先体验</button>
+			<text class="version_num">{{version_num}}</text>
+			<text class="version_tit">{{version_tit}}</text>
+			<view class="updateCon">
+				<block v-for="(housItem, indexs) in updateCon" :key="indexs">
+				<text>
+					{{housItem}}
+				</text>
+				</block>
+			</view>
+			<button @click="update()" class="update">立即更新</button>
 		</view>
 	</view>
 </template>
@@ -78,6 +77,9 @@
 				restrictHouseData: [],
 				tabIndex:0,
 				showUpdate:false,
+				updateCon:[],
+				version_num:"新版抢先体验",
+				version_tit:"1.0.0",
 			}
 		},
 		onShow() {
@@ -87,28 +89,57 @@
 		onLoad:function(){
 			_self = this;
 			this.getHomeData()
-			
 		},
 		// 启动热更新
 		onLaunch:function() {
 			// #ifdef APP-PLUS
+			let _self = this;
 			plus.runtime.getProperty(plus.runtime.appid,(wgtinfo)=>{
 				// 请求接口 获取最新版本号
-				// _self.fun.getReq(RequestUrl.homeMenu).then((res)=>{
-					
-				// });
-				if (101 > wgtinfo.version.split('.').join('')) {
-					this.showUpdate = true;
-				}
+				this.fun.getReq(this.baseUrl+'/api/version',{"platform":"app"}).then((res)=>{
+					if (res[1].data.code == 10000)  {
+						let new_version = res[1].data.data.new_version.split('.').join('')
+						if (new_version > wgtinfo.version.split('.').join('')) {
+							this.version_tit = res[1].data.data.new_version
+							this.showUpdate = true;
+							this.updateCon = res[1].data.data.update_description.split('。')
+						}
+					}
+				});
 			})
 			// #endif
 		},
 		methods: {
-			// chat_xuanfu_img_click(){
-			// 	this.fun.navTo("/pages/detail/kefu")
-			// },
-			update(){
-				
+			closeUpdate(){
+				this.showUpdate = false;
+			},
+			update() {//更新
+				this.fun.getReq(this.baseUrl+'/api/version',{"platform":"app"}).then((res)=>{
+					if ( res[1].data.code == 20000) {
+						let res = res[1].data.data;
+						// 整包更新
+						if (res.force_fpdate == 1) {
+							plus.runtime.openURL(res.apk_url);
+						} else {
+							// 热更新
+							uni.downloadFile({
+								url: res.apk_url,
+								success: (downloadResult) => {
+									if (downloadResult.statusCode === 200) {
+										plus.runtime.install(downloadResult.tempFilePath, {
+											force: false
+										}, function() {
+											console.log('install success...');
+											plus.runtime.restart();
+										}, function(e) {
+											console.error('install fail...');
+										});
+									}
+								}
+							});
+						}
+					}
+				});
 			},
 			getHomeData() {
 				this.getHomeMenuData();
@@ -208,47 +239,5 @@
 </script>
 
 <style scoped>
-		.chat_xuanfu{
-	
-			display: block;
-			position: fixed;
-			bottom: 9%;
-		    left: 85%;
-		}
-		.chat_xuanfu .chat_xuanfu_img{
-			width: 80upx;
-			height: 80upx;
-		}
-		.showUpdate{
-			position: fixed;
-			background: #ccc;
-			width: 70%;
-			height: 500upx;
-			z-index: 1;
-			top: 30%;
-			left: 15%;
-		}
-		.version_num,.version_tit{
-			color: #FFFFFF;
-			font-size: 40upx;
-			width: 100%;
-			display: inline-block;
-			padding-left: 30upx;
-			margin-top: 20upx;
-			font-weight: bold;
-			line-height: 40upx;
-		}
-		.updateCon{
-			padding-left: 30upx;
-		}
-		.updateCon text{
-			width: 100%;
-			font-size: 28upx;
-			display: inline-block;
-		}
-		.update{
-			width: 100%;
-			text-align: center;
-		}
 @import url("./css/index.css");
 </style>

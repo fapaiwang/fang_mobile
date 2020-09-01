@@ -13,3 +13,88 @@
 	color:rgba(102,102,102,1);
 	font-size: 28upx;
 }
+.chat_xuanfu{
+	display: block;
+	position: relative;
+	bottom: 9%;
+	left: 85%;
+	z-index: 1;
+}
+.chat_xuanfu .chat_xuanfu_img{
+	width: 80upx;
+	height: 80upx;
+}
+.showUpdate{
+	position: fixed;
+	width: 550upx;
+	z-index: 1111;
+	top: 30%;
+	left: 15%;
+	background: #fff url(/../../static/img/base/top@2x.png) no-repeat top center;
+	background-size: 550upx 259upx;
+}
+.version_num{
+	width: 100%;
+	height: 42upx;
+	font-size: 44upx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #F9FBFF;
+	line-height: 42upx;
+	text-shadow: 2px 3px 0px #E57867;
+	text-indent: 43upx;
+	display: inline-block;
+	margin-top: 50upx;
+}
+.version_tit{
+	width: 100%;
+	height: 26px;
+	font-size: 34px;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #F9FBFF;
+	line-height: 94px;
+	text-shadow: 2px 3px 0px #E36B63;
+	text-indent: 43upx;
+	display: inline-block;
+}
+.updateCon{
+	margin-top: 108upx;
+}
+.updateCon text{
+	width: 100%;
+	font-size: 28upx;
+	display: inline-block;
+	text-indent: 43upx;
+}
+.update{
+	width: 380upx;
+	height: 66upx;
+	background: linear-gradient(-90deg, #E17465, #D74854);
+	border-radius: 33upx;
+	margin: 59upx auto 50upx auto;
+	color: #fff;
+	line-height: 66upx;
+}
+.fix{
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+	background: #DCDCDC;
+}
+.closeImg image{
+	width: 44upx;
+	height: 44upx;
+	display: inline-block;
+	float: right;
+	z-index: 3;
+}
+.closeImg{
+	width: 100%;
+	position: absolute;
+	height: 44upx;
+	right: 0;
+	top: -77upx;
+	z-index: 2;
+}
