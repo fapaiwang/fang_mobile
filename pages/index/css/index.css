@@ -32,6 +32,7 @@
 	left: 15%;
 	background: #fff url(../../static/img/base/top@2x.png) no-repeat top center;
 	background-size: 550upx 259upx;
+	border-radius: 20upx;
 }
 .version_num{
 	width: 100%;
