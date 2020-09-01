@@ -89,27 +89,37 @@
 		onLoad:function(){
 			_self = this;
 			this.getHomeData()
+			// #ifdef APP-PLUS
+				this.flayApp()
+				console.log(111)
+			// #endif
 		},
 		// 启动热更新
 		onLaunch:function() {
-			// #ifdef APP-PLUS
-			let _self = this;
-			plus.runtime.getProperty(plus.runtime.appid,(wgtinfo)=>{
-				// 请求接口 获取最新版本号
-				this.fun.getReq(this.baseUrl+'/api/version',{"platform":"app"}).then((res)=>{
-					if (res[1].data.code == 10000)  {
-						let new_version = res[1].data.data.new_version.split('.').join('')
-						if (new_version > wgtinfo.version.split('.').join('')) {
-							this.version_tit = res[1].data.data.new_version
-							this.showUpdate = true;
-							this.updateCon = res[1].data.data.update_description.split('。')
+			
+		},
+		methods: {
+			flayApp() {
+				// #ifdef APP-PLUS
+				plus.runtime.getProperty(plus.runtime.appid,(wgtinfo)=>{
+					// 请求接口 获取最新版本号
+					this.getVersion( wgtinfo.version.split('.').join(''));
+				})
+				// #endif
+			},
+			getVersion(oldVersion){
+				var _self = this;
+				_self.fun.getReq(_self.baseUrl+'/api/version',{"platform":"app"}).then((res)=>{
+					if (Number(res[1].data.code) == 10000)  {
+						var new_version = res[1].data.data.new_version.split('.').join('');
+						if (Number(new_version) > Number(oldVersion)) {
+							_self.version_tit = res[1].data.data.new_version
+							_self.showUpdate = true;
+							_self.updateCon = res[1].data.data.update_description.split('。')
 						}
 					}
 				});
-			})
-			// #endif
-		},
-		methods: {
+			},
 			closeUpdate(){
 				this.showUpdate = false;
 			},
