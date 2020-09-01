@@ -30,7 +30,7 @@
 	z-index: 1111;
 	top: 30%;
 	left: 15%;
-	background: #fff url(/../../static/img/base/top@2x.png) no-repeat top center;
+	background: #fff url(../../static/img/base/top@2x.png) no-repeat top center;
 	background-size: 550upx 259upx;
 }
 .version_num{
