@@ -82,7 +82,15 @@
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
+}
+.pullPage{
+	position: absolute;
+	z-index: 11;
+	opacity: 0.5;
 	background: #DCDCDC;
+	width: 100%;
+	height: 100%;
+	top: 0;
 }
 .closeImg image{
 	width: 44upx;

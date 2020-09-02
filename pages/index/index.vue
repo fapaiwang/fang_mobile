@@ -16,6 +16,8 @@
 				</view>
 			</template>
 		</chatSuspension> -->
+		<!-- 遮罩层 -->
+		<view :class="showUpdate ? 'pullPage' : ''"></view>
 		<view v-if="showUpdate" class="showUpdate">
 			<view @click="closeUpdate" class="closeImg">
 				<image src="../../static/img/base/close.png"></image>
@@ -29,7 +31,7 @@
 				</text>
 				</block>
 			</view>
-			<button @click="update()" class="update">立即更新</button>
+			<button @click="upgradeApp()" class="update">立即更新</button>
 		</view>
 	</view>
 </template>
@@ -80,6 +82,8 @@
 				updateCon:[],
 				version_num:"新版抢先体验",
 				version_tit:"1.0.0",
+				apkUrl:"",
+				force_fpdate:""
 			}
 		},
 		onShow() {
@@ -91,7 +95,6 @@
 			this.getHomeData()
 			// #ifdef APP-PLUS
 				this.flayApp()
-				console.log(111)
 			// #endif
 		},
 		// 启动热更新
@@ -103,7 +106,7 @@
 				// #ifdef APP-PLUS
 				plus.runtime.getProperty(plus.runtime.appid,(wgtinfo)=>{
 					// 请求接口 获取最新版本号
-					this.getVersion( wgtinfo.version.split('.').join(''));
+					this.getVersion(wgtinfo.version.split('.').join(''));
 				})
 				// #endif
 			},
@@ -116,6 +119,8 @@
 							_self.version_tit = res[1].data.data.new_version
 							_self.showUpdate = true;
 							_self.updateCon = res[1].data.data.update_description.split('。')
+							_self.apkUrl = res[1].data.data.apk_url;
+							_self.force_fpdate = res[1].data.data.force_fpdate;
 						}
 					}
 				});
@@ -123,29 +128,30 @@
 			closeUpdate(){
 				this.showUpdate = false;
 			},
-			update() {//更新
-				this.fun.getReq(this.baseUrl+'/api/version',{"platform":"app"}).then((res)=>{
-					if ( res[1].data.code == 20000) {
-						let res = res[1].data.data;
-						// 整包更新
-						if (res.force_fpdate == 1) {
-							plus.runtime.openURL(res.apk_url);
-						} else {
-							// 热更新
-							uni.downloadFile({
-								url: res.apk_url,
-								success: (downloadResult) => {
-									if (downloadResult.statusCode === 200) {
-										plus.runtime.install(downloadResult.tempFilePath, {
-											force: false
-										}, function() {
-											console.log('install success...');
-											plus.runtime.restart();
-										}, function(e) {
-											console.error('install fail...');
-										});
-									}
-								}
+			upgradeApp() {//更新
+				if (this.force_fpdate == 1) {
+					this.allDownload()
+				} else {
+					this.hotDownload()
+				}
+			},
+			// 整包更新
+			allDownload() {
+				plus.runtime.openURL(this.apkUrl);
+			},
+			// 热更新
+			hotDownload() {
+				uni.downloadFile({
+					url: this.apkUrl,
+					success: (downloadResult) => {
+						if (downloadResult.statusCode === 200) {
+							plus.runtime.install(downloadResult.tempFilePath, {
+								force: false
+							}, function() {
+								console.log('install success...');
+								plus.runtime.restart();
+							}, function(e) {
+								console.error('install fail...');
 							});
 						}
 					}
