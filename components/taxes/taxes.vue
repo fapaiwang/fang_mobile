@@ -179,6 +179,7 @@
 				}
 				if (this.currentNum ==2) {//住宅类型
 					this.flatType = secondhandtax[this.currentNum].option[this.selectNum].name;
+					this.flatVal = secondhandtax[this.currentNum].option[this.selectNum].value;
 					if (this.selectNum <1) {
 						this.showOriginal = false;
 						this.showArea = false;
@@ -244,6 +245,10 @@
 					this.fun.showMsg("请填写房屋房屋原值");
 					return false;
 				}
+				// console.log("商品房",this.familVal)
+				// console.log("住宅类型",this.flatVal)
+				// console.log("所在区域",this.areaVal)
+				// console.log("买房家庭",this.buyVal)
 				//房屋总价 房源面积  已购房产数  房屋类型 原购买方式 房屋原值 住宅类型 购买时间  所在区域
 				var _url= "../../pages/detail/taxes_res?p="+this.housePirce
 				+"&a="+this.houseArea+"&by="+this.buyVal+"&fv="+this.familVal
