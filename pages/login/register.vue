@@ -136,7 +136,7 @@
 					this.fun.showMsg("请阅读并勾选协议");
 					return false
 				}
-				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.telphone,sms_code:this.reigisterCap})
+				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.telphone,sms_code:this.reigisterCap,"password":this.newPasswd})
 				.then((res)=>{
 					if (res[1].data.code ==10000) {
 						uni.switchTab({
