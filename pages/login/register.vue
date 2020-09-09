@@ -89,6 +89,7 @@
 					this.fun.showMsg("验证码不正确");
 					return false
 				}
+				console.log(this.isShow);
 				if (this.isShow !=true) {
 					this.fun.showMsg("请阅读并勾选协议");
 					return false
@@ -97,7 +98,10 @@
 				.then((res)=>{
 					console.log(res[1].data)
 					if (res[1].data.code ==10000) {
-						this.fun.navTo("/pages/mine/mine");
+						 
+					}else{
+						this.fun.showMsg(res[1].data.msg);
+						return false
 					}
 				}).catch((err)=>{
 					this.fun.showMsg(err)
@@ -137,7 +141,7 @@
 				.then((res)=>{
 					if (res[1].code ==200) {
 						uni.switchTab({
-							url:"/pages/mine/mine"
+							url:"/pages/mine/mine",
 						})
 					}
 				}).catch((err)=>{
