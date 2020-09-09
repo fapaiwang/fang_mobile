@@ -89,7 +89,6 @@
 					this.fun.showMsg("验证码不正确");
 					return false
 				}
-				console.log(this.isShow);
 				if (this.isShow !=true) {
 					this.fun.showMsg("请阅读并勾选协议");
 					return false
