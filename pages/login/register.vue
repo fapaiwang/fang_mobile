@@ -76,7 +76,7 @@
 				var index=e.target.current || e.detail.current;
 				this.TabCur = index;
 			},
-			getLogin(){
+			getLogin() {//快捷注册
 				if (this.phone =="") {
 					this.fun.showMsg("手机号码不正确");
 					return false
@@ -108,7 +108,7 @@
 					this.fun.showMsg(err)
 				})
 			},
-			reigister(){
+			reigister() {//密码注册
 				if (this.telphone =="") {
 					this.fun.showMsg("手机号码不正确");
 					return false
@@ -117,7 +117,6 @@
 					this.fun.showMsg("验证码不能为空");
 					return false
 				}
-				console.log(this.reigisterCode,this.reigisterCap)
 				if (this.reigisterCode != this.reigisterCap) {
 					this.fun.showMsg("验证码不正确");
 					return false
@@ -138,12 +137,15 @@
 					this.fun.showMsg("请阅读并勾选协议");
 					return false
 				}
-				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.phone,sms_code:this.captcha})
+				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.telphone,sms_code:this.reigisterCap})
 				.then((res)=>{
-					if (res[1].code ==200) {
+					if (res[1].data.code ==10000) {
 						uni.switchTab({
 							url:"/pages/mine/mine",
 						})
+					} else {
+						this.fun.showMsg(res[1].data.msg);
+						return false
 					}
 				}).catch((err)=>{
 					this.fun.showMsg(err)
