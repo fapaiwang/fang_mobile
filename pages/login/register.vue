@@ -96,9 +96,10 @@
 				}
 				this.fun.getReq(this.baseUrl+'/api/registerDo',{mobile:this.phone,sms_code:this.captcha})
 				.then((res)=>{
-					console.log(res[1].data)
 					if (res[1].data.code ==10000) {
-						 
+						 uni.switchTab({
+						 	url:"/pages/mine/mine",
+						 })
 					}else{
 						this.fun.showMsg(res[1].data.msg);
 						return false
