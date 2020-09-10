@@ -2,21 +2,30 @@
 	<view>
 		<view class="circle_warp">
 			<view class="circle">
-				<view><text style="color:#E02E24">{{qishui_price}}</text>元</view>
+				<view><text style="color:#E02E24">{{totalPrice}}</text>元</view>
 				<view>
-					契税
+					税费合计
 				</view>
 			</view>
 		</view>
 		<view class="desc_warp">
-			<view class="desc">
+			<!-- <view class="desc">
 				<text>首付：</text>{{shoufu}}元
-			</view>
+			</view> -->
 			<view class="desc">
 				<text>契税：</text>{{qishui_price}}元
 			</view>
-			<view class="desc">
+			<!-- <view class="desc">
 				<text>贷款金额：</text>{{dakuan_price}}元
+			</view> -->
+			<view class="desc" v-if="isArea">
+				<text>综合地价款：</text>{{areaPrice}}元
+			</view>
+			<view class="desc" v-if="isLeft">
+				<text>土地出让金：</text>{{leftPrice}}元
+			</view>
+			<view class="desc" v-if="isAdd">
+				<text>增值税及附加：</text>{{addPrice}}元
 			</view>
 		</view>
 	</view>
@@ -30,9 +39,16 @@
 	export default {
 		data() {
 			return {
+				totalPrice:'',
 				qishui_price:0,
-								shoufu:0,
-								dakuan_price:0
+				shoufu:0,
+				dakuan_price:0,
+				isArea:false,//显示综合地价款 一类经济
+				areaPrice:"",//显示综合地价款
+				isLeft:false,//土地出让金 二类经济
+				leftPrice:"",
+				isAdd:false,//增值税及附加 住宅类型 为非普通类型    
+				addPrice:""//增值税及附加
 			}
 		},
 		onLoad(option) {
@@ -52,8 +68,29 @@
 					buy_time:time,
 					location:location,
 				}).then((res)=>{
-					var _res = res[1].data.taxs.deed_tax;
-					this.qishui_price = _res.value
+					var _res = res[1].data;
+					//商品房 普通住宅   税费合计 契税
+				
+					if (building_type==100 && house_type==200) {
+						this.qishui_price = _res.taxs.deed_tax.value;
+					}
+					//一类经济  税费合计 契税 综合地价款
+					if (building_type==101) {
+						this.isArea = true;
+						this.areaPrice = _res.taxs.gross_land_purchasing_fee.value
+					}
+					//二类经济
+					if (building_type==102) {
+						this.leftPrice = _res.taxs.land_transfer_fee.value
+						this.isLeft = true;
+					}
+					//住宅类型
+					if (house_type==201) {
+						this.addPrice = _res.taxs.value_added_tax.value
+						this.isAdd = true;
+						this.qishui_price = _res.taxs.deed_tax.value
+					}
+					this.totalPrice = _res.total;
 						// this.shoufu = _res.shoufu;
 						// this.dakuan_price =_res.dakuan_price;
 				});
