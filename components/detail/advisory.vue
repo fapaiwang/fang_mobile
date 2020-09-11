@@ -40,6 +40,9 @@
 				openJesongChatByGroup(11122,26881);
 			//#endif
 				
+			//#ifdef MP-WEIXIN
+				openJesongChatByGroup(11122,26881);
+			//#endif
 					// this.fun.navTo("/pages/detail/kefu")
 				
 			},
