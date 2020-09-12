@@ -13,19 +13,39 @@
 				<text>首付：</text>{{shoufu}}元
 			</view> -->
 			<view class="desc">
-				<text>契税：</text>{{qishui_price}}元
+				<view>
+					<text class="tit">契税：</text>{{qishui_price}}元
+				</view>
+				<view>
+					<text class="radio">税费占比：</text>{{qishui_radio}}
+				</view>
 			</view>
 			<!-- <view class="desc">
 				<text>贷款金额：</text>{{dakuan_price}}元
 			</view> -->
 			<view class="desc" v-if="isArea">
-				<text>综合地价款：</text>{{areaPrice}}元
+				<view>
+					<text class="tit">综合地价款：</text>{{areaPrice}}元
+				</view>
+				<view>
+					<text class="radio">税费占比：</text>{{area_radio}}
+				</view>
 			</view>
 			<view class="desc" v-if="isLeft">
-				<text>土地出让金：</text>{{leftPrice}}元
+				<view>
+					<text class="tit">土地出让金：</text>{{leftPrice}}元
+				</view>
+				<view>
+					<text class="radio">税费占比：</text>{{left_radio}}
+				</view>
 			</view>
 			<view class="desc" v-if="isAdd">
-				<text>增值税及附加：</text>{{addPrice}}元
+				<view>
+					<text class="tit">增值税及附加：</text>{{addPrice}}元
+				</view>
+				<view>
+					<text class="radio">税费占比：</text>{{add_radio}}
+				</view>
 			</view>
 		</view>
 	</view>
@@ -41,14 +61,17 @@
 			return {
 				totalPrice:'',
 				qishui_price:0,
+				qishui_radio:"",//税费占比
 				shoufu:0,
 				dakuan_price:0,
 				isArea:false,//显示综合地价款 一类经济
 				areaPrice:"",//显示综合地价款
 				isLeft:false,//土地出让金 二类经济
 				leftPrice:"",
+				left_radio:"",//土地出让金 占比
 				isAdd:false,//增值税及附加 住宅类型 为非普通类型    
-				addPrice:""//增值税及附加
+				addPrice:"",//增值税及附加
+				add_radio:"",//增值税及附加 占比
 			}
 		},
 		onLoad(option) {
@@ -70,29 +93,27 @@
 				}).then((res)=>{
 					var _res = res[1].data;
 					//商品房 普通住宅   税费合计 契税
-				
-					if (building_type==100 && house_type==200) {
-						this.qishui_price = _res.taxs.deed_tax.value;
-					}
 					//一类经济  税费合计 契税 综合地价款
 					if (building_type==101) {
 						this.isArea = true;
 						this.areaPrice = _res.taxs.gross_land_purchasing_fee.value
+						this.area_radio = _res.taxs.gross_land_purchasing_fee.percent+'%'
 					}
 					//二类经济
 					if (building_type==102) {
-						this.leftPrice = _res.taxs.land_transfer_fee.value
 						this.isLeft = true;
+						this.leftPrice = _res.taxs.land_transfer_fee.value
+						this.left_radio = _res.taxs.land_transfer_fee.percent+'%'
 					}
 					//住宅类型
 					if (house_type==201) {
-						this.addPrice = _res.taxs.value_added_tax.value
 						this.isAdd = true;
-						this.qishui_price = _res.taxs.deed_tax.value
+						this.addPrice = _res.taxs.value_added_tax.value
+						this.add_radio = _res.taxs.value_added_tax.percent+'%'
 					}
-					this.totalPrice = _res.total;
-						// this.shoufu = _res.shoufu;
-						// this.dakuan_price =_res.dakuan_price;
+					this.qishui_price = _res.taxs.deed_tax.value;//契税
+					this.qishui_radio = _res.taxs.deed_tax.percent+'%'//契税占比
+					this.totalPrice = _res.total;//税费合计
 				});
 			}
 		}

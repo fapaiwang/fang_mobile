@@ -6,9 +6,31 @@
 		<view class="list">
 			<block v-for="(item,key) in resData" :key="key">
 				<view>
-					{{item.name}}:<text>{{item.data}}</text>
+					{{item.name}}:<text class="name">{{item.original}}</text>{{item.unit}}
 				</view>
 			</block>
+		</view>
+		<view>
+			<view class="taxesType">
+				{{taxesName}}
+			</view>
+			<view class="ul">
+				<text>月份</text><text>月供总金额</text><text>月供本金</text><text>月供利息</text><text>剩余欠款</text>
+			</view>
+			<view class="ul unit">
+				单位：元
+			</view>
+			<view class="itemWarp">
+				<block v-for="(item,key) in ulItem" :key="key">
+					<view class="ulItem">
+						<text>{{item.qi}}</text>
+						<text>{{item.benxi}}</text>
+						<text>{{item.benjing}}</text>
+						<text>{{item.lixi}}</text>
+						<text>{{item.shengyu}}</text>
+					</view>
+				</block>
+			</view>
 		</view>
 	</view>
 </template>
@@ -25,7 +47,9 @@
 				pixelRatio:1,
 				serverData:'',
 				yue:"",
-				resData:[]
+				resData:[],
+				ulItem:[],
+				taxesName:"",
 			}
 		},
 		onLoad:function(option){
@@ -44,19 +68,36 @@
 					dai_huankuan:huan,
 					dai_mianji:115
 				}).then((res)=>{
+					if (huan=="benxi") {
+						this.taxesName = "等额本息"
+					} else {
+						this.taxesName = "等额本金"
+					}
 					var _res = res[1].data.data.info;
 					this.yue = _res.yue+"元";
 					let Ring={series:[]};
+					this.ulItem = res[1].data.data.data;
 					//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
 					this.resData = [{
-						"name": "首付",
-						"data": _res.shoufu
+						"name": "月供",
+						"data": _res.yue,
+						"original":_res.yue,
+						"unit":"元"
 					}, {
-						"name": "契税",
-						"data": _res.qishui_price
+						"name": "贷款周期",
+						"data": nian*12,
+						"original":nian*12,
+						"unit":"月"
 					}, {
-						"name": "贷款金额",
-						"data": _res.dai_price
+						"name": "总利息",
+						"data": parseInt(_res.total_num),
+						"original":_res.total_num,
+						"unit":"万元"
+					},{
+						"name": "总还款额",
+						"data": parseInt(_res.total_price),
+						"original":_res.total_price,
+						"unit":"万元"
 					}]
 					Ring.series = this.resData;
 					_self.showRing("canvasRing",Ring);

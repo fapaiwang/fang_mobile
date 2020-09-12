@@ -24,5 +24,35 @@ page{width: 750upx;overflow-x: hidden;}
 	margin-bottom: 29upx;
 }
 .list view text{
-	color: #333333 !important;
+	color: #CF2924 !important;
+	font-weight: bold;
+}
+.name{
+	color: #CF2924;
+}
+.ul,.ulItem{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	font-size:30upx;
+	margin: 0 30upx;
+	padding: 20upx;
+	text-align: center;
+}
+.ulItem{
+}
+.ul{
+	background: #F4F5F7;
+}
+.itemWarp{
+	height: 500upx;
+	overflow-y: auto;
+}
+.unit{
+	text-align: right;
+	display: block;
+}
+.taxesType{
+	margin:30upx;
+	font-size: 36upx;
 }
