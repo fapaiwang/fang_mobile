@@ -5,7 +5,7 @@
 .swiper-item {
 	border-radius: 10upx;
 	height: 172upx;
-	width:690upx;
+	width:690upx !important;
 }
 .swiper {
 	width:690upx;

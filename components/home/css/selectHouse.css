@@ -41,8 +41,8 @@
 	height: 233upx;
 }
 .quickTabItem {
-	width: 100%;
-	height: 100%;
+	width: 335upx;
+	height: 233upx;
 	display: inline-block;
 }
 .quickTabImgView{
@@ -51,8 +51,8 @@
 	border-radius:10upx;
 }
 .quickTabImg{
-	width: 100%;
-	height: 100%;
+	width: 335upx !important;
+	height: 233upx;
 	border-radius:10upx;
 }
 .tabItem{

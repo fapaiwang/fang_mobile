@@ -7,7 +7,7 @@
 }
 .swiper-item {
 	border-radius: 10upx;
-	width:690upx;
+	width:690upx !important;
 	height:237upx;
 }
 image{will-change: transform}
