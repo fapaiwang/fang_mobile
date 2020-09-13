@@ -261,9 +261,9 @@
 	/* #ifdef MP-WEIXIN */
 		.topSty{
 			position: fixed;
-			margin-top: 0;
+			/* margin-top: 90upx; */
 			width: 100%;
-			top: 90upx;	
+			/* top: 90upx; */
 			z-index: 1111;
 			background: #fff;
 		}

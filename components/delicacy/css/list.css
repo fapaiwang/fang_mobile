@@ -4,6 +4,12 @@
 	height: 100%;
 	overflow: hidden;
 },
+/* #ifdef MP-WEIXIN */
+.recommendList{
+	padding-top: 380upx;
+}	
+/* #endif */
+
 .recommendHouseView {
 	padding: 0 30upx;
 },
