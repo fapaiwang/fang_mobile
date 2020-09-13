@@ -299,7 +299,8 @@
 			position: fixed;
 			margin-top: 0;
 			width: 100%;
-			top: 90upx;	
+			/* top: 90upx;	 */
+			/* margin-top: 60upx; */
 			z-index: 1111;
 			background: #fff;
 		}

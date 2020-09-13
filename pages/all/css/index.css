@@ -1,6 +1,11 @@
 .container{
 	padding-top: 40upx;
 }
+/* #ifdef MP-WEIXIN */
+.container{
+	padding-top: 0;
+}
+/* #endif */
 .scv{
 	flex-wrap: nowrap;
 	white-space: nowrap;

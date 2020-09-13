@@ -32,6 +32,17 @@
 	float: left;
 	position: absolute;
 }
+/* #ifdef MP-WEIXIN */
+.prefer-posi{
+	height: 190upx !important;
+	width: 100%;
+	z-index: 99;
+	background: #fff;
+	float: left;
+	position: absolute;
+	padding-top: 85upx;
+}
+/* #endif */
 .clearCust{
 	height:50upx;
 	line-height:50upx;
