@@ -236,3 +236,89 @@
 	justify-content:space-between;
 	margin-bottom: 29upx;
 }
+/**
+ * 立即报名
+ */
+.fang_she_sign_up{
+	width: 690upx;
+	height: 80upx;
+	background-color: #FBF5F5;
+	margin-top: 40upx;
+	display: flex;
+	justify-content: space-between;
+}
+.fang_she_sign_up .fang_she_sign_up_describe{
+	font-size: 28px;
+	display: flex;
+	flex-flow: row;
+}
+.fang_she_sign_up .fang_she_sign_up_describe image{
+	width: 30upx;
+	height: 30upx;
+	margin: 25upx 11upx 25upx 20upx;
+}
+.fang_she_sign_up .fang_she_sign_up_describe text{
+	margin-top: 26upx;
+	font-weight:bold;
+}
+.fang_she_sign_up  .fang_she_sign_up_button{
+	width: 180upx;
+	height: 54upx;
+	line-height: 54upx;
+	background-color: #DD3731;
+	font-size: 24upx;
+	font-weight: bold;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 13upx;
+	float: right;
+	
+}
+/**
+ *黑块 拍卖状态那里 
+ */
+.newsletters{
+	/* width: 750upx; */
+	width:100%;
+	height: 114upx;
+	margin: 30upx 0 40upx 0;
+	display: flex;
+}
+.newsletters .house_status{
+	width: 120upx;
+	height: 114upx;
+	/* line-height: 114upx; */
+	background-color: #8A8A8A;
+	
+}
+.newsletters .house_status .house_status_title{
+	width:60upx;
+	height: 59upx;
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	padding: 15upx 14upx;
+	line-height: 29upx;
+	color: #fff;
+	margin-top: 8upx;
+}
+.newsletters .house_status text{
+	/* margin: 0 auto; */
+	color: #fff;
+	font-size: 28upx;
+	word-break:break-all;
+}
+.newsletters .newsletters_info{
+	width: 630upx;
+	background-color: #F5F5F5;
+	font-size: 28px;
+	padding: 26px 0 0 25upx;
+	/* font-weight: heavy; */
+}
+.newsletters_info_one{
+	font-weight: 600;
+}
+.newsletters .newsletters_info_two{
+	font-size: 20px;
+	margin-left: 25upx;
+}

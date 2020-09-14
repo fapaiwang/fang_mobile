@@ -1,3 +1,6 @@
+<script src="http://scripts.easyliao.com/js/easyliao.js"></script>
+<script src="http://scripts.easyliao.com/11122/40987/lazy.js"></script>
+<script src="http://scripts.easyliao.com/11122/40987.js"></script>
 <script>
 // export default {
 // 	onLaunch: function() {

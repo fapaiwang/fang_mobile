@@ -35,8 +35,10 @@
 					<text class="sTime">{{detial.price}}万</text>
 				</view>
 			</view>
+			
+			
 			<view class="Violation">
-				<view class="people">
+				<view class="people" v-if="detial.fcstatus == 169 || detial.fcstatus == 170">
 					<view class="join">
 						<text class="sTime">{{bmrs ? detial.bmrs == "" ? 0 :detial.bmrs : '*'}}</text>
 						人报名
@@ -50,6 +52,21 @@
 				</view>
 			</view>
 		</view>
+		<view class="newsletters" v-if="detial.fcstatus == 171 || detial.fcstatus == 172 || detial.fcstatus == 173 || detial.fcstatus == 174 || detial.fcstatus == 175">
+			<view class="house_status">
+				<view class="house_status_title">
+					<text>拍卖结束</text>
+				</view>
+			</view>
+			<view class="newsletters_info">
+				<text class="newsletters_info_one" v-if="detial.fcstatus == 171">拍卖已结束</text>
+				<text class="newsletters_info_one" v-if="detial.fcstatus == 172">非常抱歉！拍卖已终止</text>
+				<text class="newsletters_info_one" v-if="detial.fcstatus == 173">非常抱歉！拍卖已撤回</text>
+				<text class="newsletters_info_one" v-if="detial.fcstatus == 174">非常抱歉！拍卖已暂缓</text>
+				<text class="newsletters_info_one" v-if="detial.fcstatus == 175">拍卖已成交，标的物成功拍出</text>
+				<text class="newsletters_info_two">\n  结束时间：{{detial.end_time}}　{{bmrs ? detial.bmrs == "" ? 0 :detial.bmrs : '*'}}人报名　{{detial.weiguan}}人围观</text>
+			</view>
+		</view>
 		<view class="countdown">
 			<view class="start_time">
 				开拍截止倒计时：<text class="sTime">{{countDownList}}</text>
@@ -58,6 +75,7 @@
 				<image src="../../static/img/community/ling.png" class="look_img"></image>预约查看
 			</view>
 		</view>
+		
 		<view class="base_house_con">	
 			<view class="house_base">
 				<view class="house_base_top">
@@ -69,6 +87,15 @@
 					<view>{{detial.floor}}层/共{{detial.total_floor}}层</view>
 					<view>{{houseType}}</view>
 					<view>{{buildYear}}年</view>
+				</view>
+			</view>
+			<view class="fang_she_sign_up">
+				<view class="fang_she_sign_up_describe">
+					<image src="../../static/img/community/ling.png"></image>
+					<text>立即报名 参与竞拍</text>
+				</view>
+				<view class="fang_she_sign_up_button">
+					<text>立即报名</text>
 				</view>
 			</view>
 			<view class="auction_info">
