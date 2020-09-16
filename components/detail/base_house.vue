@@ -89,12 +89,12 @@
 					<view>{{buildYear}}年</view>
 				</view>
 			</view>
-			<view class="fang_she_sign_up">
+			<view class="fang_she_sign_up" v-if="detial.house_type == 48">
 				<view class="fang_she_sign_up_describe">
 					<image src="../../static/img/community/ling.png"></image>
 					<text>立即报名 参与竞拍</text>
 				</view>
-				<view class="fang_she_sign_up_button">
+				<view class="fang_she_sign_up_button"  @click="sign_up(detial.lianjie)">
 					<text>立即报名</text>
 				</view>
 			</view>
@@ -227,6 +227,11 @@
 				this.fun.getReq(this.baseUrl+'/api/subscribe/save',_param).then((res)=>{
 					_self.fun.showMsg(res[1].data.msg);
 				})
+			},
+			sign_up(url){
+				console.log(url);
+				console.log(222);
+				window.location.href=url;
 			},
 			close(){
 				this.con == "";

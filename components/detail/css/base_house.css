@@ -248,7 +248,7 @@
 	justify-content: space-between;
 }
 .fang_she_sign_up .fang_she_sign_up_describe{
-	font-size: 28px;
+	font-size: 28upx;
 	display: flex;
 	flex-flow: row;
 }
@@ -258,7 +258,7 @@
 	margin: 25upx 11upx 25upx 20upx;
 }
 .fang_she_sign_up .fang_she_sign_up_describe text{
-	margin-top: 26upx;
+	margin-top: 20upx;
 	font-weight:bold;
 }
 .fang_she_sign_up  .fang_she_sign_up_button{
