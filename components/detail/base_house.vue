@@ -283,7 +283,7 @@
 					title:this.houseTit,
 					summary:this.houseTit,
 					imageUrl:this.fun.getImgSrc(this.detial.img),
-					href:"/pages/detail/index?id="+this.detial.id,
+					href:"http://m.fangpaiwang.com/pages/detail/index?id="+this.detial.id,
 					success: function (res) {
 						console.log("success:" + JSON.stringify(res));
 					},
