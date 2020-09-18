@@ -5,6 +5,7 @@
 		<image src="../../static/img/base/client_entrustment_top.png" class="bgImg"></image>
 		<!-- <text class="desc">程序猿小哥哥正在开发~</text> -->
 		<view class="template_form">
+			<image src="../../static/img/base/client_entrustment_middle.png" class="client_entrustment_middle"></image>
 			<viwe class="template_form_name">
 				<input placeholder="请输入您的姓名" class="login_inp" v-model="template_form_name_click"/>
 			</viwe>
@@ -14,8 +15,9 @@
 			<view class="">
 				<button class="template_form_button" @click="getButton">提交信息</button>
 			</view>
-		</view>
 			<image src="../../static/img/base/client_entrustment_tail.png" class="tailImg"></image>
+		</view>
+			
 	</view>
 </template>
 
@@ -63,10 +65,13 @@
 	position: relative;
 	height: 100%;
 	overflow: hidden;
+	background: linear-gradient(180deg, #e72603, #F05539);
 }
 .bgImg{
 	width: 750upx;
-	height: 4615upx;
+	height: 500upx;
+	/* display:block */
+	vertical-align:bottom;
 }
 .desc{
 	width:100%;

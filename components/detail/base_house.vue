@@ -89,6 +89,7 @@
 					<view>{{buildYear}}年</view>
 				</view>
 			</view>
+			<!-- #ifndef MP-WEIXIN -->
 			<view class="fang_she_sign_up" v-if="detial.house_type == 48">
 				<view class="fang_she_sign_up_describe">
 					<image src="../../static/img/community/ling.png"></image>
@@ -98,6 +99,7 @@
 					<text>立即报名</text>
 				</view>
 			</view>
+			<!-- #endif -->
 			<view class="auction_info">
 				<view class="auction_info_l">
 					<view>拍卖形式：<text>{{detial.house_type_name}}</text></view>

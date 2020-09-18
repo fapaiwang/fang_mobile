@@ -1,7 +1,15 @@
 .template_form{
 	width: 100%;
-	height: 504upx;
-	background: #fcf3eb;
+	/* height: 504upx; */
+	/* background: #fcf3eb; */
+	height: 2170upx;
+
+	text-align: center;
+	
+}
+.template_form .client_entrustment_middle{
+	/* margin-left: 50upx; */
+	height: 1550upx;
 }
 .template_form text input{
 	/* font-size: 28upx; */
@@ -26,7 +34,7 @@
 	width: 596upx;
 	height: 100upx;
 	line-height: 100upx;
-	background:linear-gradient(90deg,rgba(255,121,55,1),rgba(255,174,119,1));
+	background: linear-gradient(90deg, #FAE99F, #FC9630);
 	color: #FFFFFF;
 	margin: 60upx auto 94upx auto;
 	text-align: center;

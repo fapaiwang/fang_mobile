@@ -12,7 +12,7 @@
 							</view>
 							<image :src="getImgUrl(housItem.img)" mode=""></image>
 							<view class="tag">
-								<text>{{housItem.jieduan_name}}</text>
+								<text  v-if="housItem.house_type !=48 ">{{housItem.jieduan_name}}</text>
 								<text v-if="housItem.is_free!='' " class="tag_label_2">自由购</text>
 								<text v-if="housItem.house_type =='48'" class="tag_label_2">社会委托</text>
 								<text v-if="characteristic(housItem.characteristic_name)"  class="tag_label_1">{{housItem.characteristic_name}}</text>
