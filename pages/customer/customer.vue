@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="header-wrap" style="position: fixed;top: 0;width: 100%;display: flex;text-align: center;justify-content: center;z-index: 1;background: #fff;height: 80upx;line-height: 80upx;">
+		<view class="header-wrap" style="position: fixed;top: 0;width: 100%;display: flex;text-align: center;justify-content: center;z-index: 1;background: #fff;height: 80upx;line-height: 80upx;font-size: 32upx;">
 			<view class="addressView" @click="goBack" style="width: 58upx;position: absolute;left: 10upx;height: 34upx;">
 				<image class="arrowIcon" src='../../static/img/base/left.png' style="width: 18upx;height: 34upx;"></image>
 			</view>
