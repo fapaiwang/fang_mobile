@@ -1,5 +1,11 @@
 <template>
 	<view>
+		<view class="header-wrap" style="position: fixed;top: 0;width: 100%;display: flex;text-align: center;justify-content: center;z-index: 1;background: #fff;height: 80upx;line-height: 80upx;">
+			<view class="addressView" @click="goBack" style="width: 58upx;position: absolute;left: 10upx;height: 34upx;">
+				<image class="arrowIcon" src='../../static/img/base/left.png' style="width: 18upx;height: 34upx;"></image>
+			</view>
+			<view style="text-align: center;text-indent:-10upx">客服</view>
+		</view>
 		<!-- <view class="bg">
 			<image src="../../static/img/base/bg.png" class="bgImg"></image>
 		</view>
