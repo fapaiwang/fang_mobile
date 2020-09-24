@@ -72,7 +72,7 @@
 				<text class="newsletters_info_two">\n  结束时间：{{detial.end_time}}　{{bmrs ? detial.bmrs == "" ? 0 :detial.bmrs : '*'}}人报名　{{detial.weiguan}}人围观</text>
 			</view>
 		</view>
-		<view class="countdown">
+		<view class="countdown"  v-if="detial.fcstatus == 169 || detial.fcstatus == 170">
 			<view class="start_time">
 				开拍截止倒计时：<text class="sTime">{{countDownList}}</text>
 			</view>
@@ -248,7 +248,7 @@
 				})
 			},
 			sign_up(detial) {
-				this.fun.navTo(`/pages/outside/outside?url=${detial.lianjie}&tit=${detial.title}`);
+				this.fun.navTo(`/pages/outside/outside?url=${detial.lianjie_app}&tit=${detial.title}`);
 			},
 			close(){
 				this.con == "";
