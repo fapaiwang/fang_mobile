@@ -46,6 +46,9 @@
 					case 7:
 					this.fun.navTo("/pages/detail/taxes");
 					break;
+					case 7:
+					this.fun.navTo("/pages/map/map");
+					break;
 				}
 				
 			},
