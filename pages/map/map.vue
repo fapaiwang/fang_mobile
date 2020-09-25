@@ -11,6 +11,11 @@
 				
 			}
 		},
+		created() {
+			uni.setNavigationBarTitle({
+				title: "地图找房"
+			})
+		},
 		methods: {
 			
 		}
