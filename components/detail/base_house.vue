@@ -17,11 +17,6 @@
 					<view class="shareJoin" @click="share">
 						<image src="../../static/img/community/share.png" class="joinImg"></image>
 						<text class="joinText">分享</text>
-						<QrcodePoster ref="qrcode" :title="houseTit" 
-							:subTitle="houseTit" 
-							:headerImg="getImgUrl(detial.img)"
-							:price="detial.qipai">
-						</QrcodePoster>
 					</view>
 				</view>
 			</view>
@@ -155,13 +150,8 @@
 </template>
 
 <script>
-	import QrcodePoster from '@/components/houseQrcode/index.vue';
-	
 	var _self;
 	export default {
-		components:{
-			QrcodePoster
-		},
 		name: "baseHouse",
 		props: ["detial","houseType","buildYear","houseTit","communityName","countDownList","like"],
 		data() {
@@ -198,8 +188,23 @@
 		},
 		methods:{
 			share(){
-				//获取带参数二维码
-				this.$refs.qrcode.shareHouse('https://www.fangpaiwang.com/uploads/poster/20200826/d49400d4e138579c912e2e2b8265052a.jpg');
+				// #ifdef H5
+				this.$copyText('/pages/detail/index?id='+this.detial.id).then(
+					res => {
+						uni.showToast({
+							title: '复制成功'
+						})
+					}
+				)
+				// #endif
+				uni.setClipboardData({
+				    data:'/pages/detail/index?id='+this.detial.id,
+				    success:function() {
+						uni.showToast({
+							title:"复制成功"
+						})
+				    }
+				});
 			},
 			getImgUrl(icon) {
 				return this.fun.getImgSrc(icon);
