@@ -9,13 +9,13 @@
 		<centerBanner :centerBannerdata='centerBannerdata'></centerBanner>
 		<featured :qualityEstateData='qualityEstateData'></featured>
 		<getrecommendHouse></getrecommendHouse>
-		<!-- <chatSuspension>
-			<template>
+		<chatSuspension>
+			<!-- <template>
 				<view class="chat_xuanfu">
 					<image src="../../static/img/base/chat_mobile.png" class="chat_xuanfu_img" @click="chat_xuanfu_img_click"></image>
 				</view>
-			</template>
-		</chatSuspension> -->
+			</template> -->
+		</chatSuspension>
 		<!-- 遮罩层 -->
 		<view :class="showUpdate ? 'pullPage' : ''"></view>
 		<view v-if="showUpdate" class="showUpdate">
@@ -49,7 +49,7 @@
 	import getrecommendHouse from '@/components/home/recommendHouse.vue' // 推荐房源
 	import WucTab from '@/components/tab/wuc-tab.vue';
 	import SelectHouse from '@/components/home/selectHouse.vue';//为您选房
-	// import chatSuspension from '@/components/home/chatSuspension.vue';//悬浮按钮
+	import chatSuspension from '@/components/home/chatSuspension.vue';//悬浮按钮
 	import RequestUrl from '@/components/common/js/requests.js';
 	
 	export default {
@@ -64,7 +64,7 @@
 			getrecommendHouse,
 			WucTab,
 			SelectHouse,
-			// chatSuspension
+			chatSuspension
 		},
 		name: "index",
 		data() {
