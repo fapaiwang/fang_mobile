@@ -30,20 +30,20 @@
 		},
 		methods:{
 			online(){
-			//#ifndef H5
-				uni.switchTab({
-					url:"/pages/customer/customer"
-				})
-			//#endif
+			// //#ifndef H5
+			// 	uni.switchTab({
+			// 		url:"/pages/customer/customer"
+			// 	})
+			// //#endif
 			
-			//#ifdef H5
-				openJesongChatByGroup(11122,26881);
-			//#endif
+			// //#ifdef H5
+			// 	openJesongChatByGroup(11122,26881);
+			// //#endif
 				
-			//#ifdef MP-WEIXIN
-				openJesongChatByGroup(11122,26881);
-			//#endif
-					// this.fun.navTo("/pages/detail/kefu")
+			// //#ifdef MP-WEIXIN
+			// 	openJesongChatByGroup(11122,26881);
+			// //#endif
+				this.fun.navTo("/pages/detail/kefu?id="+this.detial.id)
 				
 			},
 			call(phone){

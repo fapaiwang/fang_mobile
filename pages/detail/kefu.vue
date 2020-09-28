@@ -1,6 +1,6 @@
 <template>
 	<view>
-		 <web-view :src="src"></web-view>
+		 <web-view src="https://kefu.fangpaiwang.com/app/index.php?i=4&c=entry&toopenid=o65dpxAMaQiKzBsr_1tyFTmJDBn4&do=chat&m=cy163_customerservice"></web-view>
 	</view>
 </template>
 
@@ -8,14 +8,22 @@
 	export default {
 		data() {
 			return {
-				src:""
+				url :''
 			}
 		},
-		onLoad:function(){
-			var url = 'https://www.fangpaiwang.com/chat_full_screen'
-			this.src = url;
+		onLoad(options) {
+			if (!options.id) {
+				this.url = "/pages/deal/index?id="+this.id
+			} else {
+				this.url = "/pages/index"
+			}
 		},
 		methods: {
+			onNavigationBarButtonTap(e) {
+				uni.redirectTo({
+					url:this.url
+				})	
+			},
 		}
 	}
 </script>
