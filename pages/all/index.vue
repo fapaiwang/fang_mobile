@@ -6,19 +6,22 @@
 			</view>
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 		</view>
+		<chatSuspension></chatSuspension>
 	</view>
 </template>
 
 <script>
 	import FocusList from '@/components/all/delicacy.vue';
 	import Takeout from '@/components/all/list.vue';
+	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
 	
 	var _self, page = 1, timer = null, query;//timer延迟期
 	
 	export default {
 		components:{
 			FocusList,
-			Takeout
+			Takeout,
+			chatSuspension
 		},
 		data() {
 			return {

@@ -25,6 +25,7 @@
 		</view>
 		<Header></Header>
 		<History :uuid="uuid"></History>
+		<chatSuspension></chatSuspension>
 	</view>
 </template>
 
@@ -32,12 +33,14 @@
 	import MineBanner from '@/components/base/banner.vue';
 	import Header from '@/components/mine/header.vue';
 	import History from "@/components/mine/history.vue"
+	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
 
 	export default {
 		components: {
 			MineBanner,
 			Header,
-			History
+			History,
+			chatSuspension
 		},
 		data() {
 			return {

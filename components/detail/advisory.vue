@@ -43,7 +43,7 @@
 			// //#ifdef MP-WEIXIN
 			// 	openJesongChatByGroup(11122,26881);
 			// //#endif
-				this.fun.navTo("/pages/detail/kefu?id="+this.detial.id)
+				this.fun.navTo("/pages/detail/kefu?id="+this.detial.id+"&online_consulting="+this.detial.pinglun.online_consulting)
 				
 			},
 			call(phone){
