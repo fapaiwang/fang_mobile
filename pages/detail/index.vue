@@ -14,6 +14,7 @@
 			<grayBox></grayBox>
 			<recommendHosue :qualityEstateData="qualityEstateData"></recommendHosue>
 			<advisory :detial="detial" :advisoryName="advisoryName"></advisory>
+			<chatSuspension></chatSuspension>
 		</view>
 		<view v-if="showCon == false" class="detialTxt">{{detialText}}</view>
 		<navigator src="http://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></navigator>
@@ -30,6 +31,7 @@
 	import communityMap from "@/components/detail/community_map.vue" //小区地图
 	import recommendHosue from "@/components/detail/recommend_hosue.vue" //推荐房源
 	import advisory from "@/components/detail/advisory.vue" //客服
+	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
 	
 	export default {
 		components: {
@@ -41,7 +43,8 @@
 			communityDesc,
 			communityMap,
 			recommendHosue,
-			advisory
+			advisory,
+			chatSuspension
 		},
 		data() {
 			return {

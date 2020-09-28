@@ -38,7 +38,7 @@ export default{
 		
 	}
 	.chat_xuanfu1 .chat_xuanfu_img{
-		width: 80upx;
-		height: 80upx;
+		width: 100upx;
+		height: 100upx;
 	}
 </style>
