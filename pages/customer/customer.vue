@@ -7,10 +7,10 @@
 			 <text class="desc">程序猿小哥哥正在开发~</text>
 		</view> -->
 		<!-- #ifdef H5 -->
-		<web-view src="https://kefu.fangpaiwang.com/app/index.php?i=4&c=entry&toopenid=o65dpxAMaQiKzBsr_1tyFTmJDBn4&do=chat&m=cy163_customerservice"></web-view>
+		<web-view src="https://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></web-view>
 		<!-- #endif -->
 		<!-- #ifdef MP-WEIXIN -->
-		<web-view src="https://kefu.fangpaiwang.com/app/index.php?i=4&c=entry&toopenid=o65dpxAMaQiKzBsr_1tyFTmJDBn4&do=chat&m=cy163_customerservice"></web-view>
+		<web-view src="https://live.easyliao.com/live/chat.do?c=11122&g=26881&config=40987&tag=0"></web-view>
 		<!-- #endif -->
 	</view>
 </template>
