@@ -1,10 +1,11 @@
 <template>
 	<view>
-		<web-view src="https://www.fangpaiwang.com/map/map" class="map_sty"></web-view>
+		<web-view src="https://www.fangpaiwang.com/map/map" class="map_sty" @message="message"></web-view>
 	</view>
 </template>
 
 <script>
+	var w;
 	export default {
 		data() {
 			return {
@@ -17,7 +18,20 @@
 			})
 		},
 		methods: {
-			
+			message(obj) {
+				let con = obj.detail.data[0].action;
+				if (con["back"] == "shouye") {
+					uni.switchTab({
+						url:"/pages/index/index"
+					})
+				}
+				if (con["back"] == "xiaoqu") {
+					this.fun.navTo("/pages/community/community?id="+con["back"])
+				}
+				if (con["house"]) {
+					this.fun.navTo("/pages/detail/index?id="+con["house"])
+				}
+			}
 		}
 	}
 </script>
