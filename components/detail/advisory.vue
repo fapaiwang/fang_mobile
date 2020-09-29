@@ -26,7 +26,12 @@
 		props: ["detial", "advisoryName"],
 		data(){
 			return {
+				uuid:-1,
+				userInfoData:''
 			}
+		},
+		created() {
+			this.getStore();
 		},
 		methods:{
 			online(){
@@ -43,9 +48,12 @@
 			// //#ifdef MP-WEIXIN
 			// 	openJesongChatByGroup(11122,26881);
 			// //#endif
-			
-				this.fun.navTo("/pages/detail/kefu?"+this.detial.pinglun.online_consulting+"&houseid="+this.detial.id+"&housetitle="+this.detial.title+"&houseimg="+this.detial.img)
-				
+				if (this.uuid == -1) {
+					this.fun.showMsg("请登录");
+					return false;
+				} else {
+					this.fun.navTo("/pages/detail/kefu?"+this.detial.pinglun.online_consulting+"&houseid="+this.detial.id+"&housetitle="+this.detial.title+"&houseimg="+this.detial.img+"&mobile="+this.userInfoData.mobile)
+				}
 			},
 			call(phone){
 				if (uni.getSystemInfoSync().platform == "android") {
@@ -66,6 +74,19 @@
 			},
 			getImgUrl(icon){
 			   return this.baseUrl+`/uploads/avatar/${icon}/avatar.jpg`;
+			},
+			getStore() {
+				var _self = this;
+				uni.getStorage({
+					key: _self.fun.userInfo,
+					success: function(res) {
+						_self.userInfoData = res.data;
+						_self.uuid = _self.userInfoData.id;
+					},
+					fail: function() {
+						_self.uuid = -1;
+					}
+				})
 			},
 		}
 	}
