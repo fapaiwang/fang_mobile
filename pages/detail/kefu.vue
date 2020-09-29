@@ -1,6 +1,5 @@
 <template>
 	<view>
-		<!-- <web-view src="https://kefu.fangpaiwang.com/app/index.php?i=4&c=entry&toopenid=o65dpxAMaQiKzBsr_1tyFTmJDBn4&do=chat&m=cy163_customerservice"></web-view> -->
 		<web-view :src="url"></web-view>
 	</view>
 </template>
@@ -13,19 +12,10 @@
 			}
 		},
 		onLoad(options) {
-			console.log(options)
-			if (options) {
-				let urlLen = options.online_consulting.length
-				let _subHost = options.online_consulting.substr(0,5)
-				let _httpUrl = options.online_consulting
-				if (options.online_consulting.substr(0,5) !='https') {
-					_httpUrl = "https"+options.online_consulting.substr(4,urlLen+1);
-				} 
-				console.log(222);
-				console.log(_httpUrl);
-				console.log(111);
-				this.url = _httpUrl+'&c='+options.c+'&toopenid='+options.toopenid+'&do='+options.do+'&m='+options.m
-					console.log(this.url);
+			if (options.toopenid) {
+				let _httpUrl = "https://kefu.fangpaiwang.com/app/index.php?i=4&c=entry&do=index&m=cy163_customerservice_plugin_p&toopenid="
+				let houseimg = this.getImgUrl(options.houseimg);
+				this.url = _httpUrl+options.toopenid+"&houseid="+options.houseid+"&housetitle="+options.housetitle+"&houseimg="+houseimg+"&chattype=2"
 			} else {
 				this.url = "/pages/index/index"
 			}
@@ -35,6 +25,9 @@
 				uni.redirectTo({
 					url: this.url
 				})
+			},
+			getImgUrl(icon) {
+				return this.fun.getImgSrc(icon);
 			},
 		}
 	}
