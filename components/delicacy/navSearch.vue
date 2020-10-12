@@ -54,7 +54,7 @@
 				
 			},
 			goUserClick(){
-				
+				this.fun.navTo("/pages/map/map")
 			}
 		}
 	}
