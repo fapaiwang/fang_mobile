@@ -166,7 +166,7 @@
 				this.qualityEstateData = this.detial.recommend_house;
 				this.estateData = this.detial.estate.data;
 				this.communityThumb = this.detial.estate.img
-				this.countDown(this.detial.jieduan,this.detial.kptime,this.detial.bianetime);
+				this.countDown(this.detial.jieduan,this.detial.kptime,this.detial.bianetime,_res.bidding_cycle);
 				this.advisoryName = this.detial.pinglun ? this.detial.pinglun.user_name : '';
 				this.surroundingData = this.detial.rim;
 				this.trafficData = this.detial.traffic;
@@ -249,7 +249,15 @@
 					this.recordingData = res[1].data.data;
 				})
 			},
-			countDown(level,kptime,bianetime) {
+			countDown(level,kptime,bianetime,cycle) {
+				var cycle_time = 0;
+				if (cycle == 1){
+					cycle_time = 24;
+				}else if(cycle == 2){
+					cycle_time = 72;
+				}else{
+					cycle_time = cycle;
+				}
 				var TimeStrs = level;
 				var TimeStr= kptime;
 				var Deadline;
@@ -340,8 +348,14 @@
 				            var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
 				            var seconds = (leave3 / 1000).toFixed(1)
 				            this.countDownList = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
-				        } else if(date<0 && date >-86400000){
-				            var date = date+86400000;
+				        } else if(date<0){
+							 if (cycle_time == 24) {
+									var date = date + 86400000;
+								}else if(cycle_time == 72){
+									var date = date + 86400000 * 3;
+								}else if (cycle_time != 0) {
+									var date =date + 86400000 * Math.ceil(cycle_time / 24);
+								}
 				            //计算出相差天数
 				            var days = Math.floor(date / (24 * 3600 * 1000))
 				            //计算出小时数
