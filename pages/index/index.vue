@@ -161,20 +161,28 @@
 				this.getqualityEstateData();
 				this.getTit();
 			},
-			getHomeMenuData() {
+			getHomeMenuData() { // 缓存 获取快速导航
 				var _self = this;
 				uni.getStorage({
 					key: _self.fun.HomeMenu,
 					success: function(res) {
-						_self.homeMenuData = res.data
+						if (res.data == "") {
+							_self.getStoreHomeMenu()
+						} else {
+							_self.homeMenuData = res.data
+						}
 					},
 					fail: function() {
-						_self.fun.getReq(RequestUrl.homeMenu).then((res) => {
-							_self.homeMenuData = res[1].data.data;
-							_self.setStore(_self.fun.HomeMenu, res[1].data.data);
-						});
+						_self.getStoreHomeMenu()
 					}
 				})
+			},
+			getStoreHomeMenu() { //挨批 获取快速导航
+				var _self = this;
+				_self.fun.getReq(RequestUrl.homeMenu).then((res) => {
+					_self.homeMenuData = res[1].data.data;
+					_self.setStore(_self.fun.HomeMenu, res[1].data.data);
+				});
 			},
 			//存缓存
 			setStore(key, val) {
@@ -197,20 +205,28 @@
 						this.centerBannerdata = res[1].data.data
 					})
 			},
-			getHomeSecondSearch() {
+			getHomeSecondSearch() {// 获取即将拍卖、正在进行、今日成交
 				var _self = this;
 				uni.getStorage({
 					key: _self.fun.auction,
 					success: function(res) {
-						_self.auctionData = res.data
+						if (res.data == "") {
+							_self.getStoreHomeSecondSearch();
+						} else {
+							_self.auctionData = res.data
+						}
 					},
 					fail: function() {
-						_self.fun.getReq(RequestUrl.homeSearch).then((res) => {
-							_self.auctionData = res[1].data.data;
-							_self.setStore(_self.fun.auction, res[1].data.data);
-						});
+						_self.getStoreHomeSecondSearch();
 					}
 				})
+			},
+			getStoreHomeSecondSearch() { // 获取即将拍卖、正在进行、今日成交缓存
+				var _self = this;
+				_self.fun.getReq(RequestUrl.homeSearch).then((res) => {
+					_self.auctionData = res[1].data.data;
+					_self.setStore(_self.fun.auction, res[1].data.data);
+				});
 			},
 			getTodayAddData() {
 				this.fun.getReq(RequestUrl.scrollInfo)
@@ -220,9 +236,9 @@
 			},
 			getqualityEstateData() { // 推荐小区
 				this.fun.getReq(RequestUrl.recommendedCommunity)
-					.then((res) => {
-						this.qualityEstateData = res[1].data.data
-					})
+				.then((res) => {
+					this.qualityEstateData = res[1].data.data
+				})
 			},
 			getTit() { // 获取标题
 				this.fun.getReq(this.baseUrl + '/api/getTdk', {
