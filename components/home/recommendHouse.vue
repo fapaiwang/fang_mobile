@@ -161,38 +161,56 @@
 			getRecommendHouseData() { //推荐房源
 				var _self = this;
 				let _key = this.fun.listing+""+this.getCurrenTime();
-				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
 				uni.getStorage({
 					key:_key,
 					success:function(res){
-						_self.recommendHouseData = res.data;
+						if (res.data == "") {
+							_self.getStoreRecommendHouse();
+						} else {
+							_self.recommendHouseData = res.data;
+						}
 					},
 					fail:function(){
-						uni.clearStorage(lastKey);
-						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
-							_self.recommendHouseData = res[1].data.data.lists.data;
-							_self.setStore(_key,res[1].data.data.lists.data);
-						});
+						_self.getStoreRecommendHouse();
 					}
 				})
+			},
+			getStoreRecommendHouse() {//推荐房源 api
+				var _self = this;
+				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
+				let _key = this.fun.listing+""+this.getCurrenTime();
+				uni.clearStorage(lastKey);
+				_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=y1&limit=15').then((res)=>{
+					_self.recommendHouseData = res[1].data.data.lists.data;
+					_self.setStore(_key,res[1].data.data.lists.data);
+				});
 			},
 			getFreeHouseData() { //自由购
 				var _self = this;
 				let _key = this.fun.freeBuy+""+this.getCurrenTime();
-				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
 				uni.getStorage({
 					key:_key,
 					success:function(res){
-						_self.restrictHouseData = res.data;
+						if (res.data == "") {
+							_self.getStoreFreeHouse()
+						} else {
+							_self.restrictHouseData = res.data;
+						}
 					},
 					fail:function(){
-						uni.clearStorage(lastKey);
-						_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
-							_self.restrictHouseData = res[1].data.data.lists.data;
-							_self.setStore(_key,res[1].data.data.lists.data);
-						});
+						_self.getStoreFreeHouse()
 					}
 				})
+			},
+			getStoreFreeHouse() {//自由购 api请求
+				let lastKey = this.fun.freeBuy+""+this.getYesterdayTime();
+				let _key = this.fun.freeBuy+""+this.getCurrenTime();
+				var _self = this;
+				uni.clearStorage(lastKey);
+				_self.fun.getReq(_self.baseUrl+'/api/second/houseList?a=m10&limit=15').then((res)=>{
+					_self.restrictHouseData = res[1].data.data.lists.data;
+					_self.setStore(_key,res[1].data.data.lists.data);
+				});
 			},
 			//存缓存
 			setStore(key,val){
