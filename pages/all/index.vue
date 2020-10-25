@@ -7,6 +7,7 @@
 			<Takeout :recommendHouseData="recommendHouseData" :loadingTxt="loadingTxt" ref="recommend"></Takeout>	
 		</view>
 		<chatSuspension></chatSuspension>
+		<listFooter></listFooter>
 	</view>
 </template>
 
@@ -14,6 +15,7 @@
 	import FocusList from '@/components/all/delicacy.vue';
 	import Takeout from '@/components/all/list.vue';
 	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
+	import listFooter from '@/components/footer/footer.vue'; //列表页专用底部
 	
 	var _self, page = 1, timer = null, query;//timer延迟期
 	
@@ -21,7 +23,8 @@
 		components:{
 			FocusList,
 			Takeout,
-			chatSuspension
+			chatSuspension,
+			listFooter
 		},
 		data() {
 			return {

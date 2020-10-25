@@ -32,6 +32,7 @@
 	import recommendHosue from "@/components/detail/recommend_hosue.vue" //推荐房源
 	import advisory from "@/components/detail/advisory.vue" //客服
 	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
+	import RequestUrl from '@/common/js/ican-H5Api.js';
 	
 	export default {
 		components: {

@@ -188,17 +188,17 @@
 		},
 		methods:{
 			share(){
-				// #ifdef H5
-				this.$copyText('/pages/detail/index?id='+this.detial.id).then(
-					res => {
-						uni.showToast({
-							title: '复制成功'
-						})
-					}
-				)
-				// #endif
+				// // #ifdef H5
+				// this.$copyText('/pages/detail/index?id='+this.detial.id).then(
+				// 	res => {
+				// 		uni.showToast({
+				// 			title: '复制成功'
+				// 		})
+				// 	}
+				// )
+				// // #endif
 				uni.setClipboardData({
-				    data:'/pages/detail/index?id='+this.detial.id,
+				    data:'m.fangpaiwang.com/pages/detail/index?id='+this.detial.id,
 				    success:function() {
 						uni.showToast({
 							title:"复制成功"
