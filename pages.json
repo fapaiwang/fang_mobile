@@ -38,10 +38,30 @@
 			}
 		},
 		{
-			"path" : "pages/customer/customer",
-			"style" : {
-				"navigationBarTitleText": "客服"
-			}
+		   "path" : "pages/customer/customer",
+		   "style" : {
+		         "navigationBarTitleText" : "客服",
+		         "app-plus": {
+		             "bounce": "none",
+		             "titleNView": {
+		                 "buttons": [ //原生标题栏按钮配置,
+		                     {
+		                    "type":"none",
+		                    "text":" <",
+		                    "float":"left",
+		        "fontSize":"20px"
+		                     }
+		                  ]
+		              }
+		          }
+		     }
+		},
+		{
+			"path" : "pages/map/map",
+				"style" : {
+				 "navigationBarTitleText": "搜索",
+				 "navigationStyle": "custom"// 自定义标题
+				}
 		},
 		{
 			"path" : "pages/mine/mine",
@@ -231,9 +251,24 @@
         },{
             "path" : "pages/detail/kefu",
             "style" : {
-            	"navigationBarTitleText": "在线咨询"
-            }
-        }
+                  "navigationBarTitleText" : "在线咨询",
+                  "app-plus": {
+                      "bounce": "none",
+                      "titleNView": {
+                          "buttons": [ //原生标题栏按钮配置,
+                              {
+                             "type":"none",
+                             "float":"left",
+                 "fontSize":"20px"
+                              }
+                           ]
+                       }
+                   }
+              }
+        },{
+					"path" : "pages/outside/outside",
+					"style" : {}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

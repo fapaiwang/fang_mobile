@@ -5,7 +5,7 @@
 	            <swiper class="swiper" :circular="true" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 					<swiper-item v-for="(item,index) in bannerdata" :key="index">
 						<image class="swiper-item" :src="getImgUrl(item.setting.fileurl)"></image>
-	                </swiper-item>
+	                </swiper-item> 
 	            </swiper>
 	        </view>
 	    </view>
