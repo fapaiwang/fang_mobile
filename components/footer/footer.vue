@@ -51,7 +51,7 @@
 }
 .footer view{
 	width: 25%;
-	font-size: 20px;
+	font-size: 20upx;
 	font-family: PingFang SC;
 	font-weight: 500;
 	color: #666666;

@@ -33,13 +33,13 @@
 				TabCur:0
 			}
 		},
-		created:function(){
-			this.getCombinedResources();
-		},
 		computed: {
 		    scrollLeft() {
 		        return (this.TabCur - 1) * 60;
 		    }
+		},
+		created:function(){
+			this.getCombinedResources();
 		},
 		methods: {
 			tabChange(index) {

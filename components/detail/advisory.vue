@@ -35,42 +35,45 @@
 		},
 		methods:{
 			online(){
-			// //#ifndef H5
-			// 	uni.switchTab({
-			// 		url:"/pages/customer/customer"
-			// 	})
-			// //#endif
+			//#ifndef H5
+				uni.switchTab({
+					url:"/pages/customer/customer"
+				})
+			//#endif
 			
-			// //#ifdef H5
-			// 	openJesongChatByGroup(11122,26881);
-			// //#endif
+			//#ifdef H5
+				openJesongChatByGroup(11122,26881);
+			//#endif
 				
-			// //#ifdef MP-WEIXIN
-			// 	openJesongChatByGroup(11122,26881);
-			// //#endif
-				if (this.uuid == -1) {
-					this.fun.showMsg("请登录");
-					return false;
-				} else {
-					this.fun.navTo("/pages/detail/kefu?"+this.detial.pinglun.online_consulting+"&houseid="+this.detial.id+"&housetitle="+this.detial.title+"&houseimg="+this.detial.img+"&mobile="+this.userInfoData.mobile)
-				}
+			//#ifdef MP-WEIXIN
+				openJesongChatByGroup(11122,26881);
+			//#endif
+				// if (this.uuid == -1) {
+				// 	this.fun.showMsg("请登录");
+				// 	return false;
+				// } else {
+				// 	this.fun.navTo("/pages/detail/kefu?"+this.detial.pinglun.online_consulting+"&houseid="+this.detial.id+"&housetitle="+this.detial.title+"&houseimg="+this.detial.img+"&mobile="+this.userInfoData.mobile)
+				// }
 			},
 			call(phone){
-				if (uni.getSystemInfoSync().platform == "android") {
-					var Intent = plus.android.importClass("android.content.Intent");
-					var Uri = plus.android.importClass("android.net.Uri");  
-					// 获取主Activity对象的实例  
-					var main = plus.android.runtimeMainActivity();  
-					// 创建Intent  
-					var uri = Uri.parse("tel:"+phone); // 这里可修改电话号码  
-					var call = new Intent("android.intent.action.CALL",uri);  
-					// 调用startActivity方法拨打电话  
-					main.startActivity( call );  
-				} else {
-					uni.makePhoneCall({
-					    phoneNumber: `${phone}` //仅为示例
-					});
-				}
+				uni.makePhoneCall({
+					phoneNumber:phone
+				})
+				// if (uni.getSystemInfoSync().platform == "android") {
+				// 	var Intent = plus.android.importClass("android.content.Intent");
+				// 	var Uri = plus.android.importClass("android.net.Uri");  
+				// 	// 获取主Activity对象的实例  
+				// 	var main = plus.android.runtimeMainActivity();  
+				// 	// 创建Intent  
+				// 	var uri = Uri.parse("tel:"+phone); // 这里可修改电话号码  
+				// 	var call = new Intent("android.intent.action.CALL",uri);  
+				// 	// 调用startActivity方法拨打电话  
+				// 	main.startActivity( call );  
+				// } else {
+				// 	uni.makePhoneCall({
+				// 	    phoneNumber: `${phone}` //仅为示例
+				// 	});
+				// }
 			},
 			getImgUrl(icon){
 			   return this.baseUrl+`/uploads/avatar/${icon}/avatar.jpg`;
