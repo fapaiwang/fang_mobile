@@ -46,14 +46,14 @@
 			<view class="quickTab">
 				<view class="selectHouse">
 					<swiper class="quickTabSwiper" :current="TabCur" duration="300">
-						<block v-for="(item, index) in tabList" :key="index"  @touchend="wocao(item.name, index)">
+						<block v-for="(item, index) in tabList" :key="index">
 							<!-- <view style="height: 100upx;">{{item.name}}211</view> -->
 							<swiper-item class="quickTabSwiperItem"  @touchend="wocao(item.name, index)">
 								<block v-for="(housItem, indexs) in item.img" :key="indexs" >
 									<navigator :url="getDetail(housItem.id)" class="quickTabItemView">
 									
-										<div class="quickTabItem">
-											<image class="quickTabImg" :src="getImg(housItem.img)" mode="heightFix"></image>
+										<div class="quickTabItem" >
+											<image class="quickTabImg" :src="getImg(housItem.img)" mode="heightFix" ></image>
 											<view class="select_House_title">
 												  
 												<text>{{housItem.title}}</text>
@@ -364,11 +364,10 @@
 				})
 			},
 			wocao(itemName, index){
-				this.selectType = itemName;
-				this.TabCur = index
-				console.log(this.TabCur)
-				// .text-red = "234567";
-				console.log(this.selectType);
+				console.log(itemName)
+				var currenIndex = index+1
+				    this.selectType = this.tabList[index].name;
+				    this.TabCur = currenIndex > this.tabList.length ? index : currenIndex
 			},
 		}
 	}

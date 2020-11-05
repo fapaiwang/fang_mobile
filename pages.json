@@ -249,6 +249,33 @@
             	"navigationBarTitleText": "成交案例"
             }
         },{
+		          "path" : "pages/test/index",
+		          "style" : {
+		          	"navigationBarTitleText": "测试页面"
+		          }
+		}
+		// ,{
+		//           "path" : "pages/test/video_min",
+		//           "style" : {
+		//           	"navigationBarTitleText": "本地小视频"
+		//           }
+		// },{
+		//           "path" : "pages/test/video_max",
+		//           "style" : {
+		//           	"navigationBarTitleText": "本地大视频"
+		//           }
+		// },{
+		//           "path" : "pages/test/video_max_cache",
+		//           "style" : {
+		//           	"navigationBarTitleText": "七牛大视频"
+		//           }
+		// },{
+		//           "path" : "pages/test/video_min_cache",
+		//           "style" : {
+		//           	"navigationBarTitleText": "七牛小视频"
+		//           }
+		// }
+		,{
             "path" : "pages/detail/kefu",
             "style" : {
                   "navigationBarTitleText" : "在线咨询",

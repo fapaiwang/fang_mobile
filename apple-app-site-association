@@ -1,0 +1,11 @@
+{  
+    "applinks": {  
+        "apps": [],  
+        "details": [  
+            {  
+                "appID": "54LF23U2L4.io.dcloud.HBuilder",  
+                "paths": [ "/ulink/*"]  
+            }  
+        ]  
+    }  
+}

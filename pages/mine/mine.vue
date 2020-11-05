@@ -24,7 +24,7 @@
 			</view>
 		</view>
 		<Header></Header>
-		<History :uuid="uuid"></History>
+		<History :uuid="uuid" :model="userInfoData.model"></History>
 		<chatSuspension></chatSuspension>
 	</view>
 </template>
@@ -69,6 +69,7 @@
 						_self.isShowNickName = true;
 						_self.nickName = res.data.nick_name;
 						_self.uuid = _self.userInfoData.id;
+						
 					},
 					fail: function() {
 						_self.isShow = true;

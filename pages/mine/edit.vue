@@ -94,6 +94,7 @@
 				}
 				this.fun.getReq(this.baseUrl+'/api/save_user_info',_param).then((res)=>{
 					if (res[1].data.code==10000) {
+						console.log(res[1].data);
 						uni.setStorage({
 							key:_self.fun.userInfo,
 							data:res[1].data.data

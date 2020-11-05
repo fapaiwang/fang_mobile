@@ -10,6 +10,8 @@
 		<featured :qualityEstateData='qualityEstateData'></featured>
 		<getrecommendHouse></getrecommendHouse>
 		<chatSuspension></chatSuspension>
+		<PutOnRecond></PutOnRecond>
+		
 		<!-- 遮罩层 -->
 		<view :class="showUpdate ? 'pullPage' : ''"></view>
 		<view v-if="showUpdate" class="showUpdate">
@@ -43,6 +45,7 @@
 	import getrecommendHouse from '@/components/home/recommendHouse.vue' // 推荐房源
 	import WucTab from '@/components/tab/wuc-tab.vue';
 	import SelectHouse from '@/components/home/selectHouse.vue'; //为您选房
+	import PutOnRecond from '@/components/home/PutOnRecond.vue'; //备案
 	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
 	import RequestUrl from '@/components/common/js/requests.js';
 
@@ -58,7 +61,8 @@
 			getrecommendHouse,
 			WucTab,
 			SelectHouse,
-			chatSuspension
+			chatSuspension,
+			PutOnRecond
 		},
 		name: "index",
 		data() {

@@ -2,6 +2,15 @@
 	<view>
 		<grayBox></grayBox>
 		<view class="taxes_warp">
+			<view class="taxes_con" @click="test_page">
+				<view class="taxes_tit">
+					<view class="taxes_small_tit">
+						<image src="../../static/img/mine/Pick.png"></image>
+					</view>
+					<text>测试页面</text>
+				</view>
+				<view class="taxes_symbol">></view>
+			</view>
 			<view class="taxes_con" @click="history">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
@@ -29,6 +38,7 @@
 				</view>
 				<view class="taxes_symbol">></view>
 			</view>
+			
 		</view>
 		<grayBox></grayBox>
 		<view class="taxes_warp">
@@ -41,7 +51,7 @@
 				</view>
 				<view class="taxes_symbol">></view>
 			</view> -->
-			
+
 			<view class="taxes_con client" @click="call(4006770028)">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
@@ -67,77 +77,83 @@
 <script>
 	import grayBox from "@/components/detail/gray_box.vue" //灰色边框
 	export default {
-		props:["uuid"],
-		components:{
+		props: ["uuid","model"],
+		components: {
 			grayBox
 		},
 		methods: {
-			call(phone){
+
+			call(phone) {
 				if (uni.getSystemInfoSync().platform == "android") {
 					var Intent = plus.android.importClass("android.content.Intent");
-					var Uri = plus.android.importClass("android.net.Uri");  
+					var Uri = plus.android.importClass("android.net.Uri");
 					// 获取主Activity对象的实例  
-					var main = plus.android.runtimeMainActivity();  
+					var main = plus.android.runtimeMainActivity();
 					// 创建Intent  
-					var uri = Uri.parse("tel:"+phone); // 这里可修改电话号码  
-					var call = new Intent("android.intent.action.CALL",uri);  
+					var uri = Uri.parse("tel:" + phone); // 这里可修改电话号码  
+					var call = new Intent("android.intent.action.CALL", uri);
 					// 调用startActivity方法拨打电话  
-					main.startActivity( call );  
+					main.startActivity(call);
 				} else {
 					uni.makePhoneCall({
-					    phoneNumber: `${phone}`
+						phoneNumber: `${phone}`
 					});
 				}
 			},
-			recommend(){//推荐房源
-				if (this.uuid ==-1) {
+			recommend() { //推荐房源
+				console.log(this.uuid)
+				if (this.uuid == -1) {
 					uni.showToast({
-						icon:'none',
-						title:'请登录',
-						duration:3000
+						icon: 'none',
+						title: '请登录',
+						duration: 3000
 					})
 					return false;
 				}
-				this.fun.navTo("/pages/all/index?a=y1");
+				// this.fun.navTo("/pages/all/index?a=y1");
 			},
-			discount(){//6折房源
-				if (this.uuid ==-1) {
+			discount() { //6折房源
+				if (this.uuid == -1) {
 					uni.showToast({
-						icon:'none',
-						title:'请登录',
-						duration:3000
+						icon: 'none',
+						title: '请登录',
+						duration: 3000
 					})
 					return false;
 				}
 				this.fun.navTo("/pages/all/index?a=y2");
 			},
-			list(){
-				if (this.uuid ==-1) {
+			list() {
+				if (this.uuid == -1) {
 					uni.showToast({
-						icon:'none',
-						title:'请登录',
-						duration:3000
+						icon: 'none',
+						title: '请登录',
+						duration: 3000
 					})
 					return false;
 				}
 				this.fun.navTo("/pages/mine/list")
 			},
-			history(){
-				if (this.uuid ==-1) {
+			history() {
+				if (this.uuid == -1) {
 					uni.showToast({
-						icon:'none',
-						title:'请登录',
-						duration:3000
+						icon: 'none',
+						title: '请登录',
+						duration: 3000
 					})
 					return false;
 				}
 				this.fun.navTo("/pages/mine/history")
+			}
+			,
+			test_page(){
+				this.fun.navTo("/pages/test/index")
 			},
-			logout(){
+			logout() {
 				var _self = this;
 				uni.getStorage({
-					key:_self.fun.userInfo,
-					success:function(res){
+					key: _self.fun.userInfo,
+					success: function(res) {
 						uni.clearStorage(_self.fun.userInfo);
 						uni.clearStorage(_self.fun.likeHouse);
 						uni.clearStorage(_self.fun.likeEstate);
@@ -148,7 +164,7 @@
 						// uni.clearStorage(_self.fun.searchList);
 						// uni.clearStorage(_self.fun.searchEstate);
 						uni.switchTab({
-							url:"/pages/index/index"
+							url: "/pages/index/index"
 						})
 					},
 				})
@@ -159,16 +175,18 @@
 
 <style scoped>
 	@import url("./css/history.css");
-	.last{
+
+	.last {
 		float: left;
 		color: #E02E24;
-		height:27upx;
-		ffont-size:28upx;
+		height: 27upx;
+		ffont-size: 28upx;
 		font-family: PingFang SC;
 		font-weight: bold;
 		display: inline-block;
 	}
-	.client .taxes_symbol{
+
+	.client .taxes_symbol {
 		width: 31%;
 	}
 </style>
