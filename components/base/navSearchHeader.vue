@@ -38,9 +38,9 @@
 				this.fun.navTo("/pages/search/search")
 			},
 			goUserClick:function(){
-				this.fun.navTo("/pages/index/fire")
+				// this.fun.navTo("/pages/index/fire")
 				uni.switchTab({
-					// url:"/pages/mine/mine",
+					url:"/pages/mine/mine",
 				})
 			}
 		}

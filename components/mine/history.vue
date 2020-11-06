@@ -2,7 +2,7 @@
 	<view>
 		<grayBox></grayBox>
 		<view class="taxes_warp">
-			<view class="taxes_con" @click="test_page">
+			<view class="taxes_con" @click="test_page" v-if="model == 4">
 				<view class="taxes_tit">
 					<view class="taxes_small_tit">
 						<image src="../../static/img/mine/Pick.png"></image>
