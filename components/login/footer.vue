@@ -1,7 +1,7 @@
 <template>
 	<view class="bg-set">
 		<view class="">
-			<image src="../../static/img/login/login_bg.png"></image>
+			<image src="https://www.fangpaiwang.com/login_bgq.png"></image>
 		</view>
 	</view>
 </template>

@@ -198,7 +198,7 @@
 				// )
 				// // #endif
 				uni.setClipboardData({
-				    data:'m.fangpaiwang.com/pages/detail/index?id='+this.detial.id,
+				    data:'www.fangpaiwang.com/pages/detail/index?id='+this.detial.id,
 				    success:function() {
 						uni.showToast({
 							title:"复制成功"

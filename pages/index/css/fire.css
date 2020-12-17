@@ -16,7 +16,7 @@
 .fang_header {
 	background-size: 100%;
 	height:1090upx ;
-	background-image: url("../../static/img/landing_page/double_11_header.png");
+	background-image: url("http://www.fangpaiwang.com/double_11_header.png");
 }
 .fang_header_one{
 	padding-top: 600upx;
@@ -52,7 +52,7 @@
 	background: linear-gradient(93deg, #9D2DFB, #C41ABE);
 	border-radius: 15upx 15upx 0 0;
 	background-size: 710upx;
-	background-image: url("../../static/img/landing_page/double_11_title_one.png");
+	background-image: url(http://www.fangpaiwang.com/double_11_title_one.png);
 }
 .fang_sociology .fang_sociology_title text{
 	font-size: 34upx;
@@ -68,7 +68,7 @@
 	background: linear-gradient(93deg, #9D2DFB, #C41ABE);
 	border-radius: 15upx 15upx 0 0;
 	background-size: 710upx;
-	background-image: url("../../static/img/landing_page/double_11_title_two.png");
+	background-image: url(http://www.fangpaiwang.com/double_11_title_two.png);
 }
 .fang_sociology .fang_sociology_title_two text{
 	font-size: 34upx;

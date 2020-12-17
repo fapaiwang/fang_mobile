@@ -253,6 +253,16 @@
 		          "style" : {
 		          	"navigationBarTitleText": "测试页面"
 		          }
+		},{
+		          "path" : "pages/index/fire",
+		          "style" : {
+		          	"navigationBarTitleText": "金铂顺昌房拍网双11法拍房"
+		          }
+		},{
+		          "path" : "pages/business/detaile",
+		          "style" : {
+		          	"navigationBarTitleText": "法拍专员"
+		          }
 		}
 		// ,{
 		//           "path" : "pages/test/video_min",
