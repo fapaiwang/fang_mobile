@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "mine-banner": "/components/base/banner",
-    "header": "/components/mine/header",
-    "history": "/components/mine/history"
-  }
-}

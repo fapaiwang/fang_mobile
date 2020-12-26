@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "法拍百科",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "nav-menu": "/components/news/navMenu",
-    "banner": "/components/base/banner"
-  }
-}

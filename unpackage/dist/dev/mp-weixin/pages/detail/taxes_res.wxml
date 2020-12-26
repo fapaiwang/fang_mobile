@@ -1,1 +1,0 @@
-<view><view class="circle_warp"><view class="circle"><view><text style="color:#E02E24;">{{qishui_price}}</text>元</view><view>契税</view></view></view><view class="desc_warp"><view class="desc"><text>首付：</text>{{shoufu+'元'}}</view><view class="desc"><text>契税：</text>{{qishui_price+'元'}}</view><view class="desc"><text>贷款金额：</text>{{dakuan_price+'元'}}</view></view></view>

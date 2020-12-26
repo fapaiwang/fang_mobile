@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "重点推荐",
-  "enablePullDownRefresh": true,
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "focus-list": "/components/delicacy/delicacy",
-    "takeout": "/components/delicacy/list"
-  }
-}

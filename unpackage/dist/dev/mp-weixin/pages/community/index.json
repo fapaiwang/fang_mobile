@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "精选小区",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "banner": "/components/community/banner",
-    "focus-list": "/components/community/delicacy",
-    "takeout": "/components/community/takeout"
-  }
-}
