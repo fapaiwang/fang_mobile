@@ -2,6 +2,7 @@
 	<view class="container">
 		<banner :bannerdata="bannerdata">
 		</banner>
+		<chatSuspension></chatSuspension>
 		<view class="search" v-if="isShow">
 			<view class="input-wrap">
 				<image class="iconfangdajing" src='../../static/img/base/searchIcon@2x.png'></image>
@@ -64,6 +65,7 @@
 			</view>
 		</view>
 		<!-- <view class="loading">{{loadingTxt}}</view> -->
+		
 	</view>
 </template>
 
@@ -71,11 +73,13 @@
 	var _self, page = 1, timer = null;//timer延迟期
 	import banner from '@/components/base/banner.vue'; // banner
 	import navMenu from '@/components/news/navMenu.vue';
+	import chatSuspension from '@/components/home/chatSuspension.vue'; //悬浮按钮
 
 	export default {
 		components:{
 			navMenu,
-			banner
+			banner,
+			chatSuspension,
 		},
 		data() {
 			return {

@@ -17,7 +17,17 @@
 				</view>
 			</view>
 		</view>
-		<view class="container" v-if="isShow">
+		<!-- <view class="container" v-if="isShow"> -->
+		<view class="container">
+			<view class="history">
+				<text>搜索发现</text>
+			</view>
+			<view class="hotspotitem">
+				<text  v-for="(item,key) in estateList" :key="key"  @click="onEstateDetail(item.id)">{{item.title}}</text>
+			</view>
+		</view>
+		<!-- <view class="container" v-if="isShow"> -->
+		<view class="container">
 			<view class="history">
 				<text>搜索历史</text>
 			</view>
@@ -31,6 +41,7 @@
 				</view>
 			</view>
 		</view>
+		
 		<view class="search_list" :style="{top:Height+'px'}">
 			 <view v-if="keyList.length>0" v-for="(houseItem,key) in keyList" :key="key" @click="detail(houseItem)" class="search_item">
 				 <view>
@@ -52,6 +63,7 @@
 				keyList:[],
 				historyData:'',
 				historyList:[],
+				estateList:[],
 				Height:0,
 				isShow:true,
 				showIs:true,
@@ -83,6 +95,9 @@
 			query.select('#boxFixed').boundingClientRect(data => {
 				_seflDe.Height = data.height+30;
 			}).exec();
+		},
+		created: function() {
+			this.getSearchEstateHot();
 		},
 		methods: {
 			doSearch(){
@@ -131,6 +146,9 @@
 			},
 			ondetail(id){
 				 this.fun.navTo("/pages/detail/index?id="+id);
+			},
+			onEstateDetail(id){
+				 this.fun.navTo("/pages/community/community?id="+id);
 			},
 			detail(houseItem){
 				this.setStore(houseItem);
@@ -196,6 +214,11 @@
 				uni.navigateBack({
 					delta:2
 				})
+			},
+			getSearchEstateHot(){
+				this.fun.getReq(this.baseUrl + "/api/fixed/search_estate_hot").then((res) => {
+					this.estateList = res[1].data.data
+				});
 			},
 		}
 	}

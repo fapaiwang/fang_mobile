@@ -108,6 +108,20 @@
 	-webkit-box-orient:vertical;
 	-webkit-line-clamp:1;
 }
+.hotspotitem text{
+	display: inline-block;
+	height:60upx;
+	line-height: 60upx;
+	background:#F3F5F7;
+	border-radius:30upx;
+	padding: 0 19upx;
+	font-size:28upx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	margin-bottom: 30upx;
+	margin-right: 30upx;
+}
 .search_list{
 	position: absolute;
 	z-index: 1111;

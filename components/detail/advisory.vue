@@ -1,7 +1,7 @@
 <template>
 	<view class="advisory_warp" v-if="detial">
 		<view class="consultant">
-			<view class="consultant_l">
+			<view class="consultant_l" >
 				<view class="avatar">
 					<image :src="getImgUrl(detial.broker_id)"></image>
 				</view>
@@ -91,6 +91,9 @@
 					}
 				})
 			},
+			getBusiessDetails:function(){
+				this.fun.navTo("/pages/business/detaile")
+			}
 		}
 	}
 </script>

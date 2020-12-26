@@ -17,14 +17,14 @@
 					<view class="fang_sociology_house_1" style="padding-top: 20upx;">
 						<navigator :url="getDetail(4499)">
 							<view class="fang_sociology_house_list_box">
-								<image src="../../static/img/landing_page/house_01.jpg"></image>
+								<image src="https://www.fangpaiwang.com/uploads/secondhouse/20200709/388b56d0de92826eaefae35957bff114.jpg"></image>
 								<view class="text_center">经济技术开发区 富园东里二区</view>
 								<view class="text_center" style="margin-top: 10upx;">起拍价 ¥69.00万</view>
 							</view>
 						</navigator>
 						<navigator :url="getDetail(5484)">
 							<view class="fang_sociology_house_list_box" style="margin-left: 14upx;">
-								<image src="../../static/img/landing_page/house_02.jpg">
+								<image src="https://www.fangpaiwang.com/uploads/secondhouse/20200919/ba9a946b764f39b9c764bb791be8dd38.jpg">
 									<view class="text_center">大兴区 新安里5号楼5层5-502</view>
 									<view class="text_center" style="margin-top: 10upx;">起拍价 ¥26.50万</view>
 							</view>

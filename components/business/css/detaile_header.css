@@ -1,0 +1,86 @@
+.container{
+	width: 750upx;
+	/* background-image: url("../../../static/img/base/client_entrustment_top.png"); */
+	background-image: url(http://www.fangpaiwang.com/double_11_title_one.png);
+	background-attachment: fixed;
+	background-repeat:no-repeat;
+	background-size: 100% 331upx;
+}
+.info{
+	width: 690upx;
+	height: 621upx;
+	background: linear-gradient(90deg, #F8F0E7, #E4D4C6);
+	border-radius: 20upx;
+	margin: 0 auto;
+/* margin-top: 35upx; */
+}
+.info_t{
+	height: 50upx;
+}
+.info_personal{
+	padding-left: 53upx;
+	margin: 0 auto;
+	display: inline;
+	float: left;
+}
+.info_personal image{
+	width: 120upx;
+	height: 120upx;
+	margin-top: 35upx;
+	border-radius: 50%;
+}
+.info_personal .info_role{
+	/* display: inline; */
+	float: left;
+	background-color: #D74854;
+	width: 517upx;
+	height: 120upx;
+}
+.info_role .info_role_ywu{
+	padding-top: 50upx;
+	/* padding-top: 50upx; */
+}
+.info_role .info_role_ywu text{
+	padding-left: 30upx;
+}
+.info_role .info_role_ywu .info_role_name{
+	font-size: 36upx;
+	font-weight: bold;
+}
+.info_role .info_role_ywu1 text{
+	display: inline-block;
+	width: 120upx;
+	height: 44upx;
+	line-height: 44upx;
+	text-align: center;
+	background: #DFC4AD;
+	color: #FFF;
+	font-size: 23upx;
+	font-weight: 500;
+	margin-left: 30upx;
+	border-radius: 5px;
+}
+.describe{
+	font-size: 28upx;
+	width: 584upx;
+	margin: 0 auto;
+}
+.describe .describe_list{
+	line-height: 44upx;
+	padding-top: 34upx;
+}
+.describe .describe_title{
+	color: #666;
+}
+
+.detaile_fuai{
+	
+	float: left;
+	text-align: center;
+	width: 344upx;
+	height: 128upx;
+	line-height: 170upx;
+	background-color: #007AFF;
+}
+.detaile_fuai text{
+}
