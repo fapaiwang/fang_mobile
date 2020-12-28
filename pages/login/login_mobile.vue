@@ -73,8 +73,12 @@
 				}
 				var _self = this;
 				this.fun.getReq(this.baseUrl+'/api/login_pwd',{mobile:this.phone,password:this.pwd})
+				// this.fun.getReq('http://fang.al/api/login_pwd',{mobile:this.phone,password:this.pwd})
 				.then((res)=>{
 					console.log(res[1].data,"login");
+					console.log(this.phone)
+					console.log(this.pwd)
+					console.log(this.baseUrl+'/api/login_pwd')
 					if (Number(res[1].data.code) ==10000) {
 						uni.setStorage({
 							key:_self.fun.userInfo,
