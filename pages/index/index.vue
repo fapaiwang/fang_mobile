@@ -10,7 +10,7 @@
 		<featured :qualityEstateData='qualityEstateData'></featured>
 		<getrecommendHouse></getrecommendHouse>
 		<chatSuspension></chatSuspension>
-		<PutOnRecond></PutOnRecond>
+		<PutOnRecond :server_addr='server_addr'></PutOnRecond>
 		
 		<!-- 遮罩层 -->
 		<view :class="showUpdate ? 'pullPage' : ''"></view>
@@ -81,7 +81,8 @@
 				version_num: "新版抢先体验",
 				version_tit: "1.0.0",
 				apkUrl: "",
-				force_fpdate: ""
+				force_fpdate: "",
+				server_addr:''
 			}
 		},
 		onShow() {
@@ -164,6 +165,13 @@
 				this.getTodayAddData();
 				this.getqualityEstateData();
 				this.getTit();
+				this.getServerAddr();
+			},
+			getServerAddr() {
+				this.fun.getReq(this.baseUrl + '/api/SERVER_ADDR')
+					.then((res) => {
+						this.server_addr = res[1].data
+					});
 			},
 			getHomeMenuData() { // 缓存 获取快速导航
 				var _self = this;

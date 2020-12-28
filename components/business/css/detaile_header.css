@@ -8,7 +8,7 @@
 }
 .info{
 	width: 690upx;
-	height: 621upx;
+	height: 661upx;
 	background: linear-gradient(90deg, #F8F0E7, #E4D4C6);
 	border-radius: 20upx;
 	margin: 0 auto;
@@ -67,7 +67,7 @@
 }
 .describe .describe_list{
 	line-height: 44upx;
-	padding-top: 34upx;
+	padding-top: 24upx;
 }
 .describe .describe_title{
 	color: #666;
@@ -80,7 +80,35 @@
 	width: 344upx;
 	height: 128upx;
 	line-height: 170upx;
-	background-color: #007AFF;
+	font-weight: bold;
+	font-size: 44upx;
 }
-.detaile_fuai text{
+.detaile_fuai_1{
+	float: left;
+	text-align: center;
+	width: 344upx;
 }
+.evaluate_button{
+	/* display:inline; */
+	width: 248upx;
+	height: 60upx;
+	background: #E1CFC0;
+	border-radius: 5px;
+	margin: 0 auto;
+	display: ;
+}
+.evaluate_button image{
+	width: 40upx;
+	height: 40upx;
+	margin: 10upx 12upx 0 68upx;
+	
+}
+.evaluate_button text{
+	font-size: 28upx;
+	color: #333;
+	font-weight: bold;
+	position: relative;
+	bottom: 8upx;
+		
+}
+

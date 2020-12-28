@@ -1,7 +1,7 @@
 .base_house_con{
 	padding: 0 30upx;
 	padding-top: 20upx;
-},
+}
 .house_tit{
 	width:100%;
 	font-size:36upx;
@@ -151,7 +151,7 @@
 .titleText{
 	font-size:28upx;
 	color: #333333;
-},
+}
 .tieleImgView {
 	height: 60upx;
 	width: 32upx;

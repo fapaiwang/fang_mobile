@@ -1,14 +1,25 @@
 <template>
-	<view class="chat_xuanfu1">
-		<image src="../../static/img/base/chat_mobile.png" class="chat_xuanfu_img" @click="chat_xuanfu_img_click"></image>
+	<view class="chat_xuanfu1" @click="chat_xuanfu_img_click">
+		<image src="../../static/img/base/chat_mobile.png" class="chat_xuanfu_img" ></image>
+	<!-- 	<view @click="openJesongChatByGroup(11122,26881)" v-trigger></view>
+		 <a target="showHere" @click="openJesongChatByGroup(11122,26881)" v-trigger></a> -->
 	</view>
+	
 </template>
 
 <script>
 
 export default{
-
+// directives:{
+// 		      trigger:{
+// 		        inserted(el,binging){
+// 		          console.log("自动触发事件")
+// 		          el.click()
+// 		        }
+// 		      }
+// 		},
 	methods:{
+		
 		chat_xuanfu_img_click(){
 			//#ifndef H5
 				uni.switchTab({
@@ -17,12 +28,22 @@ export default{
 			//#endif
 			
 			//#ifdef H5
-				openJesongChatByGroup(11122,26881);
+			openJesongChatByGroup(11122,26881)
+			var userAgent = navigator.userAgent;
+			//判断是否百度浏览器
+			if (userAgent.indexOf("baidu") > -1){
+				uni.switchTab({
+					url:"/pages/customer/customer"
+				})
+			}
+				
 			//#endif
 				
 			//#ifdef MP-WEIXIN
 				openJesongChatByGroup(11122,26881);
 			//#endif
+			
+			
 		}
 	}
 }

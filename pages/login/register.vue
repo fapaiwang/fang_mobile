@@ -13,13 +13,13 @@
 				<swiper-item>
 				  <Mobile :mobile.sync="phone" :code.sync="captcha" :cap.sync="cap"></Mobile>
 				  <Agreement :agree.sync="isShow"></Agreement>
-				  <button class="login_btn" @click="getLogin">立即登录</button>
+				  <button class="login_btn" @click="getLogin">立即登录1</button>
 				</swiper-item>
 				<swiper-item>
 					<Mobile :mobile.sync="telphone" :code.sync="reigisterCode" :cap.sync="reigisterCap"></Mobile>
 					<Password :pwd.sync="password" :newpwd.sync="newPasswd"></Password>
 					<Agreement :agree.sync="isStatus"></Agreement>
-					<button class="login_btn" @click="reigister">立即登录</button>
+					<button class="login_btn" @click="reigister">立即登录2</button>
 				</swiper-item>	
 			</swiper>
 		</view>

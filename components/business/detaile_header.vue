@@ -33,18 +33,35 @@
 			<view class="detaile_fuwu">
 				<view class="detaile_fuai">
 					<text>
+						18
+					</text>
+				</view>
+				<view class="detaile_fuai" style="color: red;">
+					<text>5分</text>
+				</view>
+			</view>
+			<view class="detaile_fuwu">
+				<view class="detaile_fuai_1">
+					<text>
 						1243
 					</text>
 				</view>
-				<view class="detaile_fuai">
+				<view class="detaile_fuai_1">
 					<text>1243</text>
 				</view>
 			</view>
+			<view class="evaluate_button" style="margin-top: 200upx;">
+				<image src="../../static/img/base/kaung_bi.png"></image>
+				<text>评价</text>
+			</view>
+
 		</view>
+		
 	</view>
 </template>
 
 <script>
+	
 </script>
 
 <style>

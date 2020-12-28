@@ -2,8 +2,8 @@
     "name" : "房拍网",
     "appid" : "__UNI__38D6DDE",
     "description" : "",
-    "versionName" : "1.0.3",
-    "versionCode" : 103,
+    "versionName" : "1.2.2",
+    "versionCode" : 122,
     "transformPx" : true,
     "app-plus" : {
         "nvueCompiler" : "uni-app",

@@ -1,0 +1,82 @@
+.evaluate_all{
+	width: 690upx;
+	margin: 0 auto;
+}
+
+.evaluate{
+	margin-top: 70upx;
+	height: 40upx;
+}
+.evaluate .evaluate_01{
+	font-size: 40upx;
+	font-weight: 800;
+	color: #333333;	
+}
+.evaluate .evaluate_02{
+	font-size: 28upx;
+	font-weight: 500;
+	color: #333333;	
+}
+.evaluate .evaluate_03{
+	font-size: 28upx;
+	font-weight: 500;
+	color: #999;	
+	float: right;
+	position: relative;
+	top: 15upx;
+	right: 17upx;
+}
+.evaluate image{
+	float: right;
+	width: 20upx;
+	height: 36upx;
+	position: relative;
+	top: 15upx;
+}
+
+.evaluate_list{
+	border-bottom: 1px solid #F1F1F1;
+	height: 168upx;
+	margin-top: 10upx;
+}
+.evaluate_list .evaluate_head_portrait {
+	width: 104upx;
+	height: 168upx;
+	float: left;
+}
+.evaluate_list .evaluate_head_portrait image{
+	width: 80upx;
+	height: 80upx;
+	top: 40upx;
+}
+.evaluate_list .evaluate_list_info{
+	width: 586upx;
+	float: left;
+	margin-top: 20upx;
+}
+.evaluate_list .evaluate_list_info .evaluate_list_info_name{
+	font-size: 28upx;
+	font-weight: bold;
+	color: #161515;
+	
+}
+.evaluate_list .evaluate_list_info .evaluate_list_info_time{
+	font-size: 24upx;
+	font-weight: 500;
+	color: #999;
+	position: relative;
+	top: 10upx;
+	float: right;
+	
+}
+.evaluate_list .evaluate_list_info .evaluate_list_info_cotent{
+	height: 74upx;
+	font-size: 28upx;
+	font-weight: 500;
+	color: #333333;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+	overflow: hidden;
+}
